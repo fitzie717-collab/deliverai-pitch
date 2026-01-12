@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DeliverAI | Content Mix Model™</title>
-    <!-- Added Reenie Beanie for the handwriting effect -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@300;400;500;600&family=Reenie+Beanie&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -59,17 +58,18 @@
         .modern-table th { background: var(--fb-de-nimes); color: white; text-align: left; padding: 15px 25px; text-transform: uppercase; letter-spacing: 2px; font-size: 0.7rem; }
         .modern-table td { padding: 14px 25px; border-bottom: 1px solid #EAEAEA; vertical-align: middle; line-height: 1.4; color: #444; }
         
-        /* Handwriting Effect */
+        /* Handwriting Effect Fixed */
         .handwritten-note {
             position: absolute;
             font-family: 'Reenie Beanie', cursive;
             font-size: 2.8rem;
-            color: #B71C1C; /* A subtle "ink red" */
-            left: 20px;
-            top: 60%; /* Adjusted to sit between Digital and Creative */
-            transform: rotate(-3deg);
+            color: #B71C1C;
+            left: -120px; /* Moves it outside the table left edge */
+            top: 50%;
+            transform: translateY(-50%) rotate(-10deg);
             z-index: 10;
             pointer-events: none;
+            white-space: nowrap;
         }
 
         .pillar-head { background: #F9F8F6; font-family: 'Playfair Display'; font-weight: bold; font-size: 1.1rem; color: var(--fb-gold); padding: 10px 25px !important; border-bottom: 2px solid #EAEAEA !important; }
@@ -110,7 +110,6 @@
         <div class="dot"></div><div class="dot"></div><div class="dot"></div>
     </nav>
 
-    <!-- 1. INTRO -->
     <section>
         <div class="content-box">
             <span class="slide-label">DeliverAI Solutions | Patent Pending</span>
@@ -119,7 +118,6 @@
         </div>
     </section>
 
-    <!-- 2. THE PROBLEM -->
     <section class="dark">
         <div class="content-box">
             <span class="slide-label">The Conflict</span>
@@ -145,7 +143,6 @@
         </div>
     </section>
 
-    <!-- 3. STRATEGIC TRANSITION -->
     <section>
         <div class="content-box">
             <span class="slide-label">Strategic Transition</span>
@@ -180,7 +177,6 @@
         </div>
     </section>
 
-    <!-- 4. HOW IT WORKS -->
     <section class="accent">
         <div class="content-box">
             <span class="slide-label">The Framework</span>
@@ -214,7 +210,6 @@
         </div>
     </section>
 
-    <!-- 5. MARKET OPPORTUNITY -->
     <section>
         <div class="content-box">
             <span class="slide-label">Opportunity</span>
@@ -236,7 +231,6 @@
         </div>
     </section>
 
-    <!-- 6. GTM STRATEGY -->
     <section class="dark">
         <div class="content-box">
             <span class="slide-label">Market Strategy</span>
@@ -262,35 +256,11 @@
         </div>
     </section>
 
-    <!-- 7. WHY NOW -->
     <section>
-        <div class="content-box">
-            <span class="slide-label">Context</span>
-            <h2>A system of record for the content-first era.</h2>
-            <div class="grid-3">
-                <div class="card">
-                    <h4>Privacy Shocks</h4>
-                    <p>iOS ATT and global regulation have eliminated user-level tracking. Legacy models cannot adapt.</p>
-                </div>
-                <div class="card">
-                    <h4>Media Shift</h4>
-                    <p>Rapid growth in Audio/Creators. Offline and emerging media still lack deterministic attribution.</p>
-                </div>
-                <div class="card">
-                    <h4>Content Power</h4>
-                    <p>Performance increasingly depends on *what* is said, not just where it runs. Creative is the primary lever.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 8. FOUNDER-PROBLEM FIT (RESTORED & UPDATED) -->
-    <section class="dark">
         <div class="content-box">
             <span class="slide-label">Founder-Problem Fit</span>
             <h2>I build measurement systems where everyone else says measurement is impossible.</h2>
             
-            <!-- THE TABLE AT THE TOP -->
             <div class="modern-table-wrap" style="color: var(--text-main); margin-bottom: 30px;">
                 <div class="handwritten-note">← We are here</div>
                 <table class="modern-table">
@@ -303,37 +273,36 @@
                     </thead>
                     <tbody>
                         <tr><td>Audio</td><td>"There is no way to measure podcasts."</td><td>Launched full-scale enterprise tech using identity graphs to measure podcasts.</td></tr>
-                        <tr><td>Brand</td><td>"There is no way to tie exposure to perception."</td><td>Ecosystem that breaks down creative and ties it to brand survey data models to determine impact.</td></tr>
-                        <tr><td>Digital</td><td>"There is no way to prove business value."</td><td>Models that predict with 95% accuracy whether a buyer would purchase based on content consumption.</td></tr>
-                        <tr><td>Creative</td><td>"There is no way to measure creative at scale."</td><td>AI analysis of creative across 20 identical parameters to benchmark performance.</td></tr>
-                        <tr><td>Content</td><td>"There is no way to measure impact across channels."</td><td>Unique ID creative and identity resolution to track individual exposures at scale.</td></tr>
+                        <tr><td>Brand</td><td>"There is no way to tie exposure to perception."</td><td>Ecosystem that breaks down creative and ties it to brand survey data models.</td></tr>
+                        <tr><td>Digital</td><td>"There is no way to prove business value."</td><td>Models that predict with 95% accuracy based on content consumption.</td></tr>
+                        <tr><td>Creative</td><td>"There is no way to measure creative at scale."</td><td>AI analysis across 20 parameters to benchmark performance.</td></tr>
+                        <tr><td>Content</td><td>"There is no way to measure impact across channels."</td><td>Unique ID creative and identity resolution to track individual exposures.</td></tr>
                     </tbody>
                 </table>
             </div>
 
-            <!-- THE 3 BOXES AT THE BOTTOM -->
             <div class="grid-3">
                 <div class="card">
                     <h4>What I Learned at the Edge</h4>
                     <ul>
                         <li>Executives demand accountability when spend reaches critical mass.</li>
-                        <li>Legacy measurement systems fail under real financial pressure.</li>
-                        <li>Demand appears when investment levels hit a tipping point and risk gets real.</li>
+                        <li>Legacy systems fail under real financial pressure.</li>
+                        <li>Demand appears when investment levels hit a tipping point.</li>
                     </ul>
                 </div>
                 <div class="card">
                     <h4>Why This Moment is Different</h4>
                     <ul>
-                        <li>The same content now runs across multiple channels, formats, and devices.</li>
-                        <li>Performance is driven by <strong>what is said</strong>, not just where it appears.</li>
-                        <li>Attribution must be designed for multi-format, multi-channel reuse.</li>
+                        <li>Content now runs across multiple channels, formats, and devices.</li>
+                        <li>Performance is driven by <strong>what is said</strong>.</li>
+                        <li>Attribution must be designed for multi-format reuse.</li>
                     </ul>
                 </div>
                 <div class="card">
                     <h4>Why I Can Execute Now</h4>
                     <ul>
-                        <li>15+ years building net-new measurement systems with <strong>no precedent</strong>.</li>
-                        <li>Deep domain experience across media, enterprise BI, and attribution.</li>
+                        <li>15+ years building net-new measurement systems.</li>
+                        <li>Deep domain experience across media and enterprise BI.</li>
                         <li>Master's-level training in data science & applied ML.</li>
                     </ul>
                 </div>
@@ -341,8 +310,7 @@
         </div>
     </section>
 
-    <!-- 9. COMPETITION -->
-    <section>
+    <section class="accent">
         <div class="content-box">
             <span class="slide-label">The Landscape</span>
             <h2>Competitive Superiority</h2>
@@ -354,92 +322,21 @@
                             <th>Platform-First</th>
                             <th>MMM / Legacy</th>
                             <th>Attribution Tools</th>
-                            <th class="highlight-col">Content Mix Model™</th>
+                            <th class="highlight-cell">Content Mix Model™</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr><td>Unit of Optimization</td><td>Channel</td><td>Channel</td><td>Click / Conversion</td><td class="highlight-col">Content / Creative</td></tr>
-                        <tr><td>Offline + Online</td><td>❌ No</td><td>⚠️ Partial</td><td>❌ No</td><td class="highlight-col">✅ Native</td></tr>
-                        <tr><td>Identity Resolution</td><td>Platform-owned</td><td>Modeled</td><td>Probabilistic</td><td class="highlight-col">Deterministic</td></tr>
-                        <tr><td>Data Ownership</td><td>Platform</td><td>Vendor</td><td>Vendor</td><td class="highlight-col">Customer-owned</td></tr>
-                        <tr><td>Category IP</td><td>❌ None</td><td>❌ None</td><td>❌ None</td><td class="highlight-col">Patent Pending</td></tr>
+                        <tr><td>Unit of Optimization</td><td>Channel</td><td>Channel</td><td>Click / Conversion</td><td class="highlight-cell">Content / Creative</td></tr>
+                        <tr><td>Offline + Online</td><td>❌ No</td><td>⚠️ Partial</td><td>❌ No</td><td class="highlight-cell">✅ Native</td></tr>
+                        <tr><td>Identity Resolution</td><td>Platform-owned</td><td>Modeled</td><td>Probabilistic</td><td class="highlight-cell">Deterministic</td></tr>
+                        <tr><td>Data Ownership</td><td>Platform</td><td>Vendor</td><td>Vendor</td><td class="highlight-cell">Customer-owned</td></tr>
+                        <tr><td>Category IP</td><td>❌ None</td><td>❌ None</td><td>❌ None</td><td class="highlight-cell">Patent Pending</td></tr>
                     </tbody>
                 </table>
             </div>
         </div>
     </section>
 
-    <!-- 10. DEPLOYMENT -->
-    <section class="dark">
-        <div class="content-box">
-            <span class="slide-label">Execution</span>
-            <h2>Deployment & Operationalization</h2>
-            <div class="modern-table-wrap" style="color: var(--text-main);">
-                <table class="modern-table">
-                    <thead>
-                        <tr>
-                            <th>Dimension</th>
-                            <th>Customer-Hosted (Docker)</th>
-                            <th>DeliverAI-Hosted (SaaS)</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr><td>Deployment</td><td>Inside customer environment</td><td>Managed by DeliverAI</td></tr>
-                        <tr><td>Data Storage</td><td>Customer-owned</td><td>DeliverAI-managed</td></tr>
-                        <tr><td>Identity Graph</td><td>Customer’s own contract</td><td>DeliverAI-managed integration</td></tr>
-                        <tr><td>Data Control</td><td>Maximum Privacy</td><td>High (anonymized)</td></tr>
-                        <tr><td>Ideal Customer</td><td>Large enterprise</td><td>Mid-market / agencies</td></tr>
-                        <tr><td style="font-weight: bold; color: var(--fb-gold);">Core Benefit</td><td style="background:#F9F8F6; font-weight: 600;">Control and compliance</td><td style="background:#F9F8F6; font-weight: 600;">Speed and zero infrastructure</td></tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </section>
-
-    <!-- 11. PRICING -->
-    <section>
-        <div class="content-box">
-            <span class="slide-label">Expansion</span>
-            <h2>Pricing & Expansion Model</h2>
-            <div class="modern-table-wrap">
-                <table class="modern-table">
-                    <thead>
-                        <tr>
-                            <th>Dimension</th>
-                            <th>Enterprise (Docker)</th>
-                            <th>Mid-Market (SaaS)</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr><td>Base Platform Fee</td><td style="font-size: 1.8rem; font-weight: bold; color: var(--fb-gold);">$75K – $250K+ / yr</td><td style="font-size: 1.8rem; font-weight: bold; color: var(--fb-gold);">$40K – $150K+ / yr</td></tr>
-                        <tr><td>Identity Resolution</td><td>Customer’s own graph</td><td>CPM-based (usage-driven)</td></tr>
-                        <tr><td>Usage Fees</td><td>Optional</td><td>CPM on impressions processed</td></tr>
-                        <tr><td>Revenue Profile</td><td>Predictable SaaS License</td><td>Predictable base + usage upside</td></tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </section>
-
-    <!-- 12. IP -->
-    <section class="dark">
-        <div class="content-box">
-            <span class="slide-label">Legal</span>
-            <h2>Defensible Innovation</h2>
-            <div class="grid-3" style="grid-template-columns: 1fr 1fr;">
-                <div class="card">
-                    <h4>Registered Trademark</h4>
-                    <p>Content Mix Model™ — solidifying brand, language, and market positioning.</p>
-                </div>
-                <div class="card">
-                    <h4>Provisional Patent</h4>
-                    <p><em>System & Method for Content- and Creator-Based Attribution and Dynamic Budget Optimization Using Identity-Resolved Graph Data.</em></p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 13. SOURCES -->
     <section>
         <div class="content-box">
             <span class="slide-label">Data</span>
@@ -463,6 +360,3 @@
 
 </body>
 </html>
-
-
-
