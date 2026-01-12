@@ -65,25 +65,39 @@
             font-family: 'Reenie Beanie', cursive;
             font-size: 2.8rem;
             color: #B71C1C; /* A subtle "ink red" */
-            left: -140px;
-            top: 58%; /* Adjusted to sit between Digital and Creative */
-            transform: rotate(-3deg);
-            z-index: 10;
-            pointer-events: none;
+            left: -200px;
+            top: 62%; /* Adjusted to sit between Digital and Creative */
+            transform: rotate(-4deg);
+            z-index: 50;
+            white-space: nowrap;
         }
 
-        /* Arrow */
-        .handwritten-note.arrow-left::before {
+        /* Curved arrow shaft */
+        .handwritten-note::before {
             content: "";
             position: absolute;
-            left: 110px;
-            top: 12px;
-            width: 90px;
-            height: 60px;
-            border-left: 4px solid #B71C1C;
-            border-bottom: 4px solid #B71C1C;
-            border-radius: 0 0 0 80px;
-            transform: rotate(-10deg);
+            left: 95px;
+            top: 10px;
+            width: 110px;
+            height: 70px;
+            border-left: 6px solid #B71C1C;
+            border-bottom: 6px solid #B71C1C;
+            border-radius: 0 0 0 120px;
+            transform: rotate(-12deg);
+        }
+
+        /* Arrow head */
+        .handwritten-note::after {
+            content: "";
+            position: absolute;
+            left: 180px;
+            top: 58px;
+            width: 0px;
+            height: 0px;
+            border-top: 8px solid transparent;
+            border-bottom: 8px solid transparent;
+            border-left: 14px solid #B71C1C;
+            transform: rotate(-20deg);
         }
 
         .pillar-head { background: #F9F8F6; font-family: 'Playfair Display'; font-weight: bold; font-size: 1.1rem; color: var(--fb-gold); padding: 10px 25px !important; border-bottom: 2px solid #EAEAEA !important; }
@@ -477,6 +491,7 @@
 
 </body>
 </html>
+
 
 
 
