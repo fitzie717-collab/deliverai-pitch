@@ -1,4 +1,5 @@
-<!DOCTYPE html><!DOCTYPE html>
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -17,7 +18,6 @@
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
-        /* Desktop: Snap Scrolling | Mobile: Natural Scrolling */
         html { scroll-behavior: smooth; }
         @media (min-width: 1025px) {
             html { scroll-snap-type: y mandatory; }
@@ -35,7 +35,7 @@
             align-items: center;
             padding: 60px 80px;
             position: relative;
-            min-height: 100vh; /* Ensures background covers content on mobile */
+            min-height: 100vh;
         }
 
         .content-box { max-width: 1400px; width: 100%; display: flex; flex-direction: column; justify-content: center; }
@@ -57,7 +57,6 @@
         .dark h1, .dark h2 { color: white; }
         .accent { background: var(--fb-pigeon); color: white; }
 
-        /* Modernized Table Handling - Fixed for Mobile */
         .modern-table-wrap { 
             width: 100%; 
             background: white; 
@@ -65,81 +64,43 @@
             box-shadow: 0 30px 60px rgba(0,0,0,0.1); 
             margin-top: 10px; 
             position: relative; 
-            overflow-x: auto; /* Allows swiping table on mobile */
+            overflow-x: auto;
             -webkit-overflow-scrolling: touch;
         }
-        .modern-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; min-width: 900px; /* Prevents squishing */ }
-        .modern-table th { background: var(--fb-de-nimes); color: white; text-align: left; padding: 15px 25px; text-transform: uppercase; letter-spacing: 2px; font-size: 0.7rem; }
-        .modern-table td { padding: 14px 25px; border-bottom: 1px solid #EAEAEA; vertical-align: middle; line-height: 1.4; color: #444; }
+        .modern-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; min-width: 1100px; }
+        .modern-table th { background: var(--fb-de-nimes); color: white; text-align: left; padding: 15px 20px; text-transform: uppercase; letter-spacing: 1px; font-size: 0.7rem; }
+        .modern-table td { padding: 15px 20px; border-bottom: 1px solid #EAEAEA; vertical-align: middle; line-height: 1.4; color: #444; border-right: 1px solid #F0F0F0; }
         
-        .pillar-head { background: #F9F8F6; font-family: 'Playfair Display'; font-weight: bold; font-size: 1.1rem; color: var(--fb-gold); padding: 10px 25px !important; border-bottom: 2px solid #EAEAEA !important; }
-        .highlight-cell { background: rgba(147, 158, 160, 0.08); font-weight: 600; border-left: 2px solid var(--fb-pigeon); }
-        .highlight-col { background: rgba(176, 144, 96, 0.05); border-left: 1px solid var(--fb-gold); font-weight: 600; }
-
-        /* Grid Frameworks - Responsive classes */
-        .grid-flex { display: grid; gap: 20px; margin-top: 30px; }
-        .grid-3-col { grid-template-columns: repeat(3, 1fr); }
-        .grid-2-col { grid-template-columns: repeat(2, 1fr); }
-        
-        .card { background: white; padding: 30px; border-top: 6px solid var(--fb-gold); box-shadow: 0 20px 50px rgba(0,0,0,0.05); color: var(--text-main); }
-        .card h4 { font-size: 1.4rem; margin-bottom: 15px; color: var(--fb-gold); }
-        .card ul { list-style: none; padding-left: 0; }
-        .card li { margin-bottom: 8px; font-size: 0.9rem; position: relative; padding-left: 20px; opacity: 0.85; }
-        .card li::before { content: "•"; position: absolute; left: 0; color: var(--fb-gold); font-weight: bold; }
-
-        /* Flow Steps - Responsive */
-        .process-stripe { display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px; margin-top: 20px; }
-        .process-card { background: rgba(255,255,255,0.1); padding: 20px; border-bottom: 4px solid var(--white); height: 100%; display: flex; flex-direction: column; }
-        .p-num { font-family: 'Playfair Display'; font-size: 2rem; font-style: italic; opacity: 0.4; margin-bottom: 5px; }
-        .p-title { font-weight: 600; font-size: 0.9rem; margin-bottom: 5px; }
-        .p-desc { font-size: 0.75rem; line-height: 1.4; opacity: 0.9; }
-
-        /* Handwriting Effect */
-        .handwritten-note {
-            position: absolute;
-            font-family: 'Reenie Beanie', cursive;
-            font-size: 2.8rem;
-            color: #B71C1C;
-            left: 20px;
-            top: 55%;
-            transform: rotate(-3deg);
-            z-index: 10;
-            pointer-events: none;
+        .pillar-vertical { 
+            background: #F9F8F6; 
+            font-family: 'Playfair Display', serif; 
+            font-weight: bold; 
+            color: var(--fb-gold); 
+            text-align: center; 
+            border-right: 2px solid #EAEAEA !important; 
+            font-size: 0.9rem;
+            width: 120px;
         }
 
-        /* Nav Dots */
-        .nav-dots { position: fixed; right: 30px; top: 50%; transform: translateY(-50%); display: flex; flex-direction: column; gap: 12px; z-index: 1000; }
-        .dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(0,0,0,0.1); }
+        .highlight-cell { background: rgba(147, 158, 160, 0.05); font-weight: 600; border-left: 2px solid var(--fb-pigeon); }
+        .highlight-col { background: rgba(176, 144, 96, 0.05); border-left: 1px solid var(--fb-gold); font-weight: 600; }
 
-        /* --- MOBILE BREAKPOINTS --- */
+        .card { background: white; padding: 30px; border-top: 6px solid var(--fb-gold); box-shadow: 0 20px 50px rgba(0,0,0,0.05); color: var(--text-main); }
+        .card h4 { font-size: 1.4rem; margin-bottom: 15px; color: var(--fb-gold); }
+
+        .grid-flex { display: grid; gap: 20px; margin-top: 30px; }
+        .grid-2-col { grid-template-columns: repeat(2, 1fr); }
+
         @media (max-width: 1024px) {
             section { padding: 80px 25px; height: auto; }
             h1 { font-size: 3.5rem; }
             h2 { font-size: 2.4rem; }
-            .grid-3-col, .grid-2-col, .process-stripe { grid-template-columns: 1fr; }
-            .nav-dots, .handwritten-note { display: none; }
-            .modern-table-wrap::after {
-                content: "Swipe to see full table →";
-                display: block; font-size: 0.7rem; padding: 10px; color: var(--fb-gold); text-align: right;
-            }
+            .grid-2-col { grid-template-columns: 1fr; }
+            .modern-table { min-width: 900px; }
         }
     </style>
 </head>
 <body>
-
-    <nav class="nav-dots">
-        <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
-        <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
-        <div class="dot"></div><div class="dot"></div><div class="dot"></div>
-    </nav>
-
-    <section>
-        <div class="content-box">
-            <span class="slide-label">DeliverAI Solutions | Patent Pending</span>
-            <h1>Content Mix Model™</h1>
-            <p style="font-size: 2.2rem; font-style: italic; opacity: 0.7;">A new measurement and optimization operating system built for the content-first era.</p>
-        </div>
-    </section>
 
     <section class="dark">
         <div class="content-box">
@@ -148,19 +109,19 @@
             <div class="grid-flex grid-2-col">
                 <div class="card">
                     <h4>Measurement at the channel level</h4>
-                    <p>Built for the <strong>Seinfeld era</strong>; one format, one network. We live in the <strong>Joe Rogan era</strong>; multi-format, multi-channel, multi-network.</p>
+                    <p>Built for the <strong>Seinfeld era</strong>; one format, one network. We live in the <strong>Joe Rogan era</strong>.</p>
                 </div>
                 <div class="card">
                     <h4>The Black Box</h4>
-                    <p>Each walled garden only shows its slice—with no creative-level transparency or cross-platform view.</p>
+                    <p>Each walled garden only shows its slice—with no creative-level transparency.</p>
                 </div>
                 <div class="card">
                     <h4>Media Mix Model Is Slow & Siloed</h4>
-                    <p>Runs on quarterly timelines, with aggregated data that overlooks formats like audio, influencer, and podcasts.</p>
+                    <p>Runs on quarterly timelines, overlooking audio, influencer, and podcasts.</p>
                 </div>
                 <div class="card">
                     <h4>Privacy Regulations</h4>
-                    <p>Brands can't connect content exposure to outcomes across devices, formats, or offline channels.</p>
+                    <p>Brands can't connect content exposure to outcomes across devices or formats.</p>
                 </div>
             </div>
         </div>
@@ -168,128 +129,47 @@
 
     <section>
         <div class="content-box">
-            <span class="slide-label">Market Context</span>
-            <h2>A system of record for the content-first era.</h2>
-            <div class="grid-flex grid-3-col">
-                <div class="card">
-                    <h4>Privacy Shocks</h4>
-                    <p>iOS ATT and global regulation have eliminated user-level tracking. Legacy models cannot adapt.</p>
-                </div>
-                <div class="card">
-                    <h4>Media Shift</h4>
-                    <p>Rapid growth in Audio/Creators. Offline and emerging media still lack deterministic attribution.</p>
-                </div>
-                <div class="card">
-                    <h4>Content Power</h4>
-                    <p>Spend is allocated by channel, but sales are predicted by content. Our models hit 97% accuracy using content-level data—a metric currently ignored by the entire measurement ecosystem.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <section class="accent">
-        <div class="content-box">
-            <span class="slide-label" style="color: var(--fb-de-nimes); opacity: 1; background: rgba(255,255,255,0.9); display: inline-block; padding: 2px 8px; border-radius: 2px;">Founder-Problem Fit</span>
-            <h2>I build measurement systems where everyone else says measurement is impossible.</h2>
-            
-            <div class="modern-table-wrap" style="color: var(--text-main); margin-bottom: 30px;">
-                <div class="handwritten-note">← We are here</div>
-                <table class="modern-table">
-                    <thead>
-                        <tr>
-                            <th style="width: 12%;">Dimension</th>
-                            <th style="width: 33%;">The "Impossible" Challenge</th>
-                            <th style="width: 55%;">The Novel Solution</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr><td>Brand</td><td>"There is no way to tie exposure to perception."</td><td>Ecosystem that breaks down creative and ties it to brand survey data models to determine impact (Goldman Sachs) </td></tr>
-                        <tr><td>Digital</td><td>"There is no way to prove business value."</td><td>Models that predict with 95% accuracy whether a buyer would purchase based on content consumption (WPP) </td></tr>
-                        <tr><td>Audio</td><td>"There is no way to measure podcasts."</td><td>Launched full-scale enterprise tech using identity graphs to measure podcasts (Ad Results Media - #1 Podcast Agency in US)</td></tr>
-                        <tr><td>Creative</td><td>"There is no way to measure creative at scale."</td><td>By analyzing 20+ research-backed parameters, our AI benchmarks performance and identifies the exact elements driving creative efficacy (DeliverAI Solutions)</td></tr>
-                        <tr><td>Content</td><td>"There is no way to measure impact across channels."</td><td>Unique ID creative and identity resolution to track individual exposures at scale (DeliverAI Solutions)</td></tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="grid-flex grid-3-col">
-                <div class="card">
-                    <h4>What I Learned at the Edge</h4>
-                    <ul>
-                        <li>Executives demand accountability when spend reaches critical mass.</li>
-                        <li>Legacy measurement systems fail under real financial pressure.</li>
-                        <li>Demand appears when investment levels hit a tipping point and risk gets real.</li>
-                    </ul>
-                </div>
-                <div class="card">
-                    <h4>Why This Moment is Different</h4>
-                    <ul>
-                        <li>The same content now runs across multiple channels, formats, and devices.</li>
-                        <li>Performance is driven by <strong>what is said</strong>, not just where it appears.</li>
-                        <li>Attribution must be designed for multi-format, multi-channel reuse.</li>
-                    </ul>
-                </div>
-                <div class="card">
-                    <h4>Why I Can Execute Now</h4>
-                    <ul>
-                        <li>15+ years building net-new measurement systems with <strong>no precedent</strong>.</li>
-                        <li>Deep domain experience across media, enterprise BI, and attribution.</li>
-                        <li>Master's-level training in data science & applied ML at Harvard.</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-<section>
-        <div class="content-box">
             <span class="slide-label">Strategic Transition</span>
             <h2>Competitive Positioning</h2>
             <div class="modern-table-wrap">
                 <table class="modern-table">
                     <thead>
                         <tr>
-                            <th style="width: 12%;">Category</th>
-                            <th style="width: 15%;">The Problem</th>
-                            <th style="width: 15%;">Category Item</th>
-                            <th style="width: 20%;">Competitors<br>
-                                <span style="font-size: 0.7rem; font-weight: normal; display: block; margin-top: 5px; line-height: 1.2;">
-                                    <b>Platforms:</b> Meta, LinkedIn, TikTok<br>
-                                    <b>MMM:</b> Nielsen, Analytic Partners, Recast<br>
-                                    <b>Attribution:</b> Northbeam, Rockerbox, GA4
-                                </span>
-                            </th>
-                            <th style="width: 20%;" class="highlight-col">Content Mix Model™<br><small>(Our System)</small></th>
-                            <th style="width: 18%;">The Benefit</th>
+                            <th style="width: 10%;">Narrative Category</th>
+                            <th style="width: 20%;">The Narrative Hook (The Problem)</th>
+                            <th style="width: 13%;">Item</th>
+                            <th style="width: 18%;">What is happening now?</th>
+                            <th style="width: 22%;" class="highlight-col">What does this system do?</th>
+                            <th style="width: 17%;">The Benefit</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td rowspan="2" class="pillar-vertical">I. Creative Intelligence</td>
-                            <td><b>Variable Blindness:</b> Brands don't know <i>why</i> an ad worked.</td>
+                            <td><b>The Black Box:</b> No creative-level transparency across walled gardens.</td>
                             <td>Primary Variable</td>
                             <td>Channel & Placement focus; Manual A/B Testing</td>
                             <td class="highlight-cell"><b>Creative DNA:</b> AI-Driven Deconstruction (30+ Signals)</td>
-                            <td><b>Predictive ROI:</b> Engineering creative statistically likely to perform.</td>
+                            <td><b>Predictive ROI:</b> Engineering high-performance creative.</td>
                         </tr>
                         <tr>
-                            <td><b>Data Gaps:</b> Creative performance is siloed by platform.</td>
+                            <td><b>Variable Blindness:</b> Brands don't know <i>why</i> an ad worked.</td>
                             <td>Analysis Method</td>
-                            <td>Isolated Meta-data & Platform-specific reports</td>
+                            <td>Isolated Meta-data & platform-specific reports</td>
                             <td class="highlight-cell">Aggregated & Standardized Performance Intelligence</td>
-                            <td><b>Universal Learning:</b> Scale winning hooks across all channels instantly.</td>
+                            <td><b>Universal Learning:</b> Scale hooks across all channels.</td>
                         </tr>
 
                         <tr>
                             <td rowspan="2" class="pillar-vertical">II. Omnichannel Truth</td>
-                            <td><b>Dark Channels:</b> No link between Radio/Audio spend and Web sales.</td>
+                            <td><b>Slow & Siloed:</b> Aggregated data overlooks Audio, Podcasts, and Influencers.</td>
                             <td>Audio/Radio Tracking</td>
                             <td>Siloed analysis using probabilistic estimates</td>
                             <td class="highlight-cell"><b>Direct Attribution:</b> Patent-Pending Device Graph Pathing</td>
-                            <td><b>Full Funnel Clarity:</b> Prove exactly how offline spend drives web sales.</td>
+                            <td><b>Full Funnel Clarity:</b> Prove exactly how offline spend drives sales.</td>
                         </tr>
                         <tr>
-                            <td><b>Identity Decay:</b> Cookies are dying, making data inaccurate.</td>
+                            <td><b>Privacy Regulations:</b> iOS ATT prevents connecting exposure to outcomes.</td>
                             <td>Identity Resolution</td>
                             <td>Probabilistic / Cookie-based modeling</td>
                             <td class="highlight-cell"><b>Deterministic:</b> Privacy safe individual identification</td>
@@ -298,11 +178,11 @@
 
                         <tr>
                             <td class="pillar-vertical">III. Integrity & Trust</td>
-                            <td><b>Wasted Spend:</b> Bots and "self-reported" platform data.</td>
+                            <td><b>Measurement at Channel Level:</b> Reliance on self-reported, bot-heavy platform data.</td>
                             <td>Traffic Integrity</td>
                             <td>High vulnerability to Bot traffic; "Walled Garden" bias</td>
                             <td class="highlight-cell"><b>Authenticated Humans:</b> Independent 3rd-Party Verification</td>
-                            <td><b>Zero-Waste Spend:</b> Ensure 100% of budget reaches real humans.</td>
+                            <td><b>Zero-Waste Spend:</b> Budget reaches 100% real humans.</td>
                         </tr>
 
                         <tr>
@@ -311,311 +191,10 @@
                             <td>Data Ownership</td>
                             <td>External Cloud; Fragmented & Rented access</td>
                             <td class="highlight-cell"><b>Sovereign Asset:</b> Resident in DeliverAI Cloud (Client Owned)</td>
-                            <td><b>Permanent IP:</b> Your data becomes a secure, internal capital asset.</td>
+                            <td><b>Permanent IP:</b> Your data becomes a secure capital asset.</td>
                         </tr>
                     </tbody>
                 </table>
-            </div>
-        </div>
-    </section>
-
-    <section class="accent">
-        <div class="content-box">
-            <span class="slide-label" style="color: white; border-bottom: 2px solid white; padding-bottom: 5px;">The Framework</span>
-            <h2 style="color: white; margin-bottom: 60px;">How it Works</h2>
-            
-            
-
-            <div class="process-stripe">
-                <div class="process-card" style="background: rgba(255,255,255,0.95); border-radius: 4px; padding: 45px 30px; box-shadow: 0 15px 35px rgba(0,0,0,0.1);">
-                    <span class="p-num" style="color: var(--fb-gold); opacity: 1; margin-bottom: 5px;">01</span>
-                    <span class="p-title" style="color: var(--fb-de-nimes); font-size: 1.1rem; border-bottom: 1px solid #EEE; padding-bottom: 15px; margin-bottom: 20px;">Content Identification</span>
-                    <p class="p-desc" style="color: #444; font-size: 1rem; line-height: 1.6;">Assigns a persistent Identification unique identifier to each creative asset, enabling tracking and analysis across channels.</p>
-                </div>
-
-                <div class="process-card" style="background: rgba(255,255,255,0.95); border-radius: 4px; padding: 45px 30px; box-shadow: 0 15px 35px rgba(0,0,0,0.1);">
-                    <span class="p-num" style="color: var(--fb-gold); opacity: 1; margin-bottom: 5px;">02</span>
-                    <span class="p-title" style="color: var(--fb-de-nimes); font-size: 1.1rem; border-bottom: 1px solid #EEE; padding-bottom: 15px; margin-bottom: 20px;">Exposure</span>
-                    <p class="p-desc" style="color: #444; font-size: 1rem; line-height: 1.6;">Tracks content exposure using pixel, server-to-server, or clean room to capture device Identifications.</p>
-                </div>
-
-                <div class="process-card" style="background: rgba(255,255,255,0.95); border-radius: 4px; padding: 45px 30px; box-shadow: 0 15px 35px rgba(0,0,0,0.1);">
-                    <span class="p-num" style="color: var(--fb-gold); opacity: 1; margin-bottom: 5px;">03</span>
-                    <span class="p-title" style="color: var(--fb-de-nimes); font-size: 1.1rem; border-bottom: 1px solid #EEE; padding-bottom: 15px; margin-bottom: 20px;">Identity Match</span>
-                    <p class="p-desc" style="color: #444; font-size: 1rem; line-height: 1.6;">Matches the exposure data to individual user identities deterministically via verified identity graphs.</p>
-                </div>
-
-                <div class="process-card" style="background: rgba(255,255,255,0.95); border-radius: 4px; padding: 45px 30px; box-shadow: 0 15px 35px rgba(0,0,0,0.1);">
-                    <span class="p-num" style="color: var(--fb-gold); opacity: 1; margin-bottom: 5px;">04</span>
-                    <span class="p-title" style="color: var(--fb-de-nimes); font-size: 1.1rem; border-bottom: 1px solid #EEE; padding-bottom: 15px; margin-bottom: 20px;">Attribution</span>
-                    <p class="p-desc" style="color: #444; font-size: 1rem; line-height: 1.6;">Proprietary Machine Learning assigns outcomes to the specific content that drove the actions.</p>
-                </div>
-
-                <div class="process-card" style="background: rgba(255,255,255,0.95); border-radius: 4px; padding: 45px 30px; box-shadow: 0 15px 35px rgba(0,0,0,0.1);">
-                    <span class="p-num" style="color: var(--fb-gold); opacity: 1; margin-bottom: 5px;">05</span>
-                    <span class="p-title" style="color: var(--fb-de-nimes); font-size: 1.1rem; border-bottom: 1px solid #EEE; padding-bottom: 15px; margin-bottom: 20px;">Outcome</span>
-                    <p class="p-desc" style="color: #444; font-size: 1rem; line-height: 1.6;">Measures outcomes such as site visits, brand lift, and conversions associated with the creative content.</p>
-                </div>
-
-                <div class="process-card" style="background: rgba(255,255,255,0.95); border-radius: 4px; padding: 45px 30px; box-shadow: 0 15px 35px rgba(0,0,0,0.1);">
-                    <span class="p-num" style="color: var(--fb-gold); opacity: 1; margin-bottom: 5px;">06</span>
-                    <span class="p-title" style="color: var(--fb-de-nimes); font-size: 1.1rem; border-bottom: 1px solid #EEE; padding-bottom: 15px; margin-bottom: 20px;">Optimization</span>
-                    <p class="p-desc" style="color: #444; font-size: 1rem; line-height: 1.6;">Machine Learning scores content performance to provide actionable media buy recommendations.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section>
-        <div class="content-box">
-            <span class="slide-label">Market Opportunity</span>
-            <h2>The $7.5B Measurement Market</h2>
-            <div class="grid-flex grid-3-col">
-                <div class="card">
-                    <h4>TAM: $7.5B</h4>
-                    <p>$7.5B today, forecasted $10-12B by 2030. Driven by iOS changes and cookie deprecation.</p>
-                </div>
-                <div class="card">
-                    <h4>SAM: $4.5B</h4>
-                    <p>Enterprises requiring deterministic identity and inside-the-firewall deployment options.</p>
-                </div>
-                <div class="card">
-                    <h4>SOM: $2.5B</h4>
-                    <p>Audio, Podcast, Creator & Offline measurement. The fastest-growing hardest-to-measure target.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="accent">
-        <div class="content-box">
-            <span class="slide-label" style="color: var(--fb-de-nimes); opacity: 1; background: rgba(255,255,255,0.9); display: inline-block; padding: 2px 8px; border-radius: 2px;">Market Momentum</span>
-            <h2>Traction & Validation</h2>
-            
-            <div class="grid-flex grid-2-col">
-                <div class="card">
-                    <h4>Partnership Infrastructure</h4>
-                    <p style="margin-bottom: 15px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: var(--fb-pigeon);">Institutional Credibility</p>
-                    <ul style="padding-left: 10px;">
-                        <li style="margin-bottom: 15px;">
-                            <strong>Transunion</strong><br>
-                            <span style="opacity: 0.7; font-size: 0.85rem;">NDA signed; Business Application Processing.</span>
-                        </li>
-                        <li style="margin-bottom: 15px;">
-                            <strong>LiveRamp</strong><br>
-                            <span style="opacity: 0.7; font-size: 0.85rem;">Business relationship contract in negotiations.</span>
-                        </li>
-                        <li style="margin-bottom: 15px;">
-                            <strong>Experian</strong><br>
-                            <span style="opacity: 0.7; font-size: 0.85rem;">Working toward contract for identity-resolved graph data.</span>
-                        </li>
-                        <li style="margin-bottom: 15px;">
-                            <strong>IAB (Interactive Advertising Bureau)</strong><br>
-                            <span style="opacity: 0.7; font-size: 0.85rem;">Official Methodology Certification in progress.</span>
-                        </li>
-                        <li style="margin-bottom: 15px;">
-                            <strong>ValTech</strong><br>
-                            <span style="opacity: 0.7; font-size: 0.85rem;">Strategic Partnership as implementation vendor of choice.</span>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="card">
-                    <h4>Pilot Pipeline & Voice of Customer</h4>
-                    <p style="margin-bottom: 20px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: var(--fb-pigeon);">Anonymized Discovery Insights</p>
-                    
-                    <div style="display: flex; flex-direction: column; gap: 30px; padding-left: 10px;">
-                        
-                        <div style="border-left: 1px solid #eee; padding-left: 20px;">
-                            <span style="background: var(--fb-pointing); padding: 4px 10px; border-radius: 4px; font-size: 0.7rem; font-weight: 700;">Fortune 1 Global Retailer</span>
-                            <p style="font-family: 'Reenie Beanie', cursive; font-size: 1.8rem; color: #B71C1C; margin-top: 8px; line-height: 1.1;">
-                                "We spend 7 figures on our Media Mix Model... and leave the room shaking our heads."
-                            </p>
-                        </div>
-
-                        <div style="border-left: 1px solid #eee; padding-left: 20px;">
-                            <span style="background: var(--fb-pointing); padding: 4px 10px; border-radius: 4px; font-size: 0.7rem; font-weight: 700;">Global Hospitality Group</span>
-                            <p style="font-family: 'Reenie Beanie', cursive; font-size: 1.8rem; color: #B71C1C; margin-top: 8px; line-height: 1.1;">
-                                "My CFO only wants conversion ads. Linking brand perception to sales is our 'holy grail'."
-                            </p>
-                        </div>
-
-                        <div style="border-left: 1px solid #eee; padding-left: 20px;">
-                            <span style="background: var(--fb-pointing); padding: 4px 10px; border-radius: 4px; font-size: 0.7rem; font-weight: 700;">Venture-Backed D2C Leader</span>
-                            <p style="font-family: 'Reenie Beanie', cursive; font-size: 1.8rem; color: #B71C1C; margin-top: 8px; line-height: 1.1;">
-                                "I have 6 tools that can only do 70% of what this can do."
-                            </p>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="dark">
-        <div class="content-box">
-            <span class="slide-label">Go-To-Market Strategy</span>
-            <h2>Enter where measurement is broken</h2>
-            <div class="grid-flex grid-2-col">
-                <div class="card">
-                    <h4>Target Customers</h4>
-                    <p>Primary Buyers: Multi-brand advertisers | B2C Retail & Service Companies. CMO | Heads of Growth.</p>
-                </div>
-                <div class="card">
-                    <h4>Initial Entry</h4>
-                    <p>Audio, Podcast, Creator, and OOH. These channels have the highest executive pressure and the least measurement.</p>
-                </div>
-                <div class="card">
-                    <h4>Sales Motion</h4>
-                    <p>Enterprise pilot (6-12 weeks) parallel to existing stack. No historical data dependency.</p>
-                </div>
-                <div class="card">
-                    <h4>ARR Growth</h4>
-                    <p>Expansion via additional brands, new markets, and increased usage (CPM impressions).</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="dark">
-        <div class="content-box">
-            <span class="slide-label">Operationalization &amp; Testing</span>
-            <h2>From Contract to Live System in 2–4 Weeks</h2>
-
-            <div class="grid-flex grid-2-col">
-
-                <div class="card">
-                    <h4>Phase 1: Contracting &amp; Privacy</h4>
-                    <p>
-                        Clients contract directly with their identity provider (e.g. TransUnion) and separately with DeliverAI.
-                        Identity resolution occurs upstream. DeliverAI never receives PII — only anonymous, resolved identifiers.
-                    </p>
-                </div>
-
-                <div class="card">
-                    <h4>Privacy by Design</h4>
-                    <p>
-                        No names, emails, IP addresses, MAIDs, or raw device data ever enter DeliverAI systems.
-                        This structure materially simplifies InfoSec, procurement, and regulatory review.
-                    </p>
-                </div>
-
-                <div class="card">
-                    <h4>Phase 2: Environment Stand-Up</h4>
-                    <p>
-                        DeliverAI provisions a dedicated, tenant-isolated environment.
-                        Clients securely log into DeliverAI to view their data. No client infrastructure deployment required.
-                    </p>
-                </div>
-
-                <div class="card">
-                    <h4>Phase 3: Content Identification</h4>
-                    <p>
-                        A new tagging structure assigns persistent Content IDs to all creatives,
-                        enabling cross-channel tracking of messages, formats, and creators.
-                    </p>
-                </div>
-
-                <div class="card">
-                    <h4>Phase 4: Creative Intelligence</h4>
-                    <p>
-                        All creative assets are deconstructed using 20+ research-backed signals.
-                        Performance benchmarks are established immediately without historical data dependency.
-                    </p>
-                </div>
-
-                <div class="card">
-                    <h4>Phase 5: Attribution &amp; Testing</h4>
-                    <p>
-                        Machine learning attributes outcomes to content exposure.
-                        Continuous observational testing replaces slow, disruptive A/B experimentation.
-                    </p>
-                </div>
-
-            </div>
-
-            <p style="margin-top: 40px; font-style: italic;">
-                Live attribution, insights, and optimization recommendations are typically available within 2–4 weeks.
-            </p>
-        </div>
-    </section>
-
-        <!-- UPDATED DEPLOYMENT -->
-    <section class="dark">
-        <div class="content-box">
-            <span class="slide-label">Execution</span>
-            <h2>Deployment &amp; Access Model</h2>
-
-            <div class="modern-table-wrap">
-                <table class="modern-table">
-                    <thead>
-                        <tr>
-                            <th>Dimension</th>
-                            <th>DeliverAI</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Deployment</td>
-                            <td class="highlight-cell">DeliverAI-managed environment</td>
-                        </tr>
-                        <tr>
-                            <td>Client Access</td>
-                            <td class="highlight-cell">Secure login to DeliverAI</td>
-                        </tr>
-                        <tr>
-                            <td>PII Handling</td>
-                            <td class="highlight-cell">No PII processed</td>
-                        </tr>
-                        <tr>
-                            <td>Identity</td>
-                            <td class="highlight-cell">Client → Identity Provider</td>
-                        </tr>
-                        <tr>
-                            <td>Data Ownership</td>
-                            <td class="highlight-cell">Customer-owned</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </section>
-
-    <section class="dark">
-        <div class="content-box">
-            <span class="slide-label">Legal</span>
-            <h2>Defensible Innovation</h2>
-            <div class="grid-flex grid-2-col">
-                <div class="card">
-                    <h4>Registered Trademark</h4>
-                    <p>Content Mix Model™ — solidifying brand, language, and market positioning.</p>
-                </div>
-                <div class="card">
-                    <h4>Provisional Patent</h4>
-                    <p><em>System & Method for Content- and Creator-Based Attribution and Dynamic Budget Optimization Using Identity-Resolved Graph Data.</em></p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section>
-        <div class="content-box">
-            <span class="slide-label">Data</span>
-            <h2>Verification & Sources</h2>
-            <div style="column-count: 2; font-size: 1rem; line-height: 2.2; opacity: 0.6; min-width: 300px;">
-                • The Business Research Company<br>
-                • Polaris Market Research<br>
-                • Grand View Research<br>
-                • WPP Media Forecasts<br>
-                • WARC Global Ad Spend Outlook<br>
-                • IAB Creator Economy Report<br>
-                • Business Insider / TVTechnology<br>
-                • Lifesight Unified Measurement Guide<br>
-                • Marketing Evolution Frameworks
-            </div>
-            <div style="margin-top: 80px; text-align: center; font-weight: bold; opacity: 0.5; letter-spacing: 3px; font-size: 0.8rem;">
-                © 2026 DELIVERAI SOLUTIONS CORP | deliveraisolutions.com
             </div>
         </div>
     </section>
