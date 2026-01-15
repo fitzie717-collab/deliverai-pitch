@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -50,12 +49,10 @@
             display: block; 
         }
 
-        h1 { font-size: 6rem; line-height: 1; margin-bottom: 20px; letter-spacing: -2px; }
         h2 { font-size: 3.8rem; line-height: 1.1; margin-bottom: 30px; letter-spacing: -1px; }
 
         .dark { background: var(--fb-de-nimes); color: white; }
-        .dark h1, .dark h2 { color: white; }
-        .accent { background: var(--fb-pigeon); color: white; }
+        .dark h2 { color: white; }
 
         .modern-table-wrap { 
             width: 100%; 
@@ -63,9 +60,7 @@
             border-radius: 2px; 
             box-shadow: 0 30px 60px rgba(0,0,0,0.1); 
             margin-top: 10px; 
-            position: relative; 
             overflow-x: auto;
-            -webkit-overflow-scrolling: touch;
         }
         .modern-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; min-width: 1100px; }
         .modern-table th { background: var(--fb-de-nimes); color: white; text-align: left; padding: 15px 20px; text-transform: uppercase; letter-spacing: 1px; font-size: 0.7rem; }
@@ -79,24 +74,20 @@
             text-align: center; 
             border-right: 2px solid #EAEAEA !important; 
             font-size: 0.9rem;
-            width: 120px;
+            width: 130px;
         }
 
-        .highlight-cell { background: rgba(147, 158, 160, 0.05); font-weight: 600; border-left: 2px solid var(--fb-pigeon); }
         .highlight-col { background: rgba(176, 144, 96, 0.05); border-left: 1px solid var(--fb-gold); font-weight: 600; }
+        .highlight-cell { background: rgba(147, 158, 160, 0.05); font-weight: 600; border-left: 2px solid var(--fb-pigeon); }
 
+        .grid-2-col { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-top: 30px; }
         .card { background: white; padding: 30px; border-top: 6px solid var(--fb-gold); box-shadow: 0 20px 50px rgba(0,0,0,0.05); color: var(--text-main); }
         .card h4 { font-size: 1.4rem; margin-bottom: 15px; color: var(--fb-gold); }
 
-        .grid-flex { display: grid; gap: 20px; margin-top: 30px; }
-        .grid-2-col { grid-template-columns: repeat(2, 1fr); }
-
         @media (max-width: 1024px) {
             section { padding: 80px 25px; height: auto; }
-            h1 { font-size: 3.5rem; }
             h2 { font-size: 2.4rem; }
             .grid-2-col { grid-template-columns: 1fr; }
-            .modern-table { min-width: 900px; }
         }
     </style>
 </head>
@@ -106,22 +97,22 @@
         <div class="content-box">
             <span class="slide-label">The Problem</span>
             <h2>Media measurement is stuck in a platform-first world.</h2>
-            <div class="grid-flex grid-2-col">
-                <div class="card">
-                    <h4>Measurement at the channel level</h4>
-                    <p>Built for the <strong>Seinfeld era</strong>; one format, one network. We live in the <strong>Joe Rogan era</strong>.</p>
-                </div>
+            <div class="grid-2-col">
                 <div class="card">
                     <h4>The Black Box</h4>
-                    <p>Each walled garden only shows its slice—with no creative-level transparency.</p>
+                    <p>Each walled garden only shows its slice—with no creative-level transparency or cross-platform view.</p>
                 </div>
                 <div class="card">
                     <h4>Media Mix Model Is Slow & Siloed</h4>
-                    <p>Runs on quarterly timelines, overlooking audio, influencer, and podcasts.</p>
+                    <p>Runs on quarterly timelines, with aggregated data that overlooks formats like audio, influencer, and podcasts.</p>
+                </div>
+                <div class="card">
+                    <h4>Measurement at the channel level</h4>
+                    <p>Built for the Seinfeld era; one format, one network. We live in the Joe Rogan era; multi-format, multi-channel.</p>
                 </div>
                 <div class="card">
                     <h4>Privacy Regulations</h4>
-                    <p>Brands can't connect content exposure to outcomes across devices or formats.</p>
+                    <p>Brands can't connect content exposure to outcomes across devices, formats, or offline channels.</p>
                 </div>
             </div>
         </div>
@@ -135,41 +126,41 @@
                 <table class="modern-table">
                     <thead>
                         <tr>
-                            <th style="width: 10%;">Narrative Category</th>
-                            <th style="width: 20%;">The Narrative Hook (The Problem)</th>
-                            <th style="width: 13%;">Item</th>
-                            <th style="width: 18%;">What is happening now?</th>
-                            <th style="width: 22%;" class="highlight-col">What does this system do?</th>
-                            <th style="width: 17%;">The Benefit</th>
+                            <th>Category</th>
+                            <th>The Narrative Hook (The Problem)</th>
+                            <th>Item</th>
+                            <th>What is happening now?</th>
+                            <th class="highlight-col">What does this system do?</th>
+                            <th>The Benefit</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td rowspan="2" class="pillar-vertical">I. Creative Intelligence</td>
-                            <td><b>The Black Box:</b> No creative-level transparency across walled gardens.</td>
+                            <td><b>The Black Box:</b> No creative-level transparency or cross-platform view.</td>
                             <td>Primary Variable</td>
                             <td>Channel & Placement focus; Manual A/B Testing</td>
                             <td class="highlight-cell"><b>Creative DNA:</b> AI-Driven Deconstruction (30+ Signals)</td>
-                            <td><b>Predictive ROI:</b> Engineering high-performance creative.</td>
+                            <td><b>Predictive ROI:</b> Engineering creative statistically likely to perform.</td>
                         </tr>
                         <tr>
                             <td><b>Variable Blindness:</b> Brands don't know <i>why</i> an ad worked.</td>
                             <td>Analysis Method</td>
                             <td>Isolated Meta-data & platform-specific reports</td>
                             <td class="highlight-cell">Aggregated & Standardized Performance Intelligence</td>
-                            <td><b>Universal Learning:</b> Scale hooks across all channels.</td>
+                            <td><b>Universal Learning:</b> Scale winning hooks across all channels.</td>
                         </tr>
 
                         <tr>
                             <td rowspan="2" class="pillar-vertical">II. Omnichannel Truth</td>
-                            <td><b>Slow & Siloed:</b> Aggregated data overlooks Audio, Podcasts, and Influencers.</td>
+                            <td><b>Media Mix Model Is Slow & Siloed:</b> Aggregated data overlooks audio and podcasts.</td>
                             <td>Audio/Radio Tracking</td>
                             <td>Siloed analysis using probabilistic estimates</td>
                             <td class="highlight-cell"><b>Direct Attribution:</b> Patent-Pending Device Graph Pathing</td>
                             <td><b>Full Funnel Clarity:</b> Prove exactly how offline spend drives sales.</td>
                         </tr>
                         <tr>
-                            <td><b>Privacy Regulations:</b> iOS ATT prevents connecting exposure to outcomes.</td>
+                            <td><b>Privacy Regulations:</b> Inability to connect exposure to outcomes across devices.</td>
                             <td>Identity Resolution</td>
                             <td>Probabilistic / Cookie-based modeling</td>
                             <td class="highlight-cell"><b>Deterministic:</b> Privacy safe individual identification</td>
@@ -178,20 +169,11 @@
 
                         <tr>
                             <td class="pillar-vertical">III. Integrity & Trust</td>
-                            <td><b>Measurement at Channel Level:</b> Reliance on self-reported, bot-heavy platform data.</td>
+                            <td><b>Measurement at the Channel Level:</b> One format, one network approach in a multi-format world.</td>
                             <td>Traffic Integrity</td>
                             <td>High vulnerability to Bot traffic; "Walled Garden" bias</td>
                             <td class="highlight-cell"><b>Authenticated Humans:</b> Independent 3rd-Party Verification</td>
-                            <td><b>Zero-Waste Spend:</b> Budget reaches 100% real humans.</td>
-                        </tr>
-
-                        <tr>
-                            <td class="pillar-vertical">IV. Sovereign Infrastructure</td>
-                            <td><b>Data Renting:</b> Your data is stuck in external vendor clouds.</td>
-                            <td>Data Ownership</td>
-                            <td>External Cloud; Fragmented & Rented access</td>
-                            <td class="highlight-cell"><b>Sovereign Asset:</b> Resident in DeliverAI Cloud (Client Owned)</td>
-                            <td><b>Permanent IP:</b> Your data becomes a secure capital asset.</td>
+                            <td><b>Zero-Waste Spend:</b> Ensure 100% of budget reaches real humans.</td>
                         </tr>
                     </tbody>
                 </table>
@@ -201,14 +183,3 @@
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
