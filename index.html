@@ -14,12 +14,14 @@
             --white: #ffffff;
             --text-main: #2D3339;
         }
+
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
         @media (min-width: 1025px) {
             html { scroll-snap-type: y mandatory; }
             section { height: 100vh; scroll-snap-align: start; }
         }
+
         body {
             font-family: 'Inter', sans-serif;
             background-color: var(--fb-pointing);
@@ -27,7 +29,12 @@
             overflow-x: hidden;
             line-height: 1.5;
         }
-        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; font-weight: 700; }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+        }
+
         section {
             width: 100vw;
             display: flex;
@@ -38,7 +45,15 @@
             position: relative;
             min-height: 100vh;
         }
-        .content-box { max-width: 1400px; width: 100%; }
+
+        .content-box {
+            max-width: 1400px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
         .slide-label {
             text-transform: uppercase;
             letter-spacing: 6px;
@@ -46,13 +61,76 @@
             color: var(--fb-gold);
             margin-bottom: 20px;
             font-weight: 600;
+            display: block;
         }
-        h1 { font-size: 6rem; line-height: 1; margin-bottom: 20px; }
-        h2 { font-size: 3.8rem; line-height: 1.1; margin-bottom: 30px; }
-        .dark { background: var(--fb-de-nimes); color: white; }
+
+        h1 {
+            font-size: 6rem;
+            line-height: 1;
+            margin-bottom: 20px;
+            letter-spacing: -2px;
+        }
+
+        h2 {
+            font-size: 3.8rem;
+            line-height: 1.1;
+            margin-bottom: 30px;
+            letter-spacing: -1px;
+        }
+
+        .dark {
+            background: var(--fb-de-nimes);
+            color: white;
+        }
+
+        .dark h1, .dark h2 { color: white; }
         .accent { background: var(--fb-pigeon); color: white; }
 
-        .grid-flex { display: grid; gap: 20px; margin-top: 30px; }
+        .modern-table-wrap {
+            width: 100%;
+            background: white;
+            border-radius: 2px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.1);
+            margin-top: 10px;
+            overflow-x: auto;
+        }
+
+        .modern-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+            min-width: 900px;
+        }
+
+        .modern-table th {
+            background: var(--fb-de-nimes);
+            color: white;
+            padding: 15px 25px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.7rem;
+            text-align: left;
+        }
+
+        .modern-table td {
+            padding: 14px 25px;
+            border-bottom: 1px solid #EAEAEA;
+            vertical-align: middle;
+            color: #444;
+        }
+
+        .highlight-cell {
+            background: rgba(147, 158, 160, 0.08);
+            font-weight: 600;
+            border-left: 2px solid var(--fb-pigeon);
+        }
+
+        .grid-flex {
+            display: grid;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
         .grid-2-col { grid-template-columns: repeat(2, 1fr); }
         .grid-3-col { grid-template-columns: repeat(3, 1fr); }
 
@@ -63,33 +141,54 @@
             box-shadow: 0 20px 50px rgba(0,0,0,0.05);
             color: var(--text-main);
         }
-        .card h4 { color: var(--fb-gold); margin-bottom: 15px; }
 
-        .modern-table-wrap {
-            width: 100%;
-            background: white;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.1);
-            overflow-x: auto;
+        .card h4 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: var(--fb-gold);
         }
-        table { width: 100%; border-collapse: collapse; min-width: 900px; }
-        th {
-            background: var(--fb-de-nimes);
-            color: white;
-            padding: 15px 25px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-size: 0.7rem;
-            text-align: left;
+
+        .process-stripe {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 10px;
+            margin-top: 20px;
         }
-        td {
-            padding: 14px 25px;
-            border-bottom: 1px solid #EAEAEA;
-            font-size: 0.9rem;
+
+        .process-card {
+            background: rgba(255,255,255,0.95);
+            border-radius: 4px;
+            padding: 45px 30px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
         }
-        .highlight-cell {
-            background: rgba(147, 158, 160, 0.08);
+
+        .p-num {
+            font-family: 'Playfair Display';
+            font-size: 2rem;
+            font-style: italic;
+            color: var(--fb-gold);
+        }
+
+        .p-title {
             font-weight: 600;
-            border-left: 2px solid var(--fb-pigeon);
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #EEE;
+            padding-bottom: 10px;
+            color: var(--fb-de-nimes);
+        }
+
+        .p-desc {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #444;
+        }
+
+        @media (max-width: 1024px) {
+            section { padding: 80px 25px; height: auto; }
+            h1 { font-size: 3.5rem; }
+            h2 { font-size: 2.4rem; }
+            .grid-3-col, .grid-2-col, .process-stripe { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -107,108 +206,68 @@
     </div>
 </section>
 
-<!-- HOW IT WORKS (UNCHANGED ABOVE THIS POINT) -->
-<!-- … YOUR ENTIRE DECK CONTENT CONTINUES UNCHANGED … -->
-
-<!-- 🔥 NEW SLIDE: OPERATIONALIZATION & TESTING 🔥 -->
+<!-- PROBLEM -->
 <section class="dark">
     <div class="content-box">
-        <span class="slide-label">Execution</span>
-        <h2>Operationalization & Testing</h2>
-
+        <span class="slide-label">The Problem</span>
+        <h2>Media measurement is stuck in a platform-first world.</h2>
         <div class="grid-flex grid-2-col">
-
-            <div class="card">
-                <h4>1. Contracting & Privacy</h4>
-                <p>
-                    Clients contract directly with their identity provider (e.g. TransUnion) and separately with DeliverAI.
-                    Identity resolution occurs upstream. DeliverAI never receives PII — only anonymous, resolved identifiers.
-                </p>
-            </div>
-
-            <div class="card">
-                <h4>2. Secure Environment Stand-Up</h4>
-                <p>
-                    DeliverAI provisions a dedicated, tenant-isolated environment.
-                    Clients securely log into DeliverAI to view their data — no infrastructure deployment required.
-                </p>
-            </div>
-
-            <div class="card">
-                <h4>3. Content Identification</h4>
-                <p>
-                    A new tagging structure assigns persistent Content IDs to all creatives,
-                    enabling cross-channel tracking of messages, formats, and creators.
-                </p>
-            </div>
-
-            <div class="card">
-                <h4>4. Creative Intelligence</h4>
-                <p>
-                    All creative assets are deconstructed using 20+ research-backed signals.
-                    Performance benchmarks are established immediately — no historical data dependency.
-                </p>
-            </div>
-
-            <div class="card">
-                <h4>5. Attribution & Testing</h4>
-                <p>
-                    Machine learning attributes outcomes to content exposure.
-                    Continuous observational testing replaces slow, disruptive A/B experimentation.
-                </p>
-            </div>
-
-            <div class="card">
-                <h4>6. Live Optimization</h4>
-                <p>
-                    Ranked content performance and budget reallocation recommendations
-                    are typically live within <strong>2–4 weeks</strong>.
-                </p>
-            </div>
-
+            <div class="card"><h4>Channel-Level Measurement</h4><p>Built for the Seinfeld era. We now live in the Joe Rogan era.</p></div>
+            <div class="card"><h4>The Black Box</h4><p>No creative-level transparency across platforms.</p></div>
+            <div class="card"><h4>MMM Is Slow</h4><p>Quarterly outputs ignore modern formats.</p></div>
+            <div class="card"><h4>Privacy Collapse</h4><p>User-level attribution is broken.</p></div>
         </div>
     </div>
 </section>
 
-<!-- 🔁 UPDATED DEPLOYMENT TABLE -->
+<!-- FRAMEWORK -->
+<section class="accent">
+    <div class="content-box">
+        <span class="slide-label" style="color:white;border-bottom:2px solid white;">The Framework</span>
+        <h2 style="color:white;">How It Works</h2>
+        <div class="process-stripe">
+            <div class="process-card"><span class="p-num">01</span><div class="p-title">Content Identification</div><p class="p-desc">Persistent Content IDs across all creatives.</p></div>
+            <div class="process-card"><span class="p-num">02</span><div class="p-title">Exposure</div><p class="p-desc">Tracks exposure across channels.</p></div>
+            <div class="process-card"><span class="p-num">03</span><div class="p-title">Identity Resolution</div><p class="p-desc">Resolved upstream by client identity provider.</p></div>
+            <div class="process-card"><span class="p-num">04</span><div class="p-title">Attribution</div><p class="p-desc">ML assigns outcomes to content.</p></div>
+            <div class="process-card"><span class="p-num">05</span><div class="p-title">Outcome</div><p class="p-desc">Measures lift and conversion.</p></div>
+            <div class="process-card"><span class="p-num">06</span><div class="p-title">Optimization</div><p class="p-desc">Actionable budget recommendations.</p></div>
+        </div>
+    </div>
+</section>
+
+<!-- 🔥 NEW OPERATIONALIZATION SLIDE -->
+<section class="dark">
+    <div class="content-box">
+        <span class="slide-label">Execution</span>
+        <h2>Operationalization & Testing</h2>
+        <div class="grid-flex grid-2-col">
+            <div class="card"><h4>Contracting</h4><p>Client contracts directly with identity provider and separately with DeliverAI.</p></div>
+            <div class="card"><h4>Privacy</h4><p>No PII is ever passed to DeliverAI. Only anonymous resolved IDs.</p></div>
+            <div class="card"><h4>Environment</h4><p>Secure, tenant-isolated DeliverAI-managed environment.</p></div>
+            <div class="card"><h4>Tagging</h4><p>New Content ID structure across all creatives.</p></div>
+            <div class="card"><h4>Testing</h4><p>Continuous observational testing. No A/B disruption.</p></div>
+            <div class="card"><h4>Timeline</h4><p>Live system in 2–4 weeks.</p></div>
+        </div>
+    </div>
+</section>
+
+<!-- UPDATED DEPLOYMENT -->
 <section class="dark">
     <div class="content-box">
         <span class="slide-label">Execution</span>
         <h2>Deployment & Access Model</h2>
-
         <div class="modern-table-wrap">
             <table class="modern-table">
                 <thead>
-                    <tr>
-                        <th>Dimension</th>
-                        <th>DeliverAI-Managed Environment</th>
-                    </tr>
+                    <tr><th>Dimension</th><th>DeliverAI</th></tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Deployment</td>
-                        <td class="highlight-cell">Secure, tenant-isolated DeliverAI environment</td>
-                    </tr>
-                    <tr>
-                        <td>Client Access</td>
-                        <td class="highlight-cell">Client logs into DeliverAI to view their data</td>
-                    </tr>
-                    <tr>
-                        <td>PII Handling</td>
-                        <td class="highlight-cell">No PII ingested or processed</td>
-                    </tr>
-                    <tr>
-                        <td>Identity Resolution</td>
-                        <td class="highlight-cell">Client contracts directly with identity provider</td>
-                    </tr>
-                    <tr>
-                        <td>Data Ownership</td>
-                        <td class="highlight-cell">Customer-owned, DeliverAI as processor</td>
-                    </tr>
-                    <tr>
-                        <td>Core Benefit</td>
-                        <td class="highlight-cell">Fast deployment, privacy-safe, enterprise-ready</td>
-                    </tr>
+                    <tr><td>Deployment</td><td class="highlight-cell">DeliverAI-managed environment</td></tr>
+                    <tr><td>Client Access</td><td class="highlight-cell">Secure login to DeliverAI</td></tr>
+                    <tr><td>PII Handling</td><td class="highlight-cell">No PII processed</td></tr>
+                    <tr><td>Identity</td><td class="highlight-cell">Client → Identity Provider</td></tr>
+                    <tr><td>Data Ownership</td><td class="highlight-cell">Customer-owned</td></tr>
                 </tbody>
             </table>
         </div>
@@ -224,3 +283,4 @@
 
 </body>
 </html>
+
