@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DeliverAI | Content Mix Model™</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@300;400;500;600&family=Reenie+Beanie&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
             --fb-pointing: #F2EFE9;
@@ -54,6 +54,7 @@
         .dark { background: var(--fb-de-nimes); color: white; }
         .dark h2 { color: white; }
 
+        /* Modernized Table */
         .modern-table-wrap { 
             width: 100%; 
             background: white; 
@@ -62,8 +63,8 @@
             margin-top: 10px; 
             overflow-x: auto;
         }
-        .modern-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; min-width: 1100px; }
-        .modern-table th { background: var(--fb-de-nimes); color: white; text-align: left; padding: 15px 20px; text-transform: uppercase; letter-spacing: 1px; font-size: 0.7rem; }
+        .modern-table { width: 100%; border-collapse: collapse; font-size: 0.82rem; min-width: 1200px; }
+        .modern-table th { background: var(--fb-de-nimes); color: white; text-align: left; padding: 15px 20px; text-transform: uppercase; letter-spacing: 1px; font-size: 0.65rem; }
         .modern-table td { padding: 15px 20px; border-bottom: 1px solid #EAEAEA; vertical-align: middle; line-height: 1.4; color: #444; border-right: 1px solid #F0F0F0; }
         
         .pillar-vertical { 
@@ -73,8 +74,8 @@
             color: var(--fb-gold); 
             text-align: center; 
             border-right: 2px solid #EAEAEA !important; 
-            font-size: 0.9rem;
-            width: 130px;
+            font-size: 0.85rem;
+            width: 140px;
         }
 
         .highlight-col { background: rgba(176, 144, 96, 0.05); border-left: 1px solid var(--fb-gold); font-weight: 600; }
@@ -82,7 +83,8 @@
 
         .grid-2-col { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-top: 30px; }
         .card { background: white; padding: 30px; border-top: 6px solid var(--fb-gold); box-shadow: 0 20px 50px rgba(0,0,0,0.05); color: var(--text-main); }
-        .card h4 { font-size: 1.4rem; margin-bottom: 15px; color: var(--fb-gold); }
+        .card h4 { font-size: 1.3rem; margin-bottom: 12px; color: var(--fb-gold); line-height: 1.2; }
+        .card p { font-size: 0.95rem; opacity: 0.8; }
 
         @media (max-width: 1024px) {
             section { padding: 80px 25px; height: auto; }
@@ -99,20 +101,20 @@
             <h2>Media measurement is stuck in a platform-first world.</h2>
             <div class="grid-2-col">
                 <div class="card">
-                    <h4>The Black Box</h4>
-                    <p>Each walled garden only shows its slice—with no creative-level transparency or cross-platform view.</p>
+                    <h4>1. No online to offline resolution</h4>
+                    <p>Dark channels like Radio, Audio, and OOH have no direct link to web sales, leaving massive spend unoptimized and unproven.</p>
                 </div>
                 <div class="card">
-                    <h4>Media Mix Model Is Slow & Siloed</h4>
-                    <p>Runs on quarterly timelines, with aggregated data that overlooks formats like audio, influencer, and podcasts.</p>
+                    <h4>2. No creative analysis at scale</h4>
+                    <p>The "Black Box" of walled gardens hides creative DNA. Brands don't know why an ad worked, only that it did (or didn't).</p>
                 </div>
                 <div class="card">
-                    <h4>Measurement at the channel level</h4>
-                    <p>Built for the Seinfeld era; one format, one network. We live in the Joe Rogan era; multi-format, multi-channel.</p>
+                    <h4>3. Expensive to engage and measure across channels</h4>
+                    <p>Fragmented attribution tools and high bot-traffic vulnerability make omnichannel scaling inefficient and prohibitively costly.</p>
                 </div>
                 <div class="card">
-                    <h4>Privacy Regulations</h4>
-                    <p>Brands can't connect content exposure to outcomes across devices, formats, or offline channels.</p>
+                    <h4>4. No one stop shop solution</h4>
+                    <p>Brand health metrics (lift, sentiment) are siloed from hard sales data, preventing a unified view of long-term and short-term ROI.</p>
                 </div>
             </div>
         </div>
@@ -127,8 +129,8 @@
                     <thead>
                         <tr>
                             <th>Category</th>
-                            <th>The Narrative Hook (The Problem)</th>
-                            <th>Item</th>
+                            <th style="width: 20%;">The Narrative Hook (The Problem)</th>
+                            <th>Category Item</th>
                             <th>What is happening now?</th>
                             <th class="highlight-col">What does this system do?</th>
                             <th>The Benefit</th>
@@ -136,31 +138,40 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td rowspan="2" class="pillar-vertical">I. Creative Intelligence</td>
-                            <td><b>The Black Box:</b> No creative-level transparency or cross-platform view.</td>
-                            <td>Primary Variable</td>
-                            <td>Channel & Placement focus; Manual A/B Testing</td>
-                            <td class="highlight-cell"><b>Creative DNA:</b> AI-Driven Deconstruction (30+ Signals)</td>
-                            <td><b>Predictive ROI:</b> Engineering creative statistically likely to perform.</td>
-                        </tr>
-                        <tr>
-                            <td><b>Variable Blindness:</b> Brands don't know <i>why</i> an ad worked.</td>
-                            <td>Analysis Method</td>
-                            <td>Isolated Meta-data & platform-specific reports</td>
-                            <td class="highlight-cell">Aggregated & Standardized Performance Intelligence</td>
-                            <td><b>Universal Learning:</b> Scale winning hooks across all channels.</td>
-                        </tr>
-
-                        <tr>
-                            <td rowspan="2" class="pillar-vertical">II. Omnichannel Truth</td>
-                            <td><b>Media Mix Model Is Slow & Siloed:</b> Aggregated data overlooks audio and podcasts.</td>
-                            <td>Audio/Radio Tracking</td>
+                            <td class="pillar-vertical">I. Resolution</td>
+                            <td><b>No online to offline resolution:</b> Radio & Audio have no direct link to web sales.</td>
+                            <td>Attribution Path</td>
                             <td>Siloed analysis using probabilistic estimates</td>
                             <td class="highlight-cell"><b>Direct Attribution:</b> Patent-Pending Device Graph Pathing</td>
                             <td><b>Full Funnel Clarity:</b> Prove exactly how offline spend drives sales.</td>
                         </tr>
+
                         <tr>
-                            <td><b>Privacy Regulations:</b> Inability to connect exposure to outcomes across devices.</td>
+                            <td rowspan="2" class="pillar-vertical">II. Intelligence</td>
+                            <td><b>No creative analysis at scale:</b> Walled gardens hide the "Why" behind performance.</td>
+                            <td>Primary Variable</td>
+                            <td>Channel & Placement focus; Manual A/B Testing</td>
+                            <td class="highlight-cell"><b>Creative DNA:</b> AI-Driven Deconstruction (30+ Signals)</td>
+                            <td><b>Predictive ROI:</b> Engineering creative likely to perform.</td>
+                        </tr>
+                        <tr>
+                            <td><b>Variable Blindness:</b> Creative performance is siloed and non-standardized.</td>
+                            <td>Analysis Method</td>
+                            <td>Isolated Meta-data & platform-specific reports</td>
+                            <td class="highlight-cell">Aggregated & Standardized Performance Intelligence</td>
+                            <td><b>Universal Learning:</b> Scale hooks across all channels instantly.</td>
+                        </tr>
+
+                        <tr>
+                            <td rowspan="2" class="pillar-vertical">III. Efficiency</td>
+                            <td><b>Expensive to engage across channels:</b> High vulnerability to bot traffic.</td>
+                            <td>Traffic Integrity</td>
+                            <td>Reliance on "Self-reported" platform data & bot-heavy traffic</td>
+                            <td class="highlight-cell"><b>Authenticated Humans:</b> Independent 3rd-Party Verification</td>
+                            <td><b>Zero-Waste Spend:</b> 100% of budget reaches real humans.</td>
+                        </tr>
+                        <tr>
+                            <td><b>Identity Decay:</b> Cookies are dying, making omnichannel data inaccurate.</td>
                             <td>Identity Resolution</td>
                             <td>Probabilistic / Cookie-based modeling</td>
                             <td class="highlight-cell"><b>Deterministic:</b> Privacy safe individual identification</td>
@@ -168,12 +179,12 @@
                         </tr>
 
                         <tr>
-                            <td class="pillar-vertical">III. Integrity & Trust</td>
-                            <td><b>Measurement at the Channel Level:</b> One format, one network approach in a multi-format world.</td>
-                            <td>Traffic Integrity</td>
-                            <td>High vulnerability to Bot traffic; "Walled Garden" bias</td>
-                            <td class="highlight-cell"><b>Authenticated Humans:</b> Independent 3rd-Party Verification</td>
-                            <td><b>Zero-Waste Spend:</b> Ensure 100% of budget reaches real humans.</td>
+                            <td class="pillar-vertical">IV. Integration</td>
+                            <td><b>No one stop shop solution:</b> Siloed brand health and sales metrics.</td>
+                            <td>Data Ecosystem</td>
+                            <td>Fragmented vendor clouds; Rented data access</td>
+                            <td class="highlight-cell"><b>Unified System:</b> Resident in Sovereign Client Cloud</td>
+                            <td><b>Permanent IP:</b> Your data becomes a secure capital asset.</td>
                         </tr>
                     </tbody>
                 </table>
@@ -183,3 +194,4 @@
 
 </body>
 </html>
+
