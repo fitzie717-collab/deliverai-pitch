@@ -9,179 +9,142 @@
 
 <style>
 :root {
-    --fb-pointing: #F2EFE9;
-    --fb-pigeon: #939EA0;
-    --fb-de-nimes: #4E5D65;
-    --fb-gold: #B09060;
-    --white: #ffffff;
-    --text-main: #2D3339;
+    --fb-pointing:#F2EFE9;
+    --fb-pigeon:#939EA0;
+    --fb-de-nimes:#4E5D65;
+    --fb-gold:#B09060;
+    --text-main:#2D3339;
+    --white:#ffffff;
 }
 
 /* RESET */
-* { margin: 0; padding: 0; box-sizing: border-box; }
+* { margin:0; padding:0; box-sizing:border-box; }
 
 body {
-    font-family: 'Inter', sans-serif;
-    background: var(--fb-pointing);
-    color: var(--text-main);
-    line-height: 1.5;
-    overflow-x: hidden;
+    font-family:'Inter',sans-serif;
+    background:var(--fb-pointing);
+    color:var(--text-main);
+    line-height:1.5;
 }
 
-h1, h2, h3, h4 {
-    font-family: 'Playfair Display', serif;
-    font-weight: 700;
+h1,h2,h3,h4 {
+    font-family:'Playfair Display',serif;
+    font-weight:700;
 }
 
 section {
-    width: 100vw;
-    min-height: 100vh;
-    padding: 60px 80px;
-    display: flex;
-    align-items: center;
+    width:100vw;
+    min-height:100vh;
+    padding:60px 80px;
+    display:flex;
+    align-items:center;
 }
 
 .content-box {
-    max-width: 1400px;
-    width: 100%;
+    max-width:1400px;
+    width:100%;
 }
 
 /* HEADERS */
 .slide-label {
-    text-transform: uppercase;
-    letter-spacing: 6px;
-    font-size: 0.85rem;
-    color: var(--fb-gold);
-    margin-bottom: 20px;
-    font-weight: 600;
+    text-transform:uppercase;
+    letter-spacing:6px;
+    font-size:.85rem;
+    color:var(--fb-gold);
+    margin-bottom:20px;
+    font-weight:600;
 }
 
 h1 {
-    font-size: 6rem;
-    line-height: 1;
-    margin-bottom: 20px;
+    font-size:6rem;
+    line-height:1;
+    margin-bottom:20px;
 }
 
 h2 {
-    font-size: 3.6rem;
-    line-height: 1.1;
-    margin-bottom: 30px;
+    font-size:3.6rem;
+    line-height:1.1;
+    margin-bottom:30px;
 }
 
 /* THEMES */
 .dark {
-    background: var(--fb-de-nimes);
-    color: white;
+    background:var(--fb-de-nimes);
+    color:white;
 }
 
 .accent {
-    background: var(--fb-pigeon);
-    color: white;
+    background:var(--fb-pigeon);
+    color:white;
 }
 
 /* GRID */
 .grid-flex {
-    display: grid;
-    gap: 20px;
-    margin-top: 30px;
+    display:grid;
+    gap:20px;
+    margin-top:30px;
 }
 
-.grid-2-col { grid-template-columns: repeat(2, 1fr); }
-.grid-3-col { grid-template-columns: repeat(3, 1fr); }
+.grid-2-col { grid-template-columns:repeat(2,1fr); }
+.grid-3-col { grid-template-columns:repeat(3,1fr); }
 
-/* CARD — 🔑 HARD RESET TEXT COLOR */
+/* CARD — force readable text */
 .card {
-    background: white;
-    padding: 30px;
-    border-top: 6px solid var(--fb-gold);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.06);
-    color: var(--text-main);
+    background:white;
+    padding:30px;
+    border-top:6px solid var(--fb-gold);
+    box-shadow:0 20px 40px rgba(0,0,0,.06);
+    color:var(--text-main);
 }
 
 .card h4 {
-    color: var(--fb-gold);
-    margin-bottom: 10px;
+    color:var(--fb-gold);
+    margin-bottom:10px;
 }
 
-.card p,
-.card li {
-    color: var(--text-main);
-    font-size: 0.95rem;
+.card p {
+    font-size:.95rem;
+    color:var(--text-main);
 }
 
 /* PROCESS */
 .process-stripe {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    gap: 12px;
+    display:grid;
+    grid-template-columns:repeat(6,1fr);
+    gap:12px;
+    margin-top:30px;
 }
 
 .process-card {
-    background: rgba(255,255,255,0.95);
-    padding: 25px;
-    border-radius: 4px;
+    background:rgba(255,255,255,.95);
+    padding:25px;
+    border-radius:4px;
 }
 
 .p-num {
-    font-size: 1.8rem;
-    font-style: italic;
-    color: var(--fb-gold);
+    font-size:1.8rem;
+    font-style:italic;
+    color:var(--fb-gold);
 }
 
 .p-title {
-    font-weight: 600;
-    margin: 10px 0;
-    color: var(--fb-de-nimes);
+    font-weight:600;
+    margin:10px 0;
+    color:var(--fb-de-nimes);
 }
 
 .p-desc {
-    font-size: 0.8rem;
-    opacity: 0.85;
-    color: #444;
-}
-
-/* TABLE */
-.modern-table-wrap {
-    background: white;
-    box-shadow: 0 30px 60px rgba(0,0,0,0.1);
-    overflow-x: auto;
-}
-
-.modern-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 0.85rem;
-    min-width: 900px;
-}
-
-.modern-table th {
-    background: var(--fb-de-nimes);
-    color: white;
-    padding: 14px;
-    text-transform: uppercase;
-    font-size: 0.7rem;
-    letter-spacing: 2px;
-}
-
-.modern-table td {
-    padding: 14px;
-    border-bottom: 1px solid #eee;
-    color: #444;
-}
-
-.highlight-cell {
-    background: rgba(147,158,160,0.08);
-    font-weight: 600;
+    font-size:.8rem;
+    opacity:.85;
+    color:#444;
 }
 
 /* MOBILE */
-@media (max-width: 1024px) {
-    section { padding: 60px 25px; }
-    h1 { font-size: 3.5rem; }
-    h2 { font-size: 2.3rem; }
-    .grid-2-col, .grid-3-col, .process-stripe {
-        grid-template-columns: 1fr;
-    }
+@media(max-width:1024px){
+    section{padding:60px 25px}
+    h1{font-size:3.5rem}
+    h2{font-size:2.3rem}
+    .grid-2-col,.grid-3-col,.process-stripe{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -205,28 +168,39 @@ The measurement and optimization operating system for the content-first era.
 <span class="slide-label">The Problem</span>
 <h2>Marketing evolved. Measurement didn’t.</h2>
 <p style="font-size:1.3rem;max-width:900px;opacity:.85">
-Marketing exploded from a few channels to dozens — but measurement never evolved.
+Marketing expanded from a few channels to dozens — but companies still can’t see what actually works.
 </p>
 
 <div class="grid-flex grid-2-col">
 <div class="card">
 <h4>Too many channels, no unified view</h4>
-<p>Every channel generates data — each trapped in its own system.</p>
+<p>
+Marketing runs across digital, audio, creators, streaming, and offline —
+but the data is fragmented across systems.
+</p>
 </div>
 
 <div class="card">
 <h4>Brands can’t see what drives sales</h4>
-<p>Millions are spent without knowing what actually caused customers to act.</p>
+<p>
+Spend is everywhere, but there’s no clear link between exposure and outcomes.
+</p>
 </div>
 
 <div class="card">
-<h4>Creative matters most — barely measured</h4>
-<p>Creative drives performance, yet isn’t measured at scale.</p>
+<h4>Creative drives performance — but isn’t measured</h4>
+<p>
+Creative has the highest statistical impact on results,
+yet brands can’t evaluate it at scale.
+</p>
 </div>
 
 <div class="card">
 <h4>Measurement is slow and incomplete</h4>
-<p>Fragmented tools create cost, delay, and guesswork.</p>
+<p>
+Legacy tools are siloed, manual,
+and built for a different media era.
+</p>
 </div>
 </div>
 </div>
@@ -235,40 +209,84 @@ Marketing exploded from a few channels to dozens — but measurement never evolv
 <!-- SOLUTION -->
 <section class="accent">
 <div class="content-box">
-<span class="slide-label" style="color:white;border-bottom:2px solid white;padding-bottom:5px">The Solution</span>
+<span class="slide-label" style="color:white;border-bottom:2px solid white;padding-bottom:5px">
+The Solution
+</span>
+
 <h2>A patent-pending Desktop Agency</h2>
 
 <div class="grid-flex grid-2-col">
 <div class="card">
-<h4>Evaluates creative automatically</h4>
-<p>Breaks down creative to reveal what drives performance.</p>
+<h4>One unified system across channels</h4>
+<p>
+A single system that tracks content consistently
+across digital, audio, creator, and offline media.
+</p>
 </div>
 
 <div class="card">
-<h4>Predicts outcomes before spend scales</h4>
-<p>Forecasts winners before budgets are committed.</p>
+<h4>Direct connection from exposure to results</h4>
+<p>
+Deterministically ties content exposure
+to visits, brand lift, and conversions.
+</p>
 </div>
 
 <div class="card">
-<h4>Connects exposure to results</h4>
-<p>Ties content to visits, lift, and conversions.</p>
+<h4>Automatic creative analysis at scale</h4>
+<p>
+AI deconstructs every creative asset into
+20+ research-backed criteria across all content types.
+</p>
 </div>
 
 <div class="card">
-<h4>One system of record</h4>
-<p>A single, privacy-safe source of truth.</p>
+<h4>Fast, continuous measurement</h4>
+<p>
+Replaces slow, manual reporting
+with always-on attribution and optimization.
+</p>
 </div>
 </div>
 
 <h3 style="margin:50px 0 30px;color:white">How it works</h3>
 
 <div class="process-stripe">
-<div class="process-card"><span class="p-num">01</span><div class="p-title">Content ID</div><p class="p-desc">Persistent IDs for every asset.</p></div>
-<div class="process-card"><span class="p-num">02</span><div class="p-title">Exposure</div><p class="p-desc">Capture when and where content is seen.</p></div>
-<div class="process-card"><span class="p-num">03</span><div class="p-title">Identity</div><p class="p-desc">Deterministic identity matching.</p></div>
-<div class="process-card"><span class="p-num">04</span><div class="p-title">Attribution</div><p class="p-desc">ML assigns outcomes to content.</p></div>
-<div class="process-card"><span class="p-num">05</span><div class="p-title">Outcomes</div><p class="p-desc">Measure lift and conversions.</p></div>
-<div class="process-card"><span class="p-num">06</span><div class="p-title">Optimize</div><p class="p-desc">Clear recommendations on what to scale.</p></div>
+<div class="process-card">
+<span class="p-num">01</span>
+<div class="p-title">Content Identification</div>
+<p class="p-desc">Persistent IDs assigned to every creative asset.</p>
+</div>
+
+<div class="process-card">
+<span class="p-num">02</span>
+<div class="p-title">Exposure</div>
+<p class="p-desc">Capture when and where content is seen.</p>
+</div>
+
+<div class="process-card">
+<span class="p-num">03</span>
+<div class="p-title">Identity Match</div>
+<p class="p-desc">Deterministic matching via verified identity graphs.</p>
+</div>
+
+<div class="process-card">
+<span class="p-num">04</span>
+<div class="p-title">Attribution</div>
+<p class="p-desc">Machine learning assigns outcomes to content.</p>
+</div>
+
+<div class="process-card">
+<span class="p-num">05</span>
+<div class="p-title">Outcome Measurement</div>
+<p class="p-desc">Measure visits, brand lift, and conversions.</p>
+</div>
+
+<div class="process-card">
+<span class="p-num">06</span>
+<div class="p-title">Optimization</div>
+<p class="p-desc">Clear recommendations on what to scale next.</p>
+</div>
 </div>
 
 <p style="margin-top:40px;font-style:italic;opacity:.8;color:white">
@@ -284,18 +302,29 @@ Content Mix Model™ is trademarked and protected by provisional patent.
 <h2>Measurement meets Agency</h2>
 
 <div class="grid-flex grid-3-col">
-<div class="card"><h4>Entry: Measurement</h4><p>$7–10B driven by privacy and fragmentation.</p></div>
-<div class="card"><h4>Expansion: Agency Spend</h4><p>Tens of billions spent on manual optimization.</p></div>
-<div class="card"><h4>Category: Decision Intelligence</h4><p>Evaluate, predict, and act — in one system.</p></div>
+<div class="card">
+<h4>Entry: Measurement</h4>
+<p>$7–10B market driven by privacy shifts and fragmentation.</p>
+</div>
+
+<div class="card">
+<h4>Expansion: Agency Spend</h4>
+<p>Tens of billions spent on manual creative and media optimization.</p>
+</div>
+
+<div class="card">
+<h4>Category: Decision Intelligence</h4>
+<p>Evaluate, predict, and act — in one system.</p>
+</div>
 </div>
 
 <h3 style="margin:40px 0 20px">How we scale</h3>
 
 <div class="grid-flex grid-2-col">
-<div class="card"><h4>Buyers</h4><p>CMOs and Growth leaders.</p></div>
+<div class="card"><h4>Buyers</h4><p>CMOs and Growth leaders under ROI pressure.</p></div>
 <div class="card"><h4>Beachhead</h4><p>Audio, creators, podcasts, OOH.</p></div>
 <div class="card"><h4>Sales Motion</h4><p>6–12 week enterprise pilot.</p></div>
-<div class="card"><h4>Expansion</h4><p>More brands, markets, spend.</p></div>
+<div class="card"><h4>Expansion</h4><p>More brands, markets, and spend.</p></div>
 </div>
 </div>
 </section>
@@ -309,9 +338,9 @@ Content Mix Model™ is trademarked and protected by provisional patent.
 <div class="grid-flex grid-2-col">
 <div class="card"><h4>Privacy</h4><p>No PII. Identity resolved upstream.</p></div>
 <div class="card"><h4>Deployment</h4><p>Secure, tenant-isolated environment.</p></div>
-<div class="card"><h4>Content IDs</h4><p>Unified tagging.</p></div>
+<div class="card"><h4>Content IDs</h4><p>Unified tagging across channels.</p></div>
 <div class="card"><h4>Creative Intelligence</h4><p>No historical data required.</p></div>
-<div class="card"><h4>Attribution</h4><p>Continuous ML testing.</p></div>
+<div class="card"><h4>Attribution</h4><p>Continuous ML-driven testing.</p></div>
 <div class="card"><h4>Optimization</h4><p>Clear decisions, fast.</p></div>
 </div>
 </div>
