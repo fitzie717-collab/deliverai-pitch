@@ -4,244 +4,143 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>DeliverAI | Content Mix Model OS™</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg-dark: #4E5D65;
-  --bg-light: #F2EFE9;
-  --gold: #B09060;
-  --white: #ffffff;
-  --text-dark: #2D3339;
+  --fb-railings: #2D3136; /* Farrow & Ball Railings */
+  --fb-shaded-white: #E6E1D6; /* Farrow & Ball Shaded White */
+  --fb-dead-salmon: #A98E7F; /* Muted accent gold/copper */
+  --fb-white-tie: #F1EFE8;
 }
-
-/* RESET */
 * { margin: 0; padding: 0; box-sizing: border-box; }
-
-html { scroll-behavior: smooth; }
-
 body {
   font-family: 'Inter', sans-serif;
-  background: var(--bg-light);
-  color: var(--text-dark);
-  line-height: 1.6;
+  background: var(--fb-white-tie);
+  color: var(--fb-railings);
+  overflow-x: hidden;
 }
-
-/* SECTIONS */
 section {
-  min-height: 100vh;
-  padding: 90px 80px;
+  height: 100vh;
+  width: 100vw;
+  padding: 60px 80px;
   display: flex;
+  align-items: center;
   justify-content: center;
+  scroll-snap-align: start;
 }
-
-.dark {
-  background: var(--bg-dark);
-  color: var(--white);
-}
-
-/* LAYOUT */
-.content-box {
-  max-width: 1200px;
-  width: 100%;
-}
-
-/* TYPOGRAPHY */
+.dark { background: var(--fb-railings); color: var(--fb-white-tie); }
+.content-box { max-width: 1100px; width: 100%; }
 .slide-label {
   text-transform: uppercase;
-  letter-spacing: 6px;
-  font-size: 0.8rem;
-  color: var(--gold);
-  margin-bottom: 40px;
-  font-weight: 500;
+  letter-spacing: 4px;
+  font-size: 0.75rem;
+  color: var(--fb-dead-salmon);
+  margin-bottom: 20px;
+  display: block;
 }
-
 h1 {
   font-family: 'Playfair Display', serif;
-  font-size: 5.5rem;
-  line-height: 1;
-  margin-bottom: 30px;
+  font-size: 5rem;
+  font-weight: 600;
+  line-height: 1.1;
+  margin-bottom: 20px;
 }
-
 h2 {
   font-family: 'Playfair Display', serif;
-  font-size: 3.2rem;
-  line-height: 1.15;
+  font-size: 3.5rem;
+  line-height: 1.1;
+  margin-bottom: 30px;
+}
+h3 { font-size: 1.6rem; font-weight: 300; opacity: 0.9; margin-bottom: 40px; }
+.hero-hook {
+  font-size: 1.25rem;
+  font-style: italic;
+  border-left: 1px solid var(--fb-dead-salmon);
+  padding-left: 20px;
+  opacity: 0.8;
+}
+.stats-bar {
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  opacity: 0.6;
   margin-bottom: 40px;
+  text-transform: uppercase;
 }
-
-h3 {
-  font-size: 1.35rem;
-  font-weight: 400;
-  opacity: 0.85;
-  max-width: 820px;
-}
-
-p {
-  max-width: 820px;
-  font-size: 1.15rem;
-  opacity: 0.9;
-}
-
-/* HERO */
-.hero-sub {
-  margin-bottom: 100px;
-}
-
-/* STATS LINE */
-.stats {
-  font-size: 0.95rem;
-  letter-spacing: 0.03em;
-  opacity: 0.7;
-  margin-bottom: 60px;
-}
-
-/* GRID */
 .grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 40px;
-  margin-top: 80px;
+  gap: 24px;
 }
-
-/* CARDS */
 .card {
-  background: rgba(255,255,255,0.96);
-  padding: 40px;
-  border-radius: 2px;
-  color: var(--text-dark);
+  background: rgba(255,255,255,0.03);
+  border: 0.5px solid rgba(255,255,255,0.1);
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
-
 .card h4 {
   font-family: 'Playfair Display', serif;
-  font-size: 1.4rem;
-  margin-bottom: 18px;
-  color: var(--gold);
+  font-size: 1.3rem;
+  margin-bottom: 12px;
+  color: var(--fb-dead-salmon);
 }
-
-.card p {
-  font-size: 1rem;
-  max-width: none;
-  opacity: 0.9;
-}
-
-/* QUOTES */
+.card p { font-size: 0.95rem; line-height: 1.5; opacity: 0.85; }
 .quote {
-  margin-top: 24px;
-  font-size: 0.85rem;
-  opacity: 0.6;
+  margin-top: 15px;
+  font-size: 0.8rem;
+  opacity: 0.5;
   font-style: italic;
+  border-top: 0.5px solid rgba(255,255,255,0.1);
+  padding-top: 10px;
 }
-
-/* RESPONSIVE */
-@media (max-width: 1024px) {
-  section { padding: 70px 30px; }
-  h1 { font-size: 3.4rem; }
-  h2 { font-size: 2.3rem; }
-  .grid { grid-template-columns: 1fr; }
-}
+strong { color: var(--fb-dead-salmon); font-weight: 600; }
 </style>
 </head>
-
 <body>
 
-<!-- HERO -->
 <section class="dark">
   <div class="content-box">
-    <div class="slide-label">DeliverAI Solutions | Patent Pending</div>
-
+    <span class="slide-label">DeliverAI Solutions | Patent Pending</span>
     <h1>Content Mix Model OS™</h1>
-
-    <h3 class="hero-sub">
-      The Operating System for a Decentralized Content Economy
-    </h3>
-
-    <p style="font-style: italic; opacity: 0.7;">
-      &gt; Solving the <strong>$370B mismatch</strong> between
-      <strong>Seinfeld-era measurement</strong> and
-      <strong>Rogan-era consumption</strong>.
-    </p>
+    <h3>The Operating System for a Decentralized Content Economy.</h3>
+    <div class="hero-hook">
+      Solving the <strong>$370B mismatch</strong> between 1990s Seinfeld-era measurement and modern Rogan-era consumption.
+    </div>
   </div>
 </section>
 
-<!-- PROBLEM -->
 <section class="dark">
   <div class="content-box">
-    <div class="slide-label">The Problem</div>
-
-    <h2>The marketing ecosystem is built for the wrong era.</h2>
-
-    <div class="stats">
-      2025 | $370B U.S. Advertising Spend | 15,384 MarTech Solutions | 20% of Budgets to MarTech → 31% by 2030
+    <span class="slide-label">The Problem</span>
+    <h2>Marketing is built for the wrong era.</h2>
+    <div class="stats-bar">
+      2025: $370B US Ad Spend • 15,384 MarTech Tools • 31% Budget to Tech by 2030
     </div>
-
-    <p>
-      The entire marketing ecosystem is built for the <strong>1990s Seinfeld era</strong> —
-      one channel, one format, one device (TV).
-    </p>
-
-    <p style="margin-top: 28px;">
-      We now live in the <strong>Joe Rogan era</strong> —
-      multi-channel, multi-format, multi-device.
-    </p>
-
-    <p style="margin-top: 28px;">
-      This mismatch leaves marketers unable to understand what works,
-      why it works, or how to decide what to do next.
-    </p>
-
     <div class="grid">
       <div class="card">
-        <h4>Fragmentation Everywhere</h4>
-        <p>
-          Channels, formats, platforms, and devices operate in isolation,
-          with no unified view of performance across the customer journey.
-        </p>
-        <div class="quote">
-          “We want to expand into podcasts and OOH, but the complexity stops us.”
-        </div>
+        <h4>Architectural Mismatch</h4>
+        <p>The ecosystem was built for 1990s "Seinfeld" logic: one channel, one device. It is fundamentally blind to the non-linear "Rogan" journey.</p>
+        <div class="quote">“We are managing a decentralized world with centralized tools.”</div>
       </div>
-
       <div class="card">
-        <h4>What Worked Is Still Unclear</h4>
-        <p>
-          Billions are spent without clarity on which messages, moments,
-          or creative elements actually drove outcomes.
-        </p>
-        <div class="quote">
-          “We pay for six tools with overlap and blind spots.”
-        </div>
+        <h4>The Attribution Black Box</h4>
+        <p>Current tools fail to quantify the cumulative impact of long-form content, fragmented audio, and dark social—leaving ROI a mystery.</p>
+        <div class="quote">“I spend $5M on endorsements and cannot prove the lift.”</div>
       </div>
-
       <div class="card">
-        <h4>Creative Drives Results—But Isn’t Measured</h4>
-        <p>
-          Creative has the highest impact on performance,
-          yet brands lack scalable ways to measure it.
-        </p>
-        <div class="quote">
-          “I spend $5M on endorsements and can’t prove ROI.”
-        </div>
+        <h4>Capital Inefficiency</h4>
+        <p>CMOs are forced into "data-informed guesses." Billions are over-allocated to trackable clicks while starving high-impact influence.</p>
+        <div class="quote">“We pay for 15,000 overlapping tools with zero unified truth.”</div>
       </div>
-
       <div class="card">
-        <h4>Measurement Built for the Wrong Era</h4>
-        <p>
-          Legacy tools were designed for a single-channel world,
-          producing slow, expensive, and incomplete answers.
-        </p>
-        <div class="quote">
-          “We get answers months after decisions are already made.”
-        </div>
+        <h4>Strategic Paralysis</h4>
+        <p>Legacy systems provide answers months after decisions are made. In a content-first world, slow data is useless data.</p>
+        <div class="quote">“What actually worked? We’re still guessing.”</div>
       </div>
     </div>
   </div>
 </section>
-
-</body>
-</html>
-
     
 <section>
     <div class="content-box">
@@ -702,6 +601,7 @@ p {
 
 </body>
 </html>
+
 
 
 
