@@ -4,117 +4,16 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>DeliverAI | Content Mix Model OS™</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-<style>
-:root {
-  --fb-railings: #2D3136; /* Farrow & Ball Railings */
-  --fb-shaded-white: #E6E1D6; /* Farrow & Ball Shaded White */
-  --fb-dead-salmon: #A98E7F; /* Muted accent gold/copper */
-  --fb-white-tie: #F1EFE8;
-}
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body {
-  font-family: 'Inter', sans-serif;
-  background: var(--fb-white-tie);
-  color: var(--fb-railings);
-  overflow-x: hidden;
-}
-section {
-  height: 100vh;
-  width: 100vw;
-  padding: 60px 80px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  scroll-snap-align: start;
-}
-.dark { background: var(--fb-railings); color: var(--fb-white-tie); }
-.content-box { max-width: 1100px; width: 100%; }
-.slide-label {
-  text-transform: uppercase;
-  letter-spacing: 4px;
-  font-size: 0.75rem;
-  color: var(--fb-dead-salmon);
-  margin-bottom: 20px;
-  display: block;
-}
-h1 {
-  font-family: 'Playfair Display', serif;
-  font-size: 5rem;
-  font-weight: 600;
-  line-height: 1.1;
-  margin-bottom: 20px;
-}
-h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: 3.5rem;
-  line-height: 1.1;
-  margin-bottom: 30px;
-}
-h3 { font-size: 1.6rem; font-weight: 300; opacity: 0.9; margin-bottom: 40px; }
-.hero-hook {
-  font-size: 1.25rem;
-  font-style: italic;
-  border-left: 1px solid var(--fb-dead-salmon);
-  padding-left: 20px;
-  opacity: 0.8;
-}
-.stats-bar {
-  font-size: 0.85rem;
-  letter-spacing: 0.05em;
-  opacity: 0.6;
-  margin-bottom: 40px;
-  text-transform: uppercase;
-}
-.grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 24px;
-}
-.card {
-  background: rgba(255,255,255,0.03);
-  border: 0.5px solid rgba(255,255,255,0.1);
-  padding: 30px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-.card h4 {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.3rem;
-  margin-bottom: 12px;
-  color: var(--fb-dead-salmon);
-}
-.card p { font-size: 0.95rem; line-height: 1.5; opacity: 0.85; }
-.quote {
-  margin-top: 15px;
-  font-size: 0.8rem;
-  opacity: 0.5;
-  font-style: italic;
-  border-top: 0.5px solid rgba(255,255,255,0.1);
-  padding-top: 10px;
-}
-strong { color: var(--fb-dead-salmon); font-weight: 600; }
-</style>
-</head>
-<body>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>DeliverAI | Content Mix Model OS™</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
 :root {
   /* Farrow & Ball–inspired blues */
-  --fb-deep-blue: #1F2A33;    /* Hague / Stiffkey energy */
-  --fb-soft-white: #F3F1EC;  /* White Tie */
-  --fb-warm-stone: #E2DED5;  /* Shaded White */
-  --fb-blue-accent: #6E7F8D; /* De Nîmes accent */
+  --fb-deep-blue: #1F2A33;
+  --fb-soft-white: #F3F1EC;
+  --fb-warm-stone: #E2DED5;
+  --fb-blue-accent: #6E7F8D;
 }
 
 * {
@@ -127,7 +26,7 @@ body {
   font-family: 'Inter', sans-serif;
   background: var(--fb-soft-white);
   color: var(--fb-deep-blue);
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 section {
@@ -135,8 +34,8 @@ section {
   width: 100vw;
   padding: 60px 80px;
   display: flex;
+  justify-content: flex-start;
   align-items: center;
-  justify-content: center;
 }
 
 .dark {
@@ -150,41 +49,49 @@ section {
   padding: 0 100px;
 }
 
-h1 {
+/* ---- HERO TITLE (ONE LINE) ---- */
+.hero-title-single {
   font-family: 'Playfair Display', serif;
+  font-size: 5.4rem;
   font-weight: 600;
-  line-height: 1;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
   color: var(--fb-soft-white);
+  white-space: nowrap;
+  margin-bottom: 50px;
 }
 
-.hero-title-main {
-  font-size: 5.8rem;
-  letter-spacing: -0.03em;
-}
-
-.hero-title-sub {
-  font-size: 4.85rem;
-  letter-spacing: 0.165em;
+.hero-title-single span {
+  font-size: 4.6rem;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
+  margin-left: 18px;
 }
 
+/* ---- HERO HOOK ---- */
 .hero-hook {
   border-left: 3px solid var(--fb-blue-accent);
   padding: 10px 0 10px 40px;
-  margin-bottom: 15vh;
+  margin-bottom: 12vh;
 }
 
 .hero-hook p {
   font-size: 1.35rem;
   letter-spacing: 0.03em;
   line-height: 1.6;
-  opacity: 0.95;
   max-width: 1000px;
+  opacity: 0.95;
 }
 
 .hero-hook strong {
   color: var(--fb-blue-accent);
   font-weight: 600;
+}
+
+/* ---- QUOTE BLOCK (MOVED UP) ---- */
+.quote-block {
+  margin-top: -80px;
+  max-width: 1100px;
 }
 
 .quote {
@@ -225,6 +132,7 @@ h1 {
   letter-spacing: 0.5px;
 }
 
+/* ---- FOOTER ---- */
 .footer {
   position: absolute;
   bottom: 60px;
@@ -234,8 +142,8 @@ h1 {
 
 .footer p {
   text-transform: uppercase;
-  letter-spacing: 8px;
-  font-size: 0.75rem;
+  letter-spacing: 6px;
+  font-size: 0.7rem;
   font-weight: 600;
   color: var(--fb-blue-accent);
 }
@@ -250,24 +158,26 @@ h1 {
 
 <body>
 
-<section class="dark" style="position: relative; justify-content: flex-start; padding-top: 35vh;">
+<section class="dark" style="position: relative; padding-top: 32vh;">
 
   <div class="content-box">
 
-    <div style="margin-bottom: 50px;">
-      <h1 class="hero-title-main">Content Mix Model</h1>
-      <h1 class="hero-title-sub">Operating System™</h1>
-    </div>
+    <!-- TITLE -->
+    <h1 class="hero-title-single">
+      Content Mix Model <span>Operating System™</span>
+    </h1>
 
+    <!-- HOOK -->
     <div class="hero-hook">
       <p>
-        Solving the <strong>$450B mismatch</strong> between
-        media measurement designed for the <strong>“Seinfeld era”</strong>
-        and modern <strong>“Joe Rogan era”</strong> media consumption.
+        Solving the <strong>$450B mismatch</strong> between media measurement designed
+        for the <strong>“Seinfeld era”</strong> and modern
+        <strong>“Joe Rogan era”</strong> media consumption.
       </p>
     </div>
 
-    <div>
+    <!-- QUOTE -->
+    <div class="quote-block">
       <p class="quote">
         “You never change things by fighting the existing reality.<br>
         To change something, build a new model that makes the existing model obsolete.”
@@ -284,6 +194,7 @@ h1 {
 
   </div>
 
+  <!-- FOOTER -->
   <div class="footer">
     <p>
       DeliverAI Solutions
@@ -790,6 +701,7 @@ h1 {
 
 </body>
 </html>
+
 
 
 
