@@ -99,53 +99,203 @@ strong { color: var(--fb-dead-salmon); font-weight: 600; }
 </head>
 <body>
 
-<section class="dark" style="position: relative; height: 100vh; display: flex; flex-direction: column; justify-content: flex-start; align-items: center; background-color: #2D3136; overflow: hidden; padding-top: 35vh;">
-  
-  <div class="content-box" style="width: 100%; max-width: 1400px; padding: 0 100px;">
-    
-    <div style="display: inline-block; margin-bottom: 50px; text-align: left;">
-      <h1 style="font-family: 'Playfair Display', serif; font-size: 5.8rem; font-weight: 600; letter-spacing: -0.03em; line-height: 1; color: #F1EFE8; margin: 0;">
-        Content Mix Model
-      </h1>
-      <h1 style="font-family: 'Playfair Display', serif; font-size: 4.85rem; font-weight: 600; letter-spacing: 0.165em; line-height: 1; color: #F1EFE8; margin: 0; text-transform: uppercase;">
-        OPERATING SYSTEM™
-      </h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>DeliverAI | Content Mix Model OS™</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  /* Farrow & Ball–inspired blues */
+  --fb-deep-blue: #1F2A33;    /* Hague / Stiffkey energy */
+  --fb-soft-white: #F3F1EC;  /* White Tie */
+  --fb-warm-stone: #E2DED5;  /* Shaded White */
+  --fb-blue-accent: #6E7F8D; /* De Nîmes accent */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--fb-soft-white);
+  color: var(--fb-deep-blue);
+  overflow-x: hidden;
+}
+
+section {
+  height: 100vh;
+  width: 100vw;
+  padding: 60px 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dark {
+  background: var(--fb-deep-blue);
+  color: var(--fb-soft-white);
+}
+
+.content-box {
+  width: 100%;
+  max-width: 1400px;
+  padding: 0 100px;
+}
+
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 600;
+  line-height: 1;
+  color: var(--fb-soft-white);
+}
+
+.hero-title-main {
+  font-size: 5.8rem;
+  letter-spacing: -0.03em;
+}
+
+.hero-title-sub {
+  font-size: 4.85rem;
+  letter-spacing: 0.165em;
+  text-transform: uppercase;
+}
+
+.hero-hook {
+  border-left: 3px solid var(--fb-blue-accent);
+  padding: 10px 0 10px 40px;
+  margin-bottom: 15vh;
+}
+
+.hero-hook p {
+  font-size: 1.35rem;
+  letter-spacing: 0.03em;
+  line-height: 1.6;
+  opacity: 0.95;
+  max-width: 1000px;
+}
+
+.hero-hook strong {
+  color: var(--fb-blue-accent);
+  font-weight: 600;
+}
+
+.quote {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.1rem;
+  font-style: italic;
+  line-height: 1.5;
+  opacity: 0.85;
+  margin-bottom: 35px;
+}
+
+.quote-meta {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.quote-line {
+  width: 80px;
+  height: 2px;
+  background: var(--fb-blue-accent);
+  opacity: 0.9;
+}
+
+.quote-author {
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--fb-blue-accent);
+}
+
+.quote-author span {
+  opacity: 0.5;
+  font-weight: 300;
+  margin-left: 15px;
+  text-transform: none;
+  letter-spacing: 0.5px;
+}
+
+.footer {
+  position: absolute;
+  bottom: 60px;
+  right: 100px;
+  text-align: right;
+}
+
+.footer p {
+  text-transform: uppercase;
+  letter-spacing: 8px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--fb-blue-accent);
+}
+
+.footer span {
+  opacity: 0.4;
+  font-weight: 300;
+  margin-left: 20px;
+}
+</style>
+</head>
+
+<body>
+
+<section class="dark" style="position: relative; justify-content: flex-start; padding-top: 35vh;">
+
+  <div class="content-box">
+
+    <div style="margin-bottom: 50px;">
+      <h1 class="hero-title-main">Content Mix Model</h1>
+      <h1 class="hero-title-sub">Operating System™</h1>
     </div>
 
-    <div style="border-left: 4px solid #A98E7F; padding: 10px 0 10px 40px; margin-bottom: 15vh;">
-      <p style="font-family: 'Inter', sans-serif; font-size: 1.35rem; letter-spacing: 0.03em; line-height: 1.6; opacity: 0.95; color: #F1EFE8; max-width: 1000px;">
-        Solving the <strong style="color: #A98E7F; font-weight: 700;">$450B mismatch</strong> between 
-        media measurement designed for the <strong>“Seinfeld era”</strong> 
+    <div class="hero-hook">
+      <p>
+        Solving the <strong>$450B mismatch</strong> between
+        media measurement designed for the <strong>“Seinfeld era”</strong>
         and modern <strong>“Joe Rogan era”</strong> media consumption.
       </p>
     </div>
-    
-    <div style="width: 100%; max-width: 1300px;">
-      <p style="font-family: 'Playfair Display', serif; font-size: 2.1rem; font-style: italic; line-height: 1.5; opacity: 0.85; color: #F1EFE8; margin-bottom: 35px;">
+
+    <div>
+      <p class="quote">
         “You never change things by fighting the existing reality.<br>
         To change something, build a new model that makes the existing model obsolete.”
       </p>
-      
-      <div style="display: flex; align-items: center; gap: 20px;">
-        <div style="width: 80px; height: 2px; background: #A98E7F; opacity: 0.9;"></div>
-        <p style="text-transform: uppercase; letter-spacing: 4px; font-size: 0.75rem; font-weight: 600; color: #A98E7F;">
-          Buckminster Fuller 
-          <span style="opacity: 0.5; font-weight: 300; margin-left: 15px; text-transform: none; letter-spacing: 0.5px;">
-            | 20th Century Futurist & Global Systems Theorist
-          </span>
+
+      <div class="quote-meta">
+        <div class="quote-line"></div>
+        <p class="quote-author">
+          Buckminster Fuller
+          <span>| 20th Century Futurist & Global Systems Theorist</span>
         </p>
       </div>
     </div>
 
   </div>
 
-  <div style="position: absolute; bottom: 60px; right: 100px; text-align: right;">
-      <p style="text-transform: uppercase; letter-spacing: 8px; font-size: 0.75rem; color: #A98E7F; font-weight: 600;">
-        DeliverAI Solutions <span style="opacity: 0.4; font-weight: 300; margin-left: 20px;">| Patent Pending</span>
-      </p>
+  <div class="footer">
+    <p>
+      DeliverAI Solutions
+      <span>| Patent Pending</span>
+    </p>
   </div>
 
 </section>
+
+</body>
+</html>
+
   
 </section>
 <section class="accent">
@@ -640,6 +790,7 @@ strong { color: var(--fb-dead-salmon); font-weight: 600; }
 
 </body>
 </html>
+
 
 
 
