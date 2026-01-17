@@ -13,47 +13,55 @@
   --ink-blue: #1E2A33;
 
   /* Text */
-  --oxford-stone: #E6DFD3;   /* warm tan (not white) */
+  --oxford-stone: #E6DFD3;
   --soft-stone: #CFC7BB;
 
-  /* Accents (lighter, clearer blues) */
+  /* Accents */
   --steel-blue: #8FA3B5;
   --rule-blue: #7C92A6;
 }
 
+/* ---- GLOBAL RESET ---- */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+html {
+  scroll-snap-type: y mandatory;
+}
+
 body {
   font-family: 'Inter', sans-serif;
   background: var(--ink-blue);
   color: var(--oxford-stone);
-  overflow: hidden;
+  overflow-y: scroll;
 }
 
-section {
+/* ---- SLIDE BEHAVIOR ---- */
+section.slide {
   height: 100vh;
   width: 100vw;
+  scroll-snap-align: start;
   position: relative;
 }
 
+/* ---- CONTENT WRAPPER ---- */
 .content-box {
   max-width: 1400px;
-  padding-left: 70px;     /* slightly more left */
-  padding-top: 23vh;     /* pulled UP toward center */
+  padding-left: 70px;
+  padding-top: 30vh;   /* lowered toward center */
 }
 
 /* ---- TITLE ---- */
 .hero-title-single {
   font-family: 'Playfair Display', serif;
-  font-size: 3.9rem;     /* smaller */
+  font-size: 3.8rem;
   font-weight: 600;
   line-height: 1.1;
   letter-spacing: -0.015em;
-  margin-bottom: 36px;
+  margin-bottom: 34px;
   white-space: nowrap;
   color: var(--oxford-stone);
 }
@@ -62,13 +70,13 @@ section {
 .hero-hook {
   border-left: 2px solid var(--rule-blue);
   padding-left: 26px;
-  margin-bottom: 8vh;
+  margin-bottom: 14vh; /* creates gap before quote */
 }
 
 .hero-hook p {
-  font-size: 1.2rem;
+  font-size: 1.18rem;
   line-height: 1.6;
-  max-width: 980px;
+  max-width: 1000px;
   color: var(--soft-stone);
 }
 
@@ -77,9 +85,9 @@ section {
   font-weight: 600;
 }
 
-/* ---- QUOTE (UNCHANGED POSITION) ---- */
+/* ---- QUOTE ---- */
 .quote-block {
-  margin-top: -35px;
+  max-width: 1100px;
 }
 
 .quote {
@@ -141,7 +149,8 @@ section {
 
 <body>
 
-<section>
+<!-- SLIDE 1 -->
+<section class="slide">
 
   <div class="content-box">
 
@@ -153,9 +162,10 @@ section {
     <!-- HOOK -->
     <div class="hero-hook">
       <p>
-        Solving the <strong>$450B mismatch</strong> between media measurement designed for the
-        <strong>“Seinfeld era,”</strong><br>
-        and the modern <strong>“Joe Rogan era”</strong> of media consumption.
+        Solving the <strong>$450B boondoggle</strong> between<br>
+        media measurement designed for the <strong>“Seinfeld era,”</strong><br>
+        and<br>
+        media consumption habits of the <strong>“Joe Rogan era.”</strong>
       </p>
     </div>
 
@@ -186,10 +196,13 @@ section {
 
 </section>
 
+<!-- SLIDE 2 (placeholder to demonstrate snap) -->
+<section class="slide">
+  <!-- next slide content goes here -->
+</section>
+
 </body>
 </html>
-
-
 
   
 </section>
@@ -685,6 +698,7 @@ section {
 
 </body>
 </html>
+
 
 
 
