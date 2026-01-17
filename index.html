@@ -9,10 +9,8 @@
 
 <style>
 :root {
-  /* Farrow & Ball–inspired blues */
   --fb-deep-blue: #1F2A33;
   --fb-soft-white: #F3F1EC;
-  --fb-warm-stone: #E2DED5;
   --fb-blue-accent: #6E7F8D;
 }
 
@@ -24,56 +22,48 @@
 
 body {
   font-family: 'Inter', sans-serif;
-  background: var(--fb-soft-white);
-  color: var(--fb-deep-blue);
+  background: var(--fb-deep-blue);
+  color: var(--fb-soft-white);
   overflow: hidden;
 }
 
 section {
   height: 100vh;
   width: 100vw;
-  padding: 60px 80px;
   display: flex;
-  justify-content: flex-start;
   align-items: center;
-}
-
-.dark {
-  background: var(--fb-deep-blue);
-  color: var(--fb-soft-white);
+  justify-content: flex-start;
 }
 
 .content-box {
-  width: 100%;
   max-width: 1400px;
-  padding: 0 100px;
+  padding-left: 80px;     /* ← moved LEFT */
+  padding-top: 26vh;     /* ↑ moved UP */
 }
 
 /* ---- TITLE (SMALLER) ---- */
 .hero-title-single {
   font-family: 'Playfair Display', serif;
-  font-size: 4.6rem;
+  font-size: 4.1rem;     /* smaller */
   font-weight: 600;
   line-height: 1.08;
   letter-spacing: -0.015em;
-  color: var(--fb-soft-white);
+  margin-bottom: 38px;
   white-space: nowrap;
-  margin-bottom: 45px;
 }
 
 /* ---- HERO HOOK ---- */
 .hero-hook {
-  border-left: 3px solid var(--fb-blue-accent);
-  padding: 10px 0 10px 40px;
-  margin-bottom: 12vh;
+  border-left: 2px solid var(--fb-blue-accent);
+  padding-left: 28px;
+  margin-bottom: 9vh;
 }
 
 .hero-hook p {
-  font-size: 1.35rem;
-  letter-spacing: 0.03em;
-  line-height: 1.6;
-  max-width: 1000px;
-  opacity: 0.95;
+  font-size: 1.25rem;
+  line-height: 1.55;
+  max-width: 980px;
+  opacity: 0.9;
 }
 
 .hero-hook strong {
@@ -81,77 +71,71 @@ section {
   font-weight: 600;
 }
 
-/* ---- QUOTE (SMALLER + MOVED UP) ---- */
+/* ---- QUOTE (SMALLER, ONE LINE) ---- */
 .quote-block {
-  margin-top: -80px;
-  max-width: 1100px;
+  margin-top: -40px;    /* ↑ moved UP */
 }
 
 .quote {
   font-family: 'Playfair Display', serif;
-  font-size: 1.7rem;
+  font-size: 1.4rem;    /* smaller */
   font-style: italic;
-  line-height: 1.55;
-  opacity: 0.8;
-  margin-bottom: 28px;
+  line-height: 1.4;
+  opacity: 0.75;
+  margin-bottom: 18px;
+  white-space: nowrap;  /* forces one line */
 }
 
 .quote-meta {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 16px;
 }
 
 .quote-line {
-  width: 80px;
-  height: 2px;
+  width: 60px;
+  height: 1.5px;
   background: var(--fb-blue-accent);
-  opacity: 0.9;
+  opacity: 0.8;
 }
 
 .quote-author {
   text-transform: uppercase;
   letter-spacing: 3px;
-  font-size: 0.7rem;
-  font-weight: 600;
+  font-size: 0.65rem;
   color: var(--fb-blue-accent);
 }
 
 .quote-author span {
-  opacity: 0.5;
-  font-weight: 300;
-  margin-left: 15px;
+  opacity: 0.45;
+  margin-left: 10px;
   text-transform: none;
-  letter-spacing: 0.5px;
 }
 
-/* ---- FOOTER ---- */
+/* ---- FOOTER (UNCHANGED) ---- */
 .footer {
   position: absolute;
   bottom: 60px;
   right: 100px;
-  text-align: right;
 }
 
 .footer p {
   text-transform: uppercase;
   letter-spacing: 6px;
   font-size: 0.7rem;
-  font-weight: 600;
   color: var(--fb-blue-accent);
 }
 
 .footer span {
   opacity: 0.4;
-  font-weight: 300;
-  margin-left: 20px;
+  margin-left: 18px;
 }
 </style>
 </head>
 
 <body>
 
-<section class="dark" style="position: relative; padding-top: 32vh;">
+<section>
 
   <div class="content-box">
 
@@ -694,6 +678,7 @@ section {
 
 </body>
 </html>
+
 
 
 
