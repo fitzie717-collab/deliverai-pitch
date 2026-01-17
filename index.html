@@ -9,9 +9,16 @@
 
 <style>
 :root {
-  --fb-deep-blue: #1F2A33;
-  --fb-soft-white: #F3F1EC;
-  --fb-blue-accent: #6E7F8D;
+  /* Background */
+  --ink-blue: #1E2A33;
+
+  /* Text */
+  --oxford-stone: #E6DFD3;   /* warm tan (not white) */
+  --soft-stone: #CFC7BB;
+
+  /* Accents (lighter, clearer blues) */
+  --steel-blue: #8FA3B5;
+  --rule-blue: #7C92A6;
 }
 
 * {
@@ -22,80 +29,79 @@
 
 body {
   font-family: 'Inter', sans-serif;
-  background: var(--fb-deep-blue);
-  color: var(--fb-soft-white);
+  background: var(--ink-blue);
+  color: var(--oxford-stone);
   overflow: hidden;
 }
 
 section {
   height: 100vh;
   width: 100vw;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
+  position: relative;
 }
 
 .content-box {
   max-width: 1400px;
-  padding-left: 80px;     /* ← moved LEFT */
-  padding-top: 26vh;     /* ↑ moved UP */
+  padding-left: 70px;     /* slightly more left */
+  padding-top: 23vh;     /* pulled UP toward center */
 }
 
-/* ---- TITLE (SMALLER) ---- */
+/* ---- TITLE ---- */
 .hero-title-single {
   font-family: 'Playfair Display', serif;
-  font-size: 4.1rem;     /* smaller */
+  font-size: 3.9rem;     /* smaller */
   font-weight: 600;
-  line-height: 1.08;
+  line-height: 1.1;
   letter-spacing: -0.015em;
-  margin-bottom: 38px;
+  margin-bottom: 36px;
   white-space: nowrap;
+  color: var(--oxford-stone);
 }
 
 /* ---- HERO HOOK ---- */
 .hero-hook {
-  border-left: 2px solid var(--fb-blue-accent);
-  padding-left: 28px;
-  margin-bottom: 9vh;
+  border-left: 2px solid var(--rule-blue);
+  padding-left: 26px;
+  margin-bottom: 8vh;
 }
 
 .hero-hook p {
-  font-size: 1.25rem;
-  line-height: 1.55;
+  font-size: 1.2rem;
+  line-height: 1.6;
   max-width: 980px;
-  opacity: 0.9;
+  color: var(--soft-stone);
 }
 
 .hero-hook strong {
-  color: var(--fb-blue-accent);
+  color: var(--steel-blue);
   font-weight: 600;
 }
 
-/* ---- QUOTE (SMALLER, ONE LINE) ---- */
+/* ---- QUOTE (UNCHANGED POSITION) ---- */
 .quote-block {
-  margin-top: -40px;    /* ↑ moved UP */
+  margin-top: -35px;
 }
 
 .quote {
   font-family: 'Playfair Display', serif;
-  font-size: 1.4rem;    /* smaller */
+  font-size: 1.35rem;
   font-style: italic;
-  line-height: 1.4;
-  opacity: 0.75;
-  margin-bottom: 18px;
-  white-space: nowrap;  /* forces one line */
+  line-height: 1.45;
+  opacity: 0.8;
+  margin-bottom: 16px;
+  white-space: nowrap;
 }
 
 .quote-meta {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 14px;
 }
 
 .quote-line {
-  width: 60px;
+  width: 56px;
   height: 1.5px;
-  background: var(--fb-blue-accent);
+  background: var(--rule-blue);
   opacity: 0.8;
 }
 
@@ -103,11 +109,11 @@ section {
   text-transform: uppercase;
   letter-spacing: 3px;
   font-size: 0.65rem;
-  color: var(--fb-blue-accent);
+  color: var(--steel-blue);
 }
 
 .quote-author span {
-  opacity: 0.45;
+  opacity: 0.5;
   margin-left: 10px;
   text-transform: none;
 }
@@ -123,7 +129,7 @@ section {
   text-transform: uppercase;
   letter-spacing: 6px;
   font-size: 0.7rem;
-  color: var(--fb-blue-accent);
+  color: var(--steel-blue);
 }
 
 .footer span {
@@ -147,9 +153,9 @@ section {
     <!-- HOOK -->
     <div class="hero-hook">
       <p>
-        Solving the <strong>$450B mismatch</strong> between media measurement designed
-        for the <strong>“Seinfeld era”</strong> and the modern
-        <strong>“Joe Rogan era”</strong> of media consumption.
+        Solving the <strong>$450B mismatch</strong> between media measurement designed for the
+        <strong>“Seinfeld era,”</strong><br>
+        and the modern <strong>“Joe Rogan era”</strong> of media consumption.
       </p>
     </div>
 
@@ -182,6 +188,7 @@ section {
 
 </body>
 </html>
+
 
 
   
@@ -678,6 +685,7 @@ section {
 
 </body>
 </html>
+
 
 
 
