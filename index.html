@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>DeliverAI | Harvard Innovation Labs Pitch</title>
+<title>DeliverAI | Harvard Innovation Labs Submission</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
@@ -16,6 +16,7 @@
   --gold-leaf: #C5A059;       /* Gold Leaf */
 }
 
+/* 1. SCROLL SNAPPING CORE */
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-snap-type: y mandatory; scroll-behavior: smooth; }
 
@@ -48,25 +49,37 @@ section.slide {
     justify-content: center;
 }
 
-h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 6vw, 4.2rem); line-height: 1.1; font-weight: 400; letter-spacing: -0.01em; }
-h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3.5vw, 2.8rem); line-height: 1.2; font-weight: 400; margin-bottom: 20px; }
-h4 { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 4px; font-weight: 700; margin-bottom: 10px; color: var(--gold-leaf); }
+/* 2. TYPOGRAPHY SYSTEM */
+h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 6vw, 4.8rem); line-height: 1.05; font-weight: 400; letter-spacing: -0.01em; }
+h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3.5vw, 3rem); line-height: 1.1; font-weight: 400; margin-bottom: 20px; }
 
-.problem-heading-yellow {
+.header-bold-yellow {
     font-family: 'Inter', sans-serif;
-    font-weight: 700;
+    font-weight: 800;
     color: var(--gold-leaf);
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 0.15em;
     font-size: 0.75rem;
-    margin-bottom: 15px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.header-bold-blue {
+    font-family: 'Inter', sans-serif;
+    font-weight: 800;
+    color: var(--hague-blue);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 0.75rem;
     display: block;
 }
 
+/* 3. BACKGROUNDS */
 .bg-olive { background: var(--bancha); color: var(--pointing); }
 .bg-school { background: var(--school-house); color: var(--hague-blue); }
 .bg-hague { background: var(--hague-blue); color: var(--pointing); }
 
+/* 4. DATA COMPONENTS */
 .market-stats-container {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -75,232 +88,284 @@ h4 { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 4px; font-wei
   padding: 30px 0;
   margin: 20px 0 30px 0;
 }
-.stat-box h3 { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 400; line-height: 1; margin: 0; }
+.stat-box h3 { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 2.5vw, 3rem); font-weight: 400; line-height: 1; margin: 0; }
 .stat-box p { font-size: 0.6rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 700; margin-top: 12px; color: var(--gold-leaf); }
 
-.spine-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; margin-bottom: 4vh; }
-.spine-item .serif-num { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.8rem; color: var(--gold-leaf); display: block; margin-bottom: 8px; }
-.spine-item .p-title { font-weight: 800; text-transform: uppercase; letter-spacing: 0.12em; font-size: 0.65rem; color: var(--hague-blue); margin-bottom: 10px; display: block; }
-.spine-item .p-desc { font-size: 0.6rem; line-height: 1.5; opacity: 0.9; }
+.voc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px 60px; margin-top: 20px; }
+.voc-quote { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.1rem; line-height: 1.5; margin-bottom: 8px; }
 
-.table-wrap { width: 100%; overflow-x: auto; }
-.editorial-table { width: 100%; border-collapse: collapse; min-width: 1000px; }
-.editorial-table th { padding: 12px; text-align: left; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--hague-blue); border-bottom: 2px solid var(--gold-leaf); font-weight: 800; }
-.editorial-table td { padding: 15px 12px; vertical-align: top; font-size: 0.65rem; line-height: 1.5; border-bottom: 1px solid rgba(47, 60, 72, 0.12); }
-.col-highlight { background-color: rgba(255, 255, 255, 0.5); border-left: 1px solid rgba(197, 160, 89, 0.2); border-right: 1px solid rgba(197, 160, 89, 0.2); }
+.spine-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; margin-bottom: 4vh; }
+.spine-item .serif-num { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.8rem; color: var(--gold-leaf); display: block; margin-bottom: 5px; }
+
+.table-wrap { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.editorial-table { width: 100%; border-collapse: collapse; min-width: 1100px; }
+.editorial-table th { padding: 12px; text-align: left; border-bottom: 2px solid var(--gold-leaf); }
+.editorial-table td { padding: 18px 12px; vertical-align: top; font-size: 0.78rem; border-bottom: 1px solid rgba(47, 60, 72, 0.1); }
+.col-highlight { background-color: rgba(255, 255, 255, 0.5); border-left: 1px solid rgba(197, 160, 89, 0.15); border-right: 1px solid rgba(197, 160, 89, 0.15); }
 
 .footer-mark {
-  padding: 20px 0;
-  display: flex;
-  justify-content: flex-end;
+  position: absolute;
+  bottom: 40px;
+  right: 7%;
   font-size: 0.55rem;
   letter-spacing: 4px;
   font-weight: 700;
   opacity: 0.5;
   text-transform: uppercase;
-  margin-top: auto;
 }
 </style>
 </head>
 
 <body>
 
-<!-- 1. TITLE / VISION -->
+<!-- SLIDE 1: HERO / VISION -->
 <section class="slide bg-olive">
   <div class="content-wrapper">
-    <h4>DeliverAI Strategy</h4>
-    <h1>The Content Mix Model OS™<br><i>The End of the Fragmented Stack</i></h1>
+    <h4 class="header-bold-yellow">The Future of Marketing</h4>
+    <h1>Content Mix Model™<br><i style="font-weight: 400;">Desktop Agency Operating System</i></h1>
     
-    <div style="border-left: 2px solid var(--gold-leaf); padding-left: 30px; margin: 40px 0;">
-      <p style="font-size: clamp(1.2rem, 2vw, 1.6rem); max-width: 950px; font-weight: 300; line-height: 1.4; color: var(--pointing);">
-        Solving the <span style="font-weight: 600; color: white;">$450B market inefficiency</span> of legacy media orthodoxies by building the first deterministic "Operating System" for modern consumption.
+    <div style="border-left: 2px solid var(--gold-leaf); padding-left: 30px; margin: 40px 0; max-width: 900px;">
+      <p style="font-size: clamp(1.1rem, 2vw, 1.5rem); font-weight: 300; line-height: 1.4;">
+        Solving the <span style="font-weight: 700; color: white;">$1 Trillion boondoggle</span> of “Seinfeld-era” media orthodoxies applied to “Joe Rogan-era” media consumption.
       </p>
     </div>
 
-    <div style="max-width: 800px; margin-top: 10px;">
-      <p style="font-size: 0.75rem; font-weight: 700; letter-spacing: 3px; color: var(--gold-leaf);">
+    <div style="max-width: 800px; margin-top: 10vh;">
+      <p style="font-family: 'Playfair Display', serif; font-style: italic; font-size: 0.85rem; color: var(--gold-leaf); letter-spacing: 1px;">
         “To change something, build a new model that makes the existing model obsolete.”
-        <br><span style="opacity: 0.6; font-weight: 400; color: var(--pointing);">BUCKMINSTER FULLER | SYSTEMS THEORIST</span>
+      </p>
+      <p class="header-bold-yellow" style="font-size: 0.65rem; margin-top: 10px;">
+        BUCKMINSTER FULLER <span style="opacity: 0.6; font-weight: 400; color: white;">| SYSTEMS THEORIST</span>
       </p>
     </div>
   </div>
-  <div class="footer-mark">SLIDE 01 | EXECUTIVE SUMMARY</div>
+  <div class="footer-mark">DELIVERAI SOLUTIONS &nbsp;|&nbsp; PATENT PENDING</div>
 </section>
 
-<!-- 2. PROBLEM & CUSTOMER (JUDGING CRITERIA 1) -->
+<!-- SLIDE 2: PROBLEM & CUSTOMER VALIDATION (Criteria 1) -->
 <section class="slide bg-school">
   <div class="content-wrapper">
-    <h4>01. Problem & Customer Definition</h4>
-    <h2>The measurement regression:<br>Technology exploded, clarity vanished.</h2>
+    <h4 class="header-bold-yellow">01. Problem & Customer Definition</h4>
+    <h2 style="color: var(--hague-blue)">The marketing ecosystem has exploded,<br>yet basic functions are unachievable.</h2>
 
     <div class="market-stats-container">
-      <div class="stat-box"><h3>$1.08T</h3><p>Total Ad Market</p></div>
-      <div class="stat-box"><h3>15,000+</h3><p>Fragmented Tools</p></div>
+      <div class="stat-box"><h3>$1.08T</h3><p>Global Total Spend</p></div>
+      <div class="stat-box"><h3>15,000+</h3><p>MarTech Solutions</p></div>
       <div class="stat-box"><h3>31%</h3><p>Budget to "Tech-Tax"</p></div>
-      <div class="stat-box"><h3>42%</h3><p>CFO Waste Estimate</p></div>
+      <div class="stat-box"><h3>$450B</h3><p>Annual Market Waste</p></div>
     </div>
 
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px;">
-      <div style="background: rgba(47, 60, 72, 0.03); padding: 30px; border-left: 3px solid var(--hague-blue);">
-        <span class="problem-heading-yellow" style="color: var(--hague-blue);">The Target Customer</span>
-        <p style="font-size: 0.85rem; font-weight: 600; margin-bottom: 10px;">Enterprise & High-Growth Advertisers ($10M - $1B Spend)</p>
-        <p style="font-size: 0.75rem; opacity: 0.8;">Marketers trapped between legacy MMM agencies (too slow) and platform dashboards (self-reporting bias).</p>
+    <div class="voc-grid">
+      <div class="voc-item">
+        <span class="header-bold-yellow">Inability to Prove Brand Value</span>
+        <p class="voc-quote">“My CFO only wants conversion ads. If I could understand how brand perception drives sales, that would be our holy grail.”</p>
+        <p class="header-bold-blue" style="font-size: 0.55rem; opacity: 0.7;">VP, PAID MEDIA · GLOBAL B2C HOSPITALITY</p>
       </div>
-      <div>
-        <span class="problem-heading-yellow">Direct Customer Feedback</span>
-        <p style="font-family: 'Playfair Display', serif; font-style: italic; font-size: 1rem; line-height: 1.4;">
-            "We spend seven figures on measurement and get reports 90 days after the money is gone. We are flying blind in real-time." 
-        </p>
-        <p style="font-size: 0.6rem; font-weight: 700; margin-top: 10px;">— MEASUREMENT LEAD, TOP 5 US RETAILER</p>
+      <div class="voc-item">
+        <span class="header-bold-yellow">High Barriers to Expansion</span>
+        <p class="voc-quote">“I want to expand into out-of-home and podcasts, but I assume I need a Big 4 agency — so I don’t.”</p>
+        <p class="header-bold-blue" style="font-size: 0.55rem; opacity: 0.7;">HEAD OF GROWTH · B2C FINTECH UNICORN</p>
+      </div>
+      <div class="voc-item">
+        <span class="header-bold-yellow">Creative Efficacy Gaps</span>
+        <p class="voc-quote">“I pay $5M a year for an endorsement and have no idea if it produces any ROI.”</p>
+        <p class="header-bold-blue" style="font-size: 0.55rem; opacity: 0.7;">HEAD OF PAID MEDIA · B2C, GAMING</p>
+      </div>
+      <div class="voc-item">
+        <span class="header-bold-yellow">Antiquated Data Velocity</span>
+        <p class="voc-quote">“We spend seven figures on MMM and get results 90 days after the quarter ends. We leave meetings shaking our heads.”</p>
+        <p class="header-bold-blue" style="font-size: 0.55rem; opacity: 0.7;">MEASUREMENT LEAD · TOP US RETAILER</p>
       </div>
     </div>
   </div>
-  <div class="footer-mark">SLIDE 02 | PROBLEM VALIDATION</div>
+  <div class="footer-mark">DELIVERAI SOLUTIONS &nbsp;|&nbsp; PATENT PENDING</div>
 </section>
 
-<!-- 3. SOLUTION / PRODUCT (JUDGING CRITERIA 2) -->
+<!-- SLIDE 3: SOLUTION & MVP (Criteria 2) -->
 <section class="slide">
-  <div class="content-wrapper">
-    <h4>02. Solution / Product / MVP</h4>
-    <h2 style="color: var(--hague-blue); margin-bottom: 10px;">The Deterministic Identity Spine™</h2>
-    <p style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 600; margin-bottom: 5vh;">A Customer-Driven Utility Patent-Pending Technology</p>
+    <div class="content-wrapper">
+        <h4 class="header-bold-yellow">02. Solution / Product / MVP</h4>
+        <h2 style="color: var(--hague-blue)">The Content Mix Model OS™</h2>
+        <p style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.3em; font-weight: 600; opacity: 0.8; margin-bottom: 4vh;">Patent-Pending Deterministic Identity Resolution Backbone</p>
 
-    <div class="spine-grid">
-      <div class="spine-item"><span class="serif-num">01</span><span class="p-title">Identify</span><p class="p-desc">Persistent unique IDs for every creative asset.</p></div>
-      <div class="spine-item"><span class="serif-num">02</span><span class="p-title">Expose</span><p class="p-desc">S2S capture across Podcast, OOH, and Social.</p></div>
-      <div class="spine-item"><span class="serif-num">03</span><span class="p-title">Match</span><p class="p-desc">Deterministic resolution via device graphs.</p></div>
-      <div class="spine-item"><span class="serif-num">04</span><span class="p-title">Attribute</span><p class="p-desc">ML linking outcomes to specific content.</p></div>
-      <div class="spine-item"><span class="serif-num">05</span><span class="p-title">Analyze</span><p class="p-desc">Creative DNA scoring for real-time ROI.</p></div>
-      <div class="spine-item"><span class="serif-num">06</span><span class="p-title">Scale</span><p class="p-desc">Autonomous media buying recommendations.</p></div>
+        <div style="border-top: 2px solid rgba(197, 160, 89, 0.4); padding-top: 15px; margin-bottom: 25px;">
+            <span class="header-bold-yellow">01. The Deterministic Identity Spine™</span>
+        </div>
+        
+        <div class="spine-grid">
+          <div class="spine-item"><span class="serif-num">01</span><span class="header-bold-blue">Identification</span><p style="font-size: 0.7rem;">Persistent unique IDs for every asset.</p></div>
+          <div class="spine-item"><span class="serif-num">02</span><span class="header-bold-blue">Exposure</span><p style="font-size: 0.7rem;">Capture device IDs via pixel/S2S.</p></div>
+          <div class="spine-item"><span class="serif-num">03</span><span class="header-bold-blue">Match</span><p style="font-size: 0.7rem;">Deterministic matching via verified ID graphs.</p></div>
+          <div class="spine-item"><span class="serif-num">04</span><span class="header-bold-blue">Attribution</span><p style="font-size: 0.7rem;">ML assigns outcomes to specific content.</p></div>
+          <div class="spine-item"><span class="serif-num">05</span><span class="header-bold-blue">Outcome</span><p style="font-size: 0.7rem;">Measure brand lift tied to Creative DNA.</p></div>
+          <div class="spine-item"><span class="serif-num">06</span><span class="header-bold-blue">Optimization</span><p style="font-size: 0.7rem;">Actionable real-time media buy plans.</p></div>
+        </div>
+
+        <div style="border-top: 2px solid rgba(197, 160, 89, 0.4); padding-top: 15px; margin-bottom: 25px;">
+            <span class="header-bold-yellow">02. Strategic Displacement Logic (Voice of Customer Driven)</span>
+        </div>
+
+        <div class="table-wrap">
+          <table class="editorial-table">
+            <thead>
+              <tr class="header-bold-blue">
+                <th>Critical Problem</th>
+                <th>Foundational Gap</th>
+                <th>Legacy State</th>
+                <th class="col-highlight">Content Mix Model™</th>
+                <th>The Benefit</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="header-bold-yellow">Inability to Prove Brand Value</td>
+                <td class="header-bold-blue" style="font-size: 0.7rem;">Brand-to-Sales Link</td>
+                <td>Siloed perception surveys.</td>
+                <td class="col-highlight"><b>Habitual surveying</b> of IDs to tie exposures to brand shifts.</td>
+                <td>Quantify pipeline and future sales.</td>
+              </tr>
+              <tr>
+                <td class="header-bold-yellow">High Barriers to Expansion</td>
+                <td class="header-bold-blue" style="font-size: 0.7rem;">Operational Portability</td>
+                <td>Reliance on fragmented agencies.</td>
+                <td class="col-highlight"><b>Agnostic Infrastructure:</b> Unified tracking for Podcast/OOH/Social.</td>
+                <td>Scale new channels without <b>agency tax</b>.</td>
+              </tr>
+              <tr>
+                <td class="header-bold-yellow">No Creative Insights</td>
+                <td class="header-bold-blue" style="font-size: 0.7rem;">Creative DNA</td>
+                <td>Isolated A/B testing.</td>
+                <td class="col-highlight"><b>AI Deconstruction:</b> Scoring 30+ signals per asset.</td>
+                <td>Know <b>exactly</b> what elements cause lifts.</td>
+              </tr>
+              <tr>
+                <td class="header-bold-yellow">No Aggregated View</td>
+                <td class="header-bold-blue" style="font-size: 0.7rem;">Insight Velocity</td>
+                <td>90-day report latency.</td>
+                <td class="col-highlight"><b>24h Reconciliation:</b> ID-level reconciliation daily.</td>
+                <td>Live optimization of audiences/plans.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+    </div>
+    <div class="footer-mark">DELIVERAI SOLUTIONS &nbsp;|&nbsp; PATENT PENDING</div>
+</section>
+
+<!-- SLIDE 4: BUSINESS MODEL (Criteria 3) -->
+<section class="slide bg-school">
+  <div class="content-wrapper">
+    <h4 class="header-bold-yellow">03. Business Model & Economics</h4>
+    <h2 style="color: var(--hague-blue)">Capital & Operational Efficiency.</h2>
+    
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-bottom: 4vh; border-bottom: 1px solid rgba(0,0,0,0.1); padding-bottom: 4vh;">
+        <div>
+            <span class="header-bold-yellow">Economic Displacement</span>
+            <p style="font-size: 0.85rem;">Eliminates <b>$1.2M+</b> in annual legacy MMM agency fees and consolidates 31% redundant MarTech spend.</p>
+        </div>
+        <div>
+            <span class="header-bold-yellow">Human Capital Reclaim</span>
+            <p style="font-size: 0.85rem;">Reclaims <b>400+ hours monthly</b> currently lost to manual data reconciliation and agency "Excel-to-Slide" cycles.</p>
+        </div>
     </div>
 
     <div class="table-wrap">
-        <span class="problem-heading-yellow">From Feedback to Feature</span>
       <table class="editorial-table">
         <thead>
-          <tr>
-            <th>What We Heard (Friction)</th>
-            <th>What We Built (MVP)</th>
-            <th>Validation Result</th>
+          <tr class="header-bold-blue">
+            <th>Tier / Segment</th>
+            <th>Focus</th>
+            <th class="col-highlight">Core Inclusion</th>
+            <th>Investment (Monthly)</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td style="font-style: italic;">"MMM reports have a 90-day lag."</td>
-            <td><b>24h Data Spine</b></td>
-            <td>Real-time daily optimization cycles.</td>
+            <td class="header-bold-yellow">High Growth</td>
+            <td>Creative DNA</td>
+            <td class="col-highlight">Measurement Analysis + AI Deconstruction.</td>
+            <td><b>$10k – $25k</b></td>
           </tr>
           <tr>
-            <td style="font-style: italic;">"We can't measure Podcast ROI."</td>
-            <td><b>Deterministic Audio Captures</b></td>
-            <td>1:1 attribution for offline audio.</td>
+            <td class="header-bold-yellow">Mid-Size</td>
+            <td>Scaling Channels</td>
+            <td class="col-highlight">Activation Layer + Unified Podcast/OOH Tracking.</td>
+            <td><b>$25k – $50k</b></td>
           </tr>
           <tr>
-            <td style="font-style: italic;">"Agencies charge a 15% service tax."</td>
-            <td><b>Unified Buying UI</b></td>
-            <td>Bypassing agency headcount for execution.</td>
+            <td class="header-bold-yellow">Global Enterprise</td>
+            <td>Sovereign IP</td>
+            <td class="col-highlight">Predictive Planning + Client-Owned Environment.</td>
+            <td><b>$75k+</b></td>
           </tr>
         </tbody>
       </table>
     </div>
   </div>
-  <div class="footer-mark">SLIDE 03 | PRODUCT MARKET FIT</div>
+  <div class="footer-mark">DELIVERAI SOLUTIONS &nbsp;|&nbsp; PATENT PENDING</div>
 </section>
 
-<!-- 4. BUSINESS MODEL (JUDGING CRITERIA 3) -->
-<section class="slide bg-school">
-  <div class="content-wrapper">
-    <h4>03. Business Model & Path to Profit</h4>
-    <h2>High-Velocity Unit Economics.</h2>
-
-    <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 60px; margin-top: 30px;">
-        <div>
-            <span class="problem-heading-yellow">Sustainable Revenue Streams</span>
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px;">
-                <div style="border-left: 2px solid var(--gold-leaf); padding-left: 15px;">
-                    <h3 style="font-size: 1.1rem; font-weight: 700;">Take-Rate (Execution)</h3>
-                    <p style="font-size: 0.75rem;">2–5% of managed spend through autonomous IO buying.</p>
-                </div>
-                <div style="border-left: 2px solid var(--gold-leaf); padding-left: 15px;">
-                    <h3 style="font-size: 1.1rem; font-weight: 700;">SaaS Subscription</h3>
-                    <p style="font-size: 0.75rem;">$25k–$75k/mo license for the Identity Spine environment.</p>
-                </div>
-            </div>
-        </div>
-        <div style="background: rgba(47, 60, 72, 0.05); padding: 25px; border-left: 4px solid var(--hague-blue);">
-            <span class="header-bold-blue" style="font-weight: 800; font-size: 0.7rem; text-transform: uppercase;">Competitive Moat</span>
-            <p style="font-size: 0.75rem; margin-top: 10px; line-height: 1.5;"><b>Data Gravity:</b> Compounding "Creative DNA" performance history makes switching costs prohibitive once embedded.</p>
-        </div>
-    </div>
-
-    <div style="margin-top: 5vh; border-top: 1px solid rgba(0,0,0,0.1); padding-top: 3vh;">
-        <p style="font-size: 0.8rem; font-weight: 700;">Path to Profitability:</p>
-        <p style="font-size: 0.75rem; opacity: 0.8;">High LTV/CAC ratio driven by displacing multi-million dollar legacy MMM contracts. Unit economics scale with client media spend, not headcount.</p>
-    </div>
-  </div>
-  <div class="footer-mark">SLIDE 04 | SCALABILITY</div>
-</section>
-
-<!-- 5. HIGH POTENTIAL / IMPACT (JUDGING CRITERIA 4) -->
+<!-- SLIDE 5: HIGH POTENTIAL (Criteria 4) -->
 <section class="slide bg-hague">
     <div class="content-wrapper">
-        <h4>04. High Potential & Impact</h4>
-        <h1 style="color: white;">The "Un-Stack" Vision:<br><i>Reclaiming $450B in Human Potential</i></h1>
+        <h4 class="header-bold-yellow">04. High Potential & Systemic Impact</h4>
+        <h1 style="color: white;">The "Un-Stack" Vision:<br><i>Reclaiming $450B in Potential</i></h1>
+        <p style="font-size: 1.3rem; font-weight: 300; max-width: 850px; margin-top: 20px;">DeliverAI is the end of the fragmented tool era. By collapsing execution and measurement into one spine, we allow capital to flow back to innovation.</p>
         
         <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 50px;">
             <div style="border: 1px solid rgba(255,255,255,0.2); padding: 30px;">
-                <h3 style="color: var(--gold-leaf); font-family: 'Playfair Display'; font-size: 2.5rem;">91+</h3>
-                <p style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: white;">Fragmented Tools Displaced</p>
-                <p style="font-size: 0.65rem; color: white; opacity: 0.7; margin-top: 10px;">Simplifying the work of thousands of marketers.</p>
+                <h3 style="color: var(--gold-leaf); font-family: 'Playfair Display'; font-size: 3rem;">91+</h3>
+                <p class="header-bold-yellow" style="color: white; font-size: 0.6rem;">Tools Displaced</p>
+                <p style="font-size: 0.75rem; opacity: 0.8; margin-top: 10px;">Consolidating the average enterprise marketing stack into one OS.</p>
             </div>
             <div style="border: 1px solid rgba(255,255,255,0.2); padding: 30px;">
-                <h3 style="color: var(--gold-leaf); font-family: 'Playfair Display'; font-size: 2.5rem;">400+</h3>
-                <p style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: white;">Monthly Hours Reclaimed</p>
-                <p style="font-size: 0.65rem; color: white; opacity: 0.7; margin-top: 10px;">Ending the manual "Excel-to-Slide" reconciliation grind.</p>
+                <h3 style="color: var(--gold-leaf); font-family: 'Playfair Display'; font-size: 3rem;">$1B+</h3>
+                <p class="header-bold-yellow" style="color: white; font-size: 0.6rem;">Revenue Opportunity</p>
+                <p style="font-size: 0.75rem; opacity: 0.8; margin-top: 10px;">Capturing 0.5% of global media waste as high-margin recurring SaaS.</p>
             </div>
             <div style="border: 1px solid rgba(255,255,255,0.2); padding: 30px;">
-                <h3 style="color: var(--gold-leaf); font-family: 'Playfair Display'; font-size: 2.5rem;">$1B+</h3>
-                <p style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: white;">Revenue Potential</p>
-                <p style="font-size: 0.65rem; color: white; opacity: 0.7; margin-top: 10px;">Capturing 0.5% of the global media waste as high-margin SaaS.</p>
+                <h3 style="color: var(--gold-leaf); font-family: 'Playfair Display'; font-size: 3rem;">15.4%</h3>
+                <p class="header-bold-yellow" style="color: white; font-size: 0.6rem;">Efficiency Alpha</p>
+                <p style="font-size: 0.75rem; opacity: 0.8; margin-top: 10px;">Average lift in media performance via deterministic optimization.</p>
             </div>
-        </div>
-
-        <div style="margin-top: 5vh; border-left: 2px solid var(--gold-leaf); padding-left: 30px;">
-            <p style="font-size: 1rem; color: white; font-weight: 300; line-height: 1.6;">
-                <b>Systemic Impact:</b> By collapsing the tech-tax, DeliverAI enables businesses to reinvest capital into product innovation rather than redundant middleware, lowering consumer costs and accelerating market velocity.
-            </p>
         </div>
     </div>
-    <div class="footer-mark" style="color: white; opacity: 0.4;">SLIDE 05 | SYSTEMIC IMPACT</div>
+    <div class="footer-mark">MARKET IMPACT ANALYSIS 2026</div>
 </section>
 
-<!-- 6. TEAM -->
+<!-- SLIDE 6: TEAM & TRACTION -->
 <section class="slide bg-olive">
     <div class="content-wrapper">
-      <h4>05. The Team</h4>
-      <h2 style="color: white; margin-bottom: 30px;">Founder-Problem Fit: <i>Engineering the Impossible</i></h2>
-      <div class="table-wrap" style="margin-bottom: 4vh;">
+      <h4 class="header-bold-yellow" style="color: var(--gold-leaf)">05. Team & Execution</h4>
+      <h2 style="color: white;">Founder-Problem Fit: <i>Building the "Impossible"</i></h2>
+      <div class="table-wrap" style="margin-top: 20px;">
         <table class="editorial-table" style="color: white; border-color: rgba(255,255,255,0.2);">
           <thead>
             <tr style="border-bottom: 2px solid var(--gold-leaf);">
-              <th style="color: var(--gold-leaf);">Sector Background</th>
-              <th style="color: var(--gold-leaf);">Problem Experience</th>
-              <th style="color: var(--gold-leaf);">DeliverAI Execution</th>
+              <th class="header-bold-yellow" style="color: var(--gold-leaf);">Sector</th>
+              <th class="header-bold-yellow" style="color: var(--gold-leaf);">The Challenge</th>
+              <th class="header-bold-yellow" style="color: var(--gold-leaf);">Proven Execution</th>
             </tr>
           </thead>
           <tbody>
-            <tr><td><b>Audio Intelligence</b></td><td>Measured $100M+ in "untrackable" spend.</td><td>First enterprise ID-graph for Podcasts.</td></tr>
-            <tr><td><b>Applied ML (Harvard)</b></td><td>Academic rigor in attribution modeling.</td><td>30-signal Creative DNA deconstruction.</td></tr>
-            <tr><td><b>Fintech Ops</b></td><td>Built scalable infrastructure for Unicorns.</td><td>Deterministic Data Spine Architecture.</td></tr>
+            <tr><td><b>Audio Intelligence</b></td><td>"Podcasts cannot be measured."</td><td>Launched first enterprise ID-graph for top US podcasters.</td></tr>
+            <tr><td><b>Applied ML (Harvard)</b></td><td>"Brand cannot tie to sales."</td><td>Built creative-to-perception models for Goldman Sachs.</td></tr>
+            <tr><td><b>Fintech Ops</b></td><td>"The tech tax is inevitable."</td><td>Optimized $100M+ budgets for rapid-growth unicorns.</td></tr>
           </tbody>
         </table>
       </div>
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; background: rgba(255,255,255,0.05); padding: 30px; border-left: 4px solid var(--gold-leaf);">
-        <div><h4 style="color: white;">Our Why</h4><p style="color: var(--pointing); font-size: 0.8rem;">We have lived the friction of the $450B waste. We are building the solution we needed as operators.</p></div>
-        <div><h4 style="color: white;">The Roadmap</h4><p style="color: var(--pointing); font-size: 0.8rem;">[v1.4] Scaling enterprise pilots. [v2.0] Autonomous IO-buying engine launch.</p></div>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; background: rgba(255,255,255,0.05); padding: 30px; border-left: 4px solid var(--gold-leaf); margin-top: 4vh;">
+        <div>
+            <span class="header-bold-yellow" style="color: white;">Strategic Partners</span>
+            <p style="font-size: 0.75rem; opacity: 0.8;">Verified data integrations with <b>Transunion, Experian, and LiveRamp</b> for deterministic identity resolution.</p>
+        </div>
+        <div>
+            <span class="header-bold-yellow" style="color: white;">Mission</span>
+            <p style="font-size: 0.75rem; opacity: 0.8;">To transform marketing from a speculative cost-center into a self-optimizing growth engine.</p>
+        </div>
       </div>
     </div>
-    <div class="footer-mark" style="color: white;">SLIDE 06 | TEAM & EXECUTION</div>
+    <div class="footer-mark" style="color: white; opacity: 0.4;">HARVARD INNOVATION LABS 2026</div>
 </section>
 
 </body>
