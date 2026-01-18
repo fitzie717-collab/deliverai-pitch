@@ -8,12 +8,15 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
+/* =========================================================
+   FARROW & BALL ACADEMIC PALETTE
+   ========================================================= */
 :root {
-  --railings: #1D1F21;
-  --straw: #B69A68;
-  --shaded-white: #F9F7F2;
-  --stone-meta: #8E9396;
-  --rule-line: rgba(182, 154, 104, 0.25);
+  --bancha-olive: #4B4D3B;     /* Deep, sophisticated olive */
+  --tanners-brown: #3D3530;    /* Dark, rich brown for background */
+  --smoked-trout: #AF988E;     /* Muted, warm clay-pink for accents */
+  --off-white: #F1EFE8;        /* Soft paper tone for text */
+  --rule-line: rgba(175, 152, 142, 0.3);
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -21,109 +24,130 @@ html { scroll-snap-type: y mandatory; }
 
 body {
   font-family: 'Inter', sans-serif;
-  background: var(--railings);
-  color: var(--shaded-white);
+  background: var(--tanners-brown);
+  color: var(--off-white);
   line-height: 1.6;
-  overflow-x: hidden;
 }
 
+/* =========================================================
+   RESPONSIVE SLIDE STRUCTURE
+   ========================================================= */
 section.slide {
   height: 100vh;
   width: 100vw;
   scroll-snap-align: start;
   position: relative;
-  padding: 6vh 110px;
+  padding: 10vh 8%;
   display: flex;
   flex-direction: column;
+  justify-content: flex-start; /* Alignment handled by padding-top */
 }
 
-h1, h2, h3 { font-family: 'Playfair Display', serif; font-weight: 600; letter-spacing: -0.02em; }
+@media (max-width: 768px) {
+  section.slide { padding: 5vh 6%; justify-content: center; }
+  html { scroll-snap-type: none; } /* Better for mobile scrolling */
+}
+
+h1, h2 { font-family: 'Playfair Display', serif; font-weight: 600; letter-spacing: -0.02em; }
 
 .label-cap {
   text-transform: uppercase;
   letter-spacing: 5px;
   font-size: 0.7rem;
   font-weight: 600;
-  color: var(--straw);
+  color: var(--smoked-trout);
   margin-bottom: 20px;
   display: block;
 }
 
 /* =========================================================
-   SLIDE 1 — HERO
+   SLIDE 1 — HERO (DESKTOP LOWER POSITIONING)
    ========================================================= */
-.hero-block { padding-top: 25vh; }
-.hero-title { font-size: 5.8rem; line-height: 1; margin-bottom: 45px; }
-.hero-title span { font-size: 4.88rem; letter-spacing: 0.165em; text-transform: uppercase; color: var(--straw); display: block; }
-.hero-hook-border { border-left: 4px solid var(--straw); padding: 10px 0 10px 40px; margin-bottom: 12vh; }
-.hero-hook-border p { font-size: 1.4rem; max-width: 1100px; }
+.hero-block { padding-top: 28vh; }
+
+.hero-title { font-size: clamp(2.5rem, 6vw, 5.5rem); line-height: 1.1; margin-bottom: 40px; }
+.hero-title span { color: var(--bancha-olive); display: block; }
+
+.hero-hook-border { 
+  border-left: 3px solid var(--bancha-olive); 
+  padding: 10px 0 10px 30px; 
+  margin-bottom: 10vh; 
+}
+
+.hero-hook-border p { font-size: clamp(1rem, 2vw, 1.4rem); max-width: 900px; }
+
+@media (max-width: 768px) {
+  .hero-block { padding-top: 0; }
+  .hero-hook-border { margin-bottom: 5vh; }
+}
 
 /* =========================================================
-   SLIDE 2 — THE PROBLEM & VOC
+   SLIDE 2 — PROBLEM (VOC)
    ========================================================= */
+.problem-block { padding-top: 12vh; }
+
 .market-stats {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   margin-bottom: 40px;
-  padding-bottom: 25px;
+  padding-bottom: 20px;
   border-bottom: 1px solid var(--rule-line);
 }
 
-.stat-item h3 { font-size: 2.8rem; color: var(--straw); line-height: 1; }
-.stat-item p { font-size: 0.75rem; color: var(--stone-meta); text-transform: uppercase; letter-spacing: 2px; }
+.stat-item { flex: 1; min-width: 150px; margin-bottom: 20px; }
+.stat-item h3 { font-size: clamp(1.8rem, 4vw, 2.8rem); color: var(--bancha-olive); line-height: 1; }
+.stat-item p { font-size: 0.7rem; color: var(--smoked-trout); text-transform: uppercase; letter-spacing: 2px; }
 
 .voc-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 40px 60px;
+  gap: 30px 60px;
 }
 
-.voc-card { position: relative; }
+@media (max-width: 900px) {
+  .voc-grid { grid-template-columns: 1fr; }
+  .problem-block { padding-top: 2vh; }
+}
 
 .voc-card h4 {
-  font-size: 1.1rem;
+  font-size: 0.9rem;
   font-weight: 600;
-  color: var(--straw);
+  color: var(--bancha-olive);
   text-transform: uppercase;
   letter-spacing: 1px;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
 }
 
 .voc-quote {
   font-family: 'Playfair Display', serif;
   font-style: italic;
-  font-size: 1.25rem;
-  line-height: 1.45;
-  color: var(--shaded-white);
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
+  line-height: 1.5;
+  color: var(--off-white);
   margin-bottom: 15px;
-  opacity: 0.95;
+  opacity: 0.9;
 }
 
-.voc-meta {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-}
-
-.voc-line { width: 30px; height: 1px; background: var(--straw); opacity: 0.5; }
-
-.voc-author {
-  font-size: 0.7rem;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  color: var(--stone-meta);
-}
+.voc-meta { display: flex; align-items: center; gap: 15px; }
+.voc-line { width: 25px; height: 1px; background: var(--smoked-trout); }
+.voc-author { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 2px; color: var(--smoked-trout); }
 
 /* =========================================================
    FOOTER
    ========================================================= */
 .footer {
   position: absolute;
-  bottom: 50px;
-  right: 110px;
-  font-size: 0.7rem;
-  letter-spacing: 8px;
-  color: rgba(182, 154, 104, 0.6);
+  bottom: 40px;
+  right: 8%;
+  font-size: 0.6rem;
+  letter-spacing: 6px;
+  color: var(--smoked-trout);
+  opacity: 0.6;
+}
+
+@media (max-width: 768px) {
+  .footer { bottom: 20px; right: 0; width: 100%; text-align: center; letter-spacing: 3px; }
 }
 </style>
 </head>
@@ -133,25 +157,25 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; font-weight: 600; letter-sp
 <section class="slide">
   <div class="hero-block">
     <h1 class="hero-title">
-      Content Mix Model
-      Operating System™
+      Content Mix Model<br>
+      <span>Operating System™</span>
     </h1>
 
     <div class="hero-hook-border">
       <p>
-        Solving the <strong style="color:var(--straw)">$450B boondoggle</strong> of 
+        Solving the <strong style="color:var(--smoked-trout)">$450B boondoggle</strong> of 
         “Seinfeld era” media measurement applied to 
         <strong>“Joe Rogan era” media consumption.</strong>
       </p>
     </div>
 
-    <div style="max-width: 1000px;">
-      <p style="font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.8rem; opacity: 0.8; margin-bottom: 20px;">
+    <div style="max-width: 800px;">
+      <p style="font-family: 'Playfair Display', serif; font-style: italic; font-size: clamp(1.2rem, 3vw, 1.8rem); opacity: 0.8; margin-bottom: 20px;">
         “To change something, build a new model that makes the existing model obsolete.”
       </p>
       <div style="display:flex; align-items:center; gap:20px;">
-        <div style="width:60px; height:1px; background:var(--straw);"></div>
-        <span class="label-cap" style="margin-bottom:0; font-size:0.6rem; letter-spacing: 3px;">Buckminster Fuller | Global Systems Theorist</span>
+        <div style="width:40px; height:1px; background:var(--bancha-olive);"></div>
+        <span class="label-cap" style="margin-bottom:0; font-size:0.55rem;">Buckminster Fuller | Systems Theorist</span>
       </div>
     </div>
   </div>
@@ -159,46 +183,52 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; font-weight: 600; letter-sp
 </section>
 
 <section class="slide">
-  <span class="label-cap">The Problem</span>
-  <h2 style="font-size: 2.8rem; margin-bottom: 40px;">The marketing ecosystem has exploded, yet foundational operational problems remain unsolved.</h2>
+  <div class="problem-block">
+    <span class="label-cap">The Problem</span>
+    <h2 style="font-size: clamp(1.8rem, 4vw, 2.6rem); margin-bottom: 40px;">
+      The ecosystem has exploded—<br>operational problems remain.
+    </h2>
 
-  <div class="market-stats">
-    <div class="stat-item"><h3>$450B</h3><p>Global Ad Spend</p></div>
-    <div class="stat-item"><h3>15K+</h3><p>MarTech Solutions</p></div>
-    <div class="stat-item"><h3>31%</h3><p>Budget to Tech</p></div>
-  </div>
-
-  <div class="voc-grid">
-    
-    <div class="voc-card">
-      <h4>Inability to Prove Brand Value</h4>
-      <p class="voc-quote">“My CFO only wants me to spend on conversion ads. If I could understand how brand perception drives sales, that would be our holy grail.”</p>
-      <div class="voc-meta"><div class="voc-line"></div><span class="voc-author">VP, Paid Media · B2C Hospitality</span></div>
+    <div class="market-stats">
+      <div class="stat-item"><h3>$450B</h3><p>Global Ad Spend</p></div>
+      <div class="stat-item"><h3>15K+</h3><p>MarTech Solutions</p></div>
+      <div class="stat-item"><h3>31%</h3><p>Budget to Tech</p></div>
     </div>
 
-    <div class="voc-card">
-      <h4>Stalled Channel Expansion</h4>
-      <p class="voc-quote">“I want to expand into out-of-home and podcasts, but I assume I need a Big 4 agency — so I don’t.”</p>
-      <div class="voc-meta"><div class="voc-line"></div><span class="voc-author">Head of Growth · FinTech Unicorn</span></div>
-    </div>
+    <div class="voc-grid">
+      
+      <div class="voc-card">
+        <h4>Inability to Prove Brand Value</h4>
+        <p class="voc-quote">“My CFO only wants me to spend on conversion ads. If I could understand how brand perception drives sales, that would be our holy grail.”</p>
+        <div class="voc-meta"><div class="voc-line"></div><span class="voc-author">VP, Paid Media · B2C Hospitality</span></div>
+      </div>
 
-    <div class="voc-card">
-      <h4>Creative Efficacy Gaps</h4>
-      <p class="voc-quote">“I pay $5M a year for an endorsement and have no idea if it produces any ROI.”</p>
-      <div class="voc-meta"><div class="voc-line"></div><span class="voc-author">Head of Paid Media · Gaming</span></div>
-    </div>
+      <div class="voc-card">
+        <h4>Stalled Channel Expansion</h4>
+        <p class="voc-quote">“I want to expand into out-of-home and podcasts, but I assume I need a Big 4 agency — so I don’t.”</p>
+        <div class="voc-meta"><div class="voc-line"></div><span class="voc-author">Head of Growth · FinTech Unicorn</span></div>
+      </div>
 
-    <div class="voc-card">
-      <h4>Antiquated Data Velocity</h4>
-      <p class="voc-quote">“We spend seven figures on MMM and get the results months after the quarter ends.”</p>
-      <div class="voc-meta"><div class="voc-line"></div><span class="voc-author">Measurement Lead · Largest US Retailer</span></div>
-    </div>
+      <div class="voc-card">
+        <h4>Creative Efficacy Gaps</h4>
+        <p class="voc-quote">“I pay $5M a year for an endorsement and have no idea if it produces any ROI.”</p>
+        <div class="voc-meta"><div class="voc-line"></div><span class="voc-author">Head of Paid Media · Gaming</span></div>
+      </div>
 
+      <div class="voc-card">
+        <h4>Antiquated Data Velocity</h4>
+        <p class="voc-quote">“We spend seven figures on MMM and get the results months after the quarter ends.”</p>
+        <div class="voc-meta"><div class="voc-line"></div><span class="voc-author">Measurement Lead · Largest US Retailer</span></div>
+      </div>
+
+    </div>
   </div>
 
   <div class="footer">DELIVERAI SOLUTIONS &nbsp;|&nbsp; PATENT PENDING</div>
 </section>
 
+</body>
+</html>
 </body>
 </html>
 <section>
@@ -660,6 +690,7 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; font-weight: 600; letter-sp
 
 </body>
 </html>
+
 
 
 
