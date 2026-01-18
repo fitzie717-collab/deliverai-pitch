@@ -9,14 +9,14 @@
 
 <style>
 /* =========================================================
-   FARROW & BALL REFINED PALETTE
+   FARROW & BALL: LIBRARY & MOSS PALETTE
    ========================================================= */
 :root {
-  --french-grey: #919388;    /* The deep, stony green-grey background */
-  --bancha-olive: #4B4D3B;   /* The heavy, academic green for headers */
-  --biscuit: #E3D3B8;        /* The warm, high-end tan for text/rules */
-  --ink-accent: #2D3028;     /* Darker olive for depth */
-  --rule-line: rgba(227, 211, 184, 0.3);
+  --mouses-back: #9D9383;    /* The warm, muted taupe background */
+  --lichen: #5E6751;         /* The deep, mossy heritage green */
+  --corda: #E8E1D1;          /* Soft, weathered string color for text */
+  --aged-bronze: #4A453C;    /* Deep accent for primary titles */
+  --rule-line: rgba(74, 69, 60, 0.2);
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -24,14 +24,11 @@ html { scroll-snap-type: y mandatory; }
 
 body {
   font-family: 'Inter', sans-serif;
-  background: var(--french-grey);
-  color: var(--biscuit);
+  background: var(--mouses-back);
+  color: var(--corda);
   line-height: 1.6;
 }
 
-/* =========================================================
-   RESPONSIVE SLIDE STRUCTURE
-   ========================================================= */
 section.slide {
   height: 100vh;
   width: 100vw;
@@ -54,83 +51,82 @@ h1, h2 { font-family: 'Playfair Display', serif; font-weight: 600; letter-spacin
   letter-spacing: 5px;
   font-size: 0.7rem;
   font-weight: 600;
-  color: var(--bancha-olive);
+  color: var(--lichen);
   margin-bottom: 20px;
   display: block;
 }
 
 /* =========================================================
-   SLIDE 1 — HERO (Pushed Lower)
+   SLIDE 1 — VISION (Architectural Layout)
    ========================================================= */
-.hero-block { padding-top: 32vh; }
+.hero-block { padding-top: 30vh; }
 
 .hero-title { 
-    font-size: clamp(2.5rem, 6vw, 5.5rem); 
-    line-height: 1.1; 
-    margin-bottom: 40px; 
-    color: var(--ink-accent); 
+    font-size: clamp(2.5rem, 6vw, 5.2rem); 
+    line-height: 1.05; 
+    margin-bottom: 35px; 
+    color: var(--aged-bronze); 
 }
-.hero-title span { color: var(--bancha-olive); display: block; }
+.hero-title span { color: var(--lichen); display: block; }
 
 .hero-hook-border { 
-  border-left: 3px solid var(--bancha-olive); 
-  padding: 10px 0 10px 30px; 
+  border-left: 2px solid var(--lichen); 
+  padding: 8px 0 8px 35px; 
   margin-bottom: 12vh; 
 }
 
-.hero-hook-border p { font-size: clamp(1rem, 2vw, 1.4rem); max-width: 900px; color: var(--biscuit); }
+.hero-hook-border p { font-size: clamp(1rem, 2vw, 1.35rem); max-width: 950px; color: var(--aged-bronze); opacity: 0.9; }
 
 /* =========================================================
-   SLIDE 2 — PROBLEM (Well-Appointed Spacing)
+   SLIDE 2 — PROBLEM (Balanced Gallery Layout)
    ========================================================= */
-.problem-block { padding-top: 15vh; } /* Pushed lower for better visual weight */
+.problem-block { padding-top: 14vh; }
 
 .market-stats {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  margin-bottom: 50px;
-  padding-bottom: 25px;
-  border-bottom: 1px solid var(--rule-line);
+  margin-bottom: 55px;
+  padding-bottom: 30px;
+  border-bottom: 1.5px solid var(--rule-line);
 }
 
 .stat-item { flex: 1; min-width: 150px; }
-.stat-item h3 { font-size: clamp(1.8rem, 4vw, 2.8rem); color: var(--ink-accent); line-height: 1; }
-.stat-item p { font-size: 0.7rem; color: var(--bancha-olive); text-transform: uppercase; letter-spacing: 2px; font-weight: 600; }
+.stat-item h3 { font-size: clamp(1.8rem, 4vw, 3rem); color: var(--lichen); line-height: 1; margin-bottom: 8px;}
+.stat-item p { font-size: 0.65rem; color: var(--aged-bronze); text-transform: uppercase; letter-spacing: 2px; font-weight: 600; opacity: 0.7;}
 
 .voc-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 40px 80px;
+  gap: 45px 90px;
 }
 
 @media (max-width: 900px) {
   .voc-grid { grid-template-columns: 1fr; gap: 30px; }
-  .problem-block { padding-top: 5vh; }
+  .problem-block { padding-top: 4vh; }
 }
 
 .voc-card h4 {
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   font-weight: 600;
-  color: var(--bancha-olive);
+  color: var(--lichen);
   text-transform: uppercase;
   letter-spacing: 1.5px;
-  margin-bottom: 12px;
+  margin-bottom: 15px;
 }
 
 .voc-quote {
   font-family: 'Playfair Display', serif;
   font-style: italic;
-  font-size: clamp(1rem, 1.4vw, 1.15rem);
+  font-size: clamp(1rem, 1.4vw, 1.1rem);
   line-height: 1.6;
-  color: var(--biscuit);
-  margin-bottom: 15px;
-  opacity: 0.95;
+  color: var(--corda);
+  margin-bottom: 18px;
 }
 
 .voc-meta { display: flex; align-items: center; gap: 15px; }
-.voc-line { width: 30px; height: 1.5px; background: var(--bancha-olive); opacity: 0.6; }
-.voc-author { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 2px; color: var(--bancha-olive); font-weight: 600; }
+.voc-line { width: 40px; height: 1px; background: var(--lichen); opacity: 0.4; }
+.voc-author { font-size: 0.6rem; text-transform: uppercase; letter-spacing: 2px; color: var(--lichen); font-weight: 600; }
 
 /* =========================================================
    FOOTER
@@ -140,13 +136,9 @@ h1, h2 { font-family: 'Playfair Display', serif; font-weight: 600; letter-spacin
   bottom: 50px;
   right: 8%;
   font-size: 0.65rem;
-  letter-spacing: 7px;
-  color: var(--bancha-olive);
-  font-weight: 600;
-}
-
-@media (max-width: 768px) {
-  .footer { position: relative; bottom: 0; right: 0; padding: 40px 0; text-align: center; width: 100%; }
+  letter-spacing: 8px;
+  color: var(--lichen);
+  opacity: 0.8;
 }
 </style>
 </head>
@@ -162,19 +154,19 @@ h1, h2 { font-family: 'Playfair Display', serif; font-weight: 600; letter-spacin
 
     <div class="hero-hook-border">
       <p>
-        Solving the <strong style="color:var(--bancha-olive)">$450B boondoggle</strong> of 
+        Solving the <strong style="color:var(--lichen)">$450B boondoggle</strong> of 
         “Seinfeld era” media measurement applied to 
         <strong>“Joe Rogan era” media consumption.</strong>
       </p>
     </div>
 
-    <div style="max-width: 800px;">
-      <p style="font-family: 'Playfair Display', serif; font-style: italic; font-size: clamp(1.2rem, 2.5vw, 1.7rem); opacity: 0.9; margin-bottom: 25px; color: var(--biscuit);">
+    <div style="max-width: 850px;">
+      <p style="font-family: 'Playfair Display', serif; font-style: italic; font-size: clamp(1.2rem, 2.5vw, 1.6rem); color: var(--aged-bronze); margin-bottom: 30px;">
         “To change something, build a new model that makes the existing model obsolete.”
       </p>
-      <div style="display:flex; align-items:center; gap:20px;">
-        <div style="width:50px; height:1px; background:var(--bancha-olive);"></div>
-        <span class="label-cap" style="margin-bottom:0; font-size:0.6rem; color: var(--ink-accent);">Buckminster Fuller | Systems Theorist</span>
+      <div style="display:flex; align-items:center; gap:25px;">
+        <div style="width:60px; height:1px; background:var(--lichen);"></div>
+        <span class="label-cap" style="margin-bottom:0; font-size:0.6rem; color: var(--lichen);">Buckminster Fuller | Systems Theorist</span>
       </div>
     </div>
   </div>
@@ -183,9 +175,9 @@ h1, h2 { font-family: 'Playfair Display', serif; font-weight: 600; letter-spacin
 
 <section class="slide">
   <div class="problem-block">
-    <span class="label-cap" style="color: var(--ink-accent);">The Problem</span>
-    <h2 style="font-size: clamp(1.8rem, 4vw, 2.6rem); margin-bottom: 50px; color: var(--ink-accent);">
-      The ecosystem has exploded—<br>foundational failures remain.
+    <span class="label-cap">The Problem</span>
+    <h2 style="font-size: clamp(1.8rem, 4vw, 2.5rem); margin-bottom: 50px; color: var(--aged-bronze);">
+      The ecosystem has exploded—<br>operational problems remain.
     </h2>
 
     <div class="market-stats">
@@ -195,7 +187,6 @@ h1, h2 { font-family: 'Playfair Display', serif; font-weight: 600; letter-spacin
     </div>
 
     <div class="voc-grid">
-      
       <div class="voc-card">
         <h4>Inability to Prove Brand Value</h4>
         <p class="voc-quote">“My CFO only wants me to spend on conversion ads. If I could understand how brand perception drives sales, that would be our holy grail.”</p>
@@ -219,17 +210,11 @@ h1, h2 { font-family: 'Playfair Display', serif; font-weight: 600; letter-spacin
         <p class="voc-quote">“We spend seven figures on MMM and get the results months after the quarter ends.”</p>
         <div class="voc-meta"><div class="voc-line"></div><span class="voc-author">Measurement Lead · Largest US Retailer</span></div>
       </div>
-
     </div>
   </div>
-
   <div class="footer">DELIVERAI SOLUTIONS &nbsp;|&nbsp; PATENT PENDING</div>
 </section>
 
-</body>
-</html>
-</body>
-</html>
 </body>
 </html>
 <section>
@@ -691,6 +676,7 @@ h1, h2 { font-family: 'Playfair Display', serif; font-weight: 600; letter-spacin
 
 </body>
 </html>
+
 
 
 
