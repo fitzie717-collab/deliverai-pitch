@@ -9,7 +9,7 @@
 
 <style>
 :root {
-  /* Farrow & Ball Palette */
+  /* Farrow & Ball World Class Palette */
   --bancha: #4B4D3B;          /* Deep Olive */
   --hague-blue: #2F3C48;      /* Deep Teal */
   --mouses-back: #9D9383;     /* Warm Taupe */
@@ -40,17 +40,18 @@ section.slide {
   justify-content: center;
 }
 
-/* Typography */
+/* Typography Hierarchy */
 h1 { font-family: 'Playfair Display', serif; font-size: clamp(3rem, 6vw, 5.5rem); line-height: 1.05; font-weight: 400; letter-spacing: -0.01em; }
 h2 { font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 4vw, 3.2rem); line-height: 1.1; font-weight: 400; margin-bottom: 30px; }
 h4 { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 4px; font-weight: 700; margin-bottom: 20px; color: var(--gold-leaf); }
+h5 { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 700; color: var(--gold-leaf); border-bottom: 1px solid rgba(0,0,0,0.1); display: inline-block; padding-bottom: 5px; margin-bottom: 15px;}
 
-/* Color Variations */
-.bg-olive { background: var(--bancha); color: var(--pointing); }
-.bg-hague { background: var(--hague-blue); color: var(--school-house); }
-.bg-school { background: var(--school-house); color: var(--hague-blue); }
+/* Section Backgrounds */
+.bg-olive { background: var(--bancha); color: var(--school-house); }
+.bg-taupe { background: var(--mouses-back); color: var(--bancha); }
+.bg-hague { background: var(--hague-blue); color: var(--pointing); }
 
-/* Stats Component */
+/* Stats Bar */
 .market-stats-container {
   display: flex;
   justify-content: space-between;
@@ -59,49 +60,46 @@ h4 { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 4px; font-we
   padding: 40px 0;
   margin: 40px 0;
 }
-.stat-box h3 { font-family: 'Playfair Display', serif; font-size: 3.5rem; font-weight: 400; line-height: 1; }
-.stat-box p { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 700; color: var(--gold-leaf); }
+.stat-box h3 { font-family: 'Playfair Display', serif; font-size: 3.5rem; font-weight: 400; line-height: 1; margin: 0; }
+.stat-box p { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 700; margin-top: 10px; color: var(--gold-leaf); }
 
-/* Problem Statement Grid */
-.problem-grid {
+/* VOC Grid */
+.voc-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 60px;
+  gap: 40px 80px;
   margin-top: 20px;
 }
-.problem-card {
-  border-bottom: 1px solid rgba(47, 60, 72, 0.1);
-  padding-bottom: 30px;
-}
-.problem-card h5 { font-size: 0.9rem; letter-spacing: 1px; margin-bottom: 15px; color: var(--gold-leaf); text-transform: uppercase; }
-.problem-card p { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-style: italic; line-height: 1.4; color: var(--hague-blue); }
+.voc-quote { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.35rem; line-height: 1.5; color: var(--hague-blue); margin: 10px 0; }
+.voc-attribution { font-size: 0.65rem; font-weight: 700; letter-spacing: 1px; opacity: 0.7; text-transform: uppercase; }
 
-/* Strategic Table Styling */
-.table-wrap { margin-top: 20px; overflow-x: auto; }
-.comp-table { width: 100%; border-collapse: collapse; font-size: 0.8rem; line-height: 1.4; }
-.comp-table th { 
-  text-align: left; padding: 20px; border-bottom: 2px solid var(--hague-blue); 
-  font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 400;
+/* Competitive Table */
+.table-wrap { margin-top: 30px; overflow-x: auto; }
+.modern-table { width: 100%; border-collapse: collapse; font-size: 0.8rem; line-height: 1.4; background: rgba(255,255,255,0.2); }
+.modern-table th { 
+    text-align: left; padding: 20px; border-bottom: 2px solid var(--bancha); 
+    font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 400;
 }
-.comp-table td { padding: 18px 20px; border-bottom: 1px solid rgba(0,0,0,0.06); vertical-align: top; }
-.highlight-cell { background: rgba(255, 255, 255, 0.5); font-weight: 500; border-left: 1px solid rgba(0,0,0,0.03); border-right: 1px solid rgba(0,0,0,0.03); }
+.modern-table td { padding: 18px 20px; border-bottom: 1px solid rgba(0,0,0,0.08); vertical-align: top; }
+.highlight-col { background: rgba(255, 255, 255, 0.4); font-weight: 600; border-left: 1px solid rgba(0,0,0,0.05); border-right: 1px solid rgba(0,0,0,0.05); }
+.pillar-vertical { font-weight: 700; color: var(--bancha); font-size: 0.85rem; }
 
-/* How It Works List */
-.how-it-works-grid {
+/* How It Works Grid */
+.process-stripe {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 30px;
   margin-top: 40px;
 }
-.step-card {
-  background: rgba(255,255,255,0.03);
+.process-card {
+  background: rgba(255,255,255,0.05);
   border: 1px solid rgba(255,255,255,0.1);
   padding: 30px;
-  border-radius: 2px;
+  border-left: 3px solid var(--gold-leaf);
 }
-.step-card .num { font-family: 'Playfair Display', serif; font-style: italic; font-size: 2rem; color: var(--gold-leaf); display: block; margin-bottom: 10px; }
-.step-card h6 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 15px; color: #FFF; }
-.step-card p { font-size: 0.9rem; line-height: 1.6; opacity: 0.85; color: var(--school-house); font-weight: 300; }
+.p-num { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.8rem; color: var(--gold-leaf); display: block; margin-bottom: 10px; }
+.p-title { font-weight: 700; text-transform: uppercase; letter-spacing: 2px; font-size: 0.8rem; color: #FFF; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px; margin-bottom: 15px; display: block; }
+.p-desc { font-size: 0.9rem; line-height: 1.6; opacity: 0.8; font-weight: 300; }
 
 .footer {
   position: absolute;
@@ -115,8 +113,8 @@ h4 { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 4px; font-we
 }
 
 @media (max-width: 1024px) {
-  .problem-grid, .how-it-works-grid { grid-template-columns: 1fr; }
-  section.slide { padding: 60px 6%; height: auto; }
+  .voc-grid, .process-stripe { grid-template-columns: 1fr; }
+  section.slide { height: auto; padding: 60px 6%; }
 }
 </style>
 </head>
@@ -126,107 +124,131 @@ h4 { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 4px; font-we
 <!-- SLIDE 1: HERO -->
 <section class="slide bg-olive">
   <div style="max-width: 1100px;">
+    <h4>The Future of Media Measurement</h4>
     <h1>Content Mix Model<br><i>Operating System™</i></h1>
     
     <div style="border-left: 2px solid var(--gold-leaf); padding-left: 35px; margin: 6vh 0;">
       <p style="font-size: 1.6rem; max-width: 900px; font-weight: 300; line-height: 1.4; color: var(--pointing);">
-        Solving the <span style="font-weight: 600; color: white;">$450B boondoggle</span> of “Seinfeld era” media measurement, applied to modern “Joe Rogan era” media consumption.
+        Solving the <span style="font-weight: 600; color: white;">$450B boondoggle</span> of “Seinfeld era” media measurement designed for the 20th century, applied to modern <span style="font-weight: 600; color: white;">“Joe Rogan era” media consumption.</span>
       </p>
     </div>
 
     <div style="max-width: 800px; margin-top: 60px;">
-      <p style="margin-top: 20px; font-size: 0.75rem; font-weight: 600; letter-spacing: 3px; color: var(--gold-leaf); text-transform: uppercase;">
-        “To change something, build a new model that makes the existing model obsolete.”
+      <p style="font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.9rem; color: white; opacity: 0.9; line-height: 1.3;">
+        “You never change things by fighting the existing reality. To change something, build a new model that makes the existing model obsolete.”
       </p>
-      <p style="font-size: 0.8rem; font-weight: 400; letter-spacing: 1px; color: var(--pointing); margin-top: 5px;">
-        BUCKMINSTER FULLER <span style="opacity: 0.5; margin-left: 10px;">| SYSTEMS THEORIST</span>
+      <p style="margin-top: 20px; font-size: 0.75rem; font-weight: 700; letter-spacing: 3px; color: var(--gold-leaf);">
+        BUCKMINSTER FULLER <span style="opacity: 0.6; margin-left: 10px; color: var(--pointing);">| SYSTEMS THEORIST</span>
       </p>
     </div>
   </div>
   <div class="footer">DELIVERAI SOLUTIONS &nbsp;|&nbsp; PATENT PENDING</div>
 </section>
 
-<!-- SLIDE 2: PROBLEM STATEMENTS -->
-<section class="slide bg-school">
+<!-- SLIDE 2: THE PROBLEM -->
+<section class="slide" style="background-color: var(--school-house);">
   <div>
     <h4>The Problem</h4>
     <h2>The marketing ecosystem has exploded—<br>foundational operational problems remain.</h2>
 
     <div class="market-stats-container">
-      <div class="stat-box"><h3>$450B</h3><p>Annual US Ad Spend</p></div>
+      <div class="stat-box"><h3>$450B</h3><p>Global Ad Spend</p></div>
       <div class="stat-box"><h3>15,000+</h3><p>MarTech Solutions</p></div>
-      <div class="stat-box"><h3>31%</h3><p>Budget to Tech by 2030</p></div>
+      <div class="stat-box"><h3>31%</h3><p>Budget to Technology</p></div>
     </div>
 
-    <div class="problem-grid">
-      <div class="problem-card">
-        <h5>01. Brand Perception Blindness</h5>
-        <p>“CFOs only want conversion ads because the link between brand perception and sales is a 'holy grail' we can't prove.”</p>
+    <div class="voc-grid">
+      <div class="voc-item">
+        <h5>Inability to Prove Brand Value</h5>
+        <p class="voc-quote">“My CFO only wants me to spend on conversion ads. If I could understand how brand perception drives sales, that would be our holy grail.”</p>
+        <p class="voc-attribution">VP, PAID MEDIA · B2C HOSPITALITY</p>
       </div>
 
-      <div class="problem-card">
-        <h5>02. Channel Scaling Paralysis</h5>
-        <p>“Brands avoid high-growth channels like podcasts and OOH because they assume only 'Big 4' agencies can measure them.”</p>
+      <div class="voc-item">
+        <h5>Stalled Channel Expansion</h5>
+        <p class="voc-quote">“I want to expand into out-of-home and podcasts, but I assume I need a Big 4 agency — so I don’t.”</p>
+        <p class="voc-attribution">HEAD OF GROWTH · FINTECH UNICORN</p>
       </div>
 
-      <div class="problem-card">
-        <h5>03. Creative Efficacy Opaque</h5>
-        <p>“Seven-figure endorsements and high-stakes creative are launched with zero idea of their actual ROI.”</p>
+      <div class="voc-item">
+        <h5>Creative Efficacy Gaps</h5>
+        <p class="voc-quote">“I pay $5M a year for an endorsement and have no idea if it produces any ROI.”</p>
+        <p class="voc-attribution">HEAD OF PAID MEDIA · GAMING</p>
       </div>
 
-      <div class="problem-card">
-        <h5>04. Legacy Insight Latency</h5>
-        <p>“Multi-million dollar MMM results arrive months after the quarter ends, making them post-mortems, not navigators.”</p>
+      <div class="voc-item">
+        <h5>Antiquated Data Velocity</h5>
+        <p class="voc-quote">“We spend seven figures on MMM and get the results months after the quarter ends.”</p>
+        <p class="voc-attribution">MEASUREMENT LEAD · LARGEST US RETAILER</p>
       </div>
     </div>
   </div>
   <div class="footer">DELIVERAI SOLUTIONS &nbsp;|&nbsp; PATENT PENDING</div>
 </section>
 
-<!-- SLIDE 3: STRATEGIC TRANSITION -->
-<section class="slide" style="background-color: var(--pointing);">
+<!-- SLIDE 3: COMPETITIVE POSITIONING -->
+<section class="slide bg-taupe">
     <div>
-        <h4>Strategic Transition</h4>
+        <h4 style="color: var(--bancha)">Strategic Transition</h4>
         <h2>Competitive Positioning</h2>
 
         <div class="table-wrap">
-            <table class="comp-table">
+            <table class="modern-table">
                 <thead>
                     <tr>
-                        <th style="width: 18%;">Problem Statement</th>
-                        <th style="width: 18%;">The Root Cause</th>
-                        <th style="width: 20%;">Current State (Status Quo)</th>
-                        <th style="width: 22%;" class="highlight-cell">DeliverAI Solution</th>
-                        <th style="width: 22%;">Customer Benefit</th>
+                        <th style="width: 18%;">Category</th>
+                        <th style="width: 16%;">Category Item</th>
+                        <th style="width: 22%;">What Exists Today<br>
+                            <span style="font-size: 0.65rem; font-weight: normal; display: block; margin-top: 5px; line-height: 1.2; font-family: 'Inter';">
+                                <b>Platforms:</b> Meta, LinkedIn, TikTok<br>
+                                <b>MMM:</b> Nielsen, Analytic Partners, Recast<br>
+                                <b>Attribution:</b> Northbeam, Rockerbox, GA4
+                            </span>
+                        </th>
+                        <th style="width: 24%;" class="highlight-col">Content Mix Model™<br><small>(Our System)</small></th>
+                        <th style="width: 20%;">The Benefit</th>
                     </tr>
                 </thead>
+
                 <tbody>
                     <tr>
-                        <td><b>Brand Perception Blindness</b></td>
-                        <td>Siloed Attribution Pathing</td>
-                        <td>Probabilistic estimates in platform dashboards</td>
-                        <td class="highlight-cell"><b>Deterministic Device Graph:</b> Patent-pending full-funnel pathing.</td>
-                        <td><b>Full-Funnel Clarity:</b> See exactly how brand spend drives revenue.</td>
+                        <td rowspan="2" class="pillar-vertical">Brands can’t see what actually drives sales</td>
+                        <td>Attribution Path</td>
+                        <td>Siloed analysis using probabilistic estimates</td>
+                        <td class="highlight-col"><b>Direct Attribution:</b> Patent-Pending Device Graph Pathing</td>
+                        <td><b>Full-Funnel Clarity:</b> See exactly how offline and upper-funnel spend drives revenue.</td>
                     </tr>
                     <tr>
-                        <td><b>Channel Scaling Paralysis</b></td>
-                        <td>Cookie-based dependency</td>
-                        <td>Only measuring what 'clicks' on Meta/Google</td>
-                        <td class="highlight-cell"><b>Identity Resolution:</b> Privacy-safe, channel-agnostic identification.</td>
-                        <td><b>Channel Freedom:</b> Scale Podcasts & OOH with confidence.</td>
+                        <td>Identity Resolution</td>
+                        <td>Cookie-based or modeled identity</td>
+                        <td class="highlight-col"><b>Deterministic:</b> Privacy-safe individual identification</td>
+                        <td><b>Reliable Accuracy:</b> Measurement that survives privacy changes.</td>
                     </tr>
                     <tr>
-                        <td><b>Creative Efficacy Opaque</b></td>
-                        <td>Placement over Content</td>
-                        <td>Manual A/B testing of generic placements</td>
-                        <td class="highlight-cell"><b>Creative DNA:</b> AI deconstruction of 30+ creative signals.</td>
-                        <td><b>Predictive ROI:</b> Engineer winning creative before you scale.</td>
+                        <td rowspan="2" class="pillar-vertical">Platforms hide the real reason ads work</td>
+                        <td>Primary Variable</td>
+                        <td>Channel & placement focus; manual A/B testing</td>
+                        <td class="highlight-col"><b>Creative DNA:</b> AI-driven deconstruction (30+ signals)</td>
+                        <td><b>Predictive ROI:</b> Engineer creative likely to perform before scaling.</td>
                     </tr>
                     <tr>
-                        <td><b>Legacy Insight Latency</b></td>
-                        <td>Fragmented Data Velocity</td>
-                        <td>Months of manual modeling via agencies</td>
-                        <td class="highlight-cell"><b>Sovereign OS:</b> Real-time measurement in a client-owned environment.</td>
+                        <td>Analysis Method</td>
+                        <td>Platform-specific, non-standard reports</td>
+                        <td class="highlight-col">Aggregated & standardized performance intelligence</td>
+                        <td><b>Universal Learning:</b> Scale winning messages everywhere instantly.</td>
+                    </tr>
+                    <tr>
+                        <td class="pillar-vertical">Measuring across channels is slow and expensive</td>
+                        <td>Traffic Integrity</td>
+                        <td>Self-reported platform data; bot-heavy traffic</td>
+                        <td class="highlight-col"><b>Authenticated Humans:</b> Independent third-party verification</td>
+                        <td><b>Zero-Waste Spend:</b> Ensure budget reaches real people.</td>
+                    </tr>
+                    <tr>
+                        <td class="pillar-vertical">No single source of truth</td>
+                        <td>Data Ownership</td>
+                        <td>Fragmented vendor clouds; rented access</td>
+                        <td class="highlight-col"><b>Sovereign System:</b> Resident in client-owned DeliverAI environment</td>
                         <td><b>Permanent IP:</b> Your data becomes a long-term capital asset.</td>
                     </tr>
                 </tbody>
@@ -240,43 +262,43 @@ h4 { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 4px; font-we
 <section class="slide bg-hague">
     <div>
         <h4 style="color: var(--gold-leaf);">The Framework</h4>
-        <h2 style="color: #FFF; margin-bottom: 20px;">The Methodology</h2>
+        <h2 style="color: white; margin-bottom: 20px;">How it Works</h2>
         
-        <div class="how-it-works-grid">
-            <div class="step-card">
-                <span class="num">01</span>
-                <h6>Content Identification</h6>
-                <p>Assigns a persistent unique identifier to each creative asset, enabling tracking and analysis across every digital and offline channel.</p>
+        <div class="process-stripe">
+            <div class="process-card">
+                <span class="p-num">01</span>
+                <span class="p-title">Content Identification</span>
+                <p class="p-desc">Assigns a persistent Identification unique identifier to each creative asset, enabling tracking and analysis across channels.</p>
             </div>
 
-            <div class="step-card">
-                <span class="num">02</span>
-                <h6>Exposure Capture</h6>
-                <p>Tracks content exposure using pixel, server-to-server, or clean rooms to capture raw device Identifications in real-time.</p>
+            <div class="process-card">
+                <span class="p-num">02</span>
+                <span class="p-title">Exposure</span>
+                <p class="p-desc">Tracks content exposure using pixel, server-to-server, or clean room to capture device Identifications.</p>
             </div>
 
-            <div class="step-card">
-                <span class="num">03</span>
-                <h6>Identity Match</h6>
-                <p>Matches exposure data to individual user identities deterministically via verified, privacy-safe identity graphs.</p>
+            <div class="process-card">
+                <span class="p-num">03</span>
+                <span class="p-title">Identity Match</span>
+                <p class="p-desc">Matches the exposure data to individual user identities deterministically via verified identity graphs.</p>
             </div>
 
-            <div class="step-card">
-                <span class="num">04</span>
-                <h6>Attribution ML</h6>
-                <p>Proprietary Machine Learning assigns specific outcomes (revenue) to the specific content that drove the actions.</p>
+            <div class="process-card">
+                <span class="p-num">04</span>
+                <span class="p-title">Attribution</span>
+                <p class="p-desc">Proprietary Machine Learning assigns outcomes to the specific content that drove the actions.</p>
             </div>
 
-            <div class="step-card">
-                <span class="num">05</span>
-                <h6>Outcome Mapping</h6>
-                <p>Measures outcomes such as site visits, brand lift, and conversions directly associated with the creative content DNA.</p>
+            <div class="process-card">
+                <span class="p-num">05</span>
+                <span class="p-title">Outcome</span>
+                <p class="p-desc">Measures outcomes such as site visits, brand lift, and conversions associated with the creative content.</p>
             </div>
 
-            <div class="step-card">
-                <span class="num">06</span>
-                <h6>Optimization Engine</h6>
-                <p>Machine Learning scores content performance to provide actionable media buy recommendations for immediate scaling.</p>
+            <div class="process-card">
+                <span class="p-num">06</span>
+                <span class="p-title">Optimization</span>
+                <p class="p-desc">Machine Learning scores content performance to provide actionable media buy recommendations.</p>
             </div>
         </div>
     </div>
@@ -285,13 +307,3 @@ h4 { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 4px; font-we
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
