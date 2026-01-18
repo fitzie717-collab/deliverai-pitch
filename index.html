@@ -13,7 +13,7 @@
   --hague-blue: #2F3C48;      /* Deep Teal */
   --pointing: #F1F0E8;        /* Off White */
   --school-house: #E4DED0;    /* Aged Cream */
-  --gold-leaf: #C5A059;       /* Accent Gold */
+  --gold-leaf: #C5A059;       /* Gold Leaf */
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -35,7 +35,6 @@ section.slide {
   padding: 6vh 7%;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start; /* Allows content to flow down the slide */
 }
 
 .content-wrapper {
@@ -45,22 +44,23 @@ section.slide {
     flex-grow: 1;
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Centers content vertically within the slide */
+    justify-content: center;
 }
 
-/* Typography */
+/* Typography Hierarchy */
 h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 5vw, 4.5rem); line-height: 1.1; font-weight: 400; letter-spacing: -0.01em; }
 h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3.5vw, 2.8rem); line-height: 1.2; font-weight: 400; margin-bottom: 20px; }
 h4 { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 4px; font-weight: 700; margin-bottom: 10px; color: var(--gold-leaf); }
 
-/* Standardized Problem Heading Style */
-.problem-heading {
-    font-family: 'Playfair Display', serif;
-    font-style: italic;
-    font-size: clamp(1rem, 1.5vw, 1.2rem);
-    color: var(--hague-blue);
-    line-height: 1.3;
-    margin-bottom: 10px;
+/* Standardized Yellow Problem Heading Style */
+.problem-heading-yellow {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    color: var(--gold-leaf);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.75rem;
+    margin-bottom: 15px;
     display: block;
 }
 
@@ -84,9 +84,9 @@ h4 { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 4px; font-wei
 .voc-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 40px 60px;
+  gap: 60px 80px;
 }
-.voc-quote { font-family: 'Playfair Display', serif; font-style: italic; font-size: clamp(1.1rem, 1.3vw, 1.4rem); line-height: 1.5; color: var(--hague-blue); margin-bottom: 10px; }
+.voc-quote { font-family: 'Playfair Display', serif; font-style: italic; font-size: clamp(1.1rem, 1.3vw, 1.4rem); line-height: 1.5; color: var(--hague-blue); margin-bottom: 15px; }
 .voc-attribution { font-size: 0.6rem; font-weight: 700; letter-spacing: 1px; opacity: 0.7; text-transform: uppercase; }
 
 /* Combined Solution Layout: Framework */
@@ -99,27 +99,37 @@ h4 { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 4px; font-wei
   border-bottom: 1px solid rgba(75, 77, 59, 0.2);
 }
 .framework-item .p-num { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.2rem; color: var(--gold-leaf); }
-.framework-item .p-title { font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; font-size: 0.6rem; color: var(--bancha); margin: 4px 0; display: block; }
-.framework-item .p-desc { font-size: 0.65rem; line-height: 1.4; opacity: 0.8; font-weight: 400; }
+.framework-item .p-title { font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; font-size: 0.6rem; color: var(--hague-blue); margin: 4px 0; display: block; }
+.framework-item .p-desc { font-size: 0.62rem; line-height: 1.4; opacity: 0.8; font-weight: 400; }
 
 /* Table */
 .table-wrap { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
-.editorial-table { width: 100%; border-collapse: collapse; min-width: 900px; }
+.editorial-table { width: 100%; border-collapse: collapse; min-width: 1000px; }
 .editorial-table th {
   padding: 15px 10px;
   text-align: left;
   font-family: 'Playfair Display', serif;
-  font-size: 1rem;
+  font-size: 0.95rem;
   font-weight: 400;
   color: var(--bancha);
   border-bottom: 1px solid var(--bancha);
 }
-.editorial-table td { padding: 20px 10px; vertical-align: top; font-size: 0.75rem; line-height: 1.5; border-bottom: 1px solid rgba(75, 77, 59, 0.1); }
-.col-gap { text-transform: uppercase; letter-spacing: 1px; font-weight: 700; font-size: 0.6rem !important; color: var(--gold-leaf); }
+.editorial-table td { padding: 25px 10px; vertical-align: top; font-size: 0.75rem; line-height: 1.5; border-bottom: 1px solid rgba(75, 77, 59, 0.1); }
+
+/* Foundational Gap - Match Framework Categories Styling */
+.col-gap { 
+    font-family: 'Inter', sans-serif;
+    text-transform: uppercase; 
+    letter-spacing: 1.5px; 
+    font-weight: 700; 
+    font-size: 0.6rem !important; 
+    color: var(--hague-blue); 
+}
+
 .col-highlight { background-color: rgba(255, 255, 255, 0.5); border-left: 1px solid rgba(75, 77, 59, 0.1); border-right: 1px solid rgba(75, 77, 59, 0.1); }
 .sub-head-label { display: block; font-size: 0.55rem; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 700; margin-top: 3px; opacity: 0.6; font-family: 'Inter'; }
 
-.footer {
+.footer-mark {
   padding: 40px 0;
   display: flex;
   justify-content: flex-end;
@@ -135,7 +145,7 @@ h4 { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 4px; font-wei
   section.slide { padding: 40px 6%; height: auto; scroll-snap-align: none; }
   .market-stats-container { grid-template-columns: 1fr; gap: 20px; text-align: center; }
   .voc-grid { grid-template-columns: 1fr; gap: 40px; }
-  .horizontal-framework { grid-template-columns: 1fr 1fr; gap: 30px; }
+  .horizontal-framework { grid-template-columns: repeat(3, 1fr); gap: 20px; }
   h1 { font-size: 2.2rem; }
   h2 { font-size: 1.6rem; }
 }
@@ -162,7 +172,7 @@ h4 { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 4px; font-wei
       </p>
     </div>
   </div>
-  <div class="footer">DELIVERAI SOLUTIONS &nbsp;|&nbsp; PATENT PENDING</div>
+  <div class="footer-mark">DELIVERAI SOLUTIONS &nbsp;|&nbsp; PATENT PENDING</div>
 </section>
 
 <!-- SLIDE 2: THE PROBLEM -->
@@ -179,39 +189,39 @@ h4 { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 4px; font-wei
 
     <div class="voc-grid">
       <div class="voc-item">
-        <span class="problem-heading">Inability to Prove Brand Marketing Value</span>
+        <span class="problem-heading-yellow">Inability to Prove Brand Marketing Value</span>
         <p class="voc-quote">“My CFO only wants me to spend on conversion ads. If I could understand how brand perception drives sales, that would be our holy grail.”</p>
         <p class="voc-attribution">VP, PAID MEDIA · GLOBAL B2C HOSPITALITY GROUP</p>
       </div>
 
       <div class="voc-item">
-        <span class="problem-heading">High Barriers to Channel Expansion</span>
+        <span class="problem-heading-yellow">High Barriers to Channel Expansion</span>
         <p class="voc-quote">“I want to expand into out-of-home and podcasts, but I don't because I think I would need to hire a huge, expensive agency.”</p>
         <p class="voc-attribution">HEAD OF GROWTH · B2C FINTECH UNICORN</p>
       </div>
 
       <div class="voc-item">
-        <span class="problem-heading">No Creative Efficacy Insights or Feedback</span>
+        <span class="problem-heading-yellow">No Creative Efficacy Insights or Feedback</span>
         <p class="voc-quote">“I pay $5M a year for an endorsement and have no idea if it produces any ROI.”</p>
         <p class="voc-attribution">HEAD OF PAID MEDIA · B2C, GAMING</p>
       </div>
 
       <div class="voc-item">
-        <span class="problem-heading">No Aggregated View of Performance</span>
+        <span class="problem-heading-yellow">No Aggregated View of Performance</span>
         <p class="voc-quote">“We spend over seven figures a year on our MMM. The report is delivered three months after the quarter ends with no actionable insights.”</p>
         <p class="voc-attribution">SENIOR DIRECTOR, MEASUREMENT · B2C, TOP US RETAILER</p>
       </div>
     </div>
   </div>
-  <div class="footer">DELIVERAI SOLUTIONS &nbsp;|&nbsp; PATENT PENDING</div>
+  <div class="footer-mark">DELIVERAI SOLUTIONS &nbsp;|&nbsp; PATENT PENDING</div>
 </section>
 
-<!-- SLIDE 3: THE SOLUTION (COMBINED) -->
+<!-- SLIDE 3: THE SOLUTION -->
 <section class="slide" style="background-color: var(--pointing);">
   <div class="content-wrapper">
     <h4 style="color: var(--gold-leaf)">The Solution</h4>
     <h2 style="margin-bottom: 5px;">The Content Mix Model OS™</h2>
-    <p style="font-size: 0.75rem; letter-spacing: 1px; font-weight: 600; opacity: 0.8; margin-bottom: 20px; color: var(--bancha);">patent pending data collection technology</p>
+    <p style="font-size: 0.7rem; letter-spacing: 1.5px; font-weight: 600; opacity: 0.8; margin-bottom: 25px; color: var(--hague-blue); text-transform: uppercase;">patent pending data collection technology</p>
 
     <!-- Framework Stages Horizontal -->
     <div class="horizontal-framework">
@@ -225,11 +235,11 @@ h4 { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 4px; font-wei
       </div>
       <div class="framework-item">
         <span class="p-num">03</span><span class="p-title">Identity Match</span>
-        <p class="p-desc">Deterministic matching via verified identity graphs.</p>
+        <p class="p-desc">Deterministic matching via verified identity graphs to individual users.</p>
       </div>
       <div class="framework-item">
         <span class="p-num">04</span><span class="p-title">Attribution</span>
-        <p class="p-desc">Proprietary ML assigns outcomes to specific content.</p>
+        <p class="p-desc">Proprietary ML assigns outcomes to the specific content.</p>
       </div>
       <div class="framework-item">
         <span class="p-num">05</span><span class="p-title">Outcome</span>
@@ -241,42 +251,42 @@ h4 { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 4px; font-wei
       </div>
     </div>
 
-    <!-- Competitive Positioning Table -->
+    <!-- Competitive Table -->
     <div class="table-wrap">
       <table class="editorial-table">
         <thead>
           <tr>
-            <th style="width: 20%;">Problem</th>
+            <th style="width: 22%;">Problem</th>
             <th style="width: 15%;">Foundational Gap</th>
             <th style="width: 20%;">What Exists Today<span class="sub-head-label">Platforms & MMM Legacy</span></th>
-            <th style="width: 25%;" class="col-highlight">Content Mix Model™<span class="sub-head-label" style="color: var(--bancha)">The DeliverAI System</span></th>
-            <th style="width: 20%;">The Benefit</th>
+            <th style="width: 25%;" class="col-highlight">Content Mix Model™<span class="sub-head-label" style="color: var(--hague-blue)">The DeliverAI System</span></th>
+            <th style="width: 18%;">The Benefit</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td><span class="problem-heading" style="font-size: 0.95rem;">Inability to Prove Brand Marketing Value</span></td>
+            <td><span class="problem-heading-yellow" style="margin-bottom: 0;">Inability to Prove Brand Marketing Value</span></td>
             <td class="col-gap">Brand Perception-to-Sales Link</td>
             <td>Siloed, one off brand perception surveys.</td>
             <td class="col-highlight"><b>Habitual surveying of unique IDs to tie exposures to brand shifts</b></td>
             <td><b>Full funnel buy-in:</b> Quantify pipeline and future sales.</td>
           </tr>
           <tr>
-            <td><span class="problem-heading" style="font-size: 0.95rem;">High Barriers to Channel Expansion</span></td>
+            <td><span class="problem-heading-yellow" style="margin-bottom: 0;">High Barriers to Channel Expansion</span></td>
             <td class="col-gap">Operational Portability</td>
             <td>Reliance on large agencies to manually bridge fragmented channels.</td>
             <td class="col-highlight"><b>Agnostic Infrastructure:</b> Unified tracking for Podcasts, OOH, and Social.</td>
             <td><b>Instant Scaling:</b> Scale new channels without agency tax.</td>
           </tr>
           <tr>
-            <td><span class="problem-heading" style="font-size: 0.95rem;">No Creative Efficacy Insights or Feedback</span></td>
+            <td><span class="problem-heading-yellow" style="margin-bottom: 0;">No Creative Efficacy Insights or Feedback</span></td>
             <td class="col-gap">Creative DNA</td>
             <td>Isolated single variable A/B testing.</td>
             <td class="col-highlight"><b>AI Deconstruction:</b> Standardized scoring of 30+ signals across every asset.</td>
             <td><b>Creative intelligence:</b> Know what elements cause lifts to drive briefs.</td>
           </tr>
           <tr>
-            <td><span class="problem-heading" style="font-size: 0.95rem;">No Aggregated View of Performance</span></td>
+            <td><span class="problem-heading-yellow" style="margin-bottom: 0;">No Aggregated View of Performance</span></td>
             <td class="col-gap">Insight Velocity</td>
             <td>Retrospective MMM reports delivered 90 days after spend.</td>
             <td class="col-highlight"><b>24 hour reconciliation:</b> Cross-device exposures reconciled at individual level.</td>
@@ -286,7 +296,7 @@ h4 { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 4px; font-wei
       </table>
     </div>
   </div>
-  <div class="footer">DELIVERAI SOLUTIONS &nbsp;|&nbsp; PATENT PENDING</div>
+  <div class="footer-mark">DELIVERAI SOLUTIONS &nbsp;|&nbsp; PATENT PENDING</div>
 </section>
 
 </body>
