@@ -9,14 +9,14 @@
 
 <style>
 /* =========================================================
-   FARROW & BALL ACADEMIC PALETTE
+   FARROW & BALL REFINED PALETTE
    ========================================================= */
 :root {
-  --bancha-olive: #4B4D3B;     /* Deep, sophisticated olive */
-  --tanners-brown: #3D3530;    /* Dark, rich brown for background */
-  --smoked-trout: #AF988E;     /* Muted, warm clay-pink for accents */
-  --off-white: #F1EFE8;        /* Soft paper tone for text */
-  --rule-line: rgba(175, 152, 142, 0.3);
+  --french-grey: #919388;    /* The deep, stony green-grey background */
+  --bancha-olive: #4B4D3B;   /* The heavy, academic green for headers */
+  --biscuit: #E3D3B8;        /* The warm, high-end tan for text/rules */
+  --ink-accent: #2D3028;     /* Darker olive for depth */
+  --rule-line: rgba(227, 211, 184, 0.3);
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -24,8 +24,8 @@ html { scroll-snap-type: y mandatory; }
 
 body {
   font-family: 'Inter', sans-serif;
-  background: var(--tanners-brown);
-  color: var(--off-white);
+  background: var(--french-grey);
+  color: var(--biscuit);
   line-height: 1.6;
 }
 
@@ -40,12 +40,11 @@ section.slide {
   padding: 10vh 8%;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start; /* Alignment handled by padding-top */
 }
 
 @media (max-width: 768px) {
-  section.slide { padding: 5vh 6%; justify-content: center; }
-  html { scroll-snap-type: none; } /* Better for mobile scrolling */
+  section.slide { padding: 5vh 6%; height: auto; min-height: 100vh; }
+  html { scroll-snap-type: none; }
 }
 
 h1, h2 { font-family: 'Playfair Display', serif; font-weight: 600; letter-spacing: -0.02em; }
@@ -55,99 +54,99 @@ h1, h2 { font-family: 'Playfair Display', serif; font-weight: 600; letter-spacin
   letter-spacing: 5px;
   font-size: 0.7rem;
   font-weight: 600;
-  color: var(--smoked-trout);
+  color: var(--bancha-olive);
   margin-bottom: 20px;
   display: block;
 }
 
 /* =========================================================
-   SLIDE 1 — HERO (DESKTOP LOWER POSITIONING)
+   SLIDE 1 — HERO (Pushed Lower)
    ========================================================= */
-.hero-block { padding-top: 28vh; }
+.hero-block { padding-top: 32vh; }
 
-.hero-title { font-size: clamp(2.5rem, 6vw, 5.5rem); line-height: 1.1; margin-bottom: 40px; }
+.hero-title { 
+    font-size: clamp(2.5rem, 6vw, 5.5rem); 
+    line-height: 1.1; 
+    margin-bottom: 40px; 
+    color: var(--ink-accent); 
+}
 .hero-title span { color: var(--bancha-olive); display: block; }
 
 .hero-hook-border { 
   border-left: 3px solid var(--bancha-olive); 
   padding: 10px 0 10px 30px; 
-  margin-bottom: 10vh; 
+  margin-bottom: 12vh; 
 }
 
-.hero-hook-border p { font-size: clamp(1rem, 2vw, 1.4rem); max-width: 900px; }
-
-@media (max-width: 768px) {
-  .hero-block { padding-top: 0; }
-  .hero-hook-border { margin-bottom: 5vh; }
-}
+.hero-hook-border p { font-size: clamp(1rem, 2vw, 1.4rem); max-width: 900px; color: var(--biscuit); }
 
 /* =========================================================
-   SLIDE 2 — PROBLEM (VOC)
+   SLIDE 2 — PROBLEM (Well-Appointed Spacing)
    ========================================================= */
-.problem-block { padding-top: 12vh; }
+.problem-block { padding-top: 15vh; } /* Pushed lower for better visual weight */
 
 .market-stats {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  margin-bottom: 40px;
-  padding-bottom: 20px;
+  margin-bottom: 50px;
+  padding-bottom: 25px;
   border-bottom: 1px solid var(--rule-line);
 }
 
-.stat-item { flex: 1; min-width: 150px; margin-bottom: 20px; }
-.stat-item h3 { font-size: clamp(1.8rem, 4vw, 2.8rem); color: var(--bancha-olive); line-height: 1; }
-.stat-item p { font-size: 0.7rem; color: var(--smoked-trout); text-transform: uppercase; letter-spacing: 2px; }
+.stat-item { flex: 1; min-width: 150px; }
+.stat-item h3 { font-size: clamp(1.8rem, 4vw, 2.8rem); color: var(--ink-accent); line-height: 1; }
+.stat-item p { font-size: 0.7rem; color: var(--bancha-olive); text-transform: uppercase; letter-spacing: 2px; font-weight: 600; }
 
 .voc-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 30px 60px;
+  gap: 40px 80px;
 }
 
 @media (max-width: 900px) {
-  .voc-grid { grid-template-columns: 1fr; }
-  .problem-block { padding-top: 2vh; }
+  .voc-grid { grid-template-columns: 1fr; gap: 30px; }
+  .problem-block { padding-top: 5vh; }
 }
 
 .voc-card h4 {
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   font-weight: 600;
   color: var(--bancha-olive);
   text-transform: uppercase;
-  letter-spacing: 1px;
-  margin-bottom: 10px;
+  letter-spacing: 1.5px;
+  margin-bottom: 12px;
 }
 
 .voc-quote {
   font-family: 'Playfair Display', serif;
   font-style: italic;
-  font-size: clamp(1rem, 1.5vw, 1.2rem);
-  line-height: 1.5;
-  color: var(--off-white);
+  font-size: clamp(1rem, 1.4vw, 1.15rem);
+  line-height: 1.6;
+  color: var(--biscuit);
   margin-bottom: 15px;
-  opacity: 0.9;
+  opacity: 0.95;
 }
 
 .voc-meta { display: flex; align-items: center; gap: 15px; }
-.voc-line { width: 25px; height: 1px; background: var(--smoked-trout); }
-.voc-author { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 2px; color: var(--smoked-trout); }
+.voc-line { width: 30px; height: 1.5px; background: var(--bancha-olive); opacity: 0.6; }
+.voc-author { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 2px; color: var(--bancha-olive); font-weight: 600; }
 
 /* =========================================================
    FOOTER
    ========================================================= */
 .footer {
   position: absolute;
-  bottom: 40px;
+  bottom: 50px;
   right: 8%;
-  font-size: 0.6rem;
-  letter-spacing: 6px;
-  color: var(--smoked-trout);
-  opacity: 0.6;
+  font-size: 0.65rem;
+  letter-spacing: 7px;
+  color: var(--bancha-olive);
+  font-weight: 600;
 }
 
 @media (max-width: 768px) {
-  .footer { bottom: 20px; right: 0; width: 100%; text-align: center; letter-spacing: 3px; }
+  .footer { position: relative; bottom: 0; right: 0; padding: 40px 0; text-align: center; width: 100%; }
 }
 </style>
 </head>
@@ -163,19 +162,19 @@ h1, h2 { font-family: 'Playfair Display', serif; font-weight: 600; letter-spacin
 
     <div class="hero-hook-border">
       <p>
-        Solving the <strong style="color:var(--smoked-trout)">$450B boondoggle</strong> of 
+        Solving the <strong style="color:var(--bancha-olive)">$450B boondoggle</strong> of 
         “Seinfeld era” media measurement applied to 
         <strong>“Joe Rogan era” media consumption.</strong>
       </p>
     </div>
 
     <div style="max-width: 800px;">
-      <p style="font-family: 'Playfair Display', serif; font-style: italic; font-size: clamp(1.2rem, 3vw, 1.8rem); opacity: 0.8; margin-bottom: 20px;">
+      <p style="font-family: 'Playfair Display', serif; font-style: italic; font-size: clamp(1.2rem, 2.5vw, 1.7rem); opacity: 0.9; margin-bottom: 25px; color: var(--biscuit);">
         “To change something, build a new model that makes the existing model obsolete.”
       </p>
       <div style="display:flex; align-items:center; gap:20px;">
-        <div style="width:40px; height:1px; background:var(--bancha-olive);"></div>
-        <span class="label-cap" style="margin-bottom:0; font-size:0.55rem;">Buckminster Fuller | Systems Theorist</span>
+        <div style="width:50px; height:1px; background:var(--bancha-olive);"></div>
+        <span class="label-cap" style="margin-bottom:0; font-size:0.6rem; color: var(--ink-accent);">Buckminster Fuller | Systems Theorist</span>
       </div>
     </div>
   </div>
@@ -184,9 +183,9 @@ h1, h2 { font-family: 'Playfair Display', serif; font-weight: 600; letter-spacin
 
 <section class="slide">
   <div class="problem-block">
-    <span class="label-cap">The Problem</span>
-    <h2 style="font-size: clamp(1.8rem, 4vw, 2.6rem); margin-bottom: 40px;">
-      The ecosystem has exploded—<br>operational problems remain.
+    <span class="label-cap" style="color: var(--ink-accent);">The Problem</span>
+    <h2 style="font-size: clamp(1.8rem, 4vw, 2.6rem); margin-bottom: 50px; color: var(--ink-accent);">
+      The ecosystem has exploded—<br>foundational failures remain.
     </h2>
 
     <div class="market-stats">
@@ -227,6 +226,8 @@ h1, h2 { font-family: 'Playfair Display', serif; font-weight: 600; letter-spacin
   <div class="footer">DELIVERAI SOLUTIONS &nbsp;|&nbsp; PATENT PENDING</div>
 </section>
 
+</body>
+</html>
 </body>
 </html>
 </body>
@@ -690,6 +691,7 @@ h1, h2 { font-family: 'Playfair Display', serif; font-weight: 600; letter-spacin
 
 </body>
 </html>
+
 
 
 
