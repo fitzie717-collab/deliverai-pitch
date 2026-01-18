@@ -9,13 +9,11 @@
 
 <style>
 :root {
-  --ink-blue: #1E2A33;
-
-  --oxford-stone: #E6DFD3;
-  --soft-stone: #C9C2B6;
-
-  --graphite: #9AA3A8;
-  --graphite-soft: #7F878C;
+  /* UI PALETTE - From Brand Health Dash */
+  --obsidian: #1D1F21;      /* The deep background of your UI cards */
+  --straw: #B69A68;         /* The sophisticated gold/tan accent */
+  --off-white: #F9F7F2;     /* The primary text color */
+  --slate-text: #8E9396;    /* Secondary/Meta text */
 }
 
 * {
@@ -24,120 +22,141 @@
   box-sizing: border-box;
 }
 
-html {
-  scroll-snap-type: y mandatory;
-}
-
 body {
   font-family: 'Inter', sans-serif;
-  background: var(--ink-blue);
-  color: var(--oxford-stone);
-  overflow-y: scroll;
+  background: var(--obsidian);
+  color: var(--off-white);
+  overflow: hidden;
 }
 
-/* ---- SLIDE ---- */
 section.slide {
   height: 100vh;
   width: 100vw;
-  scroll-snap-align: start;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding-top: 38vh; /* Pushes the whole block down as requested */
 }
 
-/* ---- CONTENT ---- */
 .content-box {
+  width: 100%;
   max-width: 1400px;
-  padding-left: 72px;
-  padding-top: 34vh; /* centered, not high */
+  padding: 0 100px;
 }
 
-/* ---- TITLE ---- */
-.hero-title-single {
+/* ---- TITLE: GEOMETRICALLY BALANCED ---- */
+.title-container {
+  margin-bottom: 50px;
+  display: inline-block;
+}
+
+.title-line-1 {
   font-family: 'Playfair Display', serif;
-  font-size: 3.7rem;
+  font-size: 5.8rem;
   font-weight: 600;
-  line-height: 1.12;
-  letter-spacing: -0.015em;
-  margin-bottom: 32px;
-  white-space: nowrap;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  margin: 0;
+  color: var(--off-white);
 }
 
-/* ---- HERO COPY ---- */
+.title-line-2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 4.85rem; /* Sized to match width exactly */
+  font-weight: 600;
+  letter-spacing: 0.165em; /* Stretches OS to match line 1 */
+  line-height: 1;
+  text-transform: uppercase;
+  color: var(--straw); /* UI Accent Color */
+  margin: 0;
+}
+
+/* ---- THE BOONDOGGLE HOOK ---- */
 .hero-hook {
-  border-left: 2px solid var(--graphite-soft);
-  padding-left: 26px;
-  margin-bottom: 18vh; /* pushes quote lower */
+  border-left: 3px solid var(--straw);
+  padding: 10px 0 10px 40px;
+  margin-bottom: 15vh; /* Pushes quote lower */
+  max-width: 1100px;
 }
 
 .hero-hook p {
-  font-size: 1.18rem;
-  line-height: 1.65;
-  max-width: 1000px;
-  color: var(--soft-stone);
+  font-size: 1.4rem;
+  line-height: 1.6;
+  color: var(--off-white);
+  opacity: 0.95;
 }
 
 .hero-hook strong {
-  color: var(--oxford-stone);
-  font-weight: 600;
+  color: var(--straw);
+  font-weight: 700;
 }
 
-/* ---- QUOTE ---- */
+/* ---- THE QUOTE (LOW & WIDE) ---- */
 .quote-block {
-  max-width: 1100px;
+  width: 100%;
+  max-width: 1200px;
 }
 
 .quote {
   font-family: 'Playfair Display', serif;
-  font-size: 1.3rem;
+  font-size: 2.1rem;
   font-style: italic;
-  line-height: 1.45;
-  opacity: 0.75;
-  margin-bottom: 14px;
-  white-space: nowrap;
+  line-height: 1.5;
+  color: var(--off-white);
+  opacity: 0.9;
+  margin-bottom: 30px;
 }
 
 .quote-meta {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 20px;
 }
 
 .quote-line {
-  width: 56px;
+  width: 80px;
   height: 1.5px;
-  background: var(--graphite);
-  opacity: 0.7;
+  background: var(--straw);
 }
 
 .quote-author {
   text-transform: uppercase;
-  letter-spacing: 3px;
-  font-size: 0.65rem;
-  color: var(--graphite);
+  letter-spacing: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--slate-text);
 }
 
 .quote-author span {
-  opacity: 0.5;
-  margin-left: 10px;
+  opacity: 0.6;
+  font-weight: 300;
   text-transform: none;
+  letter-spacing: 0;
+  margin-left: 12px;
 }
 
-/* ---- FOOTER (UNCHANGED) ---- */
+/* ---- FOOTER ---- */
 .footer {
   position: absolute;
   bottom: 60px;
   right: 100px;
+  text-align: right;
 }
 
 .footer p {
   text-transform: uppercase;
-  letter-spacing: 6px;
-  font-size: 0.7rem;
-  color: var(--graphite-soft);
+  letter-spacing: 8px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--straw);
 }
 
 .footer span {
   opacity: 0.4;
-  margin-left: 18px;
+  font-weight: 300;
+  margin-left: 15px;
 }
 </style>
 </head>
@@ -145,25 +164,25 @@ section.slide {
 <body>
 
 <section class="slide">
-
   <div class="content-box">
+    
+    <div class="title-container">
+      <h1 class="title-line-1">Content Mix Model</h1>
+      <h1 class="title-line-2">Operating System™</h1>
+    </div>
 
-    <!-- TITLE -->
-    <h1 class="hero-title-single">
-      Content Mix Model Operating System™
-    </h1>
-
-    <!-- HERO COPY -->
     <div class="hero-hook">
       <p>
-        Solving the <strong>$450B boondoggle</strong> of “Seinfeld era,” media measurement applied to "Joe Rogan era" media consumption.<br>
+        Solving the <strong>$450B boondoggle</strong> of 
+        “Seinfeld era” media measurement <br>
+        applied to <strong>“Joe Rogan era”</strong> media consumption.
       </p>
     </div>
 
-    <!-- QUOTE -->
     <div class="quote-block">
       <p class="quote">
-        “To change something, build a new model that makes the existing model obsolete.”
+        “You never change things by fighting the existing reality.<br>
+        To change something, build a new model that makes the existing model obsolete.”
       </p>
 
       <div class="quote-meta">
@@ -178,21 +197,12 @@ section.slide {
   </div>
 
   <div class="footer">
-    <p>
-      DeliverAI Solutions
-      <span>| Patent Pending</span>
-    </p>
+    <p>DeliverAI Solutions <span>| Patent Pending</span></p>
   </div>
-
-</section>
-
-<section class="slide">
-  <!-- next slide -->
 </section>
 
 </body>
 </html>
-
   
 </section>
 <section class="accent">
@@ -687,6 +697,7 @@ section.slide {
 
 </body>
 </html>
+
 
 
 
