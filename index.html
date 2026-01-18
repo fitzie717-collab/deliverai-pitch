@@ -221,9 +221,8 @@ h4 { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 4px; font-wei
   <div class="footer-mark">DELIVERAI SOLUTIONS &nbsp;|&nbsp; PATENT PENDING</div>
 </section>
 
-<!-- SLIDE 3: THE SOLUTION (HORIZONTAL GRID + STRATEGIC LOGIC) -->
+<!-- SLIDE 3: THE SOLUTION (REFINED TYPOGRAPHY & SCALE) -->
 <style>
-/* CSS Variables locally for this slide */
 :root {
   --bancha: #4B4D3B;          
   --hague-blue: #2F3C48;      
@@ -246,235 +245,230 @@ h4 { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 4px; font-wei
 
 /* --- TYPOGRAPHY --- */
 .solution-label {
-    font-size: 0.75rem;
+    font-size: 0.8rem;
     text-transform: uppercase;
     letter-spacing: 0.25em;
     font-weight: 700;
     color: var(--gold-leaf);
-    margin-bottom: 10px;
+    margin-bottom: 12px;
     display: block;
 }
 
 .solution-title { 
     font-family: 'Playfair Display', serif; 
-    font-size: clamp(2rem, 4vw, 3.2rem); 
+    font-size: clamp(2.2rem, 4.5vw, 3.5rem); 
     line-height: 1.1; 
     font-weight: 400;
-    color: var(--hague-blue); /* Blue Title */
-    margin-bottom: 8px;
+    color: var(--hague-blue); 
+    margin-bottom: 10px;
 }
 
 .solution-tagline {
-    font-size: 0.7rem;
+    font-size: 0.75rem;
     text-transform: uppercase;
     letter-spacing: 0.15em;
     font-weight: 600;
     color: var(--hague-blue);
     opacity: 0.8;
-    margin-bottom: 5vh;
+    margin-bottom: 6vh;
     display: block;
 }
 
-/* Section Dividers */
 .section-marker {
-    font-size: 0.65rem;
+    font-size: 0.75rem;
     text-transform: uppercase;
     letter-spacing: 0.2em;
     font-weight: 700;
     color: var(--gold-leaf);
-    border-top: 1px solid rgba(197, 160, 89, 0.4);
-    padding-top: 15px;
-    margin-top: 2vh;
-    margin-bottom: 25px;
+    border-top: 1.5px solid rgba(197, 160, 89, 0.4);
+    padding-top: 20px;
+    margin-bottom: 30px;
     display: block;
 }
 
-/* --- THE IDENTITY SPINE (HORIZONTAL GRID) --- */
+/* --- THE IDENTITY SPINE (SECTION 01) --- */
 .spine-grid {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  gap: 20px;
-  margin-bottom: 6vh;
+  gap: 25px;
+  margin-bottom: 7vh;
 }
 
 .spine-item .serif-num { 
     font-family: 'Playfair Display', serif; 
     font-style: italic; 
-    font-size: 1.5rem; 
+    font-size: 1.8rem; 
     color: var(--gold-leaf); 
     display: block;
-    margin-bottom: 5px;
+    margin-bottom: 8px;
 }
 
+/* BOLDER & BIGGER HEADERS AS REQUESTED */
 .spine-item .p-title { 
-    font-weight: 700; 
+    font-weight: 800; 
     text-transform: uppercase; 
-    letter-spacing: 0.1em; 
-    font-size: 0.65rem; 
+    letter-spacing: 0.12em; 
+    font-size: 0.85rem; 
     color: var(--hague-blue); 
-    margin-bottom: 8px;
+    margin-bottom: 12px;
     display: block;
 }
 
 .spine-item .p-desc { 
-    font-size: 0.7rem; 
-    line-height: 1.4; 
-    opacity: 0.8; 
+    font-size: 0.75rem; 
+    line-height: 1.6; 
+    opacity: 0.9; 
     font-weight: 400; 
 }
 
-/* --- COMPETITIVE TABLE --- */
+/* --- STRATEGIC LOGIC (SECTION 02) --- */
 .table-wrap { width: 100%; overflow-x: auto; }
-.editorial-table { width: 100%; border-collapse: collapse; min-width: 1000px; }
+.editorial-table { width: 100%; border-collapse: collapse; min-width: 1100px; }
 
+/* BOLDER & BIGGER HEADERS AS REQUESTED */
 .editorial-table th {
-  padding: 12px 10px;
+  padding: 15px 12px;
   text-align: left;
-  font-size: 0.7rem;
+  font-size: 0.85rem;
   text-transform: uppercase;
   letter-spacing: 0.15em;
   color: var(--hague-blue);
-  border-bottom: 1.5px solid var(--gold-leaf);
-  font-weight: 700;
+  border-bottom: 2px solid var(--gold-leaf);
+  font-weight: 800;
 }
 
 .editorial-table td { 
-    padding: 22px 10px; 
+    padding: 28px 12px; 
     vertical-align: top; 
-    font-size: 0.8rem; 
-    line-height: 1.5; 
-    border-bottom: 1px solid rgba(47, 60, 72, 0.1); 
+    font-size: 0.85rem; 
+    line-height: 1.6; 
+    border-bottom: 1px solid rgba(47, 60, 72, 0.12); 
 }
 
-/* Problem: Yellow & Bold Sans */
+/* Problem: Yellow & Bigger */
 .table-problem { 
     color: var(--gold-leaf); 
-    font-weight: 700; 
+    font-weight: 800; 
     text-transform: uppercase; 
-    letter-spacing: 0.05em;
-    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    font-size: 0.85rem;
 }
 
-/* Gap: Blue & Bold Sans */
 .table-gap {
     color: var(--hague-blue);
-    font-weight: 700;
+    font-weight: 800;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
-    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    font-size: 0.75rem;
 }
 
 .col-highlight { 
     background-color: rgba(255, 255, 255, 0.5); 
-    border-left: 1px solid rgba(197, 160, 89, 0.15); 
-    border-right: 1px solid rgba(197, 160, 89, 0.15); 
+    border-left: 1px solid rgba(197, 160, 89, 0.2); 
+    border-right: 1px solid rgba(197, 160, 89, 0.2); 
 }
 
 .footer-credits {
   margin-top: auto;
   text-align: right;
-  font-size: 0.6rem;
+  font-size: 0.65rem;
   letter-spacing: 4px;
   font-weight: 700;
-  opacity: 0.5;
+  opacity: 0.6;
   text-transform: uppercase;
-}
-
-@media (max-width: 1024px) {
-  .spine-grid { grid-template-columns: repeat(3, 1fr); }
 }
 </style>
 
-<!-- SLIDE 3: THE SOLUTION -->
-<section class="slide bg-pointing">
-  <div class="content-wrapper">
-    <h4>The Solution</h4>
-    <h2 style="color: var(--hague-blue)">The Content Mix Model OS™</h2>
-    <p style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.15em; font-weight: 600; margin-bottom: 4vh;">Patent-Pending Deterministic Identity Resolution Backbone</p>
+<div class="slide-3-container">
+  <span class="solution-label">The Solution</span>
+  <h2 class="solution-title">The Content Mix Model OS™</h2>
+  <span class="solution-tagline">Patent-Pending Deterministic Identity Resolution Backbone</span>
 
-    <!-- 01: THE SPINE -->
-    <span class="section-marker">01. The Deterministic Identity Spine™</span>
-    <div class="spine-grid">
-      <div class="spine-item">
-        <span class="serif-num">01</span>
-        <span class="p-title">Identification</span>
-        <p class="p-desc">Persistent unique IDs assigned to each creative asset for cross-platform tracking.</p>
-      </div>
-      <div class="spine-item">
-        <span class="serif-num">02</span>
-        <span class="p-title">Exposure</span>
-        <p class="p-desc">Captures content exposure via pixel, S2S, or clean room to capture device-level IDs.</p>
-      </div>
-      <div class="spine-item">
-        <span class="serif-num">03</span>
-        <span class="p-title">Identity Match</span>
-        <p class="p-desc">Deterministic matching via verified identity graphs to individual users.</p>
-      </div>
-      <div class="spine-item">
-        <span class="serif-num">04</span>
-        <span class="p-title">Attribution</span>
-        <p class="p-desc">Proprietary ML assigns outcomes to specific content exposures.</p>
-      </div>
-      <div class="spine-item">
-        <span class="serif-num">05</span>
-        <span class="p-title">Outcome</span>
-        <p class="p-desc">Measures site visits, brand lift, and conversions tied directly to creative DNA.</p>
-      </div>
-      <div class="spine-item">
-        <span class="serif-num">06</span>
-        <span class="p-title">Optimization</span>
-        <p class="p-desc">ML scores performance to provide actionable media buy recommendations.</p>
-      </div>
+  <!-- 01: THE SPINE -->
+  <span class="section-marker">01. The Deterministic Identity Spine™</span>
+  
+  <div class="spine-grid">
+    <div class="spine-item">
+      <span class="serif-num">01</span>
+      <span class="p-title">Identification</span>
+      <p class="p-desc"><b>Persistent unique IDs</b> assigned to each creative asset for seamless cross-platform tracking.</p>
     </div>
-
-    <!-- 02: STRATEGIC LOGIC -->
-    <span class="section-marker">02. Strategic Displacement Logic</span>
-    <div class="table-wrap">
-      <table class="editorial-table">
-        <thead>
-          <tr>
-            <th style="width: 22%;">Critical Problem</th>
-            <th style="width: 18%;">Foundational Gap</th>
-            <th style="width: 20%;">Legacy State</th>
-            <th style="width: 22%;" class="col-highlight">Content Mix Model™</th>
-            <th style="width: 18%;">Economic Benefit</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="problem-heading-yellow">Inability to Prove Brand Value</td>
-            <td style="color: var(--hague-blue); font-weight: 700; font-size: 0.7rem; text-transform: uppercase;">Brand Perception-to-Sales Link</td>
-            <td>Siloed, one-off brand perception surveys.</td>
-            <td class="col-highlight"><b>Habitual surveying of unique IDs to tie exposures to brand shifts.</b></td>
-            <td><b>Full Funnel Buy-in:</b> Quantify pipeline and future sales.</td>
-          </tr>
-          <tr>
-            <td class="problem-heading-yellow">High Barriers to Expansion</td>
-            <td style="color: var(--hague-blue); font-weight: 700; font-size: 0.7rem; text-transform: uppercase;">Operational Portability</td>
-            <td>Reliance on large agencies to manually bridge fragmented channels.</td>
-            <td class="col-highlight"><b>Agnostic Infrastructure:</b> Unified tracking for Podcast, OOH, and Social.</td>
-            <td><b>Instant Scaling:</b> Scale new channels without agency tax.</td>
-          </tr>
-          <tr>
-            <td class="problem-heading-yellow">No Creative Efficacy Insights</td>
-            <td style="color: var(--hague-blue); font-weight: 700; font-size: 0.7rem; text-transform: uppercase;">Creative DNA</td>
-            <td>Isolated single variable A/B testing.</td>
-            <td class="col-highlight"><b>AI Deconstruction:</b> Standardized scoring of 30+ signals across every asset.</td>
-            <td><b>Creative Intelligence:</b> Know exactly what elements cause lifts.</td>
-          </tr>
-          <tr>
-            <td class="problem-heading-yellow">No Aggregated Performance View</td>
-            <td style="color: var(--hague-blue); font-weight: 700; font-size: 0.7rem; text-transform: uppercase;">Insight Velocity</td>
-            <td>Retrospective MMM reports delivered 90 days after spend.</td>
-            <td class="col-highlight"><b>24 Hour Reconciliation:</b> Cross-device exposures reconciled at individual level.</td>
-            <td><b>Live Optimization:</b> Leverage insights to build audiences.</td>
-          </tr>
-        </tbody>
-      </table>
+    <div class="spine-item">
+      <span class="serif-num">02</span>
+      <span class="p-title">Exposure</span>
+      <p class="p-desc">Tracks content exposure via pixel or S2S to <b>capture device-level IDs</b> in privacy-safe clean rooms.</p>
+    </div>
+    <div class="spine-item">
+      <span class="serif-num">03</span>
+      <span class="p-title">Identity Match</span>
+      <p class="p-desc">Deterministic matching via <b>verified identity graphs</b> to identify individual human users.</p>
+    </div>
+    <div class="spine-item">
+      <span class="serif-num">04</span>
+      <span class="p-title">Attribution</span>
+      <p class="p-desc">Proprietary ML assigns outcomes to <b>specific content exposures</b>, bypassing channel-level noise.</p>
+    </div>
+    <div class="spine-item">
+      <span class="serif-num">05</span>
+      <span class="p-title">Outcome</span>
+      <p class="p-desc">Measures brand lift and conversions tied directly to the <b>Creative DNA</b> of the asset.</p>
+    </div>
+    <div class="spine-item">
+      <span class="serif-num">06</span>
+      <span class="p-title">Optimization</span>
+      <p class="p-desc">Machine Learning scores performance to provide <b>actionable media buy</b> recommendations.</p>
     </div>
   </div>
-  <div class="footer-mark">DELIVERAI SOLUTIONS &nbsp;|&nbsp; PATENT PENDING</div>
-</section>
+
+  <!-- 02: STRATEGIC LOGIC -->
+  <span class="section-marker">02. Strategic Displacement Logic</span>
+
+  <div class="table-wrap">
+    <table class="editorial-table">
+      <thead>
+        <tr>
+          <th style="width: 22%;">Critical Problem</th>
+          <th style="width: 18%;">Foundational Gap</th>
+          <th style="width: 20%;">Legacy State</th>
+          <th style="width: 22%;" class="col-highlight">Content Mix Model™</th>
+          <th style="width: 18%;">Economic Benefit</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="table-problem">Inability to Prove Brand Value</td>
+          <td class="table-gap">Brand-to-Sales Link</td>
+          <td><b>Siloed</b>, one-off brand perception surveys.</td>
+          <td class="col-highlight"><b>Habitual surveying</b> of unique IDs to tie specific exposures to brand shifts.</td>
+          <td><b>Quantify pipeline</b> and accurate future sales forecasts.</td>
+        </tr>
+        <tr>
+          <td class="table-problem">High Barriers to Expansion</td>
+          <td class="table-gap">Operational Portability</td>
+          <td>Reliance on large agencies to bridge <b>fragmented channels</b>.</td>
+          <td class="col-highlight"><b>Agnostic Infrastructure:</b> Unified tracking for Podcast, OOH, and Social.</td>
+          <td><b>Instant Scaling:</b> Move into new channels without the <b>agency tax</b>.</td>
+        </tr>
+        <tr>
+          <td class="table-problem">No Creative Insights</td>
+          <td class="table-gap">Creative DNA</td>
+          <td><b>Isolated</b> single variable A/B testing.</td>
+          <td class="col-highlight"><b>AI Deconstruction:</b> Standardized scoring of 30+ signals across every asset.</td>
+          <td>Know <b>exactly</b> what creative elements cause lifts.</td>
+        </tr>
+        <tr>
+          <td class="table-problem">No Aggregated View</td>
+          <td class="table-gap">Insight Velocity</td>
+          <td>MMM reports delivered <b>90 days after</b> spend.</td>
+          <td class="col-highlight"><b>24 Hour Reconciliation:</b> Cross-device exposures reconciled at the <b>individual level</b>.</td>
+          <td><b>Live Optimization:</b> Build audiences and adjust media plans instantly.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="footer-credits">DELIVERAI SOLUTIONS &nbsp;|&nbsp; PATENT PENDING</div>
+</div>
 
   <!-- SLIDE 4: BUSINESS MODEL -->
 <section class="slide bg-school">
@@ -583,6 +577,7 @@ h4 { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 4px; font-wei
 
 </body>
 </html>
+
 
 
 
