@@ -1,5 +1,3 @@
-ou can paste this into one .html file and run it.
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,25 +9,26 @@ ou can paste this into one .html file and run it.
 
 <style>
 /* =========================================================
-   CORE PALETTE — MATCHING myUI
+   FARROW & BALL — HERITAGE PALETTE
    ========================================================= */
 :root {
-  /* Backgrounds */
-  --ink-blue: #1E2A33;
-  --parchment: #F6F3ED;
+  /* Background */
+  --ink-blue: #202C34;        /* deeper, warmer ink */
+  --ink-overlay: rgba(0,0,0,0.08);
 
   /* Text */
-  --oxford-stone: #E6DFD3;   /* TAN (used instead of white) */
-  --soft-stone: #C9C2B6;
-  --graphite: #2A3236;
-  --graphite-soft: #8C8F8B;
+  --oxford-stone: #E7E0D4;    /* refined tan */
+  --soft-stone: #CFC7BB;
+
+  /* Rules */
+  --stone-rule: rgba(231,224,212,0.35);
 
   /* Accent */
-  --heritage-gold: #B59663; /* Yellow-gold like +14.2% */
+  --heritage-gold: #B08F57;  /* less bright, more heritage */
 }
 
 /* =========================================================
-   RESET + GLOBALS
+   RESET
    ========================================================= */
 * {
   box-sizing: border-box;
@@ -43,196 +42,128 @@ html {
 
 body {
   font-family: 'Inter', sans-serif;
-  background: var(--parchment);
-  color: var(--graphite);
-  line-height: 1.6;
+  background: var(--ink-blue);
+  color: var(--oxford-stone);
+  line-height: 1.65;
   overflow-y: scroll;
 }
 
+/* =========================================================
+   SLIDE
+   ========================================================= */
 section.slide {
   height: 100vh;
   width: 100vw;
   scroll-snap-align: start;
   position: relative;
-  padding: 80px 96px;
+  padding: 96px 112px;
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(255,255,255,0.02),
+      rgba(0,0,0,0.12)
+    ),
+    var(--ink-blue);
 }
 
 /* =========================================================
-   TYPOGRAPHY
+   HERO WRAP
    ========================================================= */
-h1, h2 {
-  font-family: 'Playfair Display', serif;
-  font-weight: 600;
-}
-
-h1 {
-  font-size: 3.6rem;
-  margin-bottom: 32px;
-}
-
-h2 {
-  font-size: 2.6rem;
-  margin-bottom: 24px;
-}
-
-.label {
-  text-transform: uppercase;
-  letter-spacing: 3px;
-  font-size: 0.65rem;
-  color: var(--graphite-soft);
-}
-
-/* =========================================================
-   SLIDE 1 — HERO / THESIS
-   ========================================================= */
-.slide-hero {
-  background: var(--ink-blue);
-  color: var(--oxford-stone);
-}
-
 .hero-wrap {
-  max-width: 1200px;
-  padding-top: 32vh;
+  max-width: 1180px;
+  padding-top: 34vh;
 }
 
-.slide-hero h1 {
-  color: var(--heritage-gold); /* GOLD TITLE (requested) */
+/* =========================================================
+   TITLE
+   ========================================================= */
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 3.5rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--heritage-gold);
+  margin-bottom: 34px;
 }
 
+/* =========================================================
+   HERO HOOK
+   ========================================================= */
 .hero-hook {
-  border-left: 2px solid rgba(230,223,211,0.35);
-  padding-left: 28px;
-  margin-bottom: 18vh;
+  border-left: 1px solid var(--stone-rule);
+  padding-left: 32px;
+  margin-bottom: 20vh;
 }
 
 .hero-hook p {
-  font-size: 1.15rem;
+  font-size: 1.12rem;
   color: var(--soft-stone);
 }
 
 .hero-hook strong {
-  color: var(--heritage-gold); /* GOLD EMPHASIS */
-  font-weight: 600;
+  color: var(--heritage-gold);
+  font-weight: 500;
 }
 
-/* Quote stays tan, not gold */
+/* =========================================================
+   QUOTE
+   ========================================================= */
 .quote {
   font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
   font-style: italic;
-  font-size: 1.25rem;
   opacity: 0.75;
   margin-bottom: 14px;
   white-space: nowrap;
-  color: var(--oxford-stone);
 }
 
 .quote-meta {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 16px;
 }
 
 .quote-line {
   width: 56px;
-  height: 1.5px;
-  background: rgba(230,223,211,0.35);
+  height: 1px;
+  background: var(--stone-rule);
 }
 
-/* =========================================================
-   SLIDE 2 — AUDIENCE ANALYSIS
-   ========================================================= */
-.kpi-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
-  margin-bottom: 48px;
+.label {
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 0.6rem;
+  color: var(--soft-stone);
 }
-
-.kpi {
-  background: #fff;
-  border-radius: 18px;
-  padding: 28px;
-}
-
-.kpi .value {
-  font-family: 'Playfair Display', serif;
-  font-size: 2.2rem;
-  margin-top: 8px;
-}
-
-.kpi.gold .value {
-  color: var(--heritage-gold);
-}
-
-/* =========================================================
-   SLIDE 3 — OPTIMIZER
-   ========================================================= */
-.optimizer-bar {
-  background: #EDE8DF;
-  border-left: 4px solid var(--heritage-gold);
-  padding: 28px;
-  margin-bottom: 40px;
-}
-
-.optimizer-bar strong {
-  font-family: 'Playfair Display', serif;
-}
-
-.table {
-  background: var(--ink-blue);
-  color: var(--oxford-stone);
-  border-radius: 16px;
-  overflow: hidden;
-}
-
-.table-row {
-  display: grid;
-  grid-template-columns: 2fr 1fr 2fr 1fr;
-  padding: 22px 28px;
-  border-bottom: 1px solid rgba(230,223,211,0.08);
-}
-
-.table-row:last-child {
-  border-bottom: none;
-}
-
-.action {
-  text-align: right;
-  font-size: 0.75rem;
-  letter-spacing: 2px;
-}
-
-.scale { color: var(--heritage-gold); }
-.stop { color: #9C6B63; }
-.hold { color: var(--soft-stone); }
 
 /* =========================================================
    FOOTER
    ========================================================= */
 .footer {
   position: absolute;
-  bottom: 48px;
-  right: 96px;
-  font-size: 0.7rem;
+  bottom: 56px;
+  right: 112px;
+  font-size: 0.65rem;
   letter-spacing: 6px;
-  color: rgba(230,223,211,0.45);
+  color: rgba(231,224,212,0.45);
 }
 </style>
 </head>
 
 <body>
 
-<!-- ===================================================== -->
-<!-- SLIDE 1 : HERO -->
-<!-- ===================================================== -->
-<section class="slide slide-hero">
+<section class="slide">
+
   <div class="hero-wrap">
 
     <h1>Content Mix Model Operating System™</h1>
 
     <div class="hero-hook">
       <p>
-        Solving the <strong>$450B boondoggle</strong> of <strong>"Seinfeld era" media measurement</strong> applied to <strong>“Joe Rogan era” media consumption.</strong> 
+        Solving the <strong>$450B boondoggle</strong> of
+        <strong>"Seinfeld era" media measurement</strong>
+        applied to <strong>“Joe Rogan era” media consumption.</strong>
+      </p>
     </div>
 
     <div>
@@ -250,7 +181,12 @@ h2 {
   <div class="footer">
     DELIVERAI SOLUTIONS &nbsp;|&nbsp; PATENT PENDING
   </div>
+
 </section>
+
+</body>
+</html>
+
 </section>
 <section class="accent">
   <div class="content-box">
@@ -744,6 +680,7 @@ h2 {
 
 </body>
 </html>
+
 
 
 
