@@ -3,201 +3,246 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>DeliverAI | Content Mix Model OS™</title>
+<title>DeliverAI | Content Mix Model OS</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
+/* =========================================================
+   CORE PALETTE — LOCKED TO myUI
+   ========================================================= */
 :root {
-  /* UI PALETTE - From Brand Health Dash */
-  --obsidian: #1D1F21;      /* The deep background of your UI cards */
-  --straw: #B69A68;         /* The sophisticated gold/tan accent */
-  --off-white: #F9F7F2;     /* The primary text color */
-  --slate-text: #8E9396;    /* Secondary/Meta text */
+  --ink-blue: #1E2A33;
+  --parchment: #F6F3ED;
+
+  --oxford-stone: #E6DFD3;
+  --soft-stone: #C9C2B6;
+
+  --graphite: #2A3236;
+  --graphite-soft: #8C8F8B;
+
+  --heritage-gold: #B59663;
+  --muted-clay: #9C6B63;
 }
 
+/* =========================================================
+   RESET + GLOBALS
+   ========================================================= */
 * {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+}
+
+html {
+  scroll-snap-type: y mandatory;
 }
 
 body {
   font-family: 'Inter', sans-serif;
-  background: var(--obsidian);
-  color: var(--off-white);
-  overflow: hidden;
+  background: var(--parchment);
+  color: var(--graphite);
+  line-height: 1.6;
+  overflow-y: scroll;
 }
 
 section.slide {
   height: 100vh;
   width: 100vw;
+  scroll-snap-align: start;
   position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  padding-top: 38vh; /* Pushes the whole block down as requested */
+  padding: 80px 96px;
 }
 
-.content-box {
-  width: 100%;
-  max-width: 1400px;
-  padding: 0 100px;
-}
-
-/* ---- TITLE: GEOMETRICALLY BALANCED ---- */
-.title-container {
-  margin-bottom: 50px;
-  display: inline-block;
-}
-
-.title-line-1 {
+/* =========================================================
+   TYPOGRAPHY
+   ========================================================= */
+h1, h2 {
   font-family: 'Playfair Display', serif;
-  font-size: 5.8rem;
   font-weight: 600;
-  letter-spacing: -0.02em;
-  line-height: 1;
-  margin: 0;
-  color: var(--off-white);
 }
 
-.title-line-2 {
-  font-family: 'Playfair Display', serif;
-  font-size: 4.85rem; /* Sized to match width exactly */
-  font-weight: 600;
-  letter-spacing: 0.165em; /* Stretches OS to match line 1 */
-  line-height: 1;
+h1 {
+  font-size: 3.6rem;
+  margin-bottom: 32px;
+}
+
+h2 {
+  font-size: 2.6rem;
+  margin-bottom: 24px;
+}
+
+.label {
   text-transform: uppercase;
-  color: var(--straw); /* UI Accent Color */
-  margin: 0;
+  letter-spacing: 3px;
+  font-size: 0.65rem;
+  color: var(--graphite-soft);
 }
 
-/* ---- THE BOONDOGGLE HOOK ---- */
+/* =========================================================
+   SLIDE 1 — HERO / THESIS
+   ========================================================= */
+.slide-hero {
+  background: var(--ink-blue);
+  color: var(--oxford-stone);
+}
+
+.hero-wrap {
+  max-width: 1200px;
+  padding-top: 32vh;
+}
+
 .hero-hook {
-  border-left: 3px solid var(--straw);
-  padding: 10px 0 10px 40px;
-  margin-bottom: 15vh; /* Pushes quote lower */
-  max-width: 1100px;
+  border-left: 2px solid var(--graphite-soft);
+  padding-left: 28px;
+  margin-bottom: 18vh;
 }
 
 .hero-hook p {
-  font-size: 1.4rem;
-  line-height: 1.6;
-  color: var(--off-white);
-  opacity: 0.95;
+  font-size: 1.15rem;
+  color: var(--soft-stone);
 }
 
 .hero-hook strong {
-  color: var(--straw);
-  font-weight: 700;
-}
-
-/* ---- THE QUOTE (LOW & WIDE) ---- */
-.quote-block {
-  width: 100%;
-  max-width: 1200px;
+  color: var(--oxford-stone);
 }
 
 .quote {
   font-family: 'Playfair Display', serif;
-  font-size: 2.1rem;
   font-style: italic;
-  line-height: 1.5;
-  color: var(--off-white);
-  opacity: 0.9;
-  margin-bottom: 30px;
+  font-size: 1.25rem;
+  opacity: 0.75;
+  margin-bottom: 14px;
+  white-space: nowrap;
 }
 
 .quote-meta {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 14px;
 }
 
 .quote-line {
-  width: 80px;
+  width: 56px;
   height: 1.5px;
-  background: var(--straw);
+  background: var(--graphite-soft);
 }
 
-.quote-author {
-  text-transform: uppercase;
-  letter-spacing: 4px;
+/* =========================================================
+   SLIDE 2 — AUDIENCE ANALYSIS
+   ========================================================= */
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-bottom: 48px;
+}
+
+.kpi {
+  background: #fff;
+  border-radius: 18px;
+  padding: 28px;
+}
+
+.kpi .value {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.2rem;
+  margin-top: 8px;
+}
+
+.kpi.gold .value {
+  color: var(--heritage-gold);
+}
+
+/* =========================================================
+   SLIDE 3 — OPTIMIZER
+   ========================================================= */
+.optimizer-bar {
+  background: #EDE8DF;
+  border-left: 4px solid var(--heritage-gold);
+  padding: 28px;
+  margin-bottom: 40px;
+}
+
+.optimizer-bar strong {
+  font-family: 'Playfair Display', serif;
+}
+
+.table {
+  background: var(--ink-blue);
+  color: var(--oxford-stone);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.table-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr 2fr 1fr;
+  padding: 22px 28px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.table-row:last-child {
+  border-bottom: none;
+}
+
+.action {
+  text-align: right;
   font-size: 0.75rem;
-  font-weight: 600;
-  color: var(--slate-text);
+  letter-spacing: 2px;
 }
 
-.quote-author span {
-  opacity: 0.6;
-  font-weight: 300;
-  text-transform: none;
-  letter-spacing: 0;
-  margin-left: 12px;
-}
+.scale { color: var(--heritage-gold); }
+.stop { color: var(--muted-clay); }
+.hold { color: var(--soft-stone); }
 
-/* ---- FOOTER ---- */
+/* =========================================================
+   FOOTER
+   ========================================================= */
 .footer {
   position: absolute;
-  bottom: 60px;
-  right: 100px;
-  text-align: right;
-}
-
-.footer p {
-  text-transform: uppercase;
-  letter-spacing: 8px;
-  font-size: 0.75rem;
-  font-weight: 600;
-  color: var(--straw);
-}
-
-.footer span {
-  opacity: 0.4;
-  font-weight: 300;
-  margin-left: 15px;
+  bottom: 48px;
+  right: 96px;
+  font-size: 0.7rem;
+  letter-spacing: 6px;
+  color: var(--graphite-soft);
 }
 </style>
 </head>
 
 <body>
 
-<section class="slide">
-  <div class="content-box">
-    
-    <div class="title-container">
-      <h1 class="title-line-1">Content Mix Model</h1>
-      <h1 class="title-line-2">Operating System™</h1>
-    </div>
+<!-- ===================================================== -->
+<!-- SLIDE 1 : HERO -->
+<!-- ===================================================== -->
+<section class="slide slide-hero">
+  <div class="hero-wrap">
+
+    <h1>Content Mix Model Operating System™</h1>
 
     <div class="hero-hook">
       <p>
-        Solving the <strong>$450B boondoggle</strong> of 
-        “Seinfeld era” media measurement <br>
-        applied to <strong>“Joe Rogan era”</strong> media consumption.
+        Solving the <strong>$450B boondoggle</strong> between<br>
+        media measurement designed for the <strong>“Seinfeld era,”</strong><br>
+        and<br>
+        media consumption habits of the <strong>“Joe Rogan era.”</strong>
       </p>
     </div>
 
-    <div class="quote-block">
+    <div>
       <p class="quote">
-        “You never change things by fighting the existing reality.<br>
-        To change something, build a new model that makes the existing model obsolete.”
+        “To change something, build a new model that makes the existing model obsolete.”
       </p>
-
       <div class="quote-meta">
         <div class="quote-line"></div>
-        <p class="quote-author">
-          Buckminster Fuller
-          <span>| 20th Century Futurist & Global Systems Theorist</span>
-        </p>
+        <div class="label">Buckminster Fuller</div>
       </div>
     </div>
 
   </div>
 
   <div class="footer">
-    <p>DeliverAI Solutions <span>| Patent Pending</span></p>
+    DELIVERAI SOLUTIONS &nbsp;|&nbsp; PATENT PENDING
   </div>
 </section>
 
@@ -697,6 +742,7 @@ section.slide {
 
 </body>
 </html>
+
 
 
 
