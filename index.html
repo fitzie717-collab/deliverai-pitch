@@ -5,28 +5,22 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>DeliverAI | Content Mix Model OS™</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-/* =========================================================
-   FARROW & BALL: LIBRARY & MOSS PALETTE
-   ========================================================= */
 :root {
-  --mouses-back: #9D9383;    /* The warm, muted taupe background */
-  --lichen: #5E6751;         /* The deep, mossy heritage green */
-  --corda: #E8E1D1;          /* Soft, weathered string color for text */
-  --aged-bronze: #4A453C;    /* Deep accent for primary titles */
-  --rule-line: rgba(74, 69, 60, 0.2);
+  --bancha: #4B4D3B;      /* Deep Olive */
+  --mouses-back: #9D9383; /* Warm Taupe */
+  --corda: #E8E1D1;       /* Creamy Tan */
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-snap-type: y mandatory; }
+html { scroll-snap-type: y mandatory; scroll-behavior: smooth; }
 
 body {
   font-family: 'Inter', sans-serif;
-  background: var(--mouses-back);
-  color: var(--corda);
   line-height: 1.6;
+  background: var(--bancha);
 }
 
 section.slide {
@@ -34,187 +28,133 @@ section.slide {
   width: 100vw;
   scroll-snap-align: start;
   position: relative;
-  padding: 10vh 8%;
+  padding: 8vh 8%;
   display: flex;
   flex-direction: column;
 }
 
 @media (max-width: 768px) {
-  section.slide { padding: 5vh 6%; height: auto; min-height: 100vh; }
+  section.slide { height: auto; min-height: 100vh; padding: 40px 6%; scroll-snap-align: none; }
   html { scroll-snap-type: none; }
 }
 
-h1, h2 { font-family: 'Playfair Display', serif; font-weight: 600; letter-spacing: -0.02em; }
+/* Typography Restored */
+h1 { font-family: 'Playfair Display', serif; font-size: clamp(3.2rem, 7vw, 5.5rem); line-height: 1.05; letter-spacing: -0.02em; }
+h2 { font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 4vw, 3.2rem); line-height: 1.2; margin-bottom: 30px; }
+h4 { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 3px; font-weight: 700; margin-bottom: 15px; }
 
-.label-cap {
-  text-transform: uppercase;
-  letter-spacing: 5px;
-  font-size: 0.7rem;
-  font-weight: 600;
-  color: var(--lichen);
-  margin-bottom: 20px;
-  display: block;
-}
+/* Slide Specific Colors */
+.bg-olive { background: var(--bancha); color: var(--corda); }
+.bg-taupe { background: var(--mouses-back); color: var(--bancha); }
 
-/* =========================================================
-   SLIDE 1 — VISION (Architectural Layout)
-   ========================================================= */
-.hero-block { padding-top: 30vh; }
+/* Layout Elements */
+.hero-content { margin-top: auto; margin-bottom: 8vh; max-width: 1100px; }
 
-.hero-title { 
-    font-size: clamp(2.5rem, 6vw, 5.2rem); 
-    line-height: 1.05; 
-    margin-bottom: 35px; 
-    color: var(--aged-bronze); 
-}
-.hero-title span { color: var(--lichen); display: block; }
-
-.hero-hook-border { 
-  border-left: 2px solid var(--lichen); 
-  padding: 8px 0 8px 35px; 
-  margin-bottom: 12vh; 
-}
-
-.hero-hook-border p { font-size: clamp(1rem, 2vw, 1.35rem); max-width: 950px; color: var(--aged-bronze); opacity: 0.9; }
-
-/* =========================================================
-   SLIDE 2 — PROBLEM (Balanced Gallery Layout)
-   ========================================================= */
-.problem-block { padding-top: 14vh; }
-
-.market-stats {
+.market-stats-container {
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-between;
-  margin-bottom: 55px;
-  padding-bottom: 30px;
-  border-bottom: 1.5px solid var(--rule-line);
+  border-top: 1px solid rgba(75, 77, 59, 0.3);
+  border-bottom: 1px solid rgba(75, 77, 59, 0.3);
+  padding: 30px 0;
+  margin-bottom: 5vh;
 }
 
-.stat-item { flex: 1; min-width: 150px; }
-.stat-item h3 { font-size: clamp(1.8rem, 4vw, 3rem); color: var(--lichen); line-height: 1; margin-bottom: 8px;}
-.stat-item p { font-size: 0.65rem; color: var(--aged-bronze); text-transform: uppercase; letter-spacing: 2px; font-weight: 600; opacity: 0.7;}
+.stat-box h3 { font-family: 'Playfair Display', serif; font-size: 3.5rem; line-height: 1; }
+.stat-box p { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 700; }
 
 .voc-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 45px 90px;
+  gap: 40px 80px;
 }
 
-@media (max-width: 900px) {
-  .voc-grid { grid-template-columns: 1fr; gap: 30px; }
-  .problem-block { padding-top: 4vh; }
+@media (max-width: 1024px) {
+  .voc-grid { grid-template-columns: 1fr; gap: 40px; }
 }
 
-.voc-card h4 {
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: var(--lichen);
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  margin-bottom: 15px;
-}
+.voc-item h5 { font-size: 0.9rem; font-weight: 700; margin-bottom: 8px; color: var(--bancha); border-bottom: 1px solid rgba(75, 77, 59, 0.2); display: inline-block; padding-bottom: 4px; }
+.voc-quote { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.35rem; line-height: 1.5; color: var(--corda); margin: 10px 0; }
+.voc-attribution { font-size: 0.7rem; font-weight: 700; letter-spacing: 1px; color: var(--bancha); opacity: 0.8; }
 
-.voc-quote {
-  font-family: 'Playfair Display', serif;
-  font-style: italic;
-  font-size: clamp(1rem, 1.4vw, 1.1rem);
-  line-height: 1.6;
-  color: var(--corda);
-  margin-bottom: 18px;
-}
-
-.voc-meta { display: flex; align-items: center; gap: 15px; }
-.voc-line { width: 40px; height: 1px; background: var(--lichen); opacity: 0.4; }
-.voc-author { font-size: 0.6rem; text-transform: uppercase; letter-spacing: 2px; color: var(--lichen); font-weight: 600; }
-
-/* =========================================================
-   FOOTER
-   ========================================================= */
 .footer {
   position: absolute;
-  bottom: 50px;
+  bottom: 40px;
   right: 8%;
   font-size: 0.65rem;
-  letter-spacing: 8px;
-  color: var(--lichen);
-  opacity: 0.8;
+  letter-spacing: 6px;
+  font-weight: 700;
+  opacity: 0.6;
 }
 </style>
 </head>
 
 <body>
 
-<section class="slide">
-  <div class="hero-block">
-    <h1 class="hero-title">
-      Content Mix Model<br>
-      <span>Operating System™</span>
-    </h1>
-
-    <div class="hero-hook-border">
-      <p>
-        Solving the <strong style="color:var(--lichen)">$450B boondoggle</strong> of 
-        “Seinfeld era” media measurement applied to 
-        <strong>“Joe Rogan era” media consumption.</strong>
+<section class="slide bg-olive">
+  <div class="hero-content">
+    <h4>The Future of Media Measurement</h4>
+    <h1>Content Mix Model<br>Operating System™</h1>
+    
+    <div style="border-left: 3px solid var(--corda); padding-left: 35px; margin: 5vh 0;">
+      <p style="font-size: 1.5rem; max-width: 850px; font-weight: 400; line-height: 1.4;">
+        Solving the <span style="font-weight: 700; color: var(--corda);">$450B boondoggle</span> of “Seinfeld era” media measurement designed for the 20th century, applied to modern <span style="font-weight: 700;">“Joe Rogan era” media consumption.</span>
       </p>
     </div>
 
-    <div style="max-width: 850px;">
-      <p style="font-family: 'Playfair Display', serif; font-style: italic; font-size: clamp(1.2rem, 2.5vw, 1.6rem); color: var(--aged-bronze); margin-bottom: 30px;">
-        “To change something, build a new model that makes the existing model obsolete.”
+    <div style="max-width: 800px; margin-top: 40px;">
+      <p style="font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.9rem; color: var(--corda); opacity: 0.9;">
+        “You never change things by fighting the existing reality. To change something, build a new model that makes the existing model obsolete.”
       </p>
-      <div style="display:flex; align-items:center; gap:25px;">
-        <div style="width:60px; height:1px; background:var(--lichen);"></div>
-        <span class="label-cap" style="margin-bottom:0; font-size:0.6rem; color: var(--lichen);">Buckminster Fuller | Systems Theorist</span>
-      </div>
+      <p style="margin-top: 20px; font-size: 0.8rem; font-weight: 700; letter-spacing: 2px;">
+        BUCKMINSTER FULLER <span style="opacity: 0.5; margin-left: 10px;">| SYSTEMS THEORIST</span>
+      </p>
     </div>
   </div>
   <div class="footer">DELIVERAI SOLUTIONS &nbsp;|&nbsp; PATENT PENDING</div>
 </section>
 
-<section class="slide">
-  <div class="problem-block">
-    <span class="label-cap">The Problem</span>
-    <h2 style="font-size: clamp(1.8rem, 4vw, 2.5rem); margin-bottom: 50px; color: var(--aged-bronze);">
-      The ecosystem has exploded—<br>operational problems remain.
-    </h2>
+<section class="slide bg-taupe">
+  <div style="padding-top: 4vh;">
+    <h4>The Problem</h4>
+    <h2>The marketing ecosystem has exploded—<br>foundational operational problems remain.</h2>
 
-    <div class="market-stats">
-      <div class="stat-item"><h3>$450B</h3><p>Global Ad Spend</p></div>
-      <div class="stat-item"><h3>15K+</h3><p>MarTech Solutions</p></div>
-      <div class="stat-item"><h3>31%</h3><p>Budget to Tech</p></div>
+    <div class="market-stats-container">
+      <div class="stat-box"><h3>$450B</h3><p>Global Ad Spend</p></div>
+      <div class="stat-box"><h3>15,000+</h3><p>MarTech Solutions</p></div>
+      <div class="stat-box"><h3>31%</h3><p>Budget to Technology</p></div>
     </div>
 
     <div class="voc-grid">
-      <div class="voc-card">
-        <h4>Inability to Prove Brand Value</h4>
+      <div class="voc-item">
+        <h5>Inability to Prove Brand Value</h5>
         <p class="voc-quote">“My CFO only wants me to spend on conversion ads. If I could understand how brand perception drives sales, that would be our holy grail.”</p>
-        <div class="voc-meta"><div class="voc-line"></div><span class="voc-author">VP, Paid Media · B2C Hospitality</span></div>
+        <p class="voc-attribution">VP, PAID MEDIA · B2C HOSPITALITY</p>
       </div>
 
-      <div class="voc-card">
-        <h4>Stalled Channel Expansion</h4>
+      <div class="voc-item">
+        <h5>Stalled Channel Expansion</h5>
         <p class="voc-quote">“I want to expand into out-of-home and podcasts, but I assume I need a Big 4 agency — so I don’t.”</p>
-        <div class="voc-meta"><div class="voc-line"></div><span class="voc-author">Head of Growth · FinTech Unicorn</span></div>
+        <p class="voc-attribution">HEAD OF GROWTH · FINTECH UNICORN</p>
       </div>
 
-      <div class="voc-card">
-        <h4>Creative Efficacy Gaps</h4>
+      <div class="voc-item">
+        <h5>Creative Efficacy Gaps</h5>
         <p class="voc-quote">“I pay $5M a year for an endorsement and have no idea if it produces any ROI.”</p>
-        <div class="voc-meta"><div class="voc-line"></div><span class="voc-author">Head of Paid Media · Gaming</span></div>
+        <p class="voc-attribution">HEAD OF PAID MEDIA · GAMING</p>
       </div>
 
-      <div class="voc-card">
-        <h4>Antiquated Data Velocity</h4>
+      <div class="voc-item">
+        <h5>Antiquated Data Velocity</h5>
         <p class="voc-quote">“We spend seven figures on MMM and get the results months after the quarter ends.”</p>
-        <div class="voc-meta"><div class="voc-line"></div><span class="voc-author">Measurement Lead · Largest US Retailer</span></div>
+        <p class="voc-attribution">MEASUREMENT LEAD · LARGEST US RETAILER</p>
       </div>
     </div>
   </div>
   <div class="footer">DELIVERAI SOLUTIONS &nbsp;|&nbsp; PATENT PENDING</div>
 </section>
 
+</body>
+</html>
 </body>
 </html>
 <section>
@@ -676,6 +616,7 @@ h1, h2 { font-family: 'Playfair Display', serif; font-weight: 600; letter-spacin
 
 </body>
 </html>
+
 
 
 
