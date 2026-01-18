@@ -9,36 +9,22 @@
 
 <style>
 /* =========================================================
-   FARROW & BALL — HERITAGE PALETTE
+   PALETTE
    ========================================================= */
 :root {
-  /* Background */
-  --ink-blue: #202C34;        /* deeper, warmer ink */
-  --ink-overlay: rgba(0,0,0,0.08);
-
-  /* Text */
-  --oxford-stone: #E7E0D4;    /* refined tan */
+  --ink-blue: #202C34;
+  --oxford-stone: #E7E0D4;
   --soft-stone: #CFC7BB;
-
-  /* Rules */
   --stone-rule: rgba(231,224,212,0.35);
-
-  /* Accent */
-  --heritage-gold: #B08F57;  /* less bright, more heritage */
+  --heritage-gold: #B08F57;
 }
 
 /* =========================================================
    RESET
    ========================================================= */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
-html {
-  scroll-snap-type: y mandatory;
-}
+html { scroll-snap-type: y mandatory; }
 
 body {
   font-family: 'Inter', sans-serif;
@@ -49,7 +35,7 @@ body {
 }
 
 /* =========================================================
-   SLIDE
+   SLIDES
    ========================================================= */
 section.slide {
   height: 100vh;
@@ -58,41 +44,42 @@ section.slide {
   position: relative;
   padding: 96px 112px;
   background:
-    linear-gradient(
-      to bottom,
-      rgba(255,255,255,0.02),
-      rgba(0,0,0,0.12)
-    ),
+    linear-gradient(to bottom, rgba(255,255,255,0.02), rgba(0,0,0,0.12)),
     var(--ink-blue);
 }
 
 /* =========================================================
-   HERO WRAP
+   TYPOGRAPHY
+   ========================================================= */
+h1, h2 {
+  font-family: 'Playfair Display', serif;
+  color: var(--heritage-gold);
+  letter-spacing: -0.01em;
+}
+
+h1 { font-size: 3.5rem; margin-bottom: 34px; }
+h2 { font-size: 2.4rem; margin-bottom: 48px; }
+
+.label {
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 0.65rem;
+  color: var(--soft-stone);
+  margin-bottom: 16px;
+}
+
+/* =========================================================
+   SLIDE 1 — HERO
    ========================================================= */
 .hero-wrap {
   max-width: 1180px;
-  padding-top: 34vh;
+  padding-top: 32vh;
 }
 
-/* =========================================================
-   TITLE
-   ========================================================= */
-h1 {
-  font-family: 'Playfair Display', serif;
-  font-size: 3.5rem;
-  font-weight: 600;
-  letter-spacing: -0.01em;
-  color: var(--heritage-gold);
-  margin-bottom: 34px;
-}
-
-/* =========================================================
-   HERO HOOK
-   ========================================================= */
 .hero-hook {
   border-left: 1px solid var(--stone-rule);
   padding-left: 32px;
-  margin-bottom: 20vh;
+  margin-bottom: 18vh;
 }
 
 .hero-hook p {
@@ -106,34 +93,44 @@ h1 {
 }
 
 /* =========================================================
-   QUOTE
+   QUOTES
    ========================================================= */
 .quote {
   font-family: 'Playfair Display', serif;
-  font-size: 1.2rem;
   font-style: italic;
-  opacity: 0.75;
-  margin-bottom: 14px;
-  white-space: nowrap;
+  font-size: 1.05rem;
+  opacity: 0.8;
+  margin-top: 18px;
 }
 
 .quote-meta {
   display: flex;
   align-items: center;
   gap: 16px;
+  margin-top: 8px;
 }
 
 .quote-line {
-  width: 56px;
+  width: 48px;
   height: 1px;
   background: var(--stone-rule);
 }
 
-.label {
-  text-transform: uppercase;
-  letter-spacing: 3px;
-  font-size: 0.6rem;
-  color: var(--soft-stone);
+/* =========================================================
+   SLIDE 2 — PROBLEM
+   ========================================================= */
+.problem-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 56px;
+  max-width: 1200px;
+}
+
+.problem-card h4 {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--oxford-stone);
+  margin-bottom: 12px;
 }
 
 /* =========================================================
@@ -143,7 +140,7 @@ h1 {
   position: absolute;
   bottom: 56px;
   right: 112px;
-  font-size: 0.65rem;
+  font-size: 0.6rem;
   letter-spacing: 6px;
   color: rgba(231,224,212,0.45);
 }
@@ -152,17 +149,18 @@ h1 {
 
 <body>
 
+<!-- ======================================================
+     SLIDE 1 — VISION
+====================================================== -->
 <section class="slide">
-
   <div class="hero-wrap">
-
     <h1>Content Mix Model Operating System™</h1>
 
     <div class="hero-hook">
       <p>
         Solving the <strong>$450B boondoggle</strong> of
-        <strong>"Seinfeld era" media measurement</strong>
-        applied to <strong>“Joe Rogan era” media consumption.</strong>
+        <strong>"Seinfeld-era" media measurement</strong>
+        applied to <strong>“Joe Rogan-era” media consumption.</strong>
       </p>
     </div>
 
@@ -175,51 +173,72 @@ h1 {
         <div class="label">Buckminster Fuller</div>
       </div>
     </div>
-
   </div>
 
   <div class="footer">
     DELIVERAI SOLUTIONS &nbsp;|&nbsp; PATENT PENDING
   </div>
+</section>
 
+<!-- ======================================================
+     SLIDE 2 — THE PROBLEM
+====================================================== -->
+<section class="slide">
+  <span class="label">The Problem</span>
+  <h2>Modern marketing works.<br/>Measurement doesn’t.</h2>
+
+  <div class="problem-grid">
+
+    <div class="problem-card">
+      <h4>Brand drives pipeline — but cannot be measured.</h4>
+      <p class="quote">
+        “My CFO only wants me to spend on conversion ads.  
+        If I could understand how brand perception drives sales, that would be our holy grail.”
+      </p>
+      <div class="quote-meta">
+        <div class="quote-line"></div>
+        <div class="label">VP, Paid Media · B2C Hospitality</div>
+      </div>
+    </div>
+
+    <div class="problem-card">
+      <h4>Channel expansion is blocked by fragmented tools.</h4>
+      <p class="quote">
+        “I want to expand into out-of-home and podcasts, but I assume I need a Big 4 agency — so I don’t.”
+      </p>
+      <div class="quote-meta">
+        <div class="quote-line"></div>
+        <div class="label">Head of Growth · FinTech Unicorn</div>
+      </div>
+    </div>
+
+    <div class="problem-card">
+      <h4>Creative is the strongest driver — and barely measured.</h4>
+      <p class="quote">
+        “I pay $5M a year for an endorsement and have no idea if it produces any ROI.”
+      </p>
+      <div class="quote-meta">
+        <div class="quote-line"></div>
+        <div class="label">Head of Paid Media · Gaming</div>
+      </div>
+    </div>
+
+    <div class="problem-card">
+      <h4>Measurement is expensive, slow, and always late.</h4>
+      <p class="quote">
+        “We spend seven figures on MMM and get the results months after the quarter ends.”
+      </p>
+      <div class="quote-meta">
+        <div class="quote-line"></div>
+        <div class="label">Measurement Lead · Largest US Retailer</div>
+      </div>
+    </div>
+
+  </div>
 </section>
 
 </body>
 </html>
-
-</section>
-<section class="accent">
-  <div class="content-box">
-    <span class="slide-label">The Problem</span>
-    <h2>Marketing is built for the wrong era.</h2>
-    <div class="stats-bar">
-      2025: $370B US Ad Spend • 15,384 MarTech Tools • 31% Budget to Tech by 2030
-    </div>
-    <div class="grid">
-      <div class="card">
-        <h4>Architectural Mismatch</h4>
-        <p>The ecosystem was built for 1990s "Seinfeld" logic: one channel, one device. It is fundamentally blind to the non-linear "Rogan" journey.</p>
-        <div class="quote">“We are managing a decentralized world with centralized tools.”</div>
-      </div>
-      <div class="card">
-        <h4>The Attribution Black Box</h4>
-        <p>Current tools fail to quantify the cumulative impact of long-form content, fragmented audio, and dark social—leaving ROI a mystery.</p>
-        <div class="quote">“I spend $5M on endorsements and cannot prove the lift.”</div>
-      </div>
-      <div class="card">
-        <h4>Capital Inefficiency</h4>
-        <p>CMOs are forced into "data-informed guesses." Billions are over-allocated to trackable clicks while starving high-impact influence.</p>
-        <div class="quote">“We pay for 15,000 overlapping tools with zero unified truth.”</div>
-      </div>
-      <div class="card">
-        <h4>Strategic Paralysis</h4>
-        <p>Legacy systems provide answers months after decisions are made. In a content-first world, slow data is useless data.</p>
-        <div class="quote">“What actually worked? We’re still guessing.”</div>
-      </div>
-    </div>
-  </div>
-</section>
-
     
 <section>
     <div class="content-box">
@@ -680,6 +699,7 @@ h1 {
 
 </body>
 </html>
+
 
 
 
