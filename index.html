@@ -75,6 +75,20 @@ h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3.5vw, 3re
     margin-bottom: 8px;
 }
 
+/* NEW: Style for the "What it is" section */
+.definition-text {
+    font-size: 1.2rem; /* Noticeably larger than standard body text */
+    font-weight: 400;
+    max-width: 1150px;
+    margin-bottom: 5vh;
+    color: var(--hague-blue);
+    line-height: 1.5;
+}
+
+.definition-text b {
+    font-weight: 700;
+}
+
 /* 3. BACKGROUNDS */
 .bg-olive { background: var(--bancha); color: var(--pointing); }
 .bg-school { background: var(--school-house); color: var(--hague-blue); }
@@ -83,7 +97,7 @@ h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3.5vw, 3re
 /* 4. GRID DATA COMPONENTS */
 .market-stats-container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* FIXED SPACING: Changed from 4 to 3 */
+  grid-template-columns: repeat(3, 1fr); 
   border-top: 1px solid rgba(47, 60, 72, 0.15);
   border-bottom: 1px solid rgba(47, 60, 72, 0.15);
   padding: 25px 0;
@@ -98,12 +112,11 @@ h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3.5vw, 3re
 .spine-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; margin-bottom: 5vh; }
 .spine-item .serif-num { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.8rem; color: var(--gold-leaf); display: block; margin-bottom: 5px; }
 
-/* REFIXED TABLE FORMATTING (Competitive Breakout) */
+/* REFIXED TABLE FORMATTING */
 .logic-grid {
     display: grid;
     grid-template-columns: 1.2fr 1fr 1fr 1fr 1.3fr;
     margin-top: 10px;
-    /* Removed border-top here */
 }
 .grid-header {
     padding: 15px 10px;
@@ -114,13 +127,11 @@ h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3.5vw, 3re
     color: var(--hague-blue);
     display: flex;
     align-items: flex-end;
-    /* Removed border-bottom here */
 }
 .grid-cell {
     padding: 15px 10px;
     font-size: 0.72rem;
     line-height: 1.4;
-    /* Removed border-bottom here */
 }
 .highlight-cell { 
     background: rgba(197, 160, 89, 0.1); 
@@ -204,18 +215,22 @@ h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3.5vw, 3re
   <div class="footer-mark">DELIVERAI SOLUTIONS</div>
 </section>
 
-<!-- SLIDE 3: SOLUTION (REMOVED LINES + COMPETITIVE BREAKOUT) -->
+<!-- SLIDE 3: SOLUTION (REDESIGNED FLOW) -->
 <section class="slide bg-pointing">
     <div class="content-wrapper" style="justify-content: flex-start; padding-top: 2vh;">
+        
+        <!-- STEP 1: DEFINITION (WHAT IT IS) -->
         <h4 class="header-bold-yellow">02. Solution </h4>
-        <h2 style="margin-bottom: 5px;">Content Mix Model™ Desktop Agency OS</h2>
-        <p style="font-size: 0.75rem; font-weight: 400; max-width: 1000px; margin-bottom: 3vh; color: var(--hague-blue); line-height: 1.5;">
+        <h2 style="margin-bottom: 10px;">Content Mix Model™ Desktop Agency OS</h2>
+        
+        <div class="definition-text">
             <b>Utility Patent-Pending Content Mix Model™ is a first-of-its-kind deterministic data spine tracking creative assets across channels, formats, and devices at the individual level.</b> 
-            <b>The Desktop Agency operationalizes this novel data spine to plan and buy media, optimize in-market, and power creative intelligence at scale.</b> 
-        </p>
+            <br><br>
+            The Desktop Agency operationalizes this novel data spine to plan and buy media, optimize in-market, and power creative intelligence at scale.
+        </div>
 
-        <!-- 01 SPINE (No Border) -->
-        <div style="padding-top: 15px; margin-bottom: 20px;">
+        <!-- STEP 2: METHODOLOGY (HOW IT WORKS) -->
+        <div style="margin-bottom: 20px;">
             <span class="header-bold-yellow">How it works</span>
         </div>
         
@@ -228,9 +243,9 @@ h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3.5vw, 3re
           <div class="spine-item"><span class="serif-num">06</span><span class="header-bold-blue">Optimization</span><p style="font-size: 0.68rem; opacity: 0.9;">Real-time media buy recommendations and purchase enablement.</p></div>
         </div>
 
-        <!-- 02 LOGIC (No Border) -->
-        <div style="padding-top: 15px; margin-bottom: 20px;">
-            <span class="header-bold-yellow">02. Strategic Competitive Displacement Logic</span>
+        <!-- STEP 3: COMPETITIVE POSITIONING -->
+        <div style="margin-bottom: 20px;">
+            <span class="header-bold-yellow">Strategic Competitive Displacement Logic</span>
         </div>
 
         <div class="logic-grid">
@@ -390,6 +405,7 @@ h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3.5vw, 3re
 
 </body>
 </html>
+
 
 
 
