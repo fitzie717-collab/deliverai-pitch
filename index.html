@@ -9,7 +9,7 @@
 
 <style>
 /* =========================================================
-   PALETTE
+   FARROW & BALL — HERITAGE PALETTE
    ========================================================= */
 :root {
   --ink-blue: #202C34;
@@ -20,11 +20,17 @@
 }
 
 /* =========================================================
-   RESET
+   RESET + GLOBAL
    ========================================================= */
-* { box-sizing: border-box; margin: 0; padding: 0; }
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-html { scroll-snap-type: y mandatory; }
+html {
+  scroll-snap-type: y mandatory;
+}
 
 body {
   font-family: 'Inter', sans-serif;
@@ -35,7 +41,7 @@ body {
 }
 
 /* =========================================================
-   SLIDES
+   SLIDE BASE
    ========================================================= */
 section.slide {
   height: 100vh;
@@ -44,7 +50,11 @@ section.slide {
   position: relative;
   padding: 96px 112px;
   background:
-    linear-gradient(to bottom, rgba(255,255,255,0.02), rgba(0,0,0,0.12)),
+    linear-gradient(
+      to bottom,
+      rgba(255,255,255,0.02),
+      rgba(0,0,0,0.12)
+    ),
     var(--ink-blue);
 }
 
@@ -53,19 +63,25 @@ section.slide {
    ========================================================= */
 h1, h2 {
   font-family: 'Playfair Display', serif;
-  color: var(--heritage-gold);
-  letter-spacing: -0.01em;
+  font-weight: 600;
 }
 
-h1 { font-size: 3.5rem; margin-bottom: 34px; }
-h2 { font-size: 2.4rem; margin-bottom: 48px; }
+h1 {
+  font-size: 3.5rem;
+  color: var(--heritage-gold);
+  margin-bottom: 34px;
+}
+
+h2 {
+  font-size: 2.6rem;
+  margin-bottom: 28px;
+}
 
 .label {
   text-transform: uppercase;
   letter-spacing: 3px;
-  font-size: 0.65rem;
+  font-size: 0.6rem;
   color: var(--soft-stone);
-  margin-bottom: 16px;
 }
 
 /* =========================================================
@@ -73,13 +89,13 @@ h2 { font-size: 2.4rem; margin-bottom: 48px; }
    ========================================================= */
 .hero-wrap {
   max-width: 1180px;
-  padding-top: 32vh;
+  padding-top: 34vh;
 }
 
 .hero-hook {
   border-left: 1px solid var(--stone-rule);
   padding-left: 32px;
-  margin-bottom: 18vh;
+  margin-bottom: 20vh;
 }
 
 .hero-hook p {
@@ -92,75 +108,95 @@ h2 { font-size: 2.4rem; margin-bottom: 48px; }
   font-weight: 500;
 }
 
-/* =========================================================
-   QUOTES
-   ========================================================= */
+/* Quote */
 .quote {
   font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
   font-style: italic;
-  font-size: 1.05rem;
-  opacity: 0.8;
-  margin-top: 18px;
+  opacity: 0.75;
+  margin-bottom: 14px;
+  white-space: nowrap;
 }
 
 .quote-meta {
   display: flex;
   align-items: center;
   gap: 16px;
-  margin-top: 8px;
 }
 
 .quote-line {
-  width: 48px;
+  width: 56px;
   height: 1px;
   background: var(--stone-rule);
 }
 
-/* =========================================================
-   SLIDE 2 — PROBLEM
-   ========================================================= */
-.problem-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 56px;
-  max-width: 1200px;
-}
-
-.problem-card h4 {
-  font-size: 1.1rem;
-  font-weight: 500;
-  color: var(--oxford-stone);
-  margin-bottom: 12px;
-}
-
-/* =========================================================
-   FOOTER
-   ========================================================= */
+/* Footer */
 .footer {
   position: absolute;
   bottom: 56px;
   right: 112px;
-  font-size: 0.6rem;
+  font-size: 0.65rem;
   letter-spacing: 6px;
   color: rgba(231,224,212,0.45);
 }
+
+/* =========================================================
+   SLIDE 2 — THE PROBLEM + VoC
+   ========================================================= */
+.problem-wrap {
+  max-width: 980px;
+  padding-top: 30vh;
+}
+
+.problem-statement {
+  font-size: 1.25rem;
+  line-height: 1.7;
+  color: var(--soft-stone);
+  margin-bottom: 18vh;
+  border-left: 1px solid var(--stone-rule);
+  padding-left: 32px;
+}
+
+.problem-statement strong {
+  color: var(--heritage-gold);
+  font-weight: 500;
+}
+
+.voc-quote {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.35rem;
+  font-style: italic;
+  color: var(--oxford-stone);
+  opacity: 0.85;
+  max-width: 900px;
+  margin-bottom: 18px;
+}
+
+.voc-meta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
 </style>
 </head>
 
 <body>
 
-<!-- ======================================================
-     SLIDE 1 — VISION
-====================================================== -->
+<!-- ===================================================== -->
+<!-- SLIDE 1 : HERO -->
+<!-- ===================================================== -->
 <section class="slide">
+
   <div class="hero-wrap">
+
     <h1>Content Mix Model Operating System™</h1>
 
     <div class="hero-hook">
       <p>
         Solving the <strong>$450B boondoggle</strong> of
-        <strong>"Seinfeld-era" media measurement</strong>
-        applied to <strong>“Joe Rogan-era” media consumption.</strong>
+        <strong>"Seinfeld era" media measurement</strong>
+        applied to <strong>“Joe Rogan era” media consumption.</strong>
       </p>
     </div>
 
@@ -173,69 +209,51 @@ h2 { font-size: 2.4rem; margin-bottom: 48px; }
         <div class="label">Buckminster Fuller</div>
       </div>
     </div>
+
   </div>
 
   <div class="footer">
     DELIVERAI SOLUTIONS &nbsp;|&nbsp; PATENT PENDING
   </div>
+
 </section>
 
-<!-- ======================================================
-     SLIDE 2 — THE PROBLEM
-====================================================== -->
+<!-- ===================================================== -->
+<!-- SLIDE 2 : THE PROBLEM -->
+<!-- ===================================================== -->
 <section class="slide">
-  <span class="label">The Problem</span>
-  <h2>Modern marketing works.<br/>Measurement doesn’t.</h2>
 
-  <div class="problem-grid">
+  <div class="problem-wrap">
 
-    <div class="problem-card">
-      <h4>Brand drives pipeline — but cannot be measured.</h4>
-      <p class="quote">
+    <span class="label">The Problem</span>
+    <h2>Modern media works.  
+    Measurement does not.</h2>
+
+    <div class="problem-statement">
+      Today’s marketing ecosystem was built for a linear, channel-specific world.
+      As media consumption has fragmented into long-form, audio, social, and dark channels,
+      <strong>measurement has failed to evolve</strong>—leaving billions misallocated toward
+      what is easiest to track, not what actually drives demand.
+    </div>
+
+    <div>
+      <p class="voc-quote">
         “My CFO only wants me to spend on conversion ads.  
-        If I could understand how brand perception drives sales, that would be our holy grail.”
+        If I could understand how brand perception actually drives sales,
+        that would be our holy grail.”
       </p>
-      <div class="quote-meta">
+      <div class="voc-meta">
         <div class="quote-line"></div>
-        <div class="label">VP, Paid Media · B2C Hospitality</div>
-      </div>
-    </div>
-
-    <div class="problem-card">
-      <h4>Channel expansion is blocked by fragmented tools.</h4>
-      <p class="quote">
-        “I want to expand into out-of-home and podcasts, but I assume I need a Big 4 agency — so I don’t.”
-      </p>
-      <div class="quote-meta">
-        <div class="quote-line"></div>
-        <div class="label">Head of Growth · FinTech Unicorn</div>
-      </div>
-    </div>
-
-    <div class="problem-card">
-      <h4>Creative is the strongest driver — and barely measured.</h4>
-      <p class="quote">
-        “I pay $5M a year for an endorsement and have no idea if it produces any ROI.”
-      </p>
-      <div class="quote-meta">
-        <div class="quote-line"></div>
-        <div class="label">Head of Paid Media · Gaming</div>
-      </div>
-    </div>
-
-    <div class="problem-card">
-      <h4>Measurement is expensive, slow, and always late.</h4>
-      <p class="quote">
-        “We spend seven figures on MMM and get the results months after the quarter ends.”
-      </p>
-      <div class="quote-meta">
-        <div class="quote-line"></div>
-        <div class="label">Measurement Lead · Largest US Retailer</div>
+        <div class="label">VP, Paid Media — B2C Hospitality</div>
       </div>
     </div>
 
   </div>
+
 </section>
+
+</body>
+</html>
 
 </body>
 </html>
@@ -699,6 +717,7 @@ h2 { font-size: 2.4rem; margin-bottom: 48px; }
 
 </body>
 </html>
+
 
 
 
