@@ -51,7 +51,15 @@ section.slide {
 
 /* 2. TYPOGRAPHY SYSTEM */
 h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 6vw, 4.8rem); line-height: 1.05; font-weight: 400; letter-spacing: -0.01em; color: var(--pointing); }
-h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3.5vw, 3rem); line-height: 1.1; font-weight: 400; margin-bottom: 20px; color: var(--hague-blue); }
+
+/* Global H2 adjusted to be slightly more conservative for long sentences */
+h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.5rem, 3vw, 2.5rem); line-height: 1.2; font-weight: 400; margin-bottom: 20px; color: var(--hague-blue); }
+
+/* Specific override for the very long Slide 2 header to keep it to 3-4 lines */
+.problem-header {
+    font-size: clamp(1.4rem, 2.5vw, 2.1rem);
+    max-width: 1250px;
+}
 
 .header-bold-yellow {
     font-family: 'Inter', sans-serif;
@@ -75,20 +83,6 @@ h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3.5vw, 3re
     margin-bottom: 8px;
 }
 
-/* NEW: Style for the "What it is" section */
-.definition-text {
-    font-size: 1.2rem; /* Noticeably larger than standard body text */
-    font-weight: 400;
-    max-width: 1150px;
-    margin-bottom: 5vh;
-    color: var(--hague-blue);
-    line-height: 1.5;
-}
-
-.definition-text b {
-    font-weight: 700;
-}
-
 /* 3. BACKGROUNDS */
 .bg-olive { background: var(--bancha); color: var(--pointing); }
 .bg-school { background: var(--school-house); color: var(--hague-blue); }
@@ -106,37 +100,8 @@ h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3.5vw, 3re
 .stat-box h3 { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 2.5vw, 3rem); font-weight: 400; line-height: 1; margin: 0; }
 .stat-box p { font-size: 0.6rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 700; margin-top: 12px; color: var(--gold-leaf); }
 
-.voc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px 80px; margin-top: 15px; }
+.voc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px 60px; margin-top: 15px; }
 .voc-quote { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.1rem; line-height: 1.4; margin-bottom: 8px; color: var(--hague-blue); }
-
-.spine-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px; margin-bottom: 5vh; }
-.spine-item .serif-num { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.8rem; color: var(--gold-leaf); display: block; margin-bottom: 5px; }
-
-/* REFIXED TABLE FORMATTING */
-.logic-grid {
-    display: grid;
-    grid-template-columns: 1.2fr 1fr 1fr 1fr 1.3fr;
-    margin-top: 10px;
-}
-.grid-header {
-    padding: 15px 10px;
-    font-size: 0.65rem;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    color: var(--hague-blue);
-    display: flex;
-    align-items: flex-end;
-}
-.grid-cell {
-    padding: 15px 10px;
-    font-size: 0.72rem;
-    line-height: 1.4;
-}
-.highlight-cell { 
-    background: rgba(197, 160, 89, 0.1); 
-    font-weight: 600;
-}
 
 .footer-mark {
   position: absolute;
@@ -181,12 +146,12 @@ h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3.5vw, 3re
 <section class="slide bg-school">
   <div class="content-wrapper">
     <h4 class="header-bold-yellow">Industry Problem </h4>
-    <h2>Marketing infrastructure was built to optimize channels. Today, <i>content is king</i>, moving freely across formats, devices, and channels, leaving brands with legacy systems that cannot support basic marketing tasks at scale.</h2>
+    <h2 class="problem-header">Marketing infrastructure was built to optimize channels. Today, <i>content is king</i>, moving freely across formats, devices, and channels, leaving brands with legacy systems that cannot support basic marketing tasks at scale.</h2>
 
     <div class="market-stats-container">
       <div class="stat-box"><h3>$1.08T</h3><p>Global Ad Spend</p></div>
       <div class="stat-box"><h3>15,000+</h3><p>Marketing Technology Solutions</p></div>
-      <div class="stat-box"><h3>20%</h3><p>Marketing Budget spent on Technology (31% by 2030)</p></div>
+      <div class="stat-box"><h3>20%</h3><p>Current Tech Spend (31% by 2030)</p></div>
     </div>
 
     <div class="voc-grid">
@@ -202,12 +167,12 @@ h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3.5vw, 3re
       </div>
       <div class="voc-item">
         <span class="header-bold-yellow">III. No Creative Level Insights at Scale</span>
-        <p class="voc-quote">“I pay $5M a year for an influencer endorsement across podcasts and social, and have no idea if it produces any ROI.”</p>
+        <p class="voc-quote">“I pay $5M a year for an influencer endorsement across podcasts and social, and have no idea if it produces any Return On Investment.”</p>
         <p class="header-bold-blue" style="font-size: 0.55rem; opacity: 0.7;">HEAD OF PAID MEDIA · B2C, GAMING</p>
       </div>
       <div class="voc-item">
         <span class="header-bold-yellow">IV. No Aggregated View of Performance</span>
-        <p class="voc-quote">“We spend over seven figures a year on our MMM. The report is delivered three months after the quarter ends with no actionable insights.”</p>
+        <p class="voc-quote">“We spend over seven figures a year on our Marketing Mix Modeling. The report is delivered 3 months late with no actionable insights.”</p>
         <p class="header-bold-blue" style="font-size: 0.55rem; opacity: 0.7;">SENIOR DIRECTOR, MEASUREMENT · B2C, TOP US RETAILER</p>
       </div>
     </div>
@@ -215,7 +180,6 @@ h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3.5vw, 3re
   <div class="footer-mark">DELIVERAI SOLUTIONS</div>
 </section>
 
-<!-- SLIDE 3: PATENT PENDING SOLUTION (REDESIGNED FLOW) -->
 <!-- SLIDE 3: PATENT PENDING SOLUTION -->
 <section class="slide bg-pointing">
     <div class="content-wrapper" style="justify-content: flex-start; padding-top: 2vh;">
@@ -539,6 +503,7 @@ h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3.5vw, 3re
   </div>
   <div class="footer-mark" style="color: white; opacity: 0.3;">FOUNDER–PROBLEM FIT | HARVARD INNOVATION LABS</div>
 </section>
+
 
 
 
