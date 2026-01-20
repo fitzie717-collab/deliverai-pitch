@@ -658,41 +658,72 @@ h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.5rem, 3vw, 2.5re
             </div>
         </div>
 
-        <!-- 3. HYPER SCALING ROADMAP -->
+        <!-- 3. UNIT ECONOMICS & COGS (NEW SECTION) -->
         <div>
             <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
                 <span style="display: inline-block; width: 3px; height: 18px; background: #C5A059;"></span>
-                <h3 style="color: #2F3C48; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.8rem; margin: 0;">Hyper Scaling Roadmap</h3>
+                <h3 style="color: #2F3C48; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.8rem; margin: 0;">Unit Economics & Scaling Roadmap</h3>
             </div>
-            <div style="background: white; border: 1px solid #E4DED0; padding: 15px 25px; border-radius: 4px; display: grid; grid-template-columns: 1.3fr 3.7fr; gap: 30px; align-items: center;">
-                <div style="font-size: 0.62rem; line-height: 1.6; color: #2F3C48; border-right: 1px solid #E4DED0; padding-right: 15px;">
-                    <p style="margin: 0;">• <b>Revenue Stack:</b> 5% Platform Fee + 5% Buying Fee + Creative Vol.</p>
-                    <p style="margin: 4px 0;">• <b>Primary Costs:</b> Device Graph Reconsiliation, Google Cloud Storage & GPU Compute (Variable).</p>
-                    <p style="margin: 4px 0;">• <b>Zero Friction:</b> API-First architecture; No PII bypasses 6-month Enterprise security/legal reviews.</p>
-                    <p style="margin: 0;">• <b>Lean Ops:</b> 1 Account Manager / 100 Accounts.</p>
+            
+            <div style="background: white; border: 1px solid #E4DED0; padding: 0; border-radius: 4px; display: grid; grid-template-columns: 0.8fr 1.2fr; box-shadow: 0 5px 20px rgba(0,0,0,0.05);">
+                
+                <!-- LEFT: COGS TABLE -->
+                <div style="padding: 15px 20px; border-right: 1px solid #E4DED0;">
+                    <h5 style="font-size: 0.6rem; text-transform: uppercase; font-weight: 800; color: #2F3C48; margin-bottom: 10px; border-bottom: 1px solid #EEE; padding-bottom: 5px;">Unit Economics (Per $100 Ad Spend)</h5>
+                    <table style="width: 100%; font-size: 0.6rem; color: #2F3C48; border-collapse: collapse;">
+                        <tr style="border-bottom: 1px solid #F5F5F5;">
+                            <td style="padding: 4px 0;">Revenue Capture (10%)</td>
+                            <td style="padding: 4px 0; text-align: right; font-weight: 700;">$10.00</td>
+                        </tr>
+                        <tr style="color: #A16B6B;">
+                            <td style="padding: 4px 0;"><i>Less:</i> Data Partners (Device Graph)</td>
+                            <td style="padding: 4px 0; text-align: right;">($1.00)</td>
+                        </tr>
+                        <tr style="color: #A16B6B; border-bottom: 1px solid #2F3C48;">
+                            <td style="padding: 4px 0;"><i>Less:</i> Cloud Compute (GCP)</td>
+                            <td style="padding: 4px 0; text-align: right;">($0.50)</td>
+                        </tr>
+                        <tr style="background: rgba(197, 160, 89, 0.1);">
+                            <td style="padding: 6px 4px; font-weight: 800; color: #C5A059;">GROSS MARGIN</td>
+                            <td style="padding: 6px 4px; text-align: right; font-weight: 800; color: #C5A059;">$8.50 (85%)</td>
+                        </tr>
+                    </table>
+                    <p style="font-size: 0.45rem; margin-top: 8px; color: #888; font-style: italic; line-height: 1.3;">
+                        *Data costs are fixed contracts, leading to margin expansion >90% as volume scales. No human variable cost.
+                    </p>
                 </div>
-                <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; text-align: center;">
-                    <div style="background: #F8F9FA; padding: 10px; border: 1px solid #E4DED0; border-radius: 4px; color: #2F3C48;">
-                        <span style="font-size: 0.45rem; display: block; color: #888; text-transform: uppercase;">Year 1</span>
-                        <b style="font-size: 0.75rem; display: block; margin: 2px 0;">$5M ARR</b>
-                        <span style="font-size: 0.45rem; color: #C5A059; font-weight: 700;">~15 Clients</span>
+
+                <!-- RIGHT: SCALING BOXES -->
+                <div style="padding: 15px 20px; display: flex; flex-direction: column; justify-content: center;">
+                     <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; text-align: center;">
+                        <div style="background: #F8F9FA; padding: 12px 5px; border: 1px solid #E4DED0; border-radius: 4px; color: #2F3C48;">
+                            <span style="font-size: 0.45rem; display: block; color: #888; text-transform: uppercase;">Year 1</span>
+                            <b style="font-size: 0.75rem; display: block; margin: 3px 0; color: #2F3C48;">$5M</b>
+                            <span style="font-size: 0.4rem; color: #C5A059; font-weight: 700;">ARR</span>
+                        </div>
+                        <div style="background: #F8F9FA; padding: 12px 5px; border: 1px solid #E4DED0; border-radius: 4px; color: #2F3C48;">
+                            <span style="font-size: 0.45rem; display: block; color: #888; text-transform: uppercase;">Year 2</span>
+                            <b style="font-size: 0.75rem; display: block; margin: 3px 0; color: #2F3C48;">$45M</b>
+                            <span style="font-size: 0.4rem; color: #C5A059; font-weight: 700;">ARR</span>
+                        </div>
+                        <div style="background: #F8F9FA; padding: 12px 5px; border: 1px solid #E4DED0; border-radius: 4px; color: #2F3C48;">
+                            <span style="font-size: 0.45rem; display: block; color: #888; text-transform: uppercase;">Year 3</span>
+                            <b style="font-size: 0.75rem; display: block; margin: 3px 0; color: #2F3C48;">$250M</b>
+                            <span style="font-size: 0.4rem; color: #C5A059; font-weight: 700;">ARR</span>
+                        </div>
+                        <div style="background: #C5A059; color: white; padding: 12px 5px; border-radius: 4px; box-shadow: 0 4px 10px rgba(197, 160, 89, 0.3);">
+                            <span style="font-size: 0.45rem; display: block; text-transform: uppercase; opacity: 0.9;">Year 5</span>
+                            <b style="font-size: 0.8rem; display: block; margin: 3px 0;">$1.2B+</b>
+                            <span style="font-size: 0.4rem; font-weight: 700; opacity: 0.9;">ARR</span>
+                        </div>
                     </div>
-                    <div style="background: #F8F9FA; padding: 10px; border: 1px solid #E4DED0; border-radius: 4px; color: #2F3C48;">
-                        <span style="font-size: 0.45rem; display: block; color: #888; text-transform: uppercase;">Year 2</span>
-                        <b style="font-size: 0.75rem; display: block; margin: 2px 0;">$45M ARR</b>
-                        <span style="font-size: 0.45rem; color: #C5A059; font-weight: 700;">~55 Accounts</span>
-                    </div>
-                    <div style="background: #F8F9FA; padding: 10px; border: 1px solid #E4DED0; border-radius: 4px; color: #2F3C48;">
-                        <span style="font-size: 0.45rem; display: block; color: #888; text-transform: uppercase;">Year 3</span>
-                        <b style="font-size: 0.75rem; display: block; margin: 2px 0;">$250M ARR</b>
-                        <span style="font-size: 0.45rem; color: #C5A059; font-weight: 700;">~300 Global</span>
-                    </div>
-                    <div style="background: #C5A059; color: white; padding: 10px; border-radius: 4px;">
-                        <span style="font-size: 0.45rem; display: block; text-transform: uppercase; opacity: 0.9;">Year 5</span>
-                        <b style="font-size: 0.85rem; display: block; margin: 2px 0;">$1.2B+ ARR</b>
-                        <span style="font-size: 0.45rem; font-weight: 700;">~1,500+ Accounts</span>
+                    <div style="margin-top: 12px; border-top: 1px solid #F0F0F0; padding-top: 8px;">
+                        <p style="font-size: 0.5rem; color: #2F3C48; line-height: 1.4;">
+                            <b>Scale Strategy:</b> Zero Friction API-First architecture + No PII bypasses 6-mo Enterprise legal reviews. <b>Lean Ops:</b> 1 Account Manager per 100 Accounts.
+                        </p>
                     </div>
                 </div>
+
             </div>
         </div>
 
@@ -839,6 +870,7 @@ h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.5rem, 3vw, 2.5re
 
 </body>
 </html>
+
 
 
 
