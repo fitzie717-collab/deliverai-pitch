@@ -139,93 +139,130 @@ h2.section-title {
     </div>
 </section>
 
-<!-- SLIDE 2: THE HOOK (SEINFELD VS ROGAN) -->
+<!-- SLIDE 2: THE CONTEXT & PROBLEM (MERGED) -->
 <section class="deck-section bg-[#E4DED0]">
-    <div class="max-w-7xl w-full mx-auto">
+    <div class="max-w-[1500px] w-full mx-auto">
         <h4 class="deck-pre text-[#C5A059]">The Context</h4>
-        <h1 class="deck-title text-[#2F3C48] mb-8">"Half the money I spend on advertising is wasted;<br>the trouble is I don't know which half."</h1>
+        <h1 class="deck-title text-[#2F3C48] mb-12 max-w-5xl" style="font-size: clamp(2.5rem, 4vw, 4.5rem);">"Half the money I spend on advertising is wasted;<br>the trouble is I don't know which half."</h1>
         
-        <div class="grid grid-cols-2 gap-12 mt-12">
-            <!-- Left: The Analogy -->
-            <div>
-                <h3 class="text-2xl font-bold uppercase tracking-widest mb-4 text-[#2F3C48]">Why is it getting worse?</h3>
-                <p class="text-xl leading-relaxed text-[#2F3C48]/80 mb-6">
+        <div class="grid grid-cols-12 gap-16 items-start">
+            
+            <!-- Left Column: The Narrative -->
+            <div class="col-span-5 pt-4">
+                <h3 class="text-xl font-bold uppercase tracking-widest mb-4 text-[#2F3C48]">Why is it getting worse?</h3>
+                <p class="text-xl leading-relaxed text-[#2F3C48]/80 mb-8">
                     Because we are using <span class="font-bold text-[#C5A059]">"Seinfeld Era"</span> tools in a <span class="font-bold text-[#C5A059]">"Joe Rogan Era"</span> world.
                 </p>
-                <ul class="space-y-4 text-[#2F3C48]">
-                    <li class="border-l-4 border-[#2F3C48] pl-4">
-                        <span class="block font-bold text-sm uppercase opacity-50">Seinfeld Era (1995)</span>
-                        Everyone watched the same channel at the same time. <br><b>Strategy: Buy the Channel.</b>
-                    </li>
-                    <li class="border-l-4 border-[#C5A059] pl-4">
-                        <span class="block font-bold text-sm uppercase opacity-50">Rogan Era (Today)</span>
-                        Content moves freely across Phones, TV, Audio, and Social. <br><b>Strategy: Track the Content.</b>
-                    </li>
-                </ul>
+                <div class="space-y-6 text-[#2F3C48]">
+                    <div class="border-l-4 border-[#2F3C48] pl-4">
+                        <span class="block font-bold text-xs uppercase opacity-50 mb-1">Seinfeld Era (1995)</span>
+                        <p class="text-sm">Everyone watched the same channel at the same time.</p>
+                        <b class="text-sm">Strategy: Buy the Channel.</b>
+                    </div>
+                    <div class="border-l-4 border-[#C5A059] pl-4">
+                        <span class="block font-bold text-xs uppercase opacity-50 mb-1">Rogan Era (Today)</span>
+                        <p class="text-sm">Content moves freely across Phones, TV, Audio, and Social.</p>
+                        <b class="text-sm">Strategy: Track the Content.</b>
+                    </div>
+                </div>
             </div>
 
-            <!-- Right: The Result -->
-            <div class="bg-white p-8 shadow-xl border-t-8 border-[#C5A059] flex items-center justify-center flex-col text-center">
-                 <h4 class="text-sm font-bold uppercase tracking-widest opacity-50 mb-2">The Result</h4>
-                 <h2 class="text-6xl font-serif text-[#2F3C48] mb-2">The Black Hole</h2>
-                 <p class="text-lg text-[#2F3C48]">We aren't just wasting half anymore.<br>We are losing it to the darkness.</p>
+            <!-- Right Column: The Stats Grid (Black Hole) -->
+            <div class="col-span-7">
+                <div class="bg-white p-2 shadow-2xl">
+                    <div class="bg-[#2F3C48] p-6 pb-2">
+                        <div class="flex items-baseline gap-4 mb-4">
+                            <h4 class="text-[#C5A059] text-xs font-bold uppercase tracking-widest">Market Reality</h4>
+                            <h2 class="font-serif text-3xl text-[#F1F0E8]">The $620 Billion Problem.</h2>
+                        </div>
+                        <div class="grid grid-cols-2 gap-[1px] bg-white/10 border border-white/10">
+                            <!-- Box 1 -->
+                            <div class="bg-[#1a2329] p-6 h-40 flex flex-col justify-between">
+                                <div>
+                                    <h5 class="text-[#C5A059] text-[0.6rem] font-bold uppercase tracking-widest mb-1">The Invisible Tax</h5>
+                                    <h3 class="text-4xl text-white font-serif font-light">25%</h3>
+                                    <p class="text-white/70 text-xs mt-2">Of global ad spend is consumed by <b>Bot Traffic</b>.</p>
+                                </div>
+                            </div>
+                            <!-- Box 2 -->
+                            <div class="bg-[#1a2329] p-6 h-40 flex flex-col justify-between">
+                                <div>
+                                    <h5 class="text-[#C5A059] text-[0.6rem] font-bold uppercase tracking-widest mb-1">The Integration Tax</h5>
+                                    <h3 class="text-4xl text-white font-serif font-light">91+</h3>
+                                    <p class="text-white/70 text-xs mt-2">Vendors in the average stack. Data trapped in silos.</p>
+                                </div>
+                            </div>
+                            <!-- Box 3 -->
+                            <div class="bg-[#1a2329] p-6 h-40 flex flex-col justify-between">
+                                <div>
+                                    <h5 class="text-[#C5A059] text-[0.6rem] font-bold uppercase tracking-widest mb-1">The Creative Blindspot</h5>
+                                    <h3 class="text-4xl text-white font-serif font-light">#1</h3>
+                                    <p class="text-white/70 text-xs mt-2">Predictor of Sales is <b>Creative</b>, yet not analyzed.</p>
+                                </div>
+                            </div>
+                            <!-- Box 4 -->
+                            <div class="bg-[#1a2329] p-6 h-40 flex flex-col justify-between">
+                                <div>
+                                    <h5 class="text-[#C5A059] text-[0.6rem] font-bold uppercase tracking-widest mb-1">The Confidence Tax</h5>
+                                    <h3 class="text-4xl text-white font-serif font-light">Zero</h3>
+                                    <p class="text-white/70 text-xs mt-2">Real-time visibility. 90-day lag time on reports.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- SLIDE 3: INDUSTRY VALIDATION -->
+<section class="deck-section bg-[#E4DED0] justify-center">
+    <div class="max-w-[1400px] w-full mx-auto">
+        <h4 class="deck-pre text-[#C5A059]">Industry Validation</h4>
+        <h2 class="font-serif text-4xl text-[#2F3C48] mb-12">Voice of the Customer</h2>
+        
+        <div class="grid grid-cols-2 gap-x-20 gap-y-16">
+            <div class="relative">
+                <div class="absolute -left-6 top-0 text-[#C5A059] opacity-30 text-6xl font-serif italic">"</div>
+                <h5 class="deck-pre text-[#2F3C48] opacity-50 mb-2">I. Inability to Prove Value</h5>
+                <p class="font-serif italic text-2xl text-[#2F3C48] mb-2 leading-relaxed">My CFO only wants me to spend on conversion ads. If I could understand how brand perception drives sales, that would be our holy grail.</p>
+                <div class="text-[0.6rem] font-bold uppercase tracking-widest text-[#2F3C48]/60 mt-4 border-t border-[#2F3C48]/10 pt-2 inline-block">VP, Paid Media · Global B2C Hospitality Group</div>
+            </div>
+            <div class="relative">
+                <div class="absolute -left-6 top-0 text-[#C5A059] opacity-30 text-6xl font-serif italic">"</div>
+                <h5 class="deck-pre text-[#2F3C48] opacity-50 mb-2">II. Barriers to Expansion</h5>
+                <p class="font-serif italic text-2xl text-[#2F3C48] mb-2 leading-relaxed">I want to expand into out-of-home and podcasts, but I don't because I think I would need to hire a huge, expensive agency.</p>
+                <div class="text-[0.6rem] font-bold uppercase tracking-widest text-[#2F3C48]/60 mt-4 border-t border-[#2F3C48]/10 pt-2 inline-block">Head of Growth · B2C Fintech Unicorn</div>
+            </div>
+            <div class="relative">
+                <div class="absolute -left-6 top-0 text-[#C5A059] opacity-30 text-6xl font-serif italic">"</div>
+                <h5 class="deck-pre text-[#2F3C48] opacity-50 mb-2">III. Creative Blindspots</h5>
+                <p class="font-serif italic text-2xl text-[#2F3C48] mb-2 leading-relaxed">I pay $5M a year for an influencer endorsement across podcasts and social, and have no idea if it produces any Return On Investment.</p>
+                <div class="text-[0.6rem] font-bold uppercase tracking-widest text-[#2F3C48]/60 mt-4 border-t border-[#2F3C48]/10 pt-2 inline-block">Head of Paid Media · B2C Gaming</div>
+            </div>
+            <div class="relative">
+                <div class="absolute -left-6 top-0 text-[#C5A059] opacity-30 text-6xl font-serif italic">"</div>
+                <h5 class="deck-pre text-[#2F3C48] opacity-50 mb-2">IV. Fragmented Performance</h5>
+                <p class="font-serif italic text-2xl text-[#2F3C48] mb-2 leading-relaxed">We spend over seven figures a year on our Marketing Mix Modeling. The report is delivered 3 months late with no actionable insights.</p>
+                <div class="text-[0.6rem] font-bold uppercase tracking-widest text-[#2F3C48]/60 mt-4 border-t border-[#2F3C48]/10 pt-2 inline-block">Sr. Director Measurement · Top US Retailer</div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- SLIDE 3: THE BLACK HOLE (CRITERIA 1) -->
-<section class="deck-section bg-hague">
-  <div class="max-w-7xl w-full mx-auto">
-    <div class="flex items-baseline gap-4 mb-2">
-        <h4 class="deck-pre text-[#C5A059]">Market Reality</h4>
-        <h2 class="section-title text-[#F1F0E8]">The $620 Billion Problem.</h2>
-    </div>
-    <div class="grid grid-cols-2 gap-4 mt-8">
-        <div class="bg-[#1a2329] p-10 rounded border border-white/5 flex flex-col justify-between">
-            <div>
-                <h5 class="deck-pre text-[#C5A059]">The Invisible Tax</h5>
-                <h3 class="text-6xl text-white font-serif font-light my-4">25%</h3>
-                <p class="text-white/70 text-lg">Of global ad spend is consumed by <b>Bot Traffic & Ad Fraud</b>. No human sees it.</p>
-            </div>
-            <div class="text-[0.6rem] text-white/30 uppercase tracking-widest mt-4">Source: Cheq, State of Fake Traffic 2025</div>
-        </div>
-        <div class="bg-[#1a2329] p-10 rounded border border-white/5 flex flex-col justify-between">
-            <div>
-                <h5 class="deck-pre text-[#C5A059]">The Integration Tax</h5>
-                <h3 class="text-6xl text-white font-serif font-light my-4">91+</h3>
-                <p class="text-white/70 text-lg">Vendors in the average marketing stack. Data is trapped in silos.</p>
-            </div>
-            <div class="text-[0.6rem] text-white/30 uppercase tracking-widest mt-4">Source: ChiefMartec, 2025</div>
-        </div>
-        <div class="bg-[#1a2329] p-10 rounded border border-white/5 flex flex-col justify-between">
-            <div>
-                <h5 class="deck-pre text-[#C5A059]">The Creative Blindspot</h5>
-                <h3 class="text-6xl text-white font-serif font-light my-4">#1</h3>
-                <p class="text-white/70 text-lg">Predictor of Sales is <b>Creative Quality</b>, yet there is no scalable way to analyze it.</p>
-            </div>
-            <div class="text-[0.6rem] text-white/30 uppercase tracking-widest mt-4">Source: Nielsen, 2025 ROI Report</div>
-        </div>
-        <div class="bg-[#1a2329] p-10 rounded border border-white/5 flex flex-col justify-between">
-            <div>
-                <h5 class="deck-pre text-[#C5A059]">The Confidence Tax</h5>
-                <h3 class="text-6xl text-white font-serif font-light my-4">Zero</h3>
-                <p class="text-white/70 text-lg">Real-time visibility. Most brands rely on 90-day retroactive reports.</p>
-            </div>
-            <div class="text-[0.6rem] text-white/30 uppercase tracking-widest mt-4">Source: Forrester, 2025</div>
-        </div>
-    </div>
-  </div>
-</section>
-
-<!-- SLIDE 4: THE SOLUTION (SIDE BY SIDE DEMO) -->
+<!-- SLIDE 4: THE SOLUTION (SIDE BY SIDE DEMO + SMALL TITLE) -->
 <section class="deck-section pt-[2vh] justify-center bg-cream">
     <div class="max-w-[1400px] w-full mx-auto h-full flex flex-col justify-center">
         
         <div class="flex items-end justify-between mb-6">
-            <div class="max-w-3xl">
+            <div class="max-w-4xl">
                 <h4 class="header-bold-yellow">The Solution</h4>
-                <h2 class="section-title text-[#2F3C48] m-0">Patent pending data collection that matches ad exposures across formats, channels, and devices at the individual level, to unlock never-before-seen insights used to generate creative recommendations, optimized media plans, and execute the strongest buys.</h2>
+                <!-- TITLE SIZE REDUCED HERE -->
+                <h2 class="font-serif text-3xl text-[#2F3C48] m-0 leading-normal">
+                    Patent pending data collection that matches ad exposures across formats, channels, and devices at the individual level, to unlock never-before-seen insights used to generate creative recommendations, optimized media plans, and execute the strongest buys.
+                </h2>
             </div>
             <div class="text-right">
                 <p class="text-[#2F3C48] font-black uppercase tracking-widest text-xs border border-[#2F3C48] px-4 py-2 rounded-full animate-pulse">
