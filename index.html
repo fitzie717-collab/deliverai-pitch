@@ -3,884 +3,539 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>DeliverAI | Harvard Innovation Labs Submission</title>
+<title>DeliverAI | The Operating System</title>
 
+<!-- FONTS & LIBS -->
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
 
 <style>
+/* --- DESIGN SYSTEM TOKENS --- */
 :root {
-  --bancha: #4B4D3B;          /* Deep Olive */
-  --hague-blue: #2F3C48;      /* Deep Teal/Blue */
-  --pointing: #F1F0E8;        /* Off White */
-  --school-house: #E4DED0;    /* Aged Cream */
-  --gold-leaf: #C5A059;       /* Gold Leaf */
+  --bancha: #4B4D3B;
+  --hague-blue: #2F3C48;
+  --pointing: #F1F0E8;
+  --gold-leaf: #C5A059;
 }
 
-/* 1. SCROLL SNAPPING CORE */
-* { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-snap-type: y mandatory; scroll-behavior: smooth; }
+/* --- BASE TYPOGRAPHY (LARGE FOR ACCESSIBILITY) --- */
+html { font-size: 20px; /* Increased base size */ scroll-snap-type: y mandatory; scroll-behavior: smooth; }
+body { margin: 0; font-family: 'Inter', sans-serif; color: var(--hague-blue); -webkit-font-smoothing: antialiased; }
 
-body {
-  font-family: 'Inter', sans-serif;
-  line-height: 1.6;"use client";
-
-import React, { useState } from 'react';
-import { 
-  TrendingUp, 
-  Zap, 
-  BarChart3,
-  Scale,
-  RefreshCcw,
-  Ban,
-  Lock,
-  PauseCircle,
-  History
-} from 'lucide-react';
-import { Badge } from "@/components/ui/badge";
-import { cn } from "@/lib/utils";
-
-// --- THEME CONSTANTS ---
-const METAL_ACCENT = "#B89354";
-
-// --- CAMPAIGN PERFORMANCE DATA ---
-interface ActiveCampaign {
-  id: string;
-  name: string;
-  spend: number;
-  iROAS: number;
-  frequency: number;
-  fatigueIndex: number; // 0-100
-  directive: 'Scale' | 'Maintain' | 'Pause' | 'Stop';
-  diagnosis?: string;
+h1.deck-title { 
+    font-family: 'Playfair Display', serif; 
+    font-size: clamp(3.5rem, 6vw, 6rem); 
+    line-height: 1.1; 
+    margin-bottom: 0.5em;
 }
 
-const CAMPAIGNS: ActiveCampaign[] = [
-  { 
-    id: "C-001", name: "Gen-Z Awareness Blitz", spend: 42000, iROAS: 4.8, frequency: 2.1, fatigueIndex: 12, 
-    directive: 'Scale', diagnosis: "Creative novelty remains high. Humor-led hooks are still bypassing logical resistance." 
-  },
-  { 
-    id: "C-002", name: "Modern Parents Trust", spend: 31000, iROAS: 1.9, frequency: 8.4, fatigueIndex: 92, 
-    directive: 'Stop', diagnosis: "Terminal frequency reached. Asset is now 'Formulaic' and left-brain heavy; audience is actively ignoring." 
-  },
-  { 
-    id: "C-003", name: "Product Deep-Dive (Audio)", spend: 18500, iROAS: 3.2, frequency: 3.5, fatigueIndex: 45, 
-    directive: 'Maintain', diagnosis: "Steady performance. Trust score is stable but not yet at scaling efficiency." 
-  }
-];
-
-const REALLOCATION_PROPOSAL = {
-  donor: "Modern Parents Trust",
-  recipient: "Gen-Z Awareness Blitz",
-  amount: 15000,
-  netForecast: "+14.2%",
-  cpaDelta: "-$4.80"
-};
-
-const ActionButton = ({ directive }: { directive: ActiveCampaign['directive'] }) => {
-  const baseClasses = "font-sans font-black text-[10px] uppercase tracking-[0.2em] flex items-center justify-center gap-2 py-3 px-6 transition-all w-32";
-  const iconSize = 12;
-
-  switch (directive) {
-    case 'Scale':
-      return <button className={cn(baseClasses, "bg-[#B89354] text-[#2A3236] hover:bg-white")}> <TrendingUp size={iconSize} /> Scale </button>;
-    case 'Stop':
-      return <button className={cn(baseClasses, "bg-[#A16B6B] text-white hover:bg-white hover:text-[#A16B6B]")}> <Ban size={iconSize} /> Stop </button>;
-    case 'Maintain':
-      return <button className={cn(baseClasses, "bg-white/10 text-white hover:bg-white/20")}> <RefreshCcw size={iconSize} /> Maintain </button>;
-    case 'Pause':
-       return <button className={cn(baseClasses, "bg-white/10 text-white hover:bg-white/20")}> <PauseCircle size={iconSize} /> Pause </button>;
-    default:
-      return null;
-  }
+h2.section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.5rem, 4vw, 4rem);
+    line-height: 1.2;
+    margin-bottom: 1rem;
 }
 
-export default function InMarketOptimizer() {
-  const [authorizing, setAuthorizing] = useState(false);
-
-  return (
-    <div className="min-h-screen w-full bg-[#F1EDE8] font-serif text-[#2A3236]">
-      <div className="max-w-screen-xl mx-auto space-y-16 p-8 md:p-16">
-        
-        {/* HEADER */}
-        <header className="flex flex-col md:flex-row justify-between items-end border-b border-[#2A3236]/10 pb-10 gap-6">
-          <div className="space-y-2">
-            <Badge variant="outline" className="border-[#B89354] text-[#B89354] uppercase tracking-widest text-[10px] font-black px-2 py-1">In-Market Arbitrage</Badge>
-            <h1 className="text-8xl tracking-tighter font-medium -ml-1 italic">Optimizer.</h1>
-          </div>
-          <div className="text-right">
-            <p className="text-[10px] font-sans font-black uppercase tracking-widest opacity-30 mb-1">Net Forecasted Gain</p>
-            <p className="text-7xl tracking-tighter font-medium italic" style={{color: METAL_ACCENT}}>{REALLOCATION_PROPOSAL.netForecast}</p>
-          </div>
-        </header>
-
-        {/* REALLOCATION RECOMMENDATION */}
-        <section className="bg-[#E6E0D8] border-l-4 border-[#B89354] p-12 flex flex-col md:flex-row justify-between items-center gap-10 shadow-sm">
-            <div className="flex-grow space-y-6">
-                <div className="flex items-center gap-3">
-                    <Zap size={18} className="text-[#B89354]"/>
-                    <h2 className="text-[10px] font-sans font-black uppercase tracking-widest text-[#B89354]">AI Opportunity Detected</h2>
-                </div>
-                <p className="text-3xl font-serif italic text-gray-800 max-w-3xl leading-snug">
-                    "Shift <span className="font-bold text-[#B89354]">${REALLOCATION_PROPOSAL.amount.toLocaleString()}</span> from the saturated <span className="opacity-60 underline decoration-dotted">{REALLOCATION_PROPOSAL.donor}</span> campaign to the high-velocity <span className="text-black underline decoration-[#B89354]">{REALLOCATION_PROPOSAL.recipient}</span> initiative."
-                </p>
-            </div>
-             <button 
-                onClick={() => setAuthorizing(true)}
-                className="font-sans font-black text-[10px] uppercase tracking-[0.2em] bg-[#2A3236] text-white py-5 px-10 transition-all flex items-center gap-3 hover:scale-95 w-full md:w-auto shadow-xl"
-              >
-                {authorizing ? <RefreshCcw className="animate-spin h-4 w-4" /> : <Lock size={14} />}
-                {authorizing ? "Processing..." : "Authorize Shift"}
-              </button>
-        </section>
-
-        {/* CAMPAIGN PERFORMANCE LEDGER */}
-        <section className="bg-[#2A3236] text-[#F1EDE8] shadow-2xl overflow-hidden rounded-[2rem]">
-          <div className="p-12 border-b border-white/5 flex justify-between items-center bg-white/5">
-             <div className="flex items-center gap-4">
-                <BarChart3 className="text-[#B89354]" size={24} />
-                <h3 className="text-[10px] font-sans font-black uppercase tracking-[0.2em]">Campaign Performance Ledger</h3>
-             </div>
-             <div className="flex gap-6 text-[10px] font-sans font-bold uppercase opacity-40">
-                <span>Live Data</span>
-                <span>•</span>
-                <span>Updated 2m ago</span>
-             </div>
-          </div>
-          <table className="w-full text-left">
-            <thead className="border-b border-white/5 bg-black/20">
-              <tr className="text-[9px] font-sans font-black uppercase tracking-widest text-[#B89354]">
-                <th className="p-8 font-normal opacity-70">Campaign Name</th>
-                <th className="p-8 font-normal opacity-70 text-center">iROAS</th>
-                <th className="p-8 font-normal opacity-70">Audience Fatigue</th>
-                <th className="p-8 font-normal opacity-70 text-right">Directive</th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-white/5">
-              {CAMPAIGNS.map((c) => (
-                <tr key={c.id} className="group hover:bg-white/5 transition-colors">
-                  <td className="p-8">
-                      <h4 className="text-xl font-serif italic mb-1">{c.name}</h4>
-                      <p className="text-[10px] font-mono font-bold text-white/20 group-hover:text-[#B89354]">Spend: ${c.spend.toLocaleString()}</p>
-                  </td>
-                  <td className="p-8 text-center">
-                      <span className={cn("text-2xl font-serif italic font-bold", c.iROAS > 3.5 ? "text-white" : "text-[#A16B6B]")}>
-                        {c.iROAS}x
-                      </span>
-                  </td>
-                  <td className="p-8 w-1/3">
-                    <div className="flex items-center gap-4">
-                        <div className="h-1 w-full bg-white/10 rounded-full overflow-hidden">
-                            <div 
-                                className={cn("h-full transition-all duration-1000 ease-out", c.fatigueIndex > 70 ? "bg-[#A16B6B]" : "bg-[#B89354]")} 
-                                style={{ width: `${c.fatigueIndex}%` }} 
-                            />
-                        </div>
-                        <span className="text-[10px] font-mono opacity-50 w-8">{c.fatigueIndex}%</span>
-                    </div>
-                  </td>
-                  <td className="p-8 text-right">
-                      <div className="flex justify-end"><ActionButton directive={c.directive} /></div>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </section>
-        
-        {/* AI DIAGNOSIS & STRATEGY */}
-        <section className="grid grid-cols-1 md:grid-cols-3 gap-12 pt-12 border-t border-[#2A3236]/10">
-           <div className="md:col-span-2 space-y-8">
-                <div className="flex items-center gap-4 text-[#2A3236]/40 mb-6">
-                    <History size={18} />
-                    <h3 className="text-[10px] font-sans font-black uppercase tracking-[0.3em]">AI Creative Diagnosis</h3>
-                </div>
-                <div className="grid grid-cols-1 gap-8">
-                    {CAMPAIGNS.filter(c => c.diagnosis).map(c => (
-                        <div key={c.id} className="relative pl-8 border-l-2 border-[#B89354]/20">
-                            <h5 className="text-[9px] font-sans font-black uppercase tracking-widest text-[#B89354] mb-2">{c.name}</h5>
-                            <p className="text-lg italic text-[#2A3236] leading-relaxed opacity-80">
-                                "{c.diagnosis}"
-                            </p>
-                        </div>
-                    ))}
-                </div>
-           </div>
-
-           <div className="bg-white p-10 space-y-6 shadow-sm border border-black/5 h-fit">
-              <div className="flex items-center gap-3 text-[#B89354]">
-                 <Scale size={18} />
-                 <h4 className="text-[10px] font-sans font-black uppercase tracking-widest">Efficiency Strategy</h4>
-              </div>
-              <p className="text-sm leading-loose font-sans text-[#2A3236]/70">
-                 Analysis confirms a strong correlation between <span className="text-[#2A3236] font-bold border-b border-[#B89354]">Right-Brain Storytelling</span> and current yield. The 'Modern Parents' segment has rejected the 'Formulaic' update. Reverting to the heritage narrative is advised for Q4.
-              </p>
-           </div>
-        </section>
-
-      </div>
-    </div>
-  );
-}
-  background: var(--pointing);
-  color: var(--hague-blue);
-  -webkit-font-smoothing: antialiased;
+.deck-pre { 
+    font-family: 'Inter', sans-serif; 
+    font-weight: 800; 
+    text-transform: uppercase; 
+    letter-spacing: 0.15em; 
+    font-size: 0.9rem; 
+    display: block; 
+    margin-bottom: 16px; 
 }
 
-section.slide {
-  min-height: 100vh;
-  width: 100vw;
-  scroll-snap-align: start;
-  position: relative;
-  padding: 6vh 7%;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden; 
+/* --- SLIDE ARCHITECTURE --- */
+.deck-section {
+    min-height: 100vh; width: 100vw;
+    scroll-snap-align: start; position: relative;
+    padding: 6vh 6%; display: flex; flex-direction: column; justify-content: center; overflow: hidden;
+    background: var(--pointing);
 }
 
-.content-wrapper {
-    width: 100%;
-    max-width: 1400px;
-    margin: 0 auto;
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-/* 2. TYPOGRAPHY SYSTEM */
-h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 6vw, 4.8rem); line-height: 1.05; font-weight: 400; letter-spacing: -0.01em; }
-
-h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.5rem, 3vw, 2.5rem); line-height: 1.2; font-weight: 400; margin-bottom: 20px; }
-
-/* Specific override for the very long Slide 2 header */
-.problem-header {
-    font-size: clamp(1.4rem, 2.5vw, 2.1rem);
-    max-width: 1250px;
-}
-
-.header-bold-yellow {
-    font-family: 'Inter', sans-serif;
-    font-weight: 800;
-    color: var(--gold-leaf);
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    font-size: 0.8rem;
-    display: block;
-    margin-bottom: 12px;
-}
-
-.header-bold-blue {
-    font-family: 'Inter', sans-serif;
-    font-weight: 800;
-    color: var(--hague-blue);
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    font-size: 0.75rem;
-    display: block;
-    margin-bottom: 8px;
-}
-
-/* 3. BACKGROUNDS & TEXT MODES */
-/* Dark Mode Slides (Olive or Blue) - Text becomes Light */
+/* Themes */
 .bg-olive { background: var(--bancha); color: var(--pointing); }
-.bg-olive h1, .bg-olive h2 { color: var(--pointing); }
-.bg-olive .header-bold-blue { color: var(--pointing); opacity: 0.9; } /* Override blue text on dark backgrounds */
-
 .bg-hague { background: var(--hague-blue); color: var(--pointing); }
-.bg-hague h1, .bg-hague h2 { color: var(--pointing); }
-.bg-hague .header-bold-blue { color: var(--pointing); opacity: 0.9; }
+.bg-cream { background: #E4DED0; color: var(--hague-blue); }
 
-/* Light Mode Slides (Cream or Off-White) - Text becomes Dark */
-.bg-school { background: var(--school-house); color: var(--hague-blue); }
-.bg-school h1, .bg-school h2 { color: var(--hague-blue); }
-
-.bg-pointing { background: var(--pointing); color: var(--hague-blue); }
-.bg-pointing h1, .bg-pointing h2 { color: var(--hague-blue); }
-
-
-/* 4. GRID DATA COMPONENTS */
-.market-stats-container {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); 
-  border-top: 1px solid rgba(47, 60, 72, 0.15);
-  border-bottom: 1px solid rgba(47, 60, 72, 0.15);
-  padding: 25px 0;
-  margin: 15px 0 35px 0;
+/* --- MACBOOK PRO CONTAINER --- */
+.macbook { width: 85%; max-width: 1400px; margin: 0 auto; perspective: 2000px; }
+.screen-frame {
+    background: #0d0d0d; border-radius: 20px 20px 0 0; padding: 2% 1.5% 0 1.5%;
+    position: relative; box-shadow: inset 0 0 0 2px #333; z-index: 2;
 }
-.stat-box h3 { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 2.5vw, 3rem); font-weight: 400; line-height: 1; margin: 0; }
-.stat-box p { font-size: 0.6rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 700; margin-top: 12px; color: var(--gold-leaf); }
-
-.voc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px 60px; margin-top: 15px; }
-.voc-quote { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.1rem; line-height: 1.4; margin-bottom: 8px; color: var(--hague-blue); }
-
-.footer-mark {
-  position: absolute;
-  bottom: 30px;
-  right: 7%;
-  font-size: 0.55rem;
-  letter-spacing: 4px;
-  font-weight: 700;
-  opacity: 0.5;
-  text-transform: uppercase;
+.camera-notch {
+    position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+    width: 12%; height: 25px; background: #0d0d0d;
+    border-bottom-left-radius: 8px; border-bottom-right-radius: 8px; z-index: 10;
 }
+.screen-content {
+    background: #111; 
+    aspect-ratio: 16/9;
+    width: 100%; position: relative; overflow: hidden;
+    border-radius: 4px 4px 0 0;
+}
+.macbook-base {
+    background: linear-gradient(to bottom, #dcdcdc 0%, #b0b0b0 100%);
+    height: 24px; width: 100%; border-radius: 0 0 20px 20px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+}
+
+/* --- STORY ENGINE ANIMATIONS --- */
+.story-scene {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    opacity: 0; transition: opacity 0.8s ease-in-out;
+    padding: 0; display: flex; flex-direction: column;
+    pointer-events: none;
+}
+.story-scene.active { opacity: 1; z-index: 10; pointer-events: auto; }
+
+/* Animations */
+.scan-line {
+    position: absolute; top: 0; left: 0; width: 100%; height: 2px;
+    background: #C5A059; box-shadow: 0 0 15px #C5A059;
+    animation: scanDown 3s infinite linear;
+    z-index: 20;
+}
+@keyframes scanDown { 0% { top: 0%; opacity: 0; } 90% { opacity: 1; } 100% { top: 100%; opacity: 0; } }
+
+.tag-pop { opacity: 0; transform: scale(0.8); animation: popIn 0.5s forwards; }
+@keyframes popIn { to { opacity: 1; transform: scale(1); } }
+
+.radar-path { stroke-dasharray: 1000; stroke-dashoffset: 1000; animation: draw 2s forwards ease-in-out; }
+@keyframes draw { to { stroke-dashoffset: 0; } }
+
+.funnel-node { opacity: 0; transform: translateY(20px); transition: all 0.5s ease-out; }
+.story-scene.active .funnel-node { opacity: 1; transform: translateY(0); }
+
+/* Data Tables */
+.perf-grid th { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: #888; padding: 15px; border-bottom: 1px solid #333; }
+.perf-grid td { padding: 20px 15px; border-bottom: 1px solid #222; color: #eee; font-size: 1rem; }
+
+/* Steps Grid */
+.step-card {
+    background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+    padding: 2rem; border-radius: 8px; position: relative;
+    transition: transform 0.3s;
+}
+.step-card:hover { background: rgba(255,255,255,0.1); transform: translateY(-5px); }
+.step-num { font-family: 'Playfair Display', serif; color: #C5A059; font-size: 2.5rem; line-height: 1; margin-bottom: 0.5rem; }
+
 </style>
 </head>
 
 <body>
 
-<!-- SLIDE 1: VISION (DARK OLIVE) -->
-<section class="slide bg-olive">
-  <div class="content-wrapper">
-    <h4 class="header-bold-yellow" style="color: var(--gold-leaf);">The Future of Advertising: From Channel-centric to Content-Centric</h4>
-    <h1>Content Mix Model™<br><i style="font-weight: 400; opacity: 0.9;">Desktop Agency Operating System</i></h1>
-    
-    <div style="border-left: 2px solid var(--gold-leaf); padding-left: 30px; margin: 40px 0; max-width: 900px;">
-      <p style="font-size: clamp(1.1rem, 2vw, 1.5rem); font-weight: 300; line-height: 1.4;">
-        Solving the <span style="font-weight: 700; color: white;">$1 Trillion boondoggle</span> of “Seinfeld-era” media orthodoxies applied to modern “Joe Rogan-era” media consumption
-      </p>
-    </div>
-
-    <div style="max-width: 800px; margin-top: 15vh;">
-      <p style="font-family: 'Playfair Display', serif; font-style: italic; font-size: 0.85rem; color: var(--gold-leaf); letter-spacing: 1px;">
-        “To change something, build a new model that makes the existing model obsolete.”
-      </p>
-      <p class="header-bold-yellow" style="font-size: 0.65rem; margin-top: 10px; color: var(--pointing); opacity: 0.7;">
-        BUCKMINSTER FULLER <span style="font-weight: 400; color: white;">| SYSTEMS THEORIST</span>
-      </p>
-    </div>
-  </div>
-  <div class="footer-mark">DELIVERAI SOLUTIONS</div>
-</section>
-
-<!-- SLIDE 2: PROBLEM (LIGHT CREAM) -->
-<section class="slide bg-school">
-  <div class="content-wrapper">
-    <h4 class="header-bold-yellow">Industry Problem </h4>
-    <h2 class="problem-header">Ad spend has exploded, and with it, the complexity of infrastructure built to track ads at the channel level. But now, <i>content is king</i>, moving freely across formats, devices, and media types; leaving brands with expensive legacy systems that cannot support basic marketing tasks at scale.</h2>
-
-    <div class="market-stats-container">
-      <div class="stat-box"><h3>$1.08T</h3><p>Global Ad Spend</p></div>
-      <div class="stat-box"><h3>15,000+</h3><p>Marketing Technology Solutions</p></div>
-      <div class="stat-box"><h3>20%</h3><p>Current Tech Spend (31% by 2030)</p></div>
-    </div>
-
-    <div class="voc-grid">
-      <div class="voc-item">
-        <span class="header-bold-yellow">I. Inability to Prove Brand Marketing Value</span>
-        <p class="voc-quote">“My CFO only wants me to spend on conversion ads. If I could understand how brand perception drives sales, that would be our holy grail.”</p>
-        <p class="header-bold-blue" style="font-size: 0.55rem; opacity: 0.7;">VP, PAID MEDIA · GLOBAL B2C HOSPITALITY GROUP</p>
-      </div>
-      <div class="voc-item">
-        <span class="header-bold-yellow">II. High Barriers to Channel Expansion</span>
-        <p class="voc-quote">“I want to expand into out-of-home and podcasts, but I don't because I think I would need to hire a huge, expensive agency.”</p>
-        <p class="header-bold-blue" style="font-size: 0.55rem; opacity: 0.7;">HEAD OF GROWTH · B2C FINTECH UNICORN</p>
-      </div>
-      <div class="voc-item">
-        <span class="header-bold-yellow">III. No Creative Level Insights at Scale</span>
-        <p class="voc-quote">“I pay $5M a year for an influencer endorsement across podcasts and social, and have no idea if it produces any Return On Investment.”</p>
-        <p class="header-bold-blue" style="font-size: 0.55rem; opacity: 0.7;">HEAD OF PAID MEDIA · B2C, GAMING</p>
-      </div>
-      <div class="voc-item">
-        <span class="header-bold-yellow">IV. No Aggregated View of Performance</span>
-        <p class="voc-quote">“We spend over seven figures a year on our Marketing Mix Modeling. The report is delivered 3 months late with no actionable insights.”</p>
-        <p class="header-bold-blue" style="font-size: 0.55rem; opacity: 0.7;">SENIOR DIRECTOR, MEASUREMENT · B2C, TOP US RETAILER</p>
-      </div>
-    </div>
-  </div>
-  <div class="footer-mark">DELIVERAI SOLUTIONS</div>
-</section>
-
-<!-- SLIDE 3: SOLUTION (DARK BLUE) -->
-<section class="slide bg-hague" style="padding: 8vh 5% 4vh 5%;">
-    <div class="content-wrapper" style="width: 100%; max-width: 1440px; margin: 0 auto; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between; gap: 2vh;">
+<!-- SLIDE 1: THE HOOK -->
+<section class="deck-section bg-olive">
+    <div class="max-w-6xl w-full mx-auto">
+        <h4 class="deck-pre text-[#C5A059]">The 100-Year-Old Problem</h4>
+        <h1 class="deck-title mb-12">"Half the money I spend on advertising is wasted;<br>the trouble is I don't know which half."</h1>
         
-        <!-- 1. HERO HEADER -->
-        <header>
-            <div style="display: flex; align-items: baseline; gap: 15px; margin-bottom: 5px;">
-                <h4 style="color: #C5A059; font-weight: 800; text-transform: uppercase; letter-spacing: 0.2em; font-size: 0.85rem; margin: 0;">Patent Pending Solution</h4>
+        <div class="flex items-center gap-6 mt-8">
+            <div class="bg-white/10 px-6 py-4 rounded border-l-4 border-[#C5A059]">
+                <p class="text-sm font-bold uppercase tracking-widest opacity-70 mb-1">The Reality Today</p>
+                <p class="text-2xl font-serif italic">"We aren't just wasting half.<br>We are losing it to a Black Hole."</p>
             </div>
-            <h2 style="font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3.5vw, 2.8rem); line-height: 1.1; font-weight: 400; margin-bottom: 12px; color: var(--pointing);">Content Mix Model™ Desktop Agency OS</h2>
-            
-            <p style="font-family: 'Playfair Display', serif; font-size: clamp(1.1rem, 1.4vw, 1.35rem); line-height: 1.5; font-style: italic; color: var(--pointing); opacity: 0.9; max-width: 1150px; margin: 0; border-left: 3px solid #C5A059; padding-left: 20px;">
-                The Content Mix Model™ is a <b>first-of-its-kind deterministic data spine</b> tracking creative assets across channels, formats, and devices at the individual level. The Desktop Agency <b>operationalizes</b> this novel data spine to plan and buy media, identify in-market optimizations, and power creative intelligence at scale, <b>using a single data pipeline.</b> 
+        </div>
+    </div>
+    <div class="absolute bottom-10 right-10 text-[0.6rem] uppercase tracking-widest opacity-50">DeliverAI Solutions | Patent Pending</div>
+</section>
+
+<!-- SLIDE 2: THE PROBLEM (CRITERIA 1) -->
+<section class="deck-section bg-hague">
+  <div class="max-w-7xl w-full mx-auto">
+    <div class="grid grid-cols-2 gap-16 items-center">
+        <div>
+            <h4 class="deck-pre text-[#C5A059]">The Blind Spot</h4>
+            <h2 class="section-title text-[#F1F0E8]">The $620 Billion<br>Black Hole.</h2>
+            <p class="text-xl opacity-80 leading-relaxed font-light">
+                Modern media is fragmented. Ads move across phones, TVs, and podcasts, but the tracking technology is stuck in the 90s.
             </p>
-        </header>
-
-        <!-- 2. THE MECHANISM -->
-        <div>
-             <!-- CONSISTENT HEADER FORMAT -->
-            <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 10px;">
-                <span style="color: #C5A059; font-weight: 800; text-transform: uppercase; letter-spacing: 0.15em; font-size: 0.75rem; white-space: nowrap;">01. Operational Workflow</span>
-                <hr style="border: 0; border-top: 1px solid #C5A059; opacity: 0.3; flex-grow: 1;">
+        </div>
+        <div class="grid grid-cols-2 gap-4">
+            <div class="bg-[#1a2329] p-8 rounded border border-white/5">
+                <h3 class="text-5xl text-[#C5A059] font-serif mb-2">25%</h3>
+                <h5 class="text-sm font-bold uppercase tracking-widest mb-2">Bot Traffic</h5>
+                <p class="text-sm opacity-60">Money spent on ads that no human ever sees.</p>
             </div>
-
-            <div style="background: var(--pointing); border-radius: 6px; padding: 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.3);">
-                <div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 20px;">
-                  <div style="position: relative;">
-                      <span style="font-family: 'Playfair Display', serif; font-size: 1.8rem; color: #C5A059; display: block; line-height: 1;">01</span>
-                      <b style="font-size: 0.7rem; text-transform: uppercase; display: block; margin: 8px 0 4px 0; color: #2F3C48;">Creative Fingerprint</b>
-                      <p style="font-size: 0.65rem; line-height: 1.4; margin: 0; opacity: 0.85; color: #2F3C48;">AI profiling of assets across 20+ parameters to assign unique ID.</p>
-                  </div>
-                  <div style="position: relative;">
-                      <span style="font-family: 'Playfair Display', serif; font-size: 1.8rem; color: #C5A059; display: block; line-height: 1;">02</span>
-                      <b style="font-size: 0.7rem; text-transform: uppercase; display: block; margin: 8px 0 4px 0; color: #2F3C48;">Exposure</b>
-                      <p style="font-size: 0.65rem; line-height: 1.4; margin: 0; opacity: 0.85; color: #2F3C48;">Capture device-level IDs via pixel/S2S tracking.</p>
-                  </div>
-                  <div style="position: relative;">
-                      <span style="font-family: 'Playfair Display', serif; font-size: 1.8rem; color: #C5A059; display: block; line-height: 1;">03</span>
-                      <b style="font-size: 0.7rem; text-transform: uppercase; display: block; margin: 8px 0 4px 0; color: #2F3C48;">Privacy Safe ID Match</b>
-                      <p style="font-size: 0.65rem; line-height: 1.4; margin: 0; opacity: 0.85; color: #2F3C48;">DeliverAI ingests anonymized signals from Tier-1 device graphs. Zero PII.</p>
-                  </div>
-                  <div style="position: relative;">
-                      <span style="font-family: 'Playfair Display', serif; font-size: 1.8rem; color: #C5A059; display: block; line-height: 1;">04</span>
-                      <b style="font-size: 0.7rem; text-transform: uppercase; display: block; margin: 8px 0 4px 0; color: #2F3C48;">Attribution</b>
-                      <p style="font-size: 0.65rem; line-height: 1.4; margin: 0; opacity: 0.85; color: #2F3C48;">ML linking action to specific content exposures.</p>
-                  </div>
-                  <div style="position: relative;">
-                      <span style="font-family: 'Playfair Display', serif; font-size: 1.8rem; color: #C5A059; display: block; line-height: 1;">05</span>
-                      <b style="font-size: 0.7rem; text-transform: uppercase; display: block; margin: 8px 0 4px 0; color: #2F3C48;">Outcome</b>
-                      <p style="font-size: 0.65rem; line-height: 1.4; margin: 0; opacity: 0.85; color: #2F3C48;">Measure brand lift tied to Creative DNA.</p>
-                  </div>
-                  <div>
-                      <span style="font-family: 'Playfair Display', serif; font-size: 1.8rem; color: #C5A059; display: block; line-height: 1;">06</span>
-                      <b style="font-size: 0.7rem; text-transform: uppercase; display: block; margin: 8px 0 4px 0; color: #2F3C48;">Optimization</b>
-                      <p style="font-size: 0.65rem; line-height: 1.4; margin: 0; opacity: 0.85; color: #2F3C48;">Real-time buy recommendations & purchase activation.</p>
-                  </div>
-                </div>
+            <div class="bg-[#1a2329] p-8 rounded border border-white/5">
+                <h3 class="text-5xl text-white font-serif mb-2">91</h3>
+                <h5 class="text-sm font-bold uppercase tracking-widest mb-2">Vendors</h5>
+                <p class="text-sm opacity-60">Average tech stack size. Data trapped in silos.</p>
+            </div>
+            <div class="bg-[#1a2329] p-8 rounded border border-white/5">
+                <h3 class="text-5xl text-white font-serif mb-2">Zero</h3>
+                <h5 class="text-sm font-bold uppercase tracking-widest mb-2">Visibility</h5>
+                <p class="text-sm opacity-60">Most brands wait 90 days for reports.</p>
+            </div>
+            <div class="bg-[#1a2329] p-8 rounded border border-white/5">
+                <h3 class="text-5xl text-[#C5A059] font-serif mb-2">#1</h3>
+                <h5 class="text-sm font-bold uppercase tracking-widest mb-2">Predictor</h5>
+                <p class="text-sm opacity-60">Creative drives sales, but isn't tracked.</p>
             </div>
         </div>
-
-        <!-- 3. THE EVOLUTION -->
-        <div>
-            <!-- CONSISTENT HEADER FORMAT -->
-            <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 10px;">
-                <span style="color: #C5A059; font-weight: 800; text-transform: uppercase; letter-spacing: 0.15em; font-size: 0.75rem; white-space: nowrap;">02. Architecture Evolution</span>
-                <hr style="border: 0; border-top: 1px solid #C5A059; opacity: 0.3; flex-grow: 1;">
-            </div>
-            
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; background: white; padding: 15px; border-radius: 6px; box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
-                <div style="display: flex; flex-direction: column;">
-                    <h5 style="color: #2F3C48; font-weight: 800; text-transform: uppercase; font-size: 0.65rem; margin-bottom: 8px; text-align: center; letter-spacing: 0.05em;">2025 "Ideal Mar-Tech Stack"; 91+ Vendors for a Single Advertiser</h5>
-                    <div style="height: 14vh; display: flex; align-items: center; justify-content: center; background: #F9F9F9; border: 1px solid #EEE; border-radius: 4px; padding: 10px;">
-                        <img src="https://raw.githubusercontent.com/fitzie717-collab/deliverai-pitch/main/SAS_Customer_Intelligence_Architecture_Ecosystem_Map.jpg" style="max-width: 100%; max-height: 100%; object-fit: contain; opacity: 0.7;">
-                    </div>
-                </div>
-                <div style="display: flex; flex-direction: column;">
-                    <h5 style="color: #C5A059; font-weight: 800; text-transform: uppercase; font-size: 0.65rem; margin-bottom: 8px; text-align: center; letter-spacing: 0.05em;">2026 "Un-Stack"; Content Mix Model Desktop Agency OS; 1 Vendor for a Single Advertiser</h5>
-                    <div style="height: 14vh; display: flex; align-items: center; justify-content: center; background: #fff; border: 2px solid #C5A059; border-radius: 4px; padding: 10px; box-shadow: 0 8px 25px rgba(197, 160, 89, 0.15);">
-                        <img src="https://raw.githubusercontent.com/fitzie717-collab/deliverai-pitch/main/CMM_Global_Command_Strategic_Planner_Dashboard.jpg" style="max-width: 100%; max-height: 100%; object-fit: contain;">
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- 4. VALIDATION -->
-        <div style="color: var(--pointing);">
-            <!-- CONSISTENT HEADER FORMAT -->
-            <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 10px;">
-                <span style="color: #C5A059; font-weight: 800; text-transform: uppercase; letter-spacing: 0.15em; font-size: 0.75rem; white-space: nowrap;">03. Competitive Positioning</span>
-                <hr style="border: 0; border-top: 1px solid #C5A059; opacity: 0.3; flex-grow: 1;">
-            </div>
-
-            <!-- Adjusted Grid Columns to fit the longer "Problem" text -->
-            <div style="display: grid; grid-template-columns: 1.6fr 1.1fr 1.1fr 1.1fr 1.5fr 1.3fr; gap: 1px; background-color: #E4DED0; border-radius: 6px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.03);">
-                <!-- Header Row -->
-                <div style="background: #F8F9FA; padding: 12px 10px; font-weight: 800; font-size: 0.55rem; text-transform: uppercase; color: #2F3C48; letter-spacing: 0.05em;">Problem</div>
-                <div style="background: #F8F9FA; padding: 12px 10px; font-weight: 800; font-size: 0.55rem; text-transform: uppercase; color: #2F3C48; letter-spacing: 0.05em;">Media Mix Models (Transunion, Claritas)</div>
-                <div style="background: #F8F9FA; padding: 12px 10px; font-weight: 800; font-size: 0.55rem; text-transform: uppercase; color: #2F3C48; letter-spacing: 0.05em;">Attribution (Rockerbox)</div>
-                <div style="background: #F8F9FA; padding: 12px 10px; font-weight: 800; font-size: 0.55rem; text-transform: uppercase; color: #2F3C48; letter-spacing: 0.05em;">Platform (Facebook, LinkedIn)</div>
-                <div style="background: #2F3C48; padding: 12px 10px; font-weight: 800; font-size: 0.55rem; text-transform: uppercase; color: #C5A059; letter-spacing: 0.05em; text-align: center;">CMM Desktop Agency OS</div>
-                <div style="background: #C5A059; color: white; padding: 12px 10px; font-weight: 800; font-size: 0.55rem; text-transform: uppercase; letter-spacing: 0.05em; text-align: center;">Benefit</div>
-
-                <!-- Row 1 -->
-                <div style="background: white; padding: 12px 10px; font-weight: 800; font-size: 0.6rem; color: #C5A059; border-bottom: 1px solid #F5F5F5;">I. Inability to Prove Brand Marketing Value</div>
-                <div style="background: white; padding: 12px 10px; font-size: 0.6rem; line-height: 1.3; border-bottom: 1px solid #F5F5F5; opacity: 0.9; color: #2F3C48;">Retrospective 3-mo studies without creative analysis.</div>
-                <div style="background: white; padding: 12px 10px; font-size: 0.6rem; line-height: 1.3; border-bottom: 1px solid #F5F5F5; opacity: 0.9; color: #2F3C48;">Last-click; ignores sentiment.</div>
-                <div style="background: white; padding: 12px 10px; font-size: 0.6rem; line-height: 1.3; border-bottom: 1px solid #F5F5F5; opacity: 0.9; color: #2F3C48;">Brand Lift studies on single campaigns</div>
-                <div style="background: rgba(197, 160, 89, 0.06); padding: 12px 10px; font-size: 0.65rem; font-weight: 600; line-height: 1.3; border-left: 2px solid #C5A059; border-bottom: 1px solid rgba(197, 160, 89, 0.2); color: #2F3C48;"><b>Habitual surveying</b> of unique IDs.</div>
-                <div style="background: white; padding: 12px 10px; font-weight: 700; font-size: 0.65rem; line-height: 1.3; border-bottom: 1px solid #F5F5F5; color: #2F3C48;">Quantify financial impact of full marketing funnel to stakeholders.</div>
-
-                <!-- Row 2 -->
-                <div style="background: white; padding: 12px 10px; font-weight: 800; font-size: 0.6rem; color: #C5A059; border-bottom: 1px solid #F5F5F5;">II. High Barriers to Channel Expansion</div>
-                <div style="background: white; padding: 12px 10px; font-size: 0.6rem; line-height: 1.3; border-bottom: 1px solid #F5F5F5; opacity: 0.9; color: #2F3C48;">Too excpensive for non-enterprise businesses.</div>
-                <div style="background: white; padding: 12px 10px; font-size: 0.6rem; line-height: 1.3; border-bottom: 1px solid #F5F5F5; opacity: 0.9; color: #2F3C48;">Limited; poor OOH/Audio.</div>
-                <div style="background: white; padding: 12px 10px; font-size: 0.6rem; line-height: 1.3; border-bottom: 1px solid #F5F5F5; opacity: 0.9; color: #2F3C48;">Need full team or agency to manage.</div>
-                <div style="background: rgba(197, 160, 89, 0.06); padding: 12px 10px; font-size: 0.65rem; font-weight: 600; line-height: 1.3; border-left: 2px solid #C5A059; border-bottom: 1px solid rgba(197, 160, 89, 0.2); color: #2F3C48;"><b>Unified tracking</b> across all channels.</div>
-                <div style="background: white; padding: 12px 10px; font-weight: 700; font-size: 0.65rem; line-height: 1.3; border-bottom: 1px solid #F5F5F5; color: #2F3C48;">Scale without agency bloat.</div>
-
-                <!-- Row 3 -->
-                <div style="background: white; padding: 12px 10px; font-weight: 800; font-size: 0.6rem; color: #C5A059; border-bottom: 1px solid #F5F5F5;">III. No Creative Level Insights at Scale</div>
-                <div style="background: white; padding: 12px 10px; font-size: 0.6rem; line-height: 1.3; border-bottom: 1px solid #F5F5F5; opacity: 0.9; color: #2F3C48;">Zero visibility into creative.</div>
-                <div style="background: white; padding: 12px 10px; font-size: 0.6rem; line-height: 1.3; border-bottom: 1px solid #F5F5F5; opacity: 0.9; color: #2F3C48;">Significant lag in feedback.</div>
-                <div style="background: white; padding: 12px 10px; font-size: 0.6rem; line-height: 1.3; border-bottom: 1px solid #F5F5F5; opacity: 0.9; color: #2F3C48;">A/B testing on singular creatives</div>
-                <div style="background: rgba(197, 160, 89, 0.06); padding: 12px 10px; font-size: 0.65rem; font-weight: 600; line-height: 1.3; border-left: 2px solid #C5A059; border-bottom: 1px solid rgba(197, 160, 89, 0.2); color: #2F3C48;"><b>AI Deconstruction</b> of asset signals.</div>
-                <div style="background: white; padding: 12px 10px; font-weight: 700; font-size: 0.65rem; line-height: 1.3; border-bottom: 1px solid #F5F5F5; color: #2F3C48;">Direct creative-led ROAS.</div>
-
-                <!-- Row 4 (RESTORED) -->
-                <div style="background: white; padding: 12px 10px; font-weight: 800; font-size: 0.6rem; color: #C5A059;">IV. No Aggregated View of Performance</div>
-                <div style="background: white; padding: 12px 10px; font-size: 0.6rem; line-height: 1.3; opacity: 0.9; color: #2F3C48;">90-day report latency.</div>
-                <div style="background: white; padding: 12px 10px; font-size: 0.6rem; line-height: 1.3; opacity: 0.9; color: #2F3C48;">Post-hoc analysis.</div>
-                <div style="background: white; padding: 12px 10px; font-size: 0.6rem; line-height: 1.3; opacity: 0.9; color: #2F3C48;">Real-time but siloed.</div>
-                <div style="background: rgba(197, 160, 89, 0.06); padding: 12px 10px; font-size: 0.65rem; font-weight: 600; line-height: 1.3; border-left: 2px solid #C5A059; color: #2F3C48;"><b>Daily reconciliation</b> at individual level.</div>
-                <div style="background: white; padding: 12px 10px; font-weight: 700; font-size: 0.65rem; line-height: 1.3; color: #2F3C48;">Daily cross-stack intelligence.</div>
-            </div>
-        </div>
-
-        <footer style="text-align: right; opacity: 0.4; font-size: 0.55rem; text-transform: uppercase; letter-spacing: 5px; font-weight: 700; margin-top: 5px; color: var(--pointing);">
-            DELIVERAI SOLUTIONS &nbsp;|&nbsp; PATENT PENDING
-        </footer>
-    </div>
-</section>
-  
-<!-- SLIDE 4: BUSINESS MODEL (LIGHT OFF-WHITE) -->
-<section class="slide bg-pointing" style="padding: 2vh 5%;">
-    <div class="content-wrapper" style="width: 100%; max-width: 1400px; margin: 0 auto; flex-grow: 1; display: flex; flex-direction: column; justify-content: center; gap: 2vh;">
-        
-        <!-- HEADER SECTION -->
-        <header style="text-align: left; margin-bottom: 1vh;">
-            <h4 style="color: #C5A059; font-weight: 800; text-transform: uppercase; letter-spacing: 0.15em; font-size: 0.75rem; margin-bottom: 4px;">Business Model</h4>
-            <h2 style="font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3vw, 2.4rem); line-height: 1.1; font-weight: 400; margin: 0; color: #2F3C48;">Creating Value for a $1.08T Industry with $620B in Waste</h2>
-        </header>
-
-        <!-- 1. REALLOCATED SPEND SECTION -->
-        <div>
-            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
-                <span style="display: inline-block; width: 3px; height: 18px; background: #C5A059;"></span>
-                <h3 style="color: #2F3C48; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.8rem; margin: 0;">Reallocated Spend</h3>
-            </div>
-            <div style="background: #2F3C48; color: white; padding: 15px 20px; border-radius: 4px; box-shadow: 0 10px 25px rgba(47, 60, 72, 0.15);">
-                <table style="width: 100%; border-collapse: collapse; font-size: 0.62rem;">
-                    <thead>
-                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.2); color: #C5A059; text-transform: uppercase; font-weight: 800;">
-                            <th style="text-align: left; padding: 8px;">Revenue Stream</th>
-                            <th style="text-align: left; padding: 8px;">Industry Est.</th>
-                            <th style="text-align: center; padding: 8px;">Identified Waste</th>
-                            <th style="text-align: left; padding: 8px;">DeliverAI Value Prop</th>
-                            <th style="text-align: right; padding: 8px;">Our Take</th>
-                            <th style="text-align: right; padding: 8px; color: white;">Industry Savings</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
-                            <td style="padding: 8px; font-weight: 700;">Agency Fees</td>
-                            <td style="padding: 8px;">10% Ad Spend</td>
-                            <td style="padding: 8px; text-align: center;">$100B</td>
-                            <td style="padding: 8px;">Automated replacement of legacy human workflows</td>
-                            <td style="padding: 8px; text-align: right; font-weight: 800;">$50B (5% Spend)</td>
-                            <td style="padding: 8px; text-align: right; font-weight: 800; color: #C5A059;">$50B</td>
-                        </tr>
-                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
-                            <td style="padding: 8px; font-weight: 700;">Martech Stack</td>
-                            <td style="padding: 8px;">20% Marketing Budget</td>
-                            <td style="padding: 8px; text-align: center;">$270B</td>
-                            <td style="padding: 8px;">Consolidated OS via deterministic data spine</td>
-                            <td style="padding: 8px; text-align: right; font-weight: 800;">$50B (5% Spend)</td>
-                            <td style="padding: 8px; text-align: right; font-weight: 800; color: #C5A059;">$220B</td>
-                        </tr>
-                        <tr style="border-bottom: 1px solid rgba(255,255,255,0.1);">
-                            <td style="padding: 8px; font-weight: 700;">Ad Spend Bot Fraud</td>
-                            <td style="padding: 8px;">25% Ad Spend</td>
-                            <td style="padding: 8px; text-align: center;">$250B</td>
-                            <td style="padding: 8px;">Deterministic Matching: Audit-ready buying</td>
-                            <td style="padding: 8px; text-align: right; font-weight: 800;">$0 Buying (0%*)</td>
-                            <td style="padding: 8px; text-align: right; font-weight: 800; color: #C5A059;">$250B</td>
-                        </tr>
-                        <tr style="background: rgba(197, 160, 89, 0.12);">
-                            <td style="padding: 10px 8px; font-weight: 900; text-transform: uppercase; color: #C5A059;">Total Efficiency Potential</td>
-                            <td style="padding: 10px 8px; font-weight: 800; color: #C5A059;">55% Gain</td>
-                            <td style="padding: 10px 8px; text-align: center; font-weight: 800; color: #C5A059;">$620B+</td>
-                            <td style="padding: 10px 8px; font-weight: 800;">Aggregated Savings Opportunity</td>
-                            <td style="padding: 10px 8px; text-align: right; font-weight: 900; color: #C5A059;">$100B </td>
-                            <td style="padding: 10px 8px; text-align: right; font-weight: 900; color: white;">$520B</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
-        <!-- 2. SUBSCRIPTION & LICENSING SECTION -->
-        <div>
-            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
-                <span style="display: inline-block; width: 3px; height: 18px; background: #C5A059;"></span>
-                <h3 style="color: #2F3C48; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.8rem; margin: 0;">Subscription & Licensing Tiers</h3>
-            </div>
-            <div style="background: white; border: 1px solid #E4DED0; border-radius: 4px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05);">
-                <table style="width: 100%; border-collapse: collapse; font-size: 0.58rem;">
-                    <thead>
-                        <tr style="background: #F8F9FA; border-bottom: 2px solid #E4DED0; color: #2F3C48;">
-                            <th style="padding: 10px 8px; text-align: left; font-weight: 800;">Segment</th>
-                            <th style="padding: 10px 8px; text-align: left; font-weight: 800;">Spend Tier</th>
-                            <th style="padding: 10px 8px; text-align: left; font-weight: 800;">Ops Fee (5%)</th>
-                            <th style="padding: 10px 8px; text-align: left; font-weight: 800;">Buy Fee (5%)</th>
-                            <th style="padding: 10px 8px; text-align: left; font-weight: 800;">Creative (Usage)</th>
-                            <th style="padding: 10px 8px; text-align: center; background: #2F3C48; color: white;">Avg. Monthly</th>
-                            <th style="padding: 10px 8px; text-align: center; background: #2F3C48; color: white;">Avg. Yearly Rev</th>
-                            <th style="padding: 10px 8px; text-align: left; background: #C5A059; color: white; width: 22%;">Est. Client Savings</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!-- HIGH GROWTH -->
-                        <tr style="border-bottom: 1px solid #F0F0F0; color: #2F3C48;">
-                            <td style="padding: 10px 8px; font-weight: 800;">High Growth</td>
-                            <td style="padding: 10px 8px;">$1M—$5M</td>
-                            <td style="padding: 10px 8px;">$4k—$20k</td>
-                            <td style="padding: 10px 8px;">$4k—$20k</td>
-                            <td style="padding: 10px 8px;">$2k—$5k</td>
-                            <td style="padding: 10px 8px; text-align: center; font-weight: 800; background: rgba(47, 60, 72, 0.02);">$27,500</td>
-                            <td style="padding: 10px 8px; text-align: center; font-weight: 800; background: rgba(47, 60, 72, 0.02);">$330,000</td>
-                            <td style="padding: 10px 8px; font-weight: 500; line-height: 1.2;">~45% vs. Boutique Agencies + Tech Stack</td>
-                        </tr>
-                        <!-- MID SIZE -->
-                        <tr style="border-bottom: 1px solid #F0F0F0; color: #2F3C48;">
-                            <td style="padding: 10px 8px; font-weight: 800;">Mid-Size</td>
-                            <td style="padding: 10px 8px;">$5M—$20M</td>
-                            <td style="padding: 10px 8px;">$20k—$80k</td>
-                            <td style="padding: 10px 8px;">$20k—$80k</td>
-                            <td style="padding: 10px 8px;">$5k—$15k</td>
-                            <td style="padding: 10px 8px; text-align: center; font-weight: 800; background: rgba(47, 60, 72, 0.02);">$110,000</td>
-                            <td style="padding: 10px 8px; text-align: center; font-weight: 800; background: rgba(47, 60, 72, 0.02);">$1.3M</td>
-                            <td style="padding: 10px 8px; font-weight: 500; line-height: 1.2;">~55% vs. AOR Fees + DSP Fees</td>
-                        </tr>
-                        <!-- ENTERPRISE -->
-                        <tr style="color: #2F3C48;">
-                            <td style="padding: 10px 8px; font-weight: 800;">Enterprise</td>
-                            <td style="padding: 10px 8px;">$20M+</td>
-                            <td style="padding: 10px 8px;">$80k+</td>
-                            <td style="padding: 10px 8px;">$80k+</td>
-                            <td style="padding: 10px 8px;">Custom</td>
-                            <td style="padding: 10px 8px; text-align: center; font-weight: 800; background: rgba(47, 60, 72, 0.02);">$300,000+</td>
-                            <td style="padding: 10px 8px; text-align: center; font-weight: 800; background: rgba(47, 60, 72, 0.02);">$3.6M+</td>
-                            <td style="padding: 10px 8px; font-weight: 500; line-height: 1.2;">~65% via Fraud Elimination + FTE Reduction</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
-        <!-- 3. UNIT ECONOMICS & COGS (NEW SECTION) -->
-        <div>
-            <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
-                <span style="display: inline-block; width: 3px; height: 18px; background: #C5A059;"></span>
-                <h3 style="color: #2F3C48; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.8rem; margin: 0;">Unit Economics & Scaling Roadmap</h3>
-            </div>
-            
-            <div style="background: white; border: 1px solid #E4DED0; padding: 0; border-radius: 4px; display: grid; grid-template-columns: 0.8fr 1.2fr; box-shadow: 0 5px 20px rgba(0,0,0,0.05);">
-                
-                <!-- LEFT: COGS TABLE -->
-                <div style="padding: 15px 20px; border-right: 1px solid #E4DED0;">
-                    <h5 style="font-size: 0.6rem; text-transform: uppercase; font-weight: 800; color: #2F3C48; margin-bottom: 10px; border-bottom: 1px solid #EEE; padding-bottom: 5px;">Unit Economics (Per $100 Ad Spend)</h5>
-                    <table style="width: 100%; font-size: 0.6rem; color: #2F3C48; border-collapse: collapse;">
-                        <tr style="border-bottom: 1px solid #F5F5F5;">
-                            <td style="padding: 4px 0;">Revenue Capture (10%)</td>
-                            <td style="padding: 4px 0; text-align: right; font-weight: 700;">$10.00</td>
-                        </tr>
-                        <tr style="color: #A16B6B;">
-                            <td style="padding: 4px 0;"><i>Less:</i> Data Partners (Device Graph)</td>
-                            <td style="padding: 4px 0; text-align: right;">($1.00)</td>
-                        </tr>
-                        <tr style="color: #A16B6B; border-bottom: 1px solid #2F3C48;">
-                            <td style="padding: 4px 0;"><i>Less:</i> Cloud Compute (GCP)</td>
-                            <td style="padding: 4px 0; text-align: right;">($0.50)</td>
-                        </tr>
-                        <tr style="background: rgba(197, 160, 89, 0.1);">
-                            <td style="padding: 6px 4px; font-weight: 800; color: #C5A059;">GROSS MARGIN</td>
-                            <td style="padding: 6px 4px; text-align: right; font-weight: 800; color: #C5A059;">$8.50 (85%)</td>
-                        </tr>
-                    </table>
-                    <p style="font-size: 0.45rem; margin-top: 8px; color: #888; font-style: italic; line-height: 1.3;">
-                        *Data costs are fixed contracts, leading to margin expansion >90% as volume scales. No human variable cost.
-                    </p>
-                </div>
-
-                <!-- RIGHT: SCALING BOXES -->
-                <div style="padding: 15px 20px; display: flex; flex-direction: column; justify-content: center;">
-                     <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; text-align: center;">
-                        <div style="background: #F8F9FA; padding: 12px 5px; border: 1px solid #E4DED0; border-radius: 4px; color: #2F3C48;">
-                            <span style="font-size: 0.45rem; display: block; color: #888; text-transform: uppercase;">Year 1</span>
-                            <b style="font-size: 0.75rem; display: block; margin: 3px 0; color: #2F3C48;">$5M</b>
-                            <span style="font-size: 0.4rem; color: #C5A059; font-weight: 700;">ARR</span>
-                        </div>
-                        <div style="background: #F8F9FA; padding: 12px 5px; border: 1px solid #E4DED0; border-radius: 4px; color: #2F3C48;">
-                            <span style="font-size: 0.45rem; display: block; color: #888; text-transform: uppercase;">Year 2</span>
-                            <b style="font-size: 0.75rem; display: block; margin: 3px 0; color: #2F3C48;">$45M</b>
-                            <span style="font-size: 0.4rem; color: #C5A059; font-weight: 700;">ARR</span>
-                        </div>
-                        <div style="background: #F8F9FA; padding: 12px 5px; border: 1px solid #E4DED0; border-radius: 4px; color: #2F3C48;">
-                            <span style="font-size: 0.45rem; display: block; color: #888; text-transform: uppercase;">Year 3</span>
-                            <b style="font-size: 0.75rem; display: block; margin: 3px 0; color: #2F3C48;">$250M</b>
-                            <span style="font-size: 0.4rem; color: #C5A059; font-weight: 700;">ARR</span>
-                        </div>
-                        <div style="background: #C5A059; color: white; padding: 12px 5px; border-radius: 4px; box-shadow: 0 4px 10px rgba(197, 160, 89, 0.3);">
-                            <span style="font-size: 0.45rem; display: block; text-transform: uppercase; opacity: 0.9;">Year 5</span>
-                            <b style="font-size: 0.8rem; display: block; margin: 3px 0;">$1.2B+</b>
-                            <span style="font-size: 0.4rem; font-weight: 700; opacity: 0.9;">ARR</span>
-                        </div>
-                    </div>
-                    <div style="margin-top: 12px; border-top: 1px solid #F0F0F0; padding-top: 8px;">
-                        <p style="font-size: 0.5rem; color: #2F3C48; line-height: 1.4;">
-                            <b>Scale Strategy:</b> Zero Friction API-First architecture + No PII bypasses 6-mo Enterprise legal reviews. <b>Lean Ops:</b> 1 Account Manager per 100 Accounts.
-                        </p>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
-        <!-- FOOTER MARK -->
-        <footer style="text-align: right; opacity: 0.4; font-size: 0.45rem; text-transform: uppercase; letter-spacing: 4px; font-weight: 700; margin-top: 5px; color: #2F3C48;">
-            DELIVERAI BUSINESS MODEL &nbsp;|&nbsp; PROPRIETARY & CONFIDENTIAL
-        </footer>
-    </div>
-</section>
-
-<!-- SLIDE 5: TRACTION (DARK OLIVE) -->
-<section class="slide bg-olive">
-  <div class="content-wrapper" style="justify-content: flex-start; padding-top: 5vh;">
-    <h4 class="header-bold-yellow">04. Traction & Momentum</h4>
-    <h2 style="margin-bottom: 30px;">From "Stunned Silence" to a Production Agency OS</h2>
-
-    <div style="display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 60px;">
-      
-      <!-- LEFT COLUMN: THE FEEDBACK LOOP TIMELINE -->
-      <div style="border-left: 2px solid var(--gold-leaf); padding-left: 30px; margin-left: 10px;">
-        
-        <div style="margin-bottom: 30px; position: relative;">
-          <div style="position: absolute; left: -36px; top: 0; width: 10px; height: 10px; background: var(--gold-leaf); border-radius: 50%;"></div>
-          <span class="header-bold-blue" style="color: var(--gold-leaf);">The Catalyst | July 2025</span>
-          <p style="font-size: 0.9rem; line-height: 1.5; color: var(--pointing);">
-            <b>Market gap identified:</b> A colleague struggling to attribute credit of the impact of $500K+ in a single creative distributed across Podcasts, YouTube, and Social Media revealed a deeper industry failure: content moves freely, but measurement does not.
-          </p>
-        </div>
-
-        <div style="margin-bottom: 30px; position: relative;">
-          <div style="position: absolute; left: -36px; top: 0; width: 10px; height: 10px; background: var(--pointing); border-radius: 50%;"></div>
-          <span class="header-bold-blue" style="color: white; opacity: 1;">V1 Prototype: Measurement</span>
-          <p style="font-size: 0.85rem; opacity: 0.8;">
-            Conducted 15+ deep-dives with Heads of Paid Media. 100% validation of the "Measurement Gap," but revealed massive operational bottlenecks in online and offline media operations. 
-          </p>
-        </div>
-
-        <div style="margin-bottom: 30px; position: relative;">
-          <div style="position: absolute; left: -36px; top: 0; width: 10px; height: 10px; background: var(--pointing); border-radius: 50%;"></div>
-          <span class="header-bold-blue" style="color: white; opacity: 1;">V2 Prototype: Measurement + Operations</span>
-          <p style="font-size: 0.85rem; opacity: 0.8;">
-            Built <b>Automated Tag Generation</b> and <b>I/O Planning tools</b> based on direct VP-level requests. Customers started asking about activation. 
-          </p>
-        </div>
-
-        <div style="position: relative;">
-          <div style="position: absolute; left: -36px; top: 0; width: 12px; height: 12px; background: var(--gold-leaf); border-radius: 50%; box-shadow: 0 0 10px var(--gold-leaf);"></div>
-          <span class="header-bold-blue" style="color: var(--gold-leaf);">V3 Production: Measurement + Operations + Execution </span>
-          <p style="font-size: 0.9rem; font-weight: 600; color: white;">
-            Integrated full execution/buying capabilities. Transitioned from a novel measurement tool to a complete marketing infrastructure, the <b>Desktop Agency Operating System.</b>
-          </p>
-        </div>
-      </div>
-
-      <!-- RIGHT COLUMN: THE INTELLIGENCE & CAPITAL EFFICIENCY -->
-      <div style="display: flex; flex-direction: column; gap: 20px;">
-        <div style="background: rgba(47, 60, 72, 0.4); color: white; padding: 25px; border-radius: 4px; border-bottom: 4px solid var(--gold-leaf);">
-          <span class="header-bold-yellow" style="font-size: 0.6rem; color: var(--gold-leaf);">The Harvard Inflection Point</span>
-          <p style="font-size: 1.1rem; font-family: 'Playfair Display', serif; font-style: italic; margin-top: 10px;">
-            "Leveraging Applied ML protocols studied at Harvard to architect a predictive model leveraging creative and media elements that predicted monthly sales at 97% accuracy."
-          </p>
-        </div>
-
-        <div style="background: rgba(255, 255, 255, 0.1); padding: 20px; border: 1px solid var(--gold-leaf);">
-          <span class="header-bold-blue" style="font-size: 0.65rem; color: white;">Business Potential</span>
-          <h3 style="font-family: 'Playfair Display', serif; font-size: 1.8rem; margin: 10px 0;">85% Gross Margin</h3>
-          <p style="font-size: 0.7rem; line-height: 1.4; opacity: 0.8;">
-            <b>Capital Efficient Architecture:</b> Solo-built FE/BE and automated agency workflows eliminate headcount-heavy operations. Scalability is driven by code, not humans. Primary Costs: Device Graph, Storage, & Processing. No PII. 
-          </p>
-        </div>
-        
-        <div style="margin-top: 10px;">
-            <span class="header-bold-blue" style="font-size: 0.6rem; opacity: 0.8; color: var(--gold-leaf);">PILOT PIPELINE:</span>
-            <p style="font-size: 0.75rem; font-weight: 700;">Global Hospitality Group (Q2) | B2C Fintech Unicorn (Q3)</p>
-        </div>
-      </div>
-
     </div>
   </div>
-  <div class="footer-mark">DELIVERAI | TRACTION & VALIDATION</div>
 </section>
 
-<!-- SLIDE 6: FOUNDER-PROBLEM FIT (LIGHT CREAM) -->
-<section class="slide bg-school">
-  <div class="content-wrapper">
-    <h4 class="header-bold-yellow" style="color: var(--gold-leaf);">Founder–Problem Fit</h4>
-    <h1 style="font-size: 3rem; margin-bottom: 10px; color: var(--hague-blue);">Synthesis of a 15-Year Ecosystem Career</h1>
-    <p style="font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.3rem; color: var(--hague-blue); opacity: 0.9; margin-bottom: 40px; max-width: 900px;">
-        "Seinfeld-era marketing was about buying channels. The Rogan-era is about buying content that moves everywhere. This system isn’t an idea; it’s the synthesis of 15 years spent solving novel problems for marketers." - Ashley Fitzgerald, Founder
-    </p>
+<!-- SLIDE 3: THE SOLUTION LOGIC (CRITERIA 2 PART A) -->
+<section class="deck-section bg-[#111] text-[#F1EDE8]">
+    <div class="max-w-7xl w-full mx-auto">
+        <h4 class="deck-pre text-[#C5A059]">The Solution: Theory</h4>
+        <h2 class="section-title mb-12">The 6-Step "Magic Lens" Engine.</h2>
+        
+        <div class="grid grid-cols-3 gap-6">
+            <div class="step-card">
+                <div class="step-num">01</div>
+                <h5 class="text-lg font-bold uppercase tracking-widest mb-2">Ingestion</h5>
+                <p class="text-sm opacity-70">AI scans the video/audio and creates a "Digital Fingerprint" based on what it sees and hears.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-num">02</div>
+                <h5 class="text-lg font-bold uppercase tracking-widest mb-2">Exposure</h5>
+                <p class="text-sm opacity-70">We place a pixel that captures an anonymous ID from the user's device when the ad runs.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-num">03</div>
+                <h5 class="text-lg font-bold uppercase tracking-widest mb-2">Identity Match</h5>
+                <p class="text-sm opacity-70">We match that Device ID to a household graph (TV, Phone, Laptop) without using personal names (Privacy Safe).</p>
+            </div>
+            <div class="step-card">
+                <div class="step-num">04</div>
+                <h5 class="text-lg font-bold uppercase tracking-widest mb-2">Attribution</h5>
+                <p class="text-sm opacity-70">We link the "Digital Fingerprint" of the ad to the specific purchase made by that household.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-num">05</div>
+                <h5 class="text-lg font-bold uppercase tracking-widest mb-2">Intelligence</h5>
+                <p class="text-sm opacity-70">The system calculates exactly which creative element (e.g., "The Dog") caused the sale.</p>
+            </div>
+            <div class="step-card bg-[#C5A059] text-[#111] border-[#C5A059]">
+                <div class="step-num text-[#111]">06</div>
+                <h5 class="text-lg font-bold uppercase tracking-widest mb-2">Optimization</h5>
+                <p class="text-sm font-bold">The system automatically buys more of the ads that work and cuts the ones that don't.</p>
+            </div>
+        </div>
+    </div>
+</section>
 
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
-      
-      <!-- GRID 1: PROFESSIONAL DEPTH (Dark boxes on light background) -->
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-        <div style="background: rgba(47, 60, 72, 0.05); padding: 20px; border-top: 2px solid var(--gold-leaf);">
-          <span class="header-bold-yellow" style="font-size: 0.55rem; color: var(--hague-blue); opacity: 0.6;">WPP | Infrastructure</span>
-          <p style="font-size: 0.75rem; color: var(--hague-blue); line-height: 1.4; margin-top: 10px;">
-            Founding member of the <b>first-ever Search, Social, and Web Analytics team</b>. Defined modern digital plumbing for the world’s largest agency.
-          </p>
-        </div>
-        <div style="background: rgba(47, 60, 72, 0.05); padding: 20px; border-top: 2px solid var(--gold-leaf);">
-          <span class="header-bold-yellow" style="font-size: 0.55rem; color: var(--hague-blue); opacity: 0.6;">Goldman Sachs | Brand</span>
-          <p style="font-size: 0.75rem; color: var(--hague-blue); line-height: 1.4; margin-top: 10px;">
-            Built infrastructure to <b>quantify Brand Perception</b> against specific Creative Elements for institutional-grade marketing deployment.
-          </p>
-        </div>
-        <div style="background: rgba(47, 60, 72, 0.05); padding: 20px; border-top: 2px solid var(--gold-leaf);">
-          <span class="header-bold-yellow" style="font-size: 0.55rem; color: var(--hague-blue); opacity: 0.6;">Audio/Podcast | Identity</span>
-          <p style="font-size: 0.75rem; color: var(--hague-blue); line-height: 1.4; margin-top: 10px;">
-            Implemented tech to track <b>offline/cookieless exposures</b> in fragmented channels at ARM. Solved "impossible" audio attribution.
-          </p>
-        </div>
-        <div style="background: rgba(47, 60, 72, 0.05); padding: 20px; border-top: 2px solid var(--gold-leaf);">
-          <span class="header-bold-yellow" style="font-size: 0.55rem; color: var(--hague-blue); opacity: 0.6;">DeliverAI | Intelligence</span>
-          <p style="font-size: 0.75rem; color: var(--hague-blue); line-height: 1.4; margin-top: 10px;">
-            Created taxonomy to analyze <b>1,000+ creative assets in minutes</b>, linking content metadata to 97% accurate sales predictions.
-          </p>
-        </div>
-      </div>
-
-      <!-- GRID 2: THE SOLO BUILDER ADVANTAGE -->
-      <div style="background: white; color: var(--hague-blue); padding: 40px; display: flex; flex-direction: column; justify-content: center; box-shadow: 0 5px 20px rgba(0,0,0,0.05);">
-        <span class="header-bold-blue" style="color: var(--gold-leaf); margin-bottom: 15px;">Solo-Builder Execution</span>
-        <h3 style="font-family: 'Playfair Display', serif; font-size: 2rem; line-height: 1.2; margin-bottom: 20px;">Eliminating "Translation Loss"</h3>
-        <p style="font-size: 0.85rem; line-height: 1.6; margin-bottom: 20px;">
-            As a solo founder who personally architected the <b>Front-End, Back-End, and Deterministic ID Spine</b>, I have removed the friction between customer needs and technical execution.
+<!-- SLIDE 4: THE DEMO (CRITERIA 2 PART B) -->
+<section class="deck-section bg-cream pt-[5vh]">
+    <div class="text-center mb-8 max-w-4xl mx-auto">
+        <h4 class="deck-pre text-[#C5A059]">The Solution: Practice</h4>
+        <h2 class="section-title text-[#2F3C48] m-0">See the Engine in Action.</h2>
+        <p class="text-[#2F3C48]/60 mt-2 font-bold uppercase tracking-widest text-sm">
+            <i data-lucide="mouse-pointer-2" class="inline w-4 h-4 text-[#C5A059]"></i> Click Yellow Buttons to Advance Demo
         </p>
-        <div style="border-top: 1px solid rgba(0,0,0,0.1); padding-top: 20px;">
-            <p style="font-size: 0.75rem; font-weight: 700;">
-                <span style="color: var(--gold-leaf);">●</span> Solo Front End and Back End Build for Production Ready Web Application<br>
-                <span style="color: var(--gold-leaf);">●</span> Privacy-by-Design: Architected for zero-PII footprint<br>
-                <span style="color: var(--gold-leaf);">●</span> Utility Patent Pending (Author)<br>
-                <span style="color: var(--gold-leaf);">●</span> Trademark pending (Author)<br>
-                <span style="color: var(--gold-leaf);">●</span> Harvard Data Science '27 (Master's Candidate)
-            </p>
-        </div>
-      </div>
+    </div>
 
+    <div class="macbook">
+        <div class="screen-frame">
+            <div class="camera-notch"></div>
+            <div class="screen-content shadow-inner">
+                
+                <!-- SCENE 1: INGESTION -->
+                <div class="story-scene bg-[#111] text-[#F1EDE8] active" id="scene-1">
+                     <div class="h-full grid grid-cols-12">
+                        <div class="col-span-8 relative bg-black border-r border-white/10 flex items-center justify-center overflow-hidden">
+                            <i data-lucide="file-video" size="80" class="text-white/20"></i>
+                            <div class="scan-line"></div>
+                            <div class="absolute bottom-6 left-6 font-mono text-sm text-[#C5A059]">
+                                > STEP 1: INGESTION<br>> SCANNING ASSET...
+                            </div>
+                        </div>
+                        <div class="col-span-4 p-8 flex flex-col justify-center space-y-6">
+                            <h3 class="text-[#C5A059] font-serif italic text-3xl">AI Auto-Tagging</h3>
+                            <p class="text-sm opacity-70">The system "watches" the ad to understand it.</p>
+                            <button onclick="nextScene()" class="mt-8 w-full bg-[#C5A059] text-[#1a1a1a] py-4 font-black text-sm uppercase tracking-widest hover:bg-white transition-colors border border-[#C5A059]">
+                                Analyze Creative <i data-lucide="arrow-right" size="16" class="inline ml-2"></i>
+                            </button>
+                        </div>
+                     </div>
+                </div>
+
+                <!-- SCENE 2: JOURNEY -->
+                <div class="story-scene bg-[#F1EDE8] text-[#2F3C48]" id="scene-2">
+                    <div class="p-10 h-full flex flex-col">
+                        <div class="flex justify-between items-center mb-8">
+                            <h2 class="font-serif italic text-3xl">Step 2-3: Tracking the Journey</h2>
+                            <div class="bg-[#2F3C48] text-white px-4 py-2 rounded-full text-xs font-bold uppercase tracking-widest">Live Graph</div>
+                        </div>
+                        <div class="flex-grow flex items-center justify-between px-10 relative">
+                            <div class="absolute top-1/2 left-20 right-20 h-0.5 bg-[#2F3C48]/20 -z-0"></div>
+                            <div class="funnel-node flex flex-col items-center bg-white p-6 shadow-xl border-t-4 border-[#C5A059] w-64 text-center z-10">
+                                <h4 class="font-bold uppercase tracking-widest text-xs mb-2">Ad Viewed</h4>
+                                <div class="text-3xl font-serif font-bold">Mobile</div>
+                            </div>
+                            <div class="funnel-node flex flex-col items-center bg-[#2F3C48] text-white p-6 shadow-xl border-t-4 border-[#C5A059] w-64 text-center z-10 scale-110" style="transition-delay: 200ms">
+                                <h4 class="font-bold uppercase tracking-widest text-xs mb-2 text-[#C5A059]">Retargeted</h4>
+                                <div class="text-3xl font-serif font-bold">Podcast</div>
+                            </div>
+                            <div class="funnel-node flex flex-col items-center bg-white p-6 shadow-xl border-t-4 border-[#C5A059] w-64 text-center z-10" style="transition-delay: 400ms">
+                                <h4 class="font-bold uppercase tracking-widest text-xs mb-2">Purchase</h4>
+                                <div class="text-3xl font-serif font-bold">Desktop</div>
+                            </div>
+                        </div>
+                        <div class="mt-auto text-center">
+                            <button onclick="nextScene()" class="bg-[#C5A059] text-[#1a1a1a] px-8 py-4 font-black text-sm uppercase tracking-widest hover:scale-105 transition-transform shadow-xl">
+                                Reveal Insights <i data-lucide="arrow-right" class="inline ml-2" size="16"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SCENE 3: DNA -->
+                <div class="story-scene bg-[#1a1a1a] text-[#F1EDE8]" id="scene-3">
+                    <div class="p-10 h-full grid grid-cols-2 gap-12 items-center">
+                        <div>
+                            <div class="bg-[#C5A059] text-[#1a1a1a] px-3 py-1 text-[0.6rem] font-black uppercase tracking-widest w-fit mb-4">Step 4-5: Intelligence</div>
+                            <h1 class="text-4xl font-serif italic mb-4">The "Trust" Signal.</h1>
+                            <p class="text-lg opacity-70 mb-8">The AI found that the "Educational" tone caused the sale, not the "Funny" tone.</p>
+                            <button onclick="nextScene()" class="bg-[#C5A059] text-[#1a1a1a] px-8 py-4 font-black text-sm uppercase tracking-widest hover:bg-white transition-colors">
+                                Optimize Spend <i data-lucide="arrow-right" size="16" class="inline ml-2"></i>
+                            </button>
+                        </div>
+                        <div class="flex justify-center">
+                            <svg width="250" height="250" viewBox="0 0 100 100" class="overflow-visible">
+                                <polygon points="50,10 90,40 75,90 25,90 10,40" fill="none" stroke="#444" stroke-width="0.5"/>
+                                <text x="50" y="5" text-anchor="middle" font-size="4" fill="#C5A059" font-weight="bold">TRUST (HIGH)</text>
+                                <text x="20" y="95" text-anchor="end" font-size="4" fill="white" font-weight="bold" opacity="0.3">HUMOR (LOW)</text>
+                                <polygon class="radar-path" points="50,15 85,40 70,85 20,80 15,40" fill="rgba(197, 160, 89, 0.2)" stroke="#C5A059" stroke-width="2"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SCENE 4: OPTIMIZATION -->
+                <div class="story-scene bg-[#F1EDE8]" id="scene-4">
+                    <div class="h-full grid grid-cols-12">
+                        <div class="col-span-8 bg-black relative flex items-center justify-center">
+                            <video id="ad-video" src="Content_Mix_Model_Explained.mp4" class="w-full h-full object-contain" loop muted playsinline></video>
+                            <div class="absolute top-6 left-6 bg-[#C5A059] text-black px-4 py-2 rounded-full font-bold uppercase tracking-widest text-xs">
+                                Step 6: Buying the Winner
+                            </div>
+                        </div>
+                        <div class="col-span-4 bg-[#2F3C48] p-8 text-white flex flex-col justify-center">
+                            <h3 class="text-[#C5A059] font-serif italic text-2xl mb-6">Automated Buy</h3>
+                            <div class="space-y-4 mb-8">
+                                <div class="bg-black/20 p-4 rounded border border-white/5 flex justify-between items-center">
+                                    <span>Spotify Audio</span>
+                                    <span class="text-[#C5A059] font-mono">$12,000</span>
+                                </div>
+                                <div class="bg-black/20 p-4 rounded border border-white/5 flex justify-between items-center">
+                                    <span>Roku TV</span>
+                                    <span class="text-[#C5A059] font-mono">$15,000</span>
+                                </div>
+                            </div>
+                            <button onclick="nextScene()" class="w-full bg-[#C5A059] text-[#1a1a1a] py-4 font-black text-sm uppercase tracking-widest hover:bg-white transition-colors shadow-lg">
+                                View Results <i data-lucide="arrow-right" size="16" class="inline ml-2"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SCENE 5: RESULTS -->
+                <div class="story-scene bg-[#111] text-[#F1EDE8]" id="scene-5">
+                    <div class="p-10 h-full flex flex-col justify-center">
+                        <div class="flex justify-between items-end mb-8">
+                            <div>
+                                <div class="text-[#C5A059] text-sm font-bold uppercase tracking-widest mb-1">Final Report</div>
+                                <h2 class="font-serif italic text-4xl">The Waste is Gone.</h2>
+                            </div>
+                            <div class="text-right">
+                                <div class="text-sm opacity-50 uppercase">Return on Ad Spend</div>
+                                <div class="text-5xl font-serif text-[#C5A059]">4.8x</div>
+                            </div>
+                        </div>
+                        <div class="border border-[#333] rounded-lg overflow-hidden">
+                            <table class="w-full text-left perf-grid">
+                                <thead>
+                                    <tr class="bg-[#1a1a1a]">
+                                        <th>Metric</th>
+                                        <th>Old Way</th>
+                                        <th class="text-[#C5A059]">DeliverAI</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Wasted Spend</td>
+                                        <td class="opacity-50 text-red-400">50%</td>
+                                        <td class="text-[#C5A059] font-bold">0%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Time to Insight</td>
+                                        <td class="opacity-50">90 Days</td>
+                                        <td class="text-[#C5A059] font-bold">Real-Time</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <button onclick="restart()" class="mt-8 text-xs uppercase tracking-widest opacity-50 hover:text-white mx-auto">Restart Demo ↻</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="macbook-base"></div>
+    </div>
+</section>
+
+<!-- SLIDE 5: BUSINESS MODEL (CRITERIA 3) -->
+<section class="deck-section bg-pointing">
+    <div class="max-w-7xl w-full mx-auto">
+        <h4 class="header-bold-yellow">Business Model</h4>
+        <h2 class="section-title text-[#2F3C48] mb-12">Selling Efficiency.</h2>
+        
+        <div class="grid grid-cols-2 gap-12">
+            <!-- How We Make Money -->
+            <div class="bg-white p-8 rounded-lg shadow-lg border-t-4 border-[#C5A059]">
+                <h3 class="text-2xl font-serif text-[#2F3C48] mb-6">1. Subscription & Fees</h3>
+                <ul class="space-y-4 text-lg text-[#2F3C48]">
+                    <li class="flex items-center gap-3">
+                        <i data-lucide="check-circle" class="text-[#C5A059]"></i>
+                        <span><b>5%</b> Platform Fee on Ad Spend</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <i data-lucide="check-circle" class="text-[#C5A059]"></i>
+                        <span><b>$5k - $20k</b> Monthly SaaS Fee</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <i data-lucide="check-circle" class="text-[#C5A059]"></i>
+                        <span>Replaces 3-5 existing vendor contracts.</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Value Prop -->
+            <div class="bg-[#2F3C48] p-8 rounded-lg shadow-lg text-white">
+                <h3 class="text-2xl font-serif text-[#C5A059] mb-6">2. Client Savings</h3>
+                <p class="mb-6 opacity-80 text-lg">For every $1.00 a client spends with us, we identify $0.50 of previous waste.</p>
+                <div class="bg-white/10 p-4 rounded mb-2 flex justify-between">
+                    <span>Fraud Blocked</span>
+                    <span class="text-[#C5A059] font-bold">$250B Industry Wide</span>
+                </div>
+                <div class="bg-white/10 p-4 rounded flex justify-between">
+                    <span>Tech Consolidation</span>
+                    <span class="text-[#C5A059] font-bold">$220B Industry Wide</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SLIDE 6: BUSINESS POTENTIAL (CRITERIA 4) -->
+<section class="deck-section bg-olive">
+    <div class="max-w-7xl w-full mx-auto">
+        <h4 class="deck-pre text-[#C5A059]">The Prize</h4>
+        <h2 class="section-title text-[#F1EDE8] mb-12">The $1.2 Billion Roadmap.</h2>
+
+        <div class="grid grid-cols-3 gap-8 text-center">
+            <div class="bg-white/5 border border-white/10 p-10 rounded">
+                <h5 class="text-lg font-bold uppercase tracking-widest text-[#C5A059] mb-2">Unit Economics</h5>
+                <h3 class="text-6xl font-serif text-white mb-2">85%</h3>
+                <p class="text-white/60">Gross Margin. Software margins, not agency margins.</p>
+            </div>
+            <div class="bg-white/5 border border-white/10 p-10 rounded">
+                <h5 class="text-lg font-bold uppercase tracking-widest text-[#C5A059] mb-2">Year 3 Target</h5>
+                <h3 class="text-6xl font-serif text-white mb-2">$250M</h3>
+                <p class="text-white/60">Annual Recurring Revenue.</p>
+            </div>
+            <div class="bg-[#C5A059] p-10 rounded text-[#1a1a1a]">
+                <h5 class="text-lg font-bold uppercase tracking-widest text-black/60 mb-2">Year 5 Target</h5>
+                <h3 class="text-6xl font-serif text-black mb-2">$1.2B</h3>
+                <p class="text-black/70 font-bold">IPO Scale.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SLIDE 7: TRACTION -->
+<section class="deck-section bg-[#E4DED0]">
+    <div class="max-w-7xl w-full mx-auto">
+        <h4 class="header-bold-blue">Traction</h4>
+        <h2 class="section-title text-[#2F3C48] mb-10">It's Already Working.</h2>
+
+        <div class="border-l-4 border-[#C5A059] pl-10 space-y-12 ml-4">
+            <div class="relative">
+                <div class="absolute -left-[3.2rem] top-1 w-6 h-6 rounded-full bg-[#C5A059]"></div>
+                <h3 class="text-2xl font-serif font-bold text-[#2F3C48]">The Prototype</h3>
+                <p class="text-xl text-[#2F3C48]/70 mt-2">Built to solve a personal frustration. 15 Heads of Media validated the "Black Hole" problem immediately.</p>
+            </div>
+            <div class="relative">
+                <div class="absolute -left-[3.2rem] top-1 w-6 h-6 rounded-full bg-[#C5A059]"></div>
+                <h3 class="text-2xl font-serif font-bold text-[#2F3C48]">The Pivot</h3>
+                <p class="text-xl text-[#2F3C48]/70 mt-2">Customers asked: "Don't just measure it, fix it." Evolved from Analytics to an Operating System.</p>
+            </div>
+            <div class="relative">
+                <div class="absolute -left-[3.2rem] top-1 w-6 h-6 rounded-full bg-[#2F3C48] border-4 border-[#C5A059]"></div>
+                <h3 class="text-2xl font-serif font-bold text-[#2F3C48]">The Pipeline</h3>
+                <p class="text-xl text-[#2F3C48]/70 mt-2"><b>Global Hospitality Group</b> (Pilot Q2). <b>Fintech Unicorn</b> (Pilot Q3). Waiting list active.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SLIDE 8: CLOSE -->
+<section class="deck-section bg-hague justify-center">
+  <div class="max-w-7xl w-full mx-auto grid grid-cols-2 gap-20 items-center">
+    <div class="bg-white p-12 border-l-8 border-[#C5A059] shadow-2xl">
+        <h5 class="deck-pre text-[#2F3C48]">Ashley Fitzgerald</h5>
+        <p class="text-sm font-bold opacity-60 mb-6 uppercase tracking-widest">Founder & CEO</p>
+        <p class="leading-relaxed text-lg text-[#2F3C48] mb-8">
+            15 years building data systems for WPP and Goldman Sachs. I built this because I needed it. Now, the industry needs it. <br><br><b>Harvard Data Science (Master's Candidate).</b>
+        </p>
+        <div class="flex flex-col gap-3 pt-6 border-t border-[#2F3C48]/10">
+            <a href="https://deliveraisolutions.com/" target="_blank" class="text-sm font-bold text-[#2F3C48] hover:text-[#C5A059] flex items-center gap-3 transition-colors">
+                <i data-lucide="globe" size="18"></i> deliveraisolutions.com
+            </a>
+            <a href="https://www.linkedin.com/in/ashley-fitzgerald-dataexpert/" target="_blank" class="text-sm font-bold text-[#2F3C48] hover:text-[#C5A059] flex items-center gap-3 transition-colors">
+                <i data-lucide="linkedin" size="18"></i> linkedin.com/in/ashley-fitzgerald-dataexpert
+            </a>
+        </div>
+    </div>
+    <div>
+        <h2 class="font-serif text-4xl text-[#F1EDE8] mb-8 italic leading-normal">"You never change things by fighting the existing reality. To change something, build a new model that makes the existing model obsolete."</h2>
+        <div class="text-[#C5A059] font-bold uppercase tracking-widest text-sm mb-12">— Buckminster Fuller</div>
+        <button class="bg-[#C5A059] text-[#1a1a1a] px-12 py-6 font-black text-sm uppercase tracking-widest hover:bg-white transition-colors shadow-lg">
+            Schedule a Demo
+        </button>
     </div>
   </div>
-  <div class="footer-mark" style="color: var(--hague-blue);">FOUNDER–PROBLEM FIT | HARVARD INNOVATION LABS</div>
+  <footer style="text-align: right; opacity: 0.4; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 5px; font-weight: 700; position: absolute; bottom: 30px; right: 5%; color: white;">
+     DELIVERAI SOLUTIONS &nbsp;|&nbsp; PATENT PENDING
+  </footer>
 </section>
+
+<!-- STORY ENGINE LOGIC -->
+<script>
+    lucide.createIcons();
+
+    let currentScene = 1;
+    const totalScenes = 5;
+    
+    function nextScene() {
+        document.getElementById(`scene-${currentScene}`).classList.remove('active');
+        currentScene = currentScene < totalScenes ? currentScene + 1 : 1;
+        document.getElementById(`scene-${currentScene}`).classList.add('active');
+
+        if(currentScene === 4) {
+            const video = document.getElementById('ad-video');
+            if(video) {
+                video.currentTime = 0;
+                video.play();
+            }
+        }
+    }
+
+    function restart() {
+        document.getElementById(`scene-${currentScene}`).classList.remove('active');
+        currentScene = 1;
+        document.getElementById('scene-1').classList.add('active');
+    }
+</script>
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
