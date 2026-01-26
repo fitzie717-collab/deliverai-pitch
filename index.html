@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>DeliverAI | Innovation Challenge Pitch Deck</title>
+<title>DeliverAI | Harvard Innovation Challenge</title>
 
 <!-- FONTS & LIBS -->
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -40,16 +40,13 @@ h1.deck-title { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem,
 
 /* Utility Classes */
 .pill { background: var(--gold-leaf); color: #1a1a1a; padding: 0.25rem 0.75rem; border-radius: 9999px; font-weight: 700; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; }
-.funnel-node { border-top: 4px solid var(--gold-leaf); padding: 1.5rem; box-shadow: 0 10px 15px rgba(0,0,0,0.1); }
 .slide-image { width: 100%; height: auto; object-fit: contain; }
 
-/* UI Mockup Styles for Slides 7 & 8 */
-.ui-dark-sidebar { background: #2F3C48; color: #F1F0E8; padding: 1.5rem; border-radius: 0.5rem; }
-.ui-metric-card { background: white; padding: 1.5rem; border-radius: 0.5rem; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+/* New Layout Classes for Storytelling */
+.split-half { display: flex; height: 100%; width: 100%; }
+.split-content { padding: 4vh 5%; }
+.ui-metric-value { font-family: 'Playfair Display', serif; font-size: 3rem; color: var(--gold-leaf); font-weight: 700; }
 .ui-metric-label { font-size: 0.75rem; text-transform: uppercase; color: #666; font-weight: 600; }
-.ui-metric-value { font-family: 'Playfair Display', serif; font-size: 2.5rem; color: var(--gold-leaf); font-weight: 700; }
-.ui-metric-index { font-size: 0.65rem; color: #888; margin-top: 0.25rem; }
-.ui-discovery-card { background: #2F3C48; color: white; padding: 2.5rem; border-radius: 1.5rem; box-shadow: 0 10px 20px rgba(0,0,0,0.3); }
 
 </style>
 </head>
@@ -60,123 +57,119 @@ h1.deck-title { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem,
 <section class="deck-section bg-olive justify-center">
     <div class="max-w-[1400px] w-full mx-auto">
         <div class="flex items-center gap-3 mb-4">
-            <span class="deck-pre text-[#C5A059] mb-0">Innovation Challenge Pitch Deck</span>
+            <span class="deck-pre text-[#C5A059] mb-0">Harvard Innovation Challenge</span>
             <span class="text-[0.5rem] border border-white/30 px-2 py-0.5 rounded text-white/50 uppercase tracking-widest">Patent Pending</span>
         </div>
         <h1 class="deck-title">DeliverAI: The Content Mix Model™</h1>
         <div class="border-l-2 border-[#C5A059] pl-8 my-10 max-w-4xl">
             <p class="text-2xl font-light leading-relaxed">
-                The first <span class="font-bold text-white">Closed-Loop Operating System</span> that links **Creative DNA, Brand Perception, and Sales**; replacing fragmented marketing technology stacks with a single data stream.
+                The <span class="font-bold text-white">Closed-Loop Operating System</span> solving advertising's **Crisis of Accountability** by unifying Creative Alpha and Sales Data.
             </p>
         </div>
     </div>
 </section>
 
-<!-- SLIDE 2: THE PROBLEM EVOLUTION (Image: before and after tech.jpg) -->
-<section class="deck-section bg-cream justify-center">
-    <h4 class="deck-pre text-[#C5A059]">The Problem Story</h4>
-    <h2 class="font-serif text-5xl text-[#2F3C48] mb-12 italic leading-tight">A Media Reality Shift</h2>
-
-    <div class="max-w-6xl mx-auto">
-        <img src="before and after tech.jpg" alt="Sketch illustrating the shift from a simple single TV family in the past to a complex multi-screen modern user." class="slide-image max-h-[50vh] shadow-xl rounded-lg border-2 border-[#2F3C48]/10" />
-    </div>
-
-    <div class="grid grid-cols-2 gap-12 max-w-6xl mx-auto mt-10 text-center">
-        <div class="p-4">
-            <h3 class="text-2xl font-serif font-bold text-[#2F3C48] mb-2">The Past: Simple Measurement</h3>
-            <p class="text-lg text-[#2F3C48]/80">One family, one screen, one ad. The consumer journey was linear.</p>
+<!-- SLIDE 2: THE PROBLEM - CHAOS VS CONTROL (Image: before and after tech.jpg) -->
+<section class="deck-section bg-cream p-0">
+    <div class="split-half w-full h-full">
+        <!-- Left Side: Old World -->
+        <div class="w-1/2 p-12 flex flex-col justify-center bg-[#DEDEDE]">
+            <h4 class="deck-pre text-[#2F3C48]">Problem Statement (1/3)</h4>
+            <h2 class="font-serif text-5xl text-[#2F3C48] mb-8 italic leading-tight">The Era of Simple Control</h2>
+            <p class="text-lg text-[#2F3C48]/80">The 1950s consumer model was linear: **1 TV, 1 Ad, 1 Outcome.** Measurement was easy and guaranteed accountability for spend.</p>
         </div>
-        <div class="p-4">
-            <h3 class="text-2xl font-serif font-bold text-[#2F3C48] mb-2">The Present: Chaotic Fragmentation</h3>
-            <p class="text-lg text-[#2F3C48]/80">Consumers are multi-device, multi-platform. Cross-channel attribution is impossible for most brands.</p>
+        <!-- Right Side: New World Image -->
+        <div class="w-1/2 relative overflow-hidden">
+             <!-- Use the right half of the image as the dominant visual -->
+            <img src="before and after tech.jpg" alt="Modern Multi-Screen Chaos" class="absolute h-full w-auto top-0 left-1/2 transform -translate-x-1/2" style="max-height: 100vh; object-fit: cover; object-position: right;" />
+            <div class="absolute inset-0 bg-black/40 flex items-end p-12">
+                <h3 class="text-white text-3xl font-serif leading-snug">The 2024 Reality is a Multi-Device Chaos with **Zero** Accountability.</h3>
+            </div>
         </div>
     </div>
 </section>
 
-<!-- SLIDE 3: THE BLACK HOLE (Image: mmm vs everything.jpg) -->
-<section class="deck-section bg-hague justify-center">
-  <div class="max-w-[1400px] w-full mx-auto">
-    <div class="flex items-baseline gap-4 mb-2">
-        <h4 class="deck-pre text-[#C5A059]">The Cost of Chaos</h4>
-        <h2 class="font-serif text-5xl text-[#F1F0E8]">The $620B Black Hole</h2>
-    </div>
-
-    <div class="max-w-4xl mx-auto mb-10">
-        <img src="mmm vs everything.jpg" alt="Sketch showing old media mix models (pie charts/bar graphs) struggling against the complexity of modern digital media (pile of screens and platforms)." class="slide-image max-h-[30vh] object-contain shadow-xl rounded-lg" />
-    </div>
-
-    <div class="grid grid-cols-2 gap-[1px] bg-white/10 border border-white/10">
-        <div class="bg-[#1a2329] p-8 relative overflow-hidden flex flex-col justify-between h-48">
-            <div>
-                <h5 class="deck-pre text-[#C5A059]">The Creative Blindspot</h5>
-                <h3 class="text-4xl text-white font-light my-1">47%</h3>
-                <p class="text-white/70 text-sm">Creative quality drives **47% of sales lift**, yet there is no scalable way to analyze it. **(#1 Predictor)**</p>
-            </div>
-        </div>
-        <div class="bg-[#1a2329] p-8 relative overflow-hidden flex flex-col justify-between h-48">
-            <div>
-                <h5 class="deck-pre text-[#C5A059]">The Confidence Tax</h5>
-                <h3 class="text-4xl text-white font-light my-1">90-Day</h3>
-                <p class="text-white/70 text-sm">Report latency. Most brands rely on slow, retroactive reports, missing immediate optimization opportunities.</p>
-            </div>
+<!-- SLIDE 3: THE PROBLEM - FRAGMENTATION (Image: mmm vs everything.jpg) -->
+<section class="deck-section bg-hague p-0">
+    <!-- Top Half: The Fragmentation Crisis -->
+    <div class="w-full h-1/2 flex flex-col justify-center p-12">
+        <h4 class="deck-pre text-[#C5A059]">Problem Statement (2/3)</h4>
+        <h2 class="font-serif text-5xl text-[#F1F0E8] mb-8 italic">Old Tools vs. New Complexity</h2>
+        <div class="max-w-4xl">
+            <img src="mmm vs everything.jpg" alt="Old media mix models vs. modern digital complexity" class="slide-image max-h-[25vh] object-contain shadow-xl rounded-lg" />
         </div>
     </div>
-  </div>
+    <!-- Bottom Half: The Quantified Cost -->
+    <div class="w-full h-1/2 grid grid-cols-2 gap-8 p-12 bg-[#1a2329]">
+        <div class="border-l-4 border-[#C5A059] pl-6 text-white">
+            <h3 class="text-3xl font-light mb-1">The Creative Blindspot: **47%**</h3>
+            <p class="text-white/70 text-lg">Creative is the #1 sales driver, yet archaic tools offer zero scalable analysis. **(90-day lag)**</p>
+        </div>
+        <div class="border-l-4 border-[#C5A059] pl-6 text-white">
+            <h3 class="text-3xl font-light mb-1">The Integration Tax: **91+ Vendors**</h3>
+            <p class="text-white/70 text-lg">Data is trapped in silos, leading to $620B of wasted ad spend from unoptimized budgets.</p>
+        </div>
+    </div>
 </section>
 
-<!-- SLIDE 4: THE INVISIBLE JOURNEY (Image: consumer journey.jpg) -->
-<section class="deck-section bg-cream justify-center">
-    <h4 class="deck-pre text-[#C5A059]">The Problem Visualized</h4>
-    <h2 class="font-serif text-5xl text-[#2F3C48] mb-12 italic leading-tight">The Invisible Consumer Journey</h2>
-
-    <div class="max-w-6xl mx-auto border-2 border-[#2F3C48]/10 shadow-xl rounded-lg p-6 bg-white">
-        <img src="consumer journey.jpg" alt="Sketch showing a non-linear consumer path from TikTok, to listening via a microphone, to watching YouTube, and finally ending with a shopping cart and 'PURCHASE COMPLETE!'." class="slide-image max-h-[40vh] object-contain" />
+<!-- SLIDE 4: THE PROBLEM - THE JOURNEY (Image: consumer journey.jpg) -->
+<section class="deck-section bg-cream p-0">
+    <div class="split-half w-full h-full">
+        <!-- Left Side: Image -->
+        <div class="w-2/3 relative flex items-center justify-center bg-white p-12">
+            <img src="consumer journey.jpg" alt="Sketch showing a non-linear consumer path from TikTok to purchase." class="slide-image max-h-full object-contain" />
+        </div>
+        <!-- Right Side: Narrative -->
+        <div class="w-1/3 p-12 flex flex-col justify-center">
+            <h4 class="deck-pre text-[#C5A059]">Problem Statement (3/3)</h4>
+            <h2 class="font-serif text-5xl text-[#2F3C48] mb-8 italic leading-tight">The Causal Collapse</h2>
+            <div class="border-l-4 border-[#C5A059] pl-6">
+                <p class="text-2xl font-light leading-relaxed">
+                    How do we connect the TikTok exposure, the Spotify reminder, and the YouTube click to one single sale? **The industry guesses.**
+                </p>
+            </div>
+            <p class="text-lg font-bold mt-6">DeliverAI quantifies the *causal* impact of every touchpoint, giving credit where it's due.</p>
+        </div>
     </div>
-    
-    <p class="text-center text-xl font-light mt-12 max-w-4xl mx-auto border-t-2 border-[#2F3C48]/10 pt-6">
-        **The Core Problem:** Current tools only credit the last touch. The true catalyst (early exposures) is invisible, leading to wasted spend and suboptimal decisions.
-    </p>
 </section>
 
 <!-- SLIDE 5: SOLUTION (1/3): THE ENGINE (Image: individual tracking.jpg) -->
-<section class="deck-section bg-hague justify-center">
-    <h4 class="deck-pre text-[#C5A059]">Solution (1/3): The Engine</h4>
-    <h2 class="font-serif text-5xl text-[#F1EDE8] mb-16 italic leading-tight">Privacy-Safe Identity Resolution</h2>
-
-    <div class="grid grid-cols-2 gap-20 items-center max-w-6xl mx-auto">
-        <!-- Left: Image 2 Concept -->
-        <div class="relative flex items-center justify-center p-10 bg-white/5 rounded-lg border border-white/10 shadow-xl">
-            <img src="individual tracking.jpg" alt="Sketch showing a central 'PRIVACY-SAFE IDENTITY RESOLUTION' hub connecting multiple devices (phone, TV, laptop, speaker) to sales outcomes (shopping cart, checkmark)." class="slide-image max-h-80 object-contain" />
+<section class="deck-section bg-hague p-0">
+    <div class="split-half w-full h-full">
+        <!-- Left Side: Engine Image -->
+        <div class="w-1/2 relative flex items-center justify-center p-12 bg-[#1a2329]">
+            <img src="individual tracking.jpg" alt="Privacy-Safe Identity Resolution Hub" class="slide-image max-h-[70vh] object-contain shadow-xl" />
         </div>
 
-        <!-- Right: DeliverAI's Function -->
-        <div class="space-y-6">
-            <div class="border-l-4 border-[#C5A059] pl-6">
-                <p class="text-2xl font-light leading-relaxed text-white">
-                    Our **patent-pending** system unifies all data streams into one persistent consumer ID without PII.
-                </p>
-            </div>
-            <div class="flex items-start gap-4">
-                <i data-lucide="zap" size="24" class="text-[#C5A059] flex-shrink-0 mt-1"></i>
-                <p class="text-white/80 font-bold">**98.4% Deterministic Match Rate** across channels (Source: DeliverAI UI).</p>
-            </div>
-            <div class="flex items-start gap-4">
-                <i data-lucide="tv" size="24" class="text-[#C5A059] flex-shrink-0 mt-1"></i>
-                <p class="text-white/80">**Cross-Channel:** Links exposure across CTV, Radio, OOH, Podcast, Social, and Web.</p>
+        <!-- Right Side: Value Prop -->
+        <div class="w-1/2 p-12 flex flex-col justify-center text-white">
+            <h4 class="deck-pre text-[#C5A059]">Solution (1/3): The Engine</h4>
+            <h2 class="font-serif text-5xl mb-8 italic leading-tight">The New Causal Foundation</h2>
+            <div class="border-l-4 border-[#C5A059] pl-6 space-y-4">
+                <p class="text-2xl font-light">We replace legacy attribution with **Privacy-Safe Identity Resolution** and **Causal Match Tracking.**</p>
+                <div class="flex items-start gap-4">
+                    <i data-lucide="zap" size="24" class="text-[#C5A059] flex-shrink-0 mt-1"></i>
+                    <p class="text-white font-bold text-lg">**High-Fidelity Match:** 98.4% Deterministic Match Rate (UI Data).</p>
+                </div>
+                <div class="flex items-start gap-4">
+                    <i data-lucide="tv" size="24" class="text-[#C5A059] flex-shrink-0 mt-1"></i>
+                    <p class="text-white font-bold text-lg">**Unified:** Merges CTV, Audio, Social, and OOH data into a single, persistent ID.</p>
+                </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- SLIDE 6: SOLUTION (2/3): CREATIVE DNA (The Intelligence) -->
+<!-- SLIDE 6: SOLUTION (2/3): CREATIVE ALPHA (UI Concept) -->
 <section class="deck-section bg-cream justify-center">
-    <h4 class="deck-pre text-[#C5A059]">Solution (2/3): The Intelligence</h4>
-    <h2 class="font-serif text-5xl text-[#2F3C48] mb-16 italic leading-tight">AI-Powered Creative Analysis</h2>
+    <h4 class="deck-pre text-[#C5A059]">Solution (2/3): Creative Alpha</h4>
+    <h2 class="font-serif text-5xl text-[#2F3C48] mb-12 italic leading-tight">Monetizing the #1 Predictor of Sales</h2>
 
-    <div class="grid grid-cols-3 gap-10 max-w-6xl mx-auto">
-        <div class="col-span-1 p-8 bg-white shadow-xl rounded-lg flex flex-col justify-between">
-            <h3 class="text-2xl font-serif italic text-[#C5A059] mb-4">AI Auto-Tagging</h3>
-            <p class="text-sm opacity-70 mb-6">AI automatically scans assets for tags (from **Creative Analysis** feature) that predict success.</p>
+    <div class="grid grid-cols-5 gap-8 max-w-6xl mx-auto">
+        <!-- Left 2/5: AI Auto-Tagging -->
+        <div class="col-span-2 p-8 bg-white shadow-xl rounded-lg flex flex-col justify-between border-t-4 border-[#C5A059]">
+            <h3 class="text-3xl font-serif italic text-[#C5A059] mb-4">Creative Analysis</h3>
+            <p class="text-lg opacity-80 mb-6">AI scans for high-performing **Creative DNA** to generate a Causal Fingerprint.</p>
             <div class="flex flex-wrap gap-2">
                 <span class="pill">High Velocity</span>
                 <span class="pill">Founder-Led</span>
@@ -184,148 +177,124 @@ h1.deck-title { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem,
                 <span class="pill">Educational</span>
             </div>
         </div>
-        <div class="col-span-2 p-8 bg-[#2F3C48] text-white shadow-xl rounded-lg">
-            <h3 class="text-2xl font-serif italic text-[#C5A059] mb-6">Causal DNA Fingerprint</h3>
-            <!-- Radar Chart Concept (Visual Placeholder) -->
-            <div class="flex justify-center items-center h-48">
-                <i data-lucide="line-chart" size="64" class="text-white/50 mb-4"></i>
-                <svg width="250" height="250" viewBox="0 0 100 100" class="overflow-visible">
-                    <polygon points="50,10 90,40 75,90 25,90 10,40" fill="none" stroke="#444" stroke-width="0.5"/>
-                    <polygon points="50,25 70,40 62.5,65 37.5,65 30,40" fill="none" stroke="#444" stroke-width="0.5"/>
-                    <polygon points="50,20 85,40 70,85 20,80 15,40" fill="rgba(197, 160, 89, 0.2)" stroke="#C5A059" stroke-width="2"/>
-                </svg>
-            </div>
-            <p class="text-xs text-white/50 text-center mt-4">We identify the *exact* creative elements that are the **catalyst** for sales lift, directly solving the creative blindspot problem.</p>
+        <!-- Right 3/5: Causal Discovery Action -->
+        <div class="col-span-3 p-8 bg-[#2F3C48] text-white shadow-xl rounded-lg flex flex-col justify-center">
+            <h3 class="text-3xl text-[#C5A059] font-bold mb-4 flex items-center gap-3"><i data-lucide="zap" size="28"></i> Causal Discovery (UI Feature)</h3>
+            <p class="text-4xl font-serif italic text-white leading-snug">
+                "The **CTV channel** is generating **2.1x ROAS** with 'General' creative. **Scale budget here immediately.**"
+            </p>
+            <p class="text-sm text-white/70 mt-4">We instantly translate complex data into a direct budget decision.</p>
         </div>
     </div>
 </section>
 
-<!-- SLIDE 7: SOLUTION (3/3): CAUSAL & ACTION (Focus on UI Causal Discovery) -->
+<!-- SLIDE 7: SOLUTION (3/3): THE FEEDBACK LOOP (UI Concept) -->
 <section class="deck-section bg-hague justify-center">
-    <h4 class="deck-pre text-[#C5A059]">Solution (3/3): Causal & Action</h4>
-    <h2 class="font-serif text-5xl text-[#F1EDE8] mb-12 italic leading-tight">Immediate, Actionable Intelligence</h2>
+    <h4 class="deck-pre text-[#C5A059]">Solution (3/3): The Feedback Loop</h4>
+    <h2 class="font-serif text-5xl text-[#F1EDE8] mb-12 italic leading-tight">Moving from Latency to Live Intelligence</h2>
 
-    <div class="max-w-5xl mx-auto ui-discovery-card">
-        <h3 class="text-3xl text-[#C5A059] font-bold mb-4 flex items-center gap-3"><i data-lucide="zap" size="28"></i> Causal Discovery</h3>
-        <p class="text-4xl font-serif italic text-white leading-snug">
-            "The **CTV channel** is generating **2.1x ROAS** with 'General' creative. **Scale budget here immediately.**"
-        </p>
-    </div>
-
-    <div class="grid grid-cols-3 gap-10 max-w-6xl mx-auto mt-10">
-        <div class="border-l-4 border-[#C5A059] pl-6">
-            <h3 class="text-xl font-bold text-white mb-2">Eliminate Guesswork</h3>
-            <p class="text-white/80">We eliminate the "last-click" bias and provide clear, causal instructions for where to deploy capital.</p>
-        </div>
-        <div class="border-l-4 border-[#C5A059] pl-6">
-            <h3 class="text-xl font-bold text-white mb-2">Real-Time Planning</h3>
-            <p class="text-white/80">This intelligence feeds directly into the **Media Planner** and **Campaign Optimizer** modules for automated execution.</p>
-        </div>
-        <div class="border-l-4 border-[#C5A059] pl-6">
-            <h3 class="text-xl font-bold text-white mb-2">Full Visibility</h3>
-            <p class="text-white/80">The **Historical Attribution** feature gives a complete view of every touchpoint over a given range.</p>
-        </div>
-    </div>
-</section>
-
-<!-- SLIDE 8: THE POTENTIAL: QUANTIFIED OUTCOMES (Focus on UI Charts/KPIs) -->
-<section class="deck-section bg-cream justify-center">
-    <h4 class="deck-pre text-[#C5A059]">The Potential</h4>
-    <h2 class="font-serif text-5xl text-[#2F3C48] mb-12 italic leading-tight">Quantified Outcomes: Live Platform Data</h2>
-
-    <div class="max-w-6xl mx-auto grid grid-cols-3 gap-8">
-        <!-- Metric Card 1: Global ROAS -->
-        <div class="ui-metric-card text-center">
+    <div class="grid grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <!-- Live Metric 1: Global ROAS -->
+        <div class="bg-white p-6 rounded-lg text-center shadow-lg">
             <p class="ui-metric-label">Global ROAS</p>
-            <div class="ui-metric-value">3.4x</div>
-            <p class="ui-metric-index text-green-600 flex items-center justify-center"><i data-lucide="trending-up" size="12"></i> 2.8x Index</p>
+            <div class="ui-metric-value text-[#2F3C48]">3.4x</div>
+            <p class="text-sm text-green-600 font-bold flex items-center justify-center"><i data-lucide="trending-up" size="14"></i> +21% Lift Over Index</p>
         </div>
-        <!-- Metric Card 2: Blended CPA -->
-        <div class="ui-metric-card text-center">
+        <!-- Live Metric 2: Blended CPA -->
+        <div class="bg-white p-6 rounded-lg text-center shadow-lg">
             <p class="ui-metric-label">Blended CPA</p>
-            <div class="ui-metric-value">$42.00</div>
-            <p class="ui-metric-index text-green-600 flex items-center justify-center"><i data-lucide="trending-down" size="12"></i> $65 Index</p>
+            <div class="ui-metric-value text-[#2F3C48]">$42.00</div>
+            <p class="text-sm text-green-600 font-bold flex items-center justify-center"><i data-lucide="trending-down" size="14"></i> $23 Cost Reduction</p>
         </div>
-        <!-- Metric Card 3: Conversion Rate -->
-        <div class="ui-metric-card text-center">
-            <p class="ui-metric-label">Conversion Rate</p>
-            <div class="ui-metric-value">1.8%</div>
-            <p class="ui-metric-index text-red-600 flex items-center justify-center"><i data-lucide="trending-down" size="12"></i> 2.1% Index</p>
+        <!-- Live Metric 3: Causal Yield -->
+        <div class="bg-white p-6 rounded-lg text-center shadow-lg">
+            <p class="ui-metric-label">Causal Yield Trend</p>
+            <div class="ui-metric-value text-[#2F3C48]">LIVE</div>
+            <p class="text-sm text-[#C5A059] font-bold flex items-center justify-center"><i data-lucide="activity" size="14"></i> **Daily** Statistical Significance</p>
         </div>
     </div>
 
     <div class="max-w-6xl mx-auto mt-10 p-6 bg-white rounded-lg shadow-2xl">
-        <h3 class="text-sm font-bold uppercase tracking-widest text-[#2F3C48]/70 mb-4 text-center">Causal Yield Trends: Incremental Revenue vs. Ad Spend</h3>
-        <!-- Graph Concept Placeholder -->
-        <div class="w-full h-48 bg-gray-50 border border-gray-200 flex items-center justify-center">
-            <div class="text-center">
-                <i data-lucide="activity" size="32" class="text-[#C5A059] opacity-70"></i>
-                <p class="text-sm text-[#2F3C48]/70 mt-2">Daily Live Graph: Incremental Revenue & Stat Sig Events</p>
-            </div>
-        </div>
-        <p class="text-sm font-light text-[#2F3C48]/80 text-center mt-4">We eliminate the **90-day delay** by tracking real-time **Incremental Revenue** and flagging **Statistical Significance Events** as they occur.</p>
+        <h3 class="text-2xl font-bold text-[#2F3C48] text-center">Replacing 90-Day Reports with Real-Time Action.</h3>
     </div>
 </section>
 
-<!-- SLIDE 9: BUSINESS MODEL & COMPETITIVE EDGE (The Business) -->
-<section class="deck-section bg-[#2F3C48] justify-center">
+<!-- SLIDE 8: BUSINESS MODEL & TRACTION (Competitive Positioning/Model) -->
+<section class="deck-section bg-olive justify-center">
     <div class="max-w-[1400px] w-full mx-auto">
-        <h4 class="deck-pre text-[#C5A059]">The Business</h4>
-        <h2 class="font-serif text-4xl text-[#F1EDE8] mb-12">Competitive Edge & Model</h2>
+        <h4 class="deck-pre text-[#C5A059]">The Business Model</h4>
+        <h2 class="font-serif text-4xl text-[#F1EDE8] mb-12">Building a Category-Defining System</h2>
 
         <div class="grid grid-cols-2 gap-10">
-            <!-- Left: Business Model -->
-            <div class="bg-[#1a2329] p-8 rounded-lg shadow-xl">
-                <h3 class="text-2xl font-serif italic text-[#C5A059] mb-4">Business Model</h3>
-                <div class="space-y-4 text-white/80">
-                    <p class="text-lg">**SaaS Subscription:** A fixed monthly fee based on the client's total ad spend (Tiered for scalability). This covers platform access, AI analysis, and identity resolution.</p>
-                    <p class="text-lg">**ROI Proof:** Clients typically achieve **2-3x ROI** from efficiency gains and the creative lift alone, making the platform self-funding from month one.</p>
+            <!-- Left: Business Model & ROI -->
+            <div class="bg-white/5 border border-white/10 p-8 rounded-lg shadow-xl">
+                <h3 class="text-2xl font-serif italic text-[#C5A059] mb-4">SaaS Revenue & ROI</h3>
+                <p class="text-white/80 text-lg mb-4">We charge an annual **SaaS Subscription** based on the client’s total ad spend (highly scalable/tiered).</p>
+                <div class="border-l-4 border-[#C5A059] pl-4">
+                    <p class="text-white text-xl font-bold">Client ROI is immediate:</p>
+                    <p class="text-white/70">Typical clients realize **2-3x ROI** from the creative alpha and waste reduction alone. Platform is self-funding.</p>
                 </div>
             </div>
 
-            <!-- Right: Competitive Edge -->
-            <div class="bg-[#1a2329] p-8 rounded-lg shadow-xl">
-                <h3 class="text-2xl font-serif italic text-[#C5A059] mb-4">Competitive Edge</h3>
-                <ul class="list-disc list-inside text-white/80 space-y-3 pl-4">
-                    <li class="font-bold">**Causal Truth:** Causal discovery & 98.4% deterministic match vs. old correlational models.</li>
-                    <li class="font-bold">**Creative-First:** Direct monetization of the biggest sales driver (Creative DNA).</li>
-                    <li class="font-bold">**Closed-Loop System:** Planning, Execution, and Measurement in one place, vs. 90+ siloed vendors.</li>
+            <!-- Right: Competitive Moat -->
+            <div class="bg-white/5 border border-white/10 p-8 rounded-lg shadow-xl">
+                <h3 class="text-2xl font-serif italic text-[#C5A059] mb-4">Competitive Moat</h3>
+                <ul class="list-disc list-inside text-white/80 space-y-3 pl-4 text-lg">
+                    <li class="font-bold">**Technological Barrier:** Patent-Pending Identity Resolution.</li>
+                    <li class="font-bold">**Data Moat:** The unified, cross-channel data is proprietary and clean.</li>
+                    <li class="font-bold">**Product Flywheel:** Creative Analysis generates better media plans, which generate more attributable sales, feeding the AI.</li>
                 </ul>
             </div>
         </div>
     </div>
 </section>
 
-<!-- SLIDE 10: CONCLUSION & ASK (The Ask) -->
-<section class="deck-section bg-olive justify-center">
+<!-- SLIDE 9: THE MARKET & TRACTION -->
+<section class="deck-section bg-hague justify-center">
     <div class="max-w-[1400px] w-full mx-auto">
-        <h4 class="deck-pre text-[#C5A059]">Conclusion</h4>
-        <h1 class="deck-title">The Future of Advertising is Now.</h1>
+        <h4 class="deck-pre text-[#C5A059]">The Potential</h4>
+        <h2 class="font-serif text-5xl text-[#F1EDE8] mb-12">Market & Traction</h2>
 
-        <div class="grid grid-cols-2 gap-20 my-10 items-center">
-            <!-- Left: Onboarding / The Ask -->
-            <div class="border-l-2 border-[#C5A059] pl-8">
-                <h3 class="text-2xl font-bold uppercase tracking-widest text-white mb-6">Our Frictionless Pilot Protocol</h3>
-                <p class="text-white/60 text-lg leading-relaxed mb-8">
-                    Clients go live fast: Tagging and parallel ingestion take approximately **14 days** to reach statistical significance. **No historical data or PII needed.**
-                </p>
-                <div class="bg-[#C5A059] p-6 rounded-lg shadow-2xl text-[#2F3C48] inline-block">
-                    <h4 class="font-black text-xl uppercase tracking-widest mb-1">The Ask</h4>
-                    <p class="font-bold">Seeking $X to accelerate engineering and scale our deterministic pipeline.</p>
-                </div>
+        <div class="grid grid-cols-3 gap-10 text-white">
+            <div class="border-l-4 border-[#C5A059] pl-6">
+                <h3 class="text-4xl font-serif font-bold mb-2">$620B</h3>
+                <p class="text-lg opacity-70">Total Addressable Market (Global Digital & Offline Ad Spend).</p>
             </div>
-
-            <!-- Right: Founder/Quote -->
-            <div>
-                <h2 class="font-serif text-3xl text-[#F1EDE8] mb-4 italic leading-normal">"You never change things by fighting the existing reality. To change something, build a new model that makes the existing model obsolete."</h2>
-                <div class="text-[#C5A059] font-bold uppercase tracking-widest text-sm mb-8">— Buckminster Fuller</div>
-                <div class="pt-4 border-t border-white/20">
-                    <h5 class="deck-pre text-[#C5A059] mb-1">Ashley Fitzgerald</h5>
-                    <p class="text-xs font-bold opacity-60">FOUNDER & CEO | Harvard Data Science Master’s Candidate</p>
-                </div>
+            <div class="border-l-4 border-[#C5A059] pl-6">
+                <h3 class="text-4xl font-serif font-bold mb-2">14 Days</h3>
+                <p class="text-lg opacity-70">Average time to deploy and reach Statistical Significance (Frictionless Onboarding).</p>
+            </div>
+            <div class="border-l-4 border-[#C5A059] pl-6">
+                <h3 class="text-4xl font-serif font-bold mb-2">Traction</h3>
+                <p class="text-lg opacity-70">[**INSERT KEY TRACTION METRIC HERE** - e.g., 5 Pilots Launched, $20M Tracked Ad Spend, X% QoQ Growth]</p>
             </div>
         </div>
     </div>
+</section>
+
+<!-- SLIDE 10: MISSION & CALL TO ACTION (The Opportunity) -->
+<section class="deck-section bg-[#E4DED0] justify-center">
+  <div class="max-w-[1400px] w-full mx-auto grid grid-cols-2 gap-20 items-center">
+    <div class="bg-white p-10 border-l-4 border-[#C5A059] shadow-lg">
+        <h5 class="deck-pre text-[#2F3C48]">Team & Expertise</h5>
+        <h3 class="text-2xl font-bold text-[#2F3C48] mb-1">Ashley Fitzgerald</h3>
+        <p class="text-xs font-bold opacity-60 mb-4">FOUNDER & CEO | Harvard Data Science Master’s Candidate</p>
+        <p class="leading-relaxed text-sm">
+            15 years experience building novel measurement solutions across digital, brand, and offline channels for global firms (WPP, Goldman Sachs). We have the unique blend of data science, ad technology, and business expertise to build this new model.
+        </p>
+    </div>
+    <div>
+        <h2 class="font-serif text-4xl text-[#2F3C48] mb-4 italic leading-normal">"To change something, build a new model that makes the existing model obsolete."</h2>
+        <div class="text-[#C5A059] font-bold uppercase tracking-widest text-sm mb-8">— Buckminster Fuller</div>
+        <div class="bg-[#2F3C48] text-white p-6 rounded-lg shadow-xl">
+            <h4 class="deck-pre text-[#C5A059] mb-1">The Opportunity</h4>
+            <p class="font-bold text-xl">We are building the definitive Operating System for advertising accountability. We are seeking prize funding to accelerate our engineering roadmap and scale go-to-market.</p>
+        </div>
+    </div>
+  </div>
+  <footer style="text-align: right; opacity: 0.4; font-size: 0.55rem; text-transform: uppercase; letter-spacing: 5px; font-weight: 700; margin-top: 5px; color: #2F3C48; position: absolute; bottom: 30px; right: 5%;">
+     DELIVERAI SOLUTIONS &nbsp;|&nbsp; PATENT PENDING
+  </footer>
 </section>
 
 <!-- SCRIPT FOR ICONS -->
