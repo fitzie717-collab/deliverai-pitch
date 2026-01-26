@@ -41,13 +41,14 @@ h1.deck-title { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem,
 /* Utility Classes */
 .pill { background: var(--gold-leaf); color: #1a1a1a; padding: 0.25rem 0.75rem; border-radius: 9999px; font-weight: 700; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; }
 .funnel-node { border-top: 4px solid var(--gold-leaf); padding: 1.5rem; box-shadow: 0 10px 15px rgba(0,0,0,0.1); }
+.slide-image { width: 100%; height: auto; object-fit: contain; }
 
 </style>
 </head>
 
 <body>
 
-<!-- SLIDE 1: INTRO (Original Slide 1) -->
+<!-- SLIDE 1: INTRO (The Hook) -->
 <section class="deck-section bg-olive justify-center">
     <div class="max-w-[1400px] w-full mx-auto">
         <div class="flex items-center gap-3 mb-4">
@@ -63,137 +64,81 @@ h1.deck-title { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem,
     </div>
 </section>
 
-<!-- SLIDE 2: THE PROBLEM EVOLUTION (New Slide - Incorporates Image 3 Concept) -->
+<!-- SLIDE 2: THE PROBLEM EVOLUTION (Image: before and after tech.jpg) -->
 <section class="deck-section bg-cream justify-center">
     <h4 class="deck-pre text-[#C5A059]">The Problem Story</h4>
-    <h2 class="font-serif text-5xl text-[#2F3C48] mb-16 italic leading-tight">A Media Reality Shift</h2>
+    <h2 class="font-serif text-5xl text-[#2F3C48] mb-12 italic leading-tight">A Media Reality Shift</h2>
 
-    <div class="grid grid-cols-2 gap-12 max-w-6xl mx-auto">
-        <div class="p-8 border-r border-[#2F3C48]/20 relative">
-            <div class="w-full aspect-video bg-white shadow-xl flex items-center justify-center p-8 mb-6">
-                <!-- Concept from Image 3 (Old TV) -->
-                <i data-lucide="tv" size="80" class="text-gray-400"></i>
-            </div>
-            <h3 class="text-3xl font-serif font-bold text-[#2F3C48] mb-2">The Past: Simple Measurement</h3>
-            <p class="text-lg text-[#2F3C48]/80">One family, one TV, one ad spot. The consumer journey was linear, and measuring success was straightforward. (Image 3 Concept)</p>
-            <span class="absolute top-0 right-0 text-7xl font-black text-[#C5A059]/40">1.0</span>
+    <div class="max-w-6xl mx-auto">
+        <img src="before and after tech.jpg" alt="Sketch illustrating the shift from a simple single TV family in the past to a complex multi-screen modern user." class="slide-image max-h-[50vh] shadow-xl rounded-lg border-2 border-[#2F3C48]/10" />
+    </div>
+
+    <div class="grid grid-cols-2 gap-12 max-w-6xl mx-auto mt-10 text-center">
+        <div class="p-4">
+            <h3 class="text-2xl font-serif font-bold text-[#2F3C48] mb-2">The Past: Simple Measurement</h3>
+            <p class="text-lg text-[#2F3C48]/80">One family, one screen, one ad. The consumer journey was linear, and measuring success was straightforward.</p>
         </div>
-        <div class="p-8 relative">
-            <div class="w-full aspect-video bg-white shadow-xl flex items-center justify-center p-8 mb-6 space-x-4">
-                <!-- Concept from Image 3 (Modern Complexity) -->
-                <i data-lucide="smartphone" size="64" class="text-blue-500"></i>
-                <i data-lucide="laptop" size="64" class="text-green-500"></i>
-                <i data-lucide="headphones" size="64" class="text-red-500"></i>
-            </div>
-            <h3 class="text-3xl font-serif font-bold text-[#2F3C48] mb-2">The Present: Chaotic Fragmentation</h3>
-            <p class="text-lg text-[#2F3C48]/80">Consumers are multi-device, multi-platform. The journey is non-linear, making cross-channel attribution impossible for most brands. (Image 3 Concept)</p>
-            <span class="absolute top-0 right-0 text-7xl font-black text-[#C5A059]/40">4.0</span>
+        <div class="p-4">
+            <h3 class="text-2xl font-serif font-bold text-[#2F3C48] mb-2">The Present: Chaotic Fragmentation</h3>
+            <p class="text-lg text-[#2F3C48]/80">Consumers are multi-device, multi-platform. The journey is non-linear, making cross-channel attribution impossible for most brands.</p>
         </div>
     </div>
 </section>
 
-<!-- SLIDE 3: THE BLACK HOLE (Original Slide 2) -->
+<!-- SLIDE 3: THE BLACK HOLE (Image: mmm vs everything.jpg) -->
 <section class="deck-section bg-hague justify-center">
   <div class="max-w-[1400px] w-full mx-auto">
     <div class="flex items-baseline gap-4 mb-2">
         <h4 class="deck-pre text-[#C5A059]">The Cost of Chaos</h4>
         <h2 class="font-serif text-5xl text-[#F1F0E8]">The $620B Black Hole</h2>
     </div>
-    <div class="grid grid-cols-2 gap-[1px] bg-white/10 border border-white/10 mt-10">
-        <div class="bg-[#1a2329] p-10 relative overflow-hidden flex flex-col justify-between h-64">
+
+    <div class="max-w-4xl mx-auto mb-10">
+        <img src="mmm vs everything.jpg" alt="Sketch showing old media mix models (pie charts/bar graphs) struggling against the complexity of modern digital media (pile of screens and platforms)." class="slide-image max-h-[30vh] object-contain shadow-xl rounded-lg" />
+    </div>
+
+    <div class="grid grid-cols-2 gap-[1px] bg-white/10 border border-white/10">
+        <div class="bg-[#1a2329] p-8 relative overflow-hidden flex flex-col justify-between h-48">
             <div>
                 <h5 class="deck-pre text-[#C5A059]">The Creative Blindspot</h5>
-                <h3 class="text-5xl text-white font-light my-2">#1 Predictor</h3>
+                <h3 class="text-4xl text-white font-light my-1">#1 Predictor</h3>
                 <p class="text-white/70 text-sm">Creative quality drives **47% of sales lift**, yet there is no scalable way to analyze it.</p>
             </div>
-            <div class="text-[0.5rem] text-white/30 uppercase tracking-widest mt-4">Source: Nielsen, 2025 ROI Report</div>
         </div>
-        <div class="bg-[#1a2329] p-10 relative overflow-hidden flex flex-col justify-between h-64">
-            <div>
-                <h5 class="deck-pre text-[#C5A059]">The Invisible Tax</h5>
-                <h3 class="text-5xl text-white font-light my-2">25%</h3>
-                <p class="text-white/70 text-sm">Of global ad spend is consumed by **Bot Traffic & Ad Fraud**.</p>
-            </div>
-            <div class="text-[0.5rem] text-white/30 uppercase tracking-widest mt-4">Source: Cheq, State of Fake Traffic 2025</div>
-        </div>
-        <div class="bg-[#1a2329] p-10 relative overflow-hidden flex flex-col justify-between h-64">
-            <div>
-                <h5 class="deck-pre text-[#C5A059]">The Integration Tax</h5>
-                <h3 class="text-5xl text-white font-light my-2">91+</h3>
-                <p class="text-white/70 text-sm">Vendors in the average marketing stack. Data is trapped in silos.</p>
-            </div>
-            <div class="text-[0.5rem] text-white/30 uppercase tracking-widest mt-4">Source: ChiefMartec, 2025</div>
-        </div>
-        <div class="bg-[#1a2329] p-10 relative overflow-hidden flex flex-col justify-between h-64">
+        <div class="bg-[#1a2329] p-8 relative overflow-hidden flex flex-col justify-between h-48">
             <div>
                 <h5 class="deck-pre text-[#C5A059]">The Confidence Tax</h5>
-                <h3 class="text-5xl text-white font-light my-2">90-Day</h3>
+                <h3 class="text-4xl text-white font-light my-1">90-Day</h3>
                 <p class="text-white/70 text-sm">Report latency. Most brands rely on slow, retroactive insights, leading to missed opportunities.</p>
             </div>
-            <div class="text-[0.5rem] text-white/30 uppercase tracking-widest mt-4">Source: Forrester, 2025</div>
         </div>
     </div>
   </div>
 </section>
 
-<!-- SLIDE 4: THE INVISIBLE JOURNEY (New Slide - Incorporates Image 1 Concept) -->
+<!-- SLIDE 4: THE INVISIBLE JOURNEY (Image: consumer journey.jpg) -->
 <section class="deck-section bg-cream justify-center">
     <h4 class="deck-pre text-[#C5A059]">The Problem Visualized</h4>
     <h2 class="font-serif text-5xl text-[#2F3C48] mb-12 italic leading-tight">The Invisible Consumer Journey</h2>
 
-    <div class="flex items-center justify-center space-x-8 max-w-6xl mx-auto">
-        <!-- Step 1: Awareness (TikTok) -->
-        <div class="text-center w-1/4">
-            <i data-lucide="send" size="48" class="text-[#C5A059] mx-auto mb-3"></i>
-            <h3 class="text-xl font-bold">Awareness</h3>
-            <p class="text-sm text-[#2F3C48]/70 mt-1">TikTok Video Ad</p>
-        </div>
-        <i data-lucide="arrow-right" size="24" class="text-[#2F3C48]/50"></i>
-
-        <!-- Step 2: Consideration (Podcast) -->
-        <div class="text-center w-1/4">
-            <i data-lucide="mic" size="48" class="text-[#C5A059] mx-auto mb-3"></i>
-            <h3 class="text-xl font-bold">Consideration</h3>
-            <p class="text-sm text-[#2F3C48]/70 mt-1">Spotify Podcast Ad</p>
-        </div>
-        <i data-lucide="arrow-right" size="24" class="text-[#2F3C48]/50"></i>
-
-        <!-- Step 3: Intent (YouTube) -->
-        <div class="text-center w-1/4">
-            <i data-lucide="youtube" size="48" class="text-[#C5A059] mx-auto mb-3"></i>
-            <h3 class="text-xl font-bold">Intent/Search</h3>
-            <p class="text-sm text-[#2F3C48]/70 mt-1">YouTube Display Ad</p>
-        </div>
-        <i data-lucide="arrow-right" size="24" class="text-[#2F3C48]/50"></i>
-
-        <!-- Step 4: Conversion (Purchase) -->
-        <div class="text-center w-1/4">
-            <i data-lucide="shopping-cart" size="48" class="text-green-600 mx-auto mb-3"></i>
-            <h3 class="text-xl font-bold text-green-700">Conversion</h3>
-            <p class="text-sm text-[#2F3C48]/70 mt-1">PURCHASE COMPLETE!</p>
-        </div>
+    <div class="max-w-6xl mx-auto border-2 border-[#2F3C48]/10 shadow-xl rounded-lg p-6 bg-white">
+        <img src="consumer journey.jpg" alt="Sketch showing a non-linear consumer path from TikTok, to listening via a microphone, to watching YouTube, and finally ending with a shopping cart and 'PURCHASE COMPLETE!'." class="slide-image max-h-[40vh] object-contain" />
     </div>
-    <p class="text-center text-xl font-light mt-12 max-w-4xl mx-auto border-t-2 pt-6">
-        **Current Marketing:** Credits the last click (YouTube) for the sale. The true catalyst—TikTok & Spotify—is invisible, leading to wasted spend.
+    
+    <p class="text-center text-xl font-light mt-12 max-w-4xl mx-auto border-t-2 border-[#2F3C48]/10 pt-6">
+        **Current Marketing:** Credits the last click (YouTube) for the sale. The true catalyst—TikTok & Spotify—is invisible, leading to wasted spend and guesswork.
     </p>
 </section>
 
-<!-- SLIDE 5: THE SOLUTION (New Slide - Incorporates Image 2 Concept) -->
+<!-- SLIDE 5: THE SOLUTION (Image: individual tracking.jpg) -->
 <section class="deck-section bg-hague justify-center">
     <h4 class="deck-pre text-[#C5A059]">The Solution: The New Operating System</h4>
     <h2 class="font-serif text-5xl text-[#F1F0E8] mb-16 italic leading-tight">Privacy-Safe Identity Resolution</h2>
 
     <div class="grid grid-cols-2 gap-20 items-center max-w-6xl mx-auto">
         <!-- Left: Image 2 Concept -->
-        <div class="relative flex items-center justify-center p-10">
-            <div class="w-80 h-80 rounded-full border-4 border-[#C5A059] flex items-center justify-center text-center p-8 bg-[#1a2329] shadow-2xl">
-                <span class="text-xl font-black uppercase tracking-widest text-[#C5A059] leading-tight">PRIVACY-SAFE<br>IDENTITY<br>RESOLUTION</span>
-            </div>
-            <!-- Simulating the converging lines/channels from Image 2 -->
-            <i data-lucide="smartphone" class="absolute top-0 left-0 text-white/50" size="40"></i>
-            <i data-lucide="tv" class="absolute top-0 right-0 text-white/50" size="40"></i>
-            <i data-lucide="laptop" class="absolute bottom-0 left-0 text-white/50" size="40"></i>
-            <i data-lucide="mic" class="absolute bottom-0 right-0 text-white/50" size="40"></i>
+        <div class="relative flex items-center justify-center p-10 bg-white/5 rounded-lg border border-white/10 shadow-xl">
+            <img src="individual tracking.jpg" alt="Sketch showing a central 'PRIVACY-SAFE IDENTITY RESOLUTION' hub connecting multiple devices (phone, TV, laptop, speaker) to sales outcomes (shopping cart, checkmark)." class="slide-image max-h-80 object-contain" />
         </div>
 
         <!-- Right: DeliverAI's Function -->
@@ -215,7 +160,7 @@ h1.deck-title { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem,
     </div>
 </section>
 
-<!-- SLIDE 6: SOLUTION DEEP DIVE: CREATIVE DNA (Static Demo Excerpt - Incorporates Scene 1 & 3 Concepts) -->
+<!-- SLIDE 6: SOLUTION DEEP DIVE: CREATIVE DNA (Static Demo Excerpt - The Intelligence) -->
 <section class="deck-section bg-cream justify-center">
     <h4 class="deck-pre text-[#C5A059]">Phase 1: The Intelligence</h4>
     <h2 class="font-serif text-5xl text-[#2F3C48] mb-16 italic leading-tight">Generating Creative DNA</h2>
@@ -223,7 +168,7 @@ h1.deck-title { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem,
     <div class="grid grid-cols-3 gap-10 max-w-6xl mx-auto">
         <div class="col-span-1 p-8 bg-white shadow-xl rounded-lg flex flex-col justify-between">
             <h3 class="text-2xl font-serif italic text-[#C5A059] mb-4">AI Auto-Tagging</h3>
-            <p class="text-sm opacity-70 mb-6">Scanning visual & audio signals of every asset.</p>
+            <p class="text-sm opacity-70 mb-6">AI scans visual & audio signals of every asset to build a tag profile.</p>
             <div class="flex flex-wrap gap-2">
                 <span class="pill">High Velocity</span>
                 <span class="pill">Founder-Led</span>
@@ -233,40 +178,40 @@ h1.deck-title { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem,
         </div>
         <div class="col-span-2 p-8 bg-[#2F3C48] text-white shadow-xl rounded-lg">
             <h3 class="text-2xl font-serif italic text-[#C5A059] mb-6">Causal DNA Fingerprint</h3>
-            <!-- Radar Chart Concept (Simplified Visual) -->
+            <!-- Radar Chart Concept (Visual Placeholder) -->
             <div class="flex justify-center items-center h-48">
-                <div class="grid grid-cols-2 grid-rows-2 w-full h-full text-center">
-                    <div class="p-2 border border-dashed border-[#C5A059]">VISUAL ASM (90%)</div>
-                    <div class="p-2 border border-dashed border-[#C5A059]">MUSIC SYNC (85%)</div>
-                    <div class="p-2 border border-dashed border-[#C5A059]">FOUNDER LED (80%)</div>
-                    <div class="p-2 border border-dashed border-[#C5A059]">SOCIAL PROOF (70%)</div>
-                </div>
+                <i data-lucide="line-chart" size="64" class="text-white/50 mb-4"></i>
+                <svg width="250" height="250" viewBox="0 0 100 100" class="overflow-visible">
+                    <polygon points="50,10 90,40 75,90 25,90 10,40" fill="none" stroke="#444" stroke-width="0.5"/>
+                    <polygon points="50,25 70,40 62.5,65 37.5,65 30,40" fill="none" stroke="#444" stroke-width="0.5"/>
+                    <polygon points="50,20 85,40 70,85 20,80 15,40" fill="rgba(197, 160, 89, 0.2)" stroke="#C5A059" stroke-width="2"/>
+                </svg>
             </div>
             <p class="text-xs text-white/50 text-center mt-4">We identify the *exact* creative elements that are the **catalyst** for sales lift.</p>
         </div>
     </div>
 </section>
 
-<!-- SLIDE 7: SOLUTION DEEP DIVE: OPTIMIZED EXECUTION (Static Demo Excerpt - Incorporates Scene 2 & 4 Concepts) -->
+<!-- SLIDE 7: SOLUTION DEEP DIVE: OPTIMIZED EXECUTION (The Action) -->
 <section class="deck-section bg-hague justify-center">
     <h4 class="deck-pre text-[#C5A059]">Phase 2: The Action</h4>
-    <h2 class="font-serif text-5xl text-[#F1F0E8] mb-16 italic leading-tight">Optimized Execution & Media Plans</h2>
+    <h2 class="font-serif text-5xl text-[#F1EDE8] mb-16 italic leading-tight">Optimized Execution & Media Plans</h2>
 
     <div class="flex-grow flex items-start justify-between px-10 relative max-w-6xl mx-auto">
         <div class="absolute top-1/2 left-20 right-20 h-0.5 bg-[#C5A059]/40 -z-0"></div>
-        <!-- Awareness Node (Scene 2 Concept) -->
+        <!-- Awareness Node (Funnel Concept) -->
         <div class="funnel-node flex flex-col items-center bg-[#2F3C48] text-white shadow-xl w-64 text-center z-10">
             <h4 class="font-bold uppercase tracking-widest text-xs mb-2 text-[#C5A059]">Awareness</h4>
             <div class="text-3xl font-serif font-bold mb-1">3.5x</div>
             <div class="text-[0.6rem] uppercase opacity-50 font-bold">Target Frequency</div>
         </div>
-        <!-- Consideration Node (Scene 2 Concept) -->
+        <!-- Consideration Node (Funnel Concept) -->
         <div class="funnel-node flex flex-col items-center bg-[#C5A059] text-[#1a1a1a] shadow-xl w-64 text-center z-10 scale-105">
             <h4 class="font-bold uppercase tracking-widest text-xs mb-2">Consideration</h4>
             <div class="text-3xl font-serif font-bold mb-1">7.0x</div>
             <div class="text-[0.6rem] uppercase opacity-50 font-bold">Target Frequency</div>
         </div>
-        <!-- Conversion Node (Scene 2 Concept) -->
+        <!-- Conversion Node (Funnel Concept) -->
         <div class="funnel-node flex flex-col items-center bg-[#2F3C48] text-white shadow-xl w-64 text-center z-10">
             <h4 class="font-bold uppercase tracking-widest text-xs mb-2 text-[#C5A059]">Conversion</h4>
             <div class="text-3xl font-serif font-bold mb-1">28</div>
@@ -282,7 +227,7 @@ h1.deck-title { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem,
     </div>
 </section>
 
-<!-- SLIDE 8: THE POTENTIAL: QUANTIFIED OUTCOMES (Static Demo Excerpt - Incorporates Scene 5 Concept) -->
+<!-- SLIDE 8: THE POTENTIAL: QUANTIFIED OUTCOMES (The Results) -->
 <section class="deck-section bg-[#111] text-[#F1EDE8] justify-center">
     <h4 class="deck-pre text-[#C5A059]">Phase 3: The Results</h4>
     <h2 class="font-serif text-5xl italic text-white mb-16">Quantifying Outcomes: Proven Lift</h2>
@@ -327,7 +272,7 @@ h1.deck-title { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem,
     </div>
 </section>
 
-<!-- SLIDE 9: COMPETITIVE EDGE & BUSINESS MODEL (Original Slide 5) -->
+<!-- SLIDE 9: BUSINESS MODEL & COMPETITIVE EDGE (The Business) -->
 <section class="deck-section bg-[#2F3C48] justify-center">
     <div class="max-w-[1400px] w-full mx-auto">
         <h4 class="deck-pre text-[#C5A059]">The Business</h4>
@@ -343,7 +288,7 @@ h1.deck-title { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem,
                 </div>
             </div>
 
-            <!-- Right: Competitive Edge (Simplified from full table) -->
+            <!-- Right: Competitive Edge -->
             <div class="bg-[#1a2329] p-8 rounded-lg shadow-xl">
                 <h3 class="text-2xl font-serif italic text-[#C5A059] mb-4">Competitive Edge</h3>
                 <ul class="list-disc list-inside text-white/80 space-y-3 pl-4">
@@ -353,11 +298,10 @@ h1.deck-title { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem,
                 </ul>
             </div>
         </div>
-
     </div>
 </section>
 
-<!-- SLIDE 10: CONCLUSION & ASK (Combined Original Slides 6 & 7) -->
+<!-- SLIDE 10: CONCLUSION & ASK (The Ask) -->
 <section class="deck-section bg-olive justify-center">
     <div class="max-w-[1400px] w-full mx-auto">
         <h4 class="deck-pre text-[#C5A059]">Conclusion</h4>
@@ -392,7 +336,6 @@ h1.deck-title { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem,
 <!-- SCRIPT FOR ICONS -->
 <script>
     lucide.createIcons();
-    // Removed the previous story engine logic as all slides are now static.
 </script>
 
 </body>
