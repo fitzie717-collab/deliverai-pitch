@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>DeliverAI | The Operating System</title>
+<title>DeliverAI | Innovation Challenge Pitch Deck</title>
 
 <!-- FONTS & LIBS -->
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -19,602 +19,380 @@
   --gold-leaf: #C5A059;
 }
 
-/* --- BASE TYPOGRAPHY --- */
-html { font-size: 18px; scroll-snap-type: y mandatory; scroll-behavior: smooth; }
-body { margin: 0; font-family: 'Inter', sans-serif; color: var(--hague-blue); -webkit-font-smoothing: antialiased; }
-
-h1.deck-title { 
-    font-family: 'Playfair Display', serif; 
-    font-size: clamp(3rem, 5vw, 5rem); 
-    line-height: 1.1; 
-    margin-bottom: 0.5em;
-}
-
-h2.section-title {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(2.5rem, 4vw, 4rem);
-    line-height: 1.2;
-    margin-bottom: 1rem;
-}
-
-.deck-pre { 
-    font-family: 'Inter', sans-serif; 
-    font-weight: 800; 
-    text-transform: uppercase; 
-    letter-spacing: 0.15em; 
-    font-size: 0.8rem; 
-    display: block; 
-    margin-bottom: 16px; 
-}
-
 /* --- SLIDE ARCHITECTURE --- */
 .deck-section {
     min-height: 100vh; width: 100vw;
     scroll-snap-align: start; position: relative;
-    padding: 4vh 5%; display: flex; flex-direction: column; justify-content: center; overflow: hidden;
+    padding: 4vh 5%; display: flex; flex-direction: column; overflow: hidden;
     background: var(--pointing);
 }
+html { scroll-snap-type: y mandatory; scroll-behavior: smooth; }
+body { margin: 0; font-family: 'Inter', sans-serif; color: var(--hague-blue); }
+
+/* Typography */
+h1.deck-title { font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 5vw, 4.5rem); line-height: 1.05; }
+.deck-pre { font-family: 'Inter', sans-serif; font-weight: 800; text-transform: uppercase; letter-spacing: 0.15em; font-size: 0.7rem; display: block; margin-bottom: 12px; }
 
 /* Themes */
 .bg-olive { background: var(--bancha); color: var(--pointing); }
 .bg-hague { background: var(--hague-blue); color: var(--pointing); }
 .bg-cream { background: #E4DED0; color: var(--hague-blue); }
 
-/* --- MACBOOK PRO CONTAINER --- */
-.macbook { width: 100%; max-width: 1400px; margin: 0 auto; perspective: 2000px; }
-.screen-frame {
-    background: #0d0d0d; border-radius: 20px 20px 0 0; padding: 2% 1.5% 0 1.5%;
-    position: relative; box-shadow: inset 0 0 0 2px #333; z-index: 2;
-}
-.camera-notch {
-    position: absolute; top: 0; left: 50%; transform: translateX(-50%);
-    width: 12%; height: 25px; background: #0d0d0d;
-    border-bottom-left-radius: 8px; border-bottom-right-radius: 8px; z-index: 10;
-}
-.screen-content {
-    background: #111; 
-    aspect-ratio: 16/9;
-    width: 100%; position: relative; overflow: hidden;
-    border-radius: 4px 4px 0 0;
-}
-.macbook-base {
-    background: linear-gradient(to bottom, #dcdcdc 0%, #b0b0b0 100%);
-    height: 24px; width: 100%; border-radius: 0 0 20px 20px;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.4);
-}
-
-/* --- STORY ENGINE ANIMATIONS --- */
-.story-scene {
-    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-    opacity: 0; transition: opacity 0.8s ease-in-out;
-    padding: 0; display: flex; flex-direction: column;
-    pointer-events: none;
-}
-.story-scene.active { opacity: 1; z-index: 10; pointer-events: auto; }
-
-/* Animations */
-.scan-line {
-    position: absolute; top: 0; left: 0; width: 100%; height: 2px;
-    background: #C5A059; box-shadow: 0 0 15px #C5A059;
-    animation: scanDown 3s infinite linear;
-    z-index: 20;
-}
-@keyframes scanDown { 0% { top: 0%; opacity: 0; } 90% { opacity: 1; } 100% { top: 100%; opacity: 0; } }
-
-.tag-pop { opacity: 0; transform: scale(0.8); animation: popIn 0.5s forwards; }
-@keyframes popIn { to { opacity: 1; transform: scale(1); } }
-
-.radar-path { stroke-dasharray: 1000; stroke-dashoffset: 1000; animation: draw 2s forwards ease-in-out; }
-@keyframes draw { to { stroke-dashoffset: 0; } }
-
-.funnel-node { opacity: 0; transform: translateY(20px); transition: all 0.5s ease-out; }
-.story-scene.active .funnel-node { opacity: 1; transform: translateY(0); }
-
-/* Data Tables */
-.perf-grid th { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: #888; padding: 15px; border-bottom: 1px solid #333; }
-.perf-grid td { padding: 20px 15px; border-bottom: 1px solid #222; color: #eee; font-size: 1rem; }
-
-/* Helpers */
-.header-bold-yellow { font-family: 'Inter', sans-serif; font-weight: 800; color: var(--gold-leaf); text-transform: uppercase; letter-spacing: 0.15em; font-size: 0.75rem; display: block; margin-bottom: 8px; }
-.header-bold-blue { font-family: 'Inter', sans-serif; font-weight: 800; color: var(--hague-blue); text-transform: uppercase; letter-spacing: 0.12em; font-size: 0.75rem; display: block; margin-bottom: 8px; }
+/* Utility Classes */
+.pill { background: var(--gold-leaf); color: #1a1a1a; padding: 0.25rem 0.75rem; border-radius: 9999px; font-weight: 700; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; }
+.funnel-node { border-top: 4px solid var(--gold-leaf); padding: 1.5rem; box-shadow: 0 10px 15px rgba(0,0,0,0.1); }
 
 </style>
 </head>
 
 <body>
 
-<!-- SLIDE 1: TITLE -->
+<!-- SLIDE 1: INTRO (Original Slide 1) -->
 <section class="deck-section bg-olive justify-center">
     <div class="max-w-[1400px] w-full mx-auto">
         <div class="flex items-center gap-3 mb-4">
-            <span class="deck-pre text-[#C5A059] mb-0">The Content Mix Model™</span>
-            <span class="text-[0.6rem] border border-white/30 px-2 py-0.5 rounded text-white/50 uppercase tracking-widest">Patent Pending</span>
+            <span class="deck-pre text-[#C5A059] mb-0">Innovation Challenge Pitch Deck</span>
+            <span class="text-[0.5rem] border border-white/30 px-2 py-0.5 rounded text-white/50 uppercase tracking-widest">Patent Pending</span>
         </div>
-        <h1 class="deck-title">The future of advertising is here.<br></h1>
+        <h1 class="deck-title">DeliverAI: The Content Mix Model™</h1>
         <div class="border-l-2 border-[#C5A059] pl-8 my-10 max-w-4xl">
-            <p class="text-3xl font-light leading-relaxed">
-                The first <span class="font-bold text-white">Closed-Loop Operating System</span> that links Creative DNA, Brand Perception, and Revenue; replacing fragmented marketing technology stacks with a single data stream.
+            <p class="text-2xl font-light leading-relaxed">
+                The first <span class="font-bold text-white">Closed-Loop Operating System</span> that links **Creative DNA, Brand Perception, and Sales**; replacing fragmented marketing technology stacks with a single data stream.
             </p>
         </div>
     </div>
 </section>
 
-<!-- SLIDE 2: THE CONTEXT & PROBLEM (MERGED) -->
-<section class="deck-section bg-[#E4DED0]">
-    <div class="max-w-[1500px] w-full mx-auto">
-        <h4 class="deck-pre text-[#C5A059]">The Context</h4>
-        <h1 class="deck-title text-[#2F3C48] mb-12 max-w-5xl" style="font-size: clamp(2.5rem, 4vw, 4.5rem);">"Half the money I spend on advertising is wasted;<br>the trouble is I don't know which half."</h1>
-        
-        <div class="grid grid-cols-12 gap-16 items-start">
-            
-            <!-- Left Column: The Narrative -->
-            <div class="col-span-5 pt-4">
-                <h3 class="text-xl font-bold uppercase tracking-widest mb-4 text-[#2F3C48]">Why is it getting worse?</h3>
-                <p class="text-xl leading-relaxed text-[#2F3C48]/80 mb-8">
-                    Because we are using <span class="font-bold text-[#C5A059]">"Seinfeld Era"</span> tools in a <span class="font-bold text-[#C5A059]">"Joe Rogan Era"</span> world.
-                </p>
-                <div class="space-y-6 text-[#2F3C48]">
-                    <div class="border-l-4 border-[#2F3C48] pl-4">
-                        <span class="block font-bold text-xs uppercase opacity-50 mb-1">Seinfeld Era (1995)</span>
-                        <p class="text-sm">Everyone watched the same channel at the same time.</p>
-                        <b class="text-sm">Strategy: Buy the Channel.</b>
-                    </div>
-                    <div class="border-l-4 border-[#C5A059] pl-4">
-                        <span class="block font-bold text-xs uppercase opacity-50 mb-1">Rogan Era (Today)</span>
-                        <p class="text-sm">Content moves freely across Phones, TV, Audio, and Social.</p>
-                        <b class="text-sm">Strategy: Track the Content.</b>
-                    </div>
-                </div>
-            </div>
+<!-- SLIDE 2: THE PROBLEM EVOLUTION (New Slide - Incorporates Image 3 Concept) -->
+<section class="deck-section bg-cream justify-center">
+    <h4 class="deck-pre text-[#C5A059]">The Problem Story</h4>
+    <h2 class="font-serif text-5xl text-[#2F3C48] mb-16 italic leading-tight">A Media Reality Shift</h2>
 
-            <!-- Right Column: The Stats Grid (Black Hole) -->
-            <div class="col-span-7">
-                <div class="bg-white p-2 shadow-2xl">
-                    <div class="bg-[#2F3C48] p-6 pb-2">
-                        <div class="flex items-baseline gap-4 mb-4">
-                            <h4 class="text-[#C5A059] text-xs font-bold uppercase tracking-widest">Market Reality</h4>
-                            <h2 class="font-serif text-3xl text-[#F1F0E8]">The $620 Billion Problem.</h2>
-                        </div>
-                        <div class="grid grid-cols-2 gap-[1px] bg-white/10 border border-white/10">
-                            <!-- Box 1 -->
-                            <div class="bg-[#1a2329] p-6 h-40 flex flex-col justify-between">
-                                <div>
-                                    <h5 class="text-[#C5A059] text-[0.6rem] font-bold uppercase tracking-widest mb-1">The Invisible Tax</h5>
-                                    <h3 class="text-4xl text-white font-serif font-light">25%</h3>
-                                    <p class="text-white/70 text-xs mt-2">Of global ad spend is consumed by <b>Bot Traffic</b>.</p>
-                                </div>
-                            </div>
-                            <!-- Box 2 -->
-                            <div class="bg-[#1a2329] p-6 h-40 flex flex-col justify-between">
-                                <div>
-                                    <h5 class="text-[#C5A059] text-[0.6rem] font-bold uppercase tracking-widest mb-1">The Integration Tax</h5>
-                                    <h3 class="text-4xl text-white font-serif font-light">91+</h3>
-                                    <p class="text-white/70 text-xs mt-2">Vendors in the average stack. Data trapped in silos.</p>
-                                </div>
-                            </div>
-                            <!-- Box 3 -->
-                            <div class="bg-[#1a2329] p-6 h-40 flex flex-col justify-between">
-                                <div>
-                                    <h5 class="text-[#C5A059] text-[0.6rem] font-bold uppercase tracking-widest mb-1">The Creative Blindspot</h5>
-                                    <h3 class="text-4xl text-white font-serif font-light">#1</h3>
-                                    <p class="text-white/70 text-xs mt-2">Predictor of Sales is <b>Creative</b>, yet not analyzed.</p>
-                                </div>
-                            </div>
-                            <!-- Box 4 -->
-                            <div class="bg-[#1a2329] p-6 h-40 flex flex-col justify-between">
-                                <div>
-                                    <h5 class="text-[#C5A059] text-[0.6rem] font-bold uppercase tracking-widest mb-1">The Confidence Tax</h5>
-                                    <h3 class="text-4xl text-white font-serif font-light">Zero</h3>
-                                    <p class="text-white/70 text-xs mt-2">Real-time visibility. 90-day lag time on reports.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+    <div class="grid grid-cols-2 gap-12 max-w-6xl mx-auto">
+        <div class="p-8 border-r border-[#2F3C48]/20 relative">
+            <div class="w-full aspect-video bg-white shadow-xl flex items-center justify-center p-8 mb-6">
+                <!-- Concept from Image 3 (Old TV) -->
+                <i data-lucide="tv" size="80" class="text-gray-400"></i>
             </div>
-
+            <h3 class="text-3xl font-serif font-bold text-[#2F3C48] mb-2">The Past: Simple Measurement</h3>
+            <p class="text-lg text-[#2F3C48]/80">One family, one TV, one ad spot. The consumer journey was linear, and measuring success was straightforward. (Image 3 Concept)</p>
+            <span class="absolute top-0 right-0 text-7xl font-black text-[#C5A059]/40">1.0</span>
+        </div>
+        <div class="p-8 relative">
+            <div class="w-full aspect-video bg-white shadow-xl flex items-center justify-center p-8 mb-6 space-x-4">
+                <!-- Concept from Image 3 (Modern Complexity) -->
+                <i data-lucide="smartphone" size="64" class="text-blue-500"></i>
+                <i data-lucide="laptop" size="64" class="text-green-500"></i>
+                <i data-lucide="headphones" size="64" class="text-red-500"></i>
+            </div>
+            <h3 class="text-3xl font-serif font-bold text-[#2F3C48] mb-2">The Present: Chaotic Fragmentation</h3>
+            <p class="text-lg text-[#2F3C48]/80">Consumers are multi-device, multi-platform. The journey is non-linear, making cross-channel attribution impossible for most brands. (Image 3 Concept)</p>
+            <span class="absolute top-0 right-0 text-7xl font-black text-[#C5A059]/40">4.0</span>
         </div>
     </div>
 </section>
 
-<!-- SLIDE 3: INDUSTRY VALIDATION -->
-<section class="deck-section bg-[#E4DED0] justify-center">
-    <div class="max-w-[1400px] w-full mx-auto">
-        <h4 class="deck-pre text-[#C5A059]">Industry Validation</h4>
-        <h2 class="font-serif text-4xl text-[#2F3C48] mb-12">Voice of the Customer</h2>
-        
-        <div class="grid grid-cols-2 gap-x-20 gap-y-16">
-            <div class="relative">
-                <div class="absolute -left-6 top-0 text-[#C5A059] opacity-30 text-6xl font-serif italic">"</div>
-                <h5 class="deck-pre text-[#2F3C48] opacity-50 mb-2">I. Inability to Prove Value</h5>
-                <p class="font-serif italic text-2xl text-[#2F3C48] mb-2 leading-relaxed">My CFO only wants me to spend on conversion ads. If I could understand how brand perception drives sales, that would be our holy grail.</p>
-                <div class="text-[0.6rem] font-bold uppercase tracking-widest text-[#2F3C48]/60 mt-4 border-t border-[#2F3C48]/10 pt-2 inline-block">VP, Paid Media · Global B2C Hospitality Group</div>
-            </div>
-            <div class="relative">
-                <div class="absolute -left-6 top-0 text-[#C5A059] opacity-30 text-6xl font-serif italic">"</div>
-                <h5 class="deck-pre text-[#2F3C48] opacity-50 mb-2">II. Barriers to Expansion</h5>
-                <p class="font-serif italic text-2xl text-[#2F3C48] mb-2 leading-relaxed">I want to expand into out-of-home and podcasts, but I don't because I think I would need to hire a huge, expensive agency.</p>
-                <div class="text-[0.6rem] font-bold uppercase tracking-widest text-[#2F3C48]/60 mt-4 border-t border-[#2F3C48]/10 pt-2 inline-block">Head of Growth · B2C Fintech Unicorn</div>
-            </div>
-            <div class="relative">
-                <div class="absolute -left-6 top-0 text-[#C5A059] opacity-30 text-6xl font-serif italic">"</div>
-                <h5 class="deck-pre text-[#2F3C48] opacity-50 mb-2">III. Creative Blindspots</h5>
-                <p class="font-serif italic text-2xl text-[#2F3C48] mb-2 leading-relaxed">I pay $5M a year for an influencer endorsement across podcasts and social, and have no idea if it produces any Return On Investment.</p>
-                <div class="text-[0.6rem] font-bold uppercase tracking-widest text-[#2F3C48]/60 mt-4 border-t border-[#2F3C48]/10 pt-2 inline-block">Head of Paid Media · B2C Gaming</div>
-            </div>
-            <div class="relative">
-                <div class="absolute -left-6 top-0 text-[#C5A059] opacity-30 text-6xl font-serif italic">"</div>
-                <h5 class="deck-pre text-[#2F3C48] opacity-50 mb-2">IV. Fragmented Performance</h5>
-                <p class="font-serif italic text-2xl text-[#2F3C48] mb-2 leading-relaxed">We spend over seven figures a year on our Marketing Mix Modeling. The report is delivered 3 months late with no actionable insights.</p>
-                <div class="text-[0.6rem] font-bold uppercase tracking-widest text-[#2F3C48]/60 mt-4 border-t border-[#2F3C48]/10 pt-2 inline-block">Sr. Director Measurement · Top US Retailer</div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- SLIDE 4: THE SOLUTION (SIDE BY SIDE DEMO + SMALL TITLE) -->
-<section class="deck-section pt-[2vh] justify-center bg-cream">
-    <div class="max-w-[1400px] w-full mx-auto h-full flex flex-col justify-center">
-        
-        <div class="flex items-end justify-between mb-6">
-            <div class="max-w-4xl">
-                <h4 class="header-bold-yellow">The Solution</h4>
-                <!-- TITLE SIZE REDUCED HERE -->
-                <h2 class="font-serif text-3xl text-[#2F3C48] m-0 leading-normal">
-                    Patent pending data collection that matches ad exposures across formats, channels, and devices at the individual level, to unlock never-before-seen insights used to generate creative recommendations, optimized media plans, and execute the strongest buys.
-                </h2>
-            </div>
-            <div class="text-right">
-                <p class="text-[#2F3C48] font-black uppercase tracking-widest text-xs border border-[#2F3C48] px-4 py-2 rounded-full animate-pulse">
-                    <i data-lucide="mouse-pointer-2" class="inline w-4 h-4 text-[#C5A059] mr-2"></i> Click Yellow Buttons to Demo
-                </p>
-            </div>
-        </div>
-
-        <div class="grid grid-cols-12 gap-8 h-[65vh]">
-            
-            <!-- LEFT: THE 6 STEPS (STATIC LIST) -->
-            <div class="col-span-3 flex flex-col justify-between h-full py-2">
-                <div class="border-l-2 border-[#C5A059] pl-4">
-                    <span class="text-[#C5A059] font-serif italic text-xl">01</span>
-                    <h5 class="text-sm font-bold uppercase text-[#2F3C48]">Ingestion</h5>
-                    <p class="text-xs text-[#2F3C48]/60">AI creates "Digital Fingerprint"</p>
-                </div>
-                <div class="border-l-2 border-[#2F3C48]/10 pl-4">
-                    <span class="text-[#C5A059] font-serif italic text-xl">02</span>
-                    <h5 class="text-sm font-bold uppercase text-[#2F3C48]">Exposure</h5>
-                    <p class="text-xs text-[#2F3C48]/60">Capture Pixel/S2S ID</p>
-                </div>
-                <div class="border-l-2 border-[#2F3C48]/10 pl-4">
-                    <span class="text-[#C5A059] font-serif italic text-xl">03</span>
-                    <h5 class="text-sm font-bold uppercase text-[#2F3C48]">ID Match</h5>
-                    <p class="text-xs text-[#2F3C48]/60">Household Identity Graph</p>
-                </div>
-                <div class="border-l-2 border-[#2F3C48]/10 pl-4">
-                    <span class="text-[#C5A059] font-serif italic text-xl">04</span>
-                    <h5 class="text-sm font-bold uppercase text-[#2F3C48]">Attribution</h5>
-                    <p class="text-xs text-[#2F3C48]/60">Link View to Purchase</p>
-                </div>
-                <div class="border-l-2 border-[#2F3C48]/10 pl-4">
-                    <span class="text-[#C5A059] font-serif italic text-xl">05</span>
-                    <h5 class="text-sm font-bold uppercase text-[#2F3C48]">Intelligence</h5>
-                    <p class="text-xs text-[#2F3C48]/60">Creative Element Analysis</p>
-                </div>
-                <div class="border-l-2 border-[#C5A059] pl-4 bg-[#C5A059]/10 py-2 rounded-r">
-                    <span class="text-[#C5A059] font-serif italic text-xl">06</span>
-                    <h5 class="text-sm font-bold uppercase text-[#2F3C48]">Optimization</h5>
-                    <p class="text-xs text-[#2F3C48]/60">Automated Media Buying</p>
-                </div>
-            </div>
-
-            <!-- RIGHT: THE DEMO -->
-            <div class="col-span-9 h-full">
-                <div class="macbook h-full">
-                    <div class="screen-frame h-full">
-                        <div class="camera-notch"></div>
-                        <div class="screen-content h-full shadow-inner">
-                            
-                            <!-- SCENE 1: INGESTION -->
-                            <div class="story-scene bg-[#111] text-[#F1EDE8] active" id="scene-1">
-                                <div class="h-full grid grid-cols-12">
-                                    <div class="col-span-7 relative bg-black border-r border-white/10 flex items-center justify-center overflow-hidden">
-                                        <i data-lucide="file-video" size="80" class="text-white/20"></i>
-                                        <div class="scan-line"></div>
-                                        <div class="absolute bottom-6 left-6 font-mono text-xs text-[#C5A059]">
-                                            > STEP 1: INGESTION<br>> SCANNING ASSET...
-                                        </div>
-                                    </div>
-                                    <div class="col-span-5 p-8 flex flex-col justify-center space-y-6">
-                                        <h3 class="text-[#C5A059] font-serif italic text-3xl">AI Auto-Tagging</h3>
-                                        <p class="text-sm opacity-70">The system "watches" the ad to understand it.</p>
-                                        <button onclick="nextScene()" class="mt-8 w-full bg-[#C5A059] text-[#1a1a1a] py-4 font-black text-sm uppercase tracking-widest hover:bg-white transition-colors border border-[#C5A059] flex items-center justify-center gap-2">
-                                            Analyze Creative <i data-lucide="arrow-right" size="16"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- SCENE 2: JOURNEY -->
-                            <div class="story-scene bg-[#F1EDE8] text-[#2F3C48]" id="scene-2">
-                                <div class="p-8 h-full flex flex-col">
-                                    <div class="flex justify-between items-center mb-6">
-                                        <h2 class="font-serif italic text-3xl">Step 2-3: Tracking the Journey</h2>
-                                        <div class="bg-[#2F3C48] text-white px-4 py-2 rounded-full text-xs font-bold uppercase tracking-widest">Live Graph</div>
-                                    </div>
-                                    <div class="flex-grow flex items-center justify-between px-10 relative">
-                                        <div class="absolute top-1/2 left-20 right-20 h-0.5 bg-[#2F3C48]/20 -z-0"></div>
-                                        <div class="funnel-node flex flex-col items-center bg-white p-4 shadow-xl border-t-4 border-[#C5A059] w-48 text-center z-10">
-                                            <h4 class="font-bold uppercase tracking-widest text-[0.6rem] mb-2">Ad Viewed</h4>
-                                            <div class="text-2xl font-serif font-bold">Mobile</div>
-                                        </div>
-                                        <div class="funnel-node flex flex-col items-center bg-[#2F3C48] text-white p-4 shadow-xl border-t-4 border-[#C5A059] w-48 text-center z-10 scale-110" style="transition-delay: 200ms">
-                                            <h4 class="font-bold uppercase tracking-widest text-[0.6rem] mb-2 text-[#C5A059]">Retargeted</h4>
-                                            <div class="text-2xl font-serif font-bold">Podcast</div>
-                                        </div>
-                                        <div class="funnel-node flex flex-col items-center bg-white p-4 shadow-xl border-t-4 border-[#C5A059] w-48 text-center z-10" style="transition-delay: 400ms">
-                                            <h4 class="font-bold uppercase tracking-widest text-[0.6rem] mb-2">Purchase</h4>
-                                            <div class="text-2xl font-serif font-bold">Desktop</div>
-                                        </div>
-                                    </div>
-                                    <div class="mt-auto text-center">
-                                        <button onclick="nextScene()" class="bg-[#C5A059] text-[#1a1a1a] px-8 py-4 font-black text-sm uppercase tracking-widest hover:scale-105 transition-transform shadow-xl flex items-center justify-center gap-2 mx-auto">
-                                            Reveal Insights <i data-lucide="arrow-right" size="16"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- SCENE 3: DNA -->
-                            <div class="story-scene bg-[#1a1a1a] text-[#F1EDE8]" id="scene-3">
-                                <div class="p-8 h-full grid grid-cols-2 gap-8 items-center">
-                                    <div>
-                                        <div class="bg-[#C5A059] text-[#1a1a1a] px-3 py-1 text-[0.6rem] font-black uppercase tracking-widest w-fit mb-4">Step 4-5: Intelligence</div>
-                                        <h1 class="text-3xl font-serif italic mb-4">The "Trust" Signal.</h1>
-                                        <p class="text-sm opacity-70 mb-8">The AI found that the "Educational" tone caused the sale, not the "Funny" tone.</p>
-                                        <button onclick="nextScene()" class="bg-[#C5A059] text-[#1a1a1a] px-8 py-4 font-black text-sm uppercase tracking-widest hover:bg-white transition-colors flex items-center justify-center gap-2">
-                                            Optimize Spend <i data-lucide="arrow-right" size="16"></i>
-                                        </button>
-                                    </div>
-                                    <div class="flex justify-center">
-                                        <svg width="220" height="220" viewBox="0 0 100 100" class="overflow-visible">
-                                            <polygon points="50,10 90,40 75,90 25,90 10,40" fill="none" stroke="#444" stroke-width="0.5"/>
-                                            <text x="50" y="5" text-anchor="middle" font-size="4" fill="#C5A059" font-weight="bold">TRUST (HIGH)</text>
-                                            <text x="20" y="95" text-anchor="end" font-size="4" fill="white" font-weight="bold" opacity="0.3">HUMOR (LOW)</text>
-                                            <polygon class="radar-path" points="50,15 85,40 70,85 20,80 15,40" fill="rgba(197, 160, 89, 0.2)" stroke="#C5A059" stroke-width="2"/>
-                                        </svg>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- SCENE 4: OPTIMIZATION -->
-                            <div class="story-scene bg-[#F1EDE8]" id="scene-4">
-                                <div class="h-full grid grid-cols-12">
-                                    <div class="col-span-7 bg-black relative flex items-center justify-center">
-                                        <video id="ad-video" src="Content_Mix_Model_Explained.mp4" class="w-full h-full object-contain" loop muted playsinline></video>
-                                        <div class="absolute top-6 left-6 bg-[#C5A059] text-black px-4 py-2 rounded-full font-bold uppercase tracking-widest text-xs">
-                                            Step 6: Buying the Winner
-                                        </div>
-                                    </div>
-                                    <div class="col-span-5 bg-[#2F3C48] p-8 text-white flex flex-col justify-center">
-                                        <h3 class="text-[#C5A059] font-serif italic text-2xl mb-6">Automated Buy</h3>
-                                        <div class="space-y-4 mb-8">
-                                            <div class="bg-black/20 p-4 rounded border border-white/5 flex justify-between items-center">
-                                                <span>Spotify Audio</span>
-                                                <span class="text-[#C5A059] font-mono">$12,000</span>
-                                            </div>
-                                            <div class="bg-black/20 p-4 rounded border border-white/5 flex justify-between items-center">
-                                                <span>Roku TV</span>
-                                                <span class="text-[#C5A059] font-mono">$15,000</span>
-                                            </div>
-                                        </div>
-                                        <button onclick="nextScene()" class="w-full bg-[#C5A059] text-[#1a1a1a] py-4 font-black text-sm uppercase tracking-widest hover:bg-white transition-colors shadow-lg flex items-center justify-center gap-2">
-                                            View Results <i data-lucide="arrow-right" size="16"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- SCENE 5: RESULTS -->
-                            <div class="story-scene bg-[#111] text-[#F1EDE8]" id="scene-5">
-                                <div class="p-10 h-full flex flex-col justify-center">
-                                    <div class="flex justify-between items-end mb-8">
-                                        <div>
-                                            <div class="text-[#C5A059] text-sm font-bold uppercase tracking-widest mb-1">Final Report</div>
-                                            <h2 class="font-serif italic text-4xl">The Waste is Gone.</h2>
-                                        </div>
-                                        <div class="text-right">
-                                            <div class="text-sm opacity-50 uppercase">Return on Ad Spend</div>
-                                            <div class="text-5xl font-serif text-[#C5A059]">4.8x</div>
-                                        </div>
-                                    </div>
-                                    <div class="border border-[#333] rounded-lg overflow-hidden">
-                                        <table class="w-full text-left perf-grid">
-                                            <thead>
-                                                <tr class="bg-[#1a1a1a]">
-                                                    <th>Metric</th>
-                                                    <th>Old Way</th>
-                                                    <th class="text-[#C5A059]">DeliverAI</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td>Wasted Spend</td>
-                                                    <td class="opacity-50 text-red-400">50%</td>
-                                                    <td class="text-[#C5A059] font-bold">0%</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Time to Insight</td>
-                                                    <td class="opacity-50">90 Days</td>
-                                                    <td class="text-[#C5A059] font-bold">Real-Time</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                    <button onclick="restart()" class="mt-8 text-xs uppercase tracking-widest opacity-50 hover:text-white mx-auto">Restart Demo ↻</button>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="macbook-base"></div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- SLIDE 5: BUSINESS MODEL (CRITERIA 3) -->
-<section class="deck-section bg-pointing">
-    <div class="max-w-7xl w-full mx-auto">
-        <h4 class="header-bold-yellow">Business Model</h4>
-        <h2 class="section-title text-[#2F3C48] mb-12">Selling Efficiency.</h2>
-        
-        <div class="grid grid-cols-2 gap-12">
-            <!-- How We Make Money -->
-            <div class="bg-white p-8 rounded-lg shadow-lg border-t-4 border-[#C5A059]">
-                <h3 class="text-2xl font-serif text-[#2F3C48] mb-6">1. Subscription & Fees</h3>
-                <ul class="space-y-4 text-lg text-[#2F3C48]">
-                    <li class="flex items-center gap-3">
-                        <i data-lucide="check-circle" class="text-[#C5A059]"></i>
-                        <span><b>5%</b> Platform Fee on Ad Spend</span>
-                    </li>
-                    <li class="flex items-center gap-3">
-                        <i data-lucide="check-circle" class="text-[#C5A059]"></i>
-                        <span><b>$5k - $20k</b> Monthly SaaS Fee</span>
-                    </li>
-                    <li class="flex items-center gap-3">
-                        <i data-lucide="check-circle" class="text-[#C5A059]"></i>
-                        <span><b>Replaces 91+ average tech vendors</b> with 1 Single Source of Truth.</span>
-                    </li>
-                </ul>
-            </div>
-
-            <!-- Value Prop -->
-            <div class="bg-[#2F3C48] p-8 rounded-lg shadow-lg text-white">
-                <h3 class="text-2xl font-serif text-[#C5A059] mb-6">2. Client Savings</h3>
-                <p class="mb-6 opacity-80 text-lg">For every $1.00 a client spends with us, we identify $0.50 of previous waste.</p>
-                <div class="bg-white/10 p-4 rounded mb-2 flex justify-between">
-                    <span>Fraud Blocked</span>
-                    <span class="text-[#C5A059] font-bold">$250B Industry Wide</span>
-                </div>
-                <div class="bg-white/10 p-4 rounded flex justify-between">
-                    <span>Tech Consolidation</span>
-                    <span class="text-[#C5A059] font-bold">$220B Industry Wide</span>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- SLIDE 6: BUSINESS POTENTIAL (CRITERIA 4) -->
-<section class="deck-section bg-olive">
-    <div class="max-w-7xl w-full mx-auto">
-        <h4 class="deck-pre text-[#C5A059]">The Prize</h4>
-        <h2 class="section-title text-[#F1EDE8] mb-12">The $1.2 Billion Roadmap.</h2>
-
-        <div class="grid grid-cols-3 gap-8 text-center">
-            <div class="bg-white/5 border border-white/10 p-10 rounded">
-                <h5 class="text-lg font-bold uppercase tracking-widest text-[#C5A059] mb-2">Unit Economics</h5>
-                <h3 class="text-6xl font-serif text-white mb-2">85%</h3>
-                <p class="text-white/60">Gross Margin. Software margins, not agency margins.</p>
-            </div>
-            <div class="bg-white/5 border border-white/10 p-10 rounded">
-                <h5 class="text-lg font-bold uppercase tracking-widest text-[#C5A059] mb-2">Year 3 Target</h5>
-                <h3 class="text-6xl font-serif text-white mb-2">$250M</h3>
-                <p class="text-white/60">Annual Recurring Revenue.</p>
-            </div>
-            <div class="bg-[#C5A059] p-10 rounded text-[#1a1a1a]">
-                <h5 class="text-lg font-bold uppercase tracking-widest text-black/60 mb-2">Year 5 Target</h5>
-                <h3 class="text-6xl font-serif text-black mb-2">$1.2B</h3>
-                <p class="text-black/70 font-bold">IPO Scale.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- SLIDE 7: TRACTION -->
-<section class="deck-section bg-[#E4DED0]">
-    <div class="max-w-7xl w-full mx-auto">
-        <h4 class="header-bold-blue">Traction</h4>
-        <h2 class="section-title text-[#2F3C48] mb-10">It's Already Working.</h2>
-
-        <div class="border-l-4 border-[#C5A059] pl-10 space-y-12 ml-4">
-            <div class="relative">
-                <div class="absolute -left-[3.2rem] top-1 w-6 h-6 rounded-full bg-[#C5A059]"></div>
-                <h3 class="text-2xl font-serif font-bold text-[#2F3C48]">The Prototype</h3>
-                <p class="text-xl text-[#2F3C48]/70 mt-2">Built to solve a personal frustration. 15 Heads of Media validated the "Black Hole" problem immediately.</p>
-            </div>
-            <div class="relative">
-                <div class="absolute -left-[3.2rem] top-1 w-6 h-6 rounded-full bg-[#C5A059]"></div>
-                <h3 class="text-2xl font-serif font-bold text-[#2F3C48]">The Pivot</h3>
-                <p class="text-xl text-[#2F3C48]/70 mt-2">Customers asked: "Don't just measure it, fix it." Evolved from Analytics to an Operating System.</p>
-            </div>
-            <div class="relative">
-                <div class="absolute -left-[3.2rem] top-1 w-6 h-6 rounded-full bg-[#2F3C48] border-4 border-[#C5A059]"></div>
-                <h3 class="text-2xl font-serif font-bold text-[#2F3C48]">The Pipeline</h3>
-                <p class="text-xl text-[#2F3C48]/70 mt-2"><b>Global Hospitality Group</b> (Pilot Q2). <b>Fintech Unicorn</b> (Pilot Q3). Waiting list active.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- SLIDE 8: CLOSE -->
+<!-- SLIDE 3: THE BLACK HOLE (Original Slide 2) -->
 <section class="deck-section bg-hague justify-center">
-  <div class="max-w-7xl w-full mx-auto grid grid-cols-2 gap-20 items-center">
-    <div class="bg-white p-12 border-l-8 border-[#C5A059] shadow-2xl">
-        <h5 class="deck-pre text-[#2F3C48]">Ashley Fitzgerald</h5>
-        <p class="text-sm font-bold opacity-60 mb-6 uppercase tracking-widest">Founder & CEO</p>
-        <p class="leading-relaxed text-lg text-[#2F3C48] mb-8">
-            15 years building data systems for WPP and Goldman Sachs. I built this because I needed it. Now, the industry needs it. <br><br><b>Harvard Data Science (Master's Candidate).</b>
-        </p>
-        <div class="flex flex-col gap-3 pt-6 border-t border-[#2F3C48]/10">
-            <a href="https://deliveraisolutions.com/" target="_blank" class="text-sm font-bold text-[#2F3C48] hover:text-[#C5A059] flex items-center gap-3 transition-colors">
-                <i data-lucide="globe" size="18"></i> deliveraisolutions.com
-            </a>
-            <a href="https://www.linkedin.com/in/ashley-fitzgerald-dataexpert/" target="_blank" class="text-sm font-bold text-[#2F3C48] hover:text-[#C5A059] flex items-center gap-3 transition-colors">
-                <i data-lucide="linkedin" size="18"></i> linkedin.com/in/ashley-fitzgerald-dataexpert
-            </a>
-        </div>
+  <div class="max-w-[1400px] w-full mx-auto">
+    <div class="flex items-baseline gap-4 mb-2">
+        <h4 class="deck-pre text-[#C5A059]">The Cost of Chaos</h4>
+        <h2 class="font-serif text-5xl text-[#F1F0E8]">The $620B Black Hole</h2>
     </div>
-    <div>
-        <h2 class="font-serif text-4xl text-[#F1EDE8] mb-8 italic leading-normal">"You never change things by fighting the existing reality. To change something, build a new model that makes the existing model obsolete."</h2>
-        <div class="text-[#C5A059] font-bold uppercase tracking-widest text-sm mb-12">— Buckminster Fuller</div>
-        <button class="bg-[#C5A059] text-[#1a1a1a] px-12 py-6 font-black text-sm uppercase tracking-widest hover:bg-white transition-colors shadow-lg">
-            Schedule a Demo
-        </button>
+    <div class="grid grid-cols-2 gap-[1px] bg-white/10 border border-white/10 mt-10">
+        <div class="bg-[#1a2329] p-10 relative overflow-hidden flex flex-col justify-between h-64">
+            <div>
+                <h5 class="deck-pre text-[#C5A059]">The Creative Blindspot</h5>
+                <h3 class="text-5xl text-white font-light my-2">#1 Predictor</h3>
+                <p class="text-white/70 text-sm">Creative quality drives **47% of sales lift**, yet there is no scalable way to analyze it.</p>
+            </div>
+            <div class="text-[0.5rem] text-white/30 uppercase tracking-widest mt-4">Source: Nielsen, 2025 ROI Report</div>
+        </div>
+        <div class="bg-[#1a2329] p-10 relative overflow-hidden flex flex-col justify-between h-64">
+            <div>
+                <h5 class="deck-pre text-[#C5A059]">The Invisible Tax</h5>
+                <h3 class="text-5xl text-white font-light my-2">25%</h3>
+                <p class="text-white/70 text-sm">Of global ad spend is consumed by **Bot Traffic & Ad Fraud**.</p>
+            </div>
+            <div class="text-[0.5rem] text-white/30 uppercase tracking-widest mt-4">Source: Cheq, State of Fake Traffic 2025</div>
+        </div>
+        <div class="bg-[#1a2329] p-10 relative overflow-hidden flex flex-col justify-between h-64">
+            <div>
+                <h5 class="deck-pre text-[#C5A059]">The Integration Tax</h5>
+                <h3 class="text-5xl text-white font-light my-2">91+</h3>
+                <p class="text-white/70 text-sm">Vendors in the average marketing stack. Data is trapped in silos.</p>
+            </div>
+            <div class="text-[0.5rem] text-white/30 uppercase tracking-widest mt-4">Source: ChiefMartec, 2025</div>
+        </div>
+        <div class="bg-[#1a2329] p-10 relative overflow-hidden flex flex-col justify-between h-64">
+            <div>
+                <h5 class="deck-pre text-[#C5A059]">The Confidence Tax</h5>
+                <h3 class="text-5xl text-white font-light my-2">90-Day</h3>
+                <p class="text-white/70 text-sm">Report latency. Most brands rely on slow, retroactive insights, leading to missed opportunities.</p>
+            </div>
+            <div class="text-[0.5rem] text-white/30 uppercase tracking-widest mt-4">Source: Forrester, 2025</div>
+        </div>
     </div>
   </div>
-  <footer style="text-align: right; opacity: 0.4; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 5px; font-weight: 700; position: absolute; bottom: 30px; right: 5%; color: white;">
-     DELIVERAI SOLUTIONS &nbsp;|&nbsp; PATENT PENDING
-  </footer>
 </section>
 
-<!-- STORY ENGINE LOGIC -->
+<!-- SLIDE 4: THE INVISIBLE JOURNEY (New Slide - Incorporates Image 1 Concept) -->
+<section class="deck-section bg-cream justify-center">
+    <h4 class="deck-pre text-[#C5A059]">The Problem Visualized</h4>
+    <h2 class="font-serif text-5xl text-[#2F3C48] mb-12 italic leading-tight">The Invisible Consumer Journey</h2>
+
+    <div class="flex items-center justify-center space-x-8 max-w-6xl mx-auto">
+        <!-- Step 1: Awareness (TikTok) -->
+        <div class="text-center w-1/4">
+            <i data-lucide="send" size="48" class="text-[#C5A059] mx-auto mb-3"></i>
+            <h3 class="text-xl font-bold">Awareness</h3>
+            <p class="text-sm text-[#2F3C48]/70 mt-1">TikTok Video Ad</p>
+        </div>
+        <i data-lucide="arrow-right" size="24" class="text-[#2F3C48]/50"></i>
+
+        <!-- Step 2: Consideration (Podcast) -->
+        <div class="text-center w-1/4">
+            <i data-lucide="mic" size="48" class="text-[#C5A059] mx-auto mb-3"></i>
+            <h3 class="text-xl font-bold">Consideration</h3>
+            <p class="text-sm text-[#2F3C48]/70 mt-1">Spotify Podcast Ad</p>
+        </div>
+        <i data-lucide="arrow-right" size="24" class="text-[#2F3C48]/50"></i>
+
+        <!-- Step 3: Intent (YouTube) -->
+        <div class="text-center w-1/4">
+            <i data-lucide="youtube" size="48" class="text-[#C5A059] mx-auto mb-3"></i>
+            <h3 class="text-xl font-bold">Intent/Search</h3>
+            <p class="text-sm text-[#2F3C48]/70 mt-1">YouTube Display Ad</p>
+        </div>
+        <i data-lucide="arrow-right" size="24" class="text-[#2F3C48]/50"></i>
+
+        <!-- Step 4: Conversion (Purchase) -->
+        <div class="text-center w-1/4">
+            <i data-lucide="shopping-cart" size="48" class="text-green-600 mx-auto mb-3"></i>
+            <h3 class="text-xl font-bold text-green-700">Conversion</h3>
+            <p class="text-sm text-[#2F3C48]/70 mt-1">PURCHASE COMPLETE!</p>
+        </div>
+    </div>
+    <p class="text-center text-xl font-light mt-12 max-w-4xl mx-auto border-t-2 pt-6">
+        **Current Marketing:** Credits the last click (YouTube) for the sale. The true catalyst—TikTok & Spotify—is invisible, leading to wasted spend.
+    </p>
+</section>
+
+<!-- SLIDE 5: THE SOLUTION (New Slide - Incorporates Image 2 Concept) -->
+<section class="deck-section bg-hague justify-center">
+    <h4 class="deck-pre text-[#C5A059]">The Solution: The New Operating System</h4>
+    <h2 class="font-serif text-5xl text-[#F1F0E8] mb-16 italic leading-tight">Privacy-Safe Identity Resolution</h2>
+
+    <div class="grid grid-cols-2 gap-20 items-center max-w-6xl mx-auto">
+        <!-- Left: Image 2 Concept -->
+        <div class="relative flex items-center justify-center p-10">
+            <div class="w-80 h-80 rounded-full border-4 border-[#C5A059] flex items-center justify-center text-center p-8 bg-[#1a2329] shadow-2xl">
+                <span class="text-xl font-black uppercase tracking-widest text-[#C5A059] leading-tight">PRIVACY-SAFE<br>IDENTITY<br>RESOLUTION</span>
+            </div>
+            <!-- Simulating the converging lines/channels from Image 2 -->
+            <i data-lucide="smartphone" class="absolute top-0 left-0 text-white/50" size="40"></i>
+            <i data-lucide="tv" class="absolute top-0 right-0 text-white/50" size="40"></i>
+            <i data-lucide="laptop" class="absolute bottom-0 left-0 text-white/50" size="40"></i>
+            <i data-lucide="mic" class="absolute bottom-0 right-0 text-white/50" size="40"></i>
+        </div>
+
+        <!-- Right: DeliverAI's Function -->
+        <div class="space-y-6">
+            <div class="border-l-4 border-[#C5A059] pl-6">
+                <p class="text-2xl font-light leading-relaxed text-white">
+                    We use a patent-pending system to **unify all data streams** into one consumer ID without PII (Personally Identifiable Information).
+                </p>
+            </div>
+            <div class="flex items-start gap-4">
+                <i data-lucide="check-circle" size="24" class="text-[#C5A059] flex-shrink-0 mt-1"></i>
+                <p class="text-white/80">**Cross-Channel:** Links exposure across CTV, Radio, OOH, Podcast, Social, and Web.</p>
+            </div>
+            <div class="flex items-start gap-4">
+                <i data-lucide="check-circle" size="24" class="text-[#C5A059] flex-shrink-0 mt-1"></i>
+                <p class="text-white/80">**Real-Time:** Provides daily, actionable intelligence, eliminating the 90-day delay.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SLIDE 6: SOLUTION DEEP DIVE: CREATIVE DNA (Static Demo Excerpt - Incorporates Scene 1 & 3 Concepts) -->
+<section class="deck-section bg-cream justify-center">
+    <h4 class="deck-pre text-[#C5A059]">Phase 1: The Intelligence</h4>
+    <h2 class="font-serif text-5xl text-[#2F3C48] mb-16 italic leading-tight">Generating Creative DNA</h2>
+
+    <div class="grid grid-cols-3 gap-10 max-w-6xl mx-auto">
+        <div class="col-span-1 p-8 bg-white shadow-xl rounded-lg flex flex-col justify-between">
+            <h3 class="text-2xl font-serif italic text-[#C5A059] mb-4">AI Auto-Tagging</h3>
+            <p class="text-sm opacity-70 mb-6">Scanning visual & audio signals of every asset.</p>
+            <div class="flex flex-wrap gap-2">
+                <span class="pill">High Velocity</span>
+                <span class="pill">Founder-Led</span>
+                <span class="pill">Trust</span>
+                <span class="pill">Educational</span>
+            </div>
+        </div>
+        <div class="col-span-2 p-8 bg-[#2F3C48] text-white shadow-xl rounded-lg">
+            <h3 class="text-2xl font-serif italic text-[#C5A059] mb-6">Causal DNA Fingerprint</h3>
+            <!-- Radar Chart Concept (Simplified Visual) -->
+            <div class="flex justify-center items-center h-48">
+                <div class="grid grid-cols-2 grid-rows-2 w-full h-full text-center">
+                    <div class="p-2 border border-dashed border-[#C5A059]">VISUAL ASM (90%)</div>
+                    <div class="p-2 border border-dashed border-[#C5A059]">MUSIC SYNC (85%)</div>
+                    <div class="p-2 border border-dashed border-[#C5A059]">FOUNDER LED (80%)</div>
+                    <div class="p-2 border border-dashed border-[#C5A059]">SOCIAL PROOF (70%)</div>
+                </div>
+            </div>
+            <p class="text-xs text-white/50 text-center mt-4">We identify the *exact* creative elements that are the **catalyst** for sales lift.</p>
+        </div>
+    </div>
+</section>
+
+<!-- SLIDE 7: SOLUTION DEEP DIVE: OPTIMIZED EXECUTION (Static Demo Excerpt - Incorporates Scene 2 & 4 Concepts) -->
+<section class="deck-section bg-hague justify-center">
+    <h4 class="deck-pre text-[#C5A059]">Phase 2: The Action</h4>
+    <h2 class="font-serif text-5xl text-[#F1F0E8] mb-16 italic leading-tight">Optimized Execution & Media Plans</h2>
+
+    <div class="flex-grow flex items-start justify-between px-10 relative max-w-6xl mx-auto">
+        <div class="absolute top-1/2 left-20 right-20 h-0.5 bg-[#C5A059]/40 -z-0"></div>
+        <!-- Awareness Node (Scene 2 Concept) -->
+        <div class="funnel-node flex flex-col items-center bg-[#2F3C48] text-white shadow-xl w-64 text-center z-10">
+            <h4 class="font-bold uppercase tracking-widest text-xs mb-2 text-[#C5A059]">Awareness</h4>
+            <div class="text-3xl font-serif font-bold mb-1">3.5x</div>
+            <div class="text-[0.6rem] uppercase opacity-50 font-bold">Target Frequency</div>
+        </div>
+        <!-- Consideration Node (Scene 2 Concept) -->
+        <div class="funnel-node flex flex-col items-center bg-[#C5A059] text-[#1a1a1a] shadow-xl w-64 text-center z-10 scale-105">
+            <h4 class="font-bold uppercase tracking-widest text-xs mb-2">Consideration</h4>
+            <div class="text-3xl font-serif font-bold mb-1">7.0x</div>
+            <div class="text-[0.6rem] uppercase opacity-50 font-bold">Target Frequency</div>
+        </div>
+        <!-- Conversion Node (Scene 2 Concept) -->
+        <div class="funnel-node flex flex-col items-center bg-[#2F3C48] text-white shadow-xl w-64 text-center z-10">
+            <h4 class="font-bold uppercase tracking-widest text-xs mb-2 text-[#C5A059]">Conversion</h4>
+            <div class="text-3xl font-serif font-bold mb-1">28</div>
+            <div class="text-[0.6rem] uppercase opacity-50 font-bold">Avg Days to Convert</div>
+        </div>
+    </div>
+
+    <div class="max-w-4xl mx-auto text-center mt-16">
+        <h3 class="text-2xl font-light leading-relaxed text-white/90">
+            By understanding the optimal exposure path, we generate media plans that eliminate **-42% waste** from over-frequency.
+        </h3>
+        <p class="text-xs text-white/50 mt-4">Example Placements: Roku (CTV), Spotify (Podcast), TikTok (Social)</p>
+    </div>
+</section>
+
+<!-- SLIDE 8: THE POTENTIAL: QUANTIFIED OUTCOMES (Static Demo Excerpt - Incorporates Scene 5 Concept) -->
+<section class="deck-section bg-[#111] text-[#F1EDE8] justify-center">
+    <h4 class="deck-pre text-[#C5A059]">Phase 3: The Results</h4>
+    <h2 class="font-serif text-5xl italic text-white mb-16">Quantifying Outcomes: Proven Lift</h2>
+
+    <div class="max-w-4xl mx-auto border border-[#C5A059] rounded-lg overflow-hidden">
+        <table class="w-full text-left">
+            <thead>
+                <tr class="bg-[#C5A059]/10">
+                    <th class="text-[0.6rem] uppercase tracking-widest p-4 text-[#C5A059]">Metric</th>
+                    <th class="text-[0.6rem] uppercase tracking-widest p-4 text-white/50">Industry Avg</th>
+                    <th class="text-[0.6rem] uppercase tracking-widest p-4 text-[#C5A059]">DeliverAI</th>
+                    <th class="text-[0.6rem] uppercase tracking-widest p-4 text-right text-green-400">Lift</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="border-b border-white/5">
+                    <td class="p-4 font-bold text-lg text-[#C5A059]">Creative ROAS</td>
+                    <td class="p-4 opacity-50">2.1x</td>
+                    <td class="p-4 font-bold text-2xl text-[#C5A059]">4.8x</td>
+                    <td class="p-4 text-right text-green-400 font-mono">+128%</td>
+                </tr>
+                <tr class="border-b border-white/5">
+                    <td class="p-4">Avg. Frequency</td>
+                    <td class="p-4 opacity-50">12.4</td>
+                    <td class="p-4 font-bold">7.1</td>
+                    <td class="p-4 text-right text-green-400 font-mono">-42% Waste</td>
+                </tr>
+                <tr class="border-b border-white/5">
+                    <td class="p-4">CPA (Acquisition)</td>
+                    <td class="p-4 opacity-50">$85.00</td>
+                    <td class="p-4 font-bold">$54.20</td>
+                    <td class="p-4 text-right text-green-400 font-mono">-36% Cost</td>
+                </tr>
+                <tr>
+                    <td class="p-4">Time to Convert</td>
+                    <td class="p-4 opacity-50">42 Days</td>
+                    <td class="p-4 font-bold">28 Days</td>
+                    <td class="p-4 text-right text-green-400 font-mono">33% Faster</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<!-- SLIDE 9: COMPETITIVE EDGE & BUSINESS MODEL (Original Slide 5) -->
+<section class="deck-section bg-[#2F3C48] justify-center">
+    <div class="max-w-[1400px] w-full mx-auto">
+        <h4 class="deck-pre text-[#C5A059]">The Business</h4>
+        <h2 class="font-serif text-4xl text-[#F1EDE8] mb-12">Competitive Edge & Model</h2>
+
+        <div class="grid grid-cols-2 gap-10">
+            <!-- Left: Business Model -->
+            <div class="bg-[#1a2329] p-8 rounded-lg shadow-xl">
+                <h3 class="text-2xl font-serif italic text-[#C5A059] mb-4">Business Model</h3>
+                <div class="space-y-4 text-white/80">
+                    <p class="text-lg">**SaaS Subscription:** A fixed monthly fee based on the client's total ad spend (Tiered for scalability). This covers platform access, AI analysis, and identity resolution.</p>
+                    <p class="text-lg">**Value Proposition:** Our clients save 10-20% on wasted spend and see +100% lift on Creative ROAS, making our subscription a net positive ROI from month one.</p>
+                </div>
+            </div>
+
+            <!-- Right: Competitive Edge (Simplified from full table) -->
+            <div class="bg-[#1a2329] p-8 rounded-lg shadow-xl">
+                <h3 class="text-2xl font-serif italic text-[#C5A059] mb-4">Competitive Edge</h3>
+                <ul class="list-disc list-inside text-white/80 space-y-3 pl-4">
+                    <li class="font-bold">**Creative-First:** Unlike Mix Models/Attribution, we directly quantify creative's sales impact.</li>
+                    <li class="font-bold">**Unified & Real-Time:** Daily, cross-channel intelligence vs. 90-day lag or siloed platform data.</li>
+                    <li class="font-bold">**Channel Agnostic:** Unified tracking across CTV, Audio, OOH, and Social—a single source of truth.</li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- SLIDE 10: CONCLUSION & ASK (Combined Original Slides 6 & 7) -->
+<section class="deck-section bg-olive justify-center">
+    <div class="max-w-[1400px] w-full mx-auto">
+        <h4 class="deck-pre text-[#C5A059]">Conclusion</h4>
+        <h1 class="deck-title">The Future of Advertising is Now.</h1>
+
+        <div class="grid grid-cols-2 gap-20 my-10 items-center">
+            <!-- Left: Onboarding / The Ask -->
+            <div class="border-l-2 border-[#C5A059] pl-8">
+                <h3 class="text-2xl font-bold uppercase tracking-widest text-white mb-6">Our Frictionless Pilot Protocol</h3>
+                <p class="text-white/60 text-lg leading-relaxed mb-8">
+                    Clients go live fast: Tagging and parallel ingestion take approximately **14 days** to reach statistical significance. **No historical data needed.**
+                </p>
+                <div class="bg-[#C5A059] p-6 rounded-lg shadow-2xl text-[#2F3C48] inline-block">
+                    <h4 class="font-black text-xl uppercase tracking-widest mb-1">The Ask</h4>
+                    <p class="font-bold">Seeking $X to accelerate engineering and scale our deterministic pipeline.</p>
+                </div>
+            </div>
+
+            <!-- Right: Founder/Quote -->
+            <div>
+                <h2 class="font-serif text-3xl text-[#F1EDE8] mb-4 italic leading-normal">"You never change things by fighting the existing reality. To change something, build a new model that makes the existing model obsolete."</h2>
+                <div class="text-[#C5A059] font-bold uppercase tracking-widest text-sm mb-8">— Buckminster Fuller</div>
+                <div class="pt-4 border-t border-white/20">
+                    <h5 class="deck-pre text-[#C5A059] mb-1">Ashley Fitzgerald</h5>
+                    <p class="text-xs font-bold opacity-60">FOUNDER & CEO | Harvard Data Science Master’s Candidate</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SCRIPT FOR ICONS -->
 <script>
     lucide.createIcons();
-
-    let currentScene = 1;
-    const totalScenes = 5;
-    
-    function nextScene() {
-        document.getElementById(`scene-${currentScene}`).classList.remove('active');
-        currentScene = currentScene < totalScenes ? currentScene + 1 : 1;
-        document.getElementById(`scene-${currentScene}`).classList.add('active');
-
-        if(currentScene === 4) {
-            const video = document.getElementById('ad-video');
-            if(video) {
-                video.currentTime = 0;
-                video.play();
-            }
-        }
-    }
-
-    function restart() {
-        document.getElementById(`scene-${currentScene}`).classList.remove('active');
-        currentScene = 1;
-        document.getElementById('scene-1').classList.add('active');
-    }
+    // Removed the previous story engine logic as all slides are now static.
 </script>
 
 </body>
